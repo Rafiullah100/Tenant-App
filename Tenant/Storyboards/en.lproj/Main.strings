@@ -1,0 +1,165 @@
+
+/* Class = "UILabel"; text = "Building Name"; ObjectID = "02V-nC-FNn"; */
+"02V-nC-FNn.text" = "Building Name";
+
+/* Class = "UILabel"; text = "Register yourself now to enjoy our  services!"; ObjectID = "07e-2b-7ne"; */
+"07e-2b-7ne.text" = "Register yourself now to enjoy our  services!";
+
+/* Class = "UILabel"; text = "Number or Email"; ObjectID = "0z0-R9-OZ1"; */
+"0z0-R9-OZ1.text" = "Number or Email";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "1Jh-KS-Ucf"; */
+"1Jh-KS-Ucf.text" = "Name";
+
+/* Class = "UILabel"; text = "(Optional)"; ObjectID = "21q-RW-uH3"; */
+"21q-RW-uH3.text" = "(Optional)";
+
+/* Class = "UILabel"; text = "Don’t have an account? "; ObjectID = "2Fu-Yb-lFx"; */
+"2Fu-Yb-lFx.text" = "Don’t have an account? ";
+
+/* Class = "UILabel"; text = "Service Provider"; ObjectID = "2vn-9U-cKh"; */
+"2vn-9U-cKh.text" = "Service Provider";
+
+/* Class = "UILabel"; text = "Congratulations! You have been successfully authenticated"; ObjectID = "3fk-fX-EVo"; */
+"3fk-fX-EVo.text" = "Congratulations! You have been successfully authenticated";
+
+/* Class = "UITextField"; placeholder = "**** **** **** 3947"; ObjectID = "4Z6-5U-Waa"; */
+"4Z6-5U-Waa.placeholder" = "**** **** **** 3947";
+
+/* Class = "UILabel"; text = "Owner Name"; ObjectID = "6UE-fc-UmT"; */
+"6UE-fc-UmT.text" = "Owner Name";
+
+/* Class = "UILabel"; text = "Verify your phone number"; ObjectID = "9PO-AU-Pzp"; */
+"9PO-AU-Pzp.text" = "Verify your phone number";
+
+/* Class = "UILabel"; text = "Maintenance and Service Provider Both"; ObjectID = "A6M-gZ-N0B"; */
+"A6M-gZ-N0B.text" = "Maintenance and Service Provider Both";
+
+/* Class = "UILabel"; text = "SIGN IN"; ObjectID = "AEm-0i-epV"; */
+"AEm-0i-epV.text" = "SIGN IN";
+
+/* Class = "UILabel"; text = "Maintenance Company"; ObjectID = "AiN-B9-zVP"; */
+"AiN-B9-zVP.text" = "Maintenance Company";
+
+/* Class = "UILabel"; text = "Resend"; ObjectID = "D6G-Ew-Yb8"; */
+"D6G-Ew-Yb8.text" = "Resend";
+
+/* Class = "UILabel"; text = "I didn’t receive a code"; ObjectID = "Eai-yL-ipn"; */
+"Eai-yL-ipn.text" = "I didn’t receive a code";
+
+/* Class = "UILabel"; text = "REGISTRATION"; ObjectID = "Hhe-Jq-SS5"; */
+"Hhe-Jq-SS5.text" = "REGISTRATION";
+
+/* Class = "UILabel"; text = "Already a Registered User?"; ObjectID = "IOa-PE-ymD"; */
+"IOa-PE-ymD.text" = "Already a Registered User?";
+
+/* Class = "UILabel"; text = "Sign Up"; ObjectID = "Ip1-jz-M9C"; */
+"Ip1-jz-M9C.text" = "Sign Up";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "Jq6-DY-tQd"; */
+"Jq6-DY-tQd.text" = "Welcome";
+
+/* Class = "UILabel"; text = "Tenants Registration Process"; ObjectID = "M3s-nW-9hG"; */
+"M3s-nW-9hG.text" = "Tenants Registration Process";
+
+/* Class = "UILabel"; text = "Tenants Registration Process"; ObjectID = "MVf-E4-RQn"; */
+"MVf-E4-RQn.text" = "Tenants Registration Process";
+
+/* Class = "UILabel"; text = "You are now registered as tenant for property : "; ObjectID = "OF1-Ux-Izf"; */
+"OF1-Ux-Izf.text" = "You are now registered as tenant for property : ";
+
+/* Class = "UITextField"; placeholder = "000000000"; ObjectID = "P3I-FS-lCm"; */
+"P3I-FS-lCm.placeholder" = "000000000";
+
+/* Class = "UILabel"; text = "Sign In"; ObjectID = "QrF-s6-gJe"; */
+"QrF-s6-gJe.text" = "Sign In";
+
+/* Class = "UITextField"; placeholder = "abc@gmail.com"; ObjectID = "ShY-nK-wK1"; */
+"ShY-nK-wK1.placeholder" = "abc@gmail.com";
+
+/* Class = "UILabel"; text = "Scan QR Code"; ObjectID = "Wc2-Ag-mPT"; */
+"Wc2-Ag-mPT.text" = "Scan QR Code";
+
+/* Class = "UILabel"; text = "Owner and Tenant Both"; ObjectID = "YMd-Hm-lG0"; */
+"YMd-Hm-lG0.text" = "Owner and Tenant Both";
+
+/* Class = "UILabel"; text = "Owner"; ObjectID = "YVR-Y9-2pt"; */
+"YVR-Y9-2pt.text" = "Owner";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "Yhv-Fa-3gh"; */
+"Yhv-Fa-3gh.text" = "Email";
+
+/* Class = "UILabel"; text = "Building Number"; ObjectID = "ZXf-Ff-qaP"; */
+"ZXf-Ff-qaP.text" = "Building Number";
+
+/* Class = "UILabel"; text = "Select the flat from options below"; ObjectID = "Zbf-Af-MTg"; */
+"Zbf-Af-MTg.text" = "Select the flat from options below";
+
+/* Class = "UILabel"; text = "Tenants Registration Process"; ObjectID = "bN7-HH-tdU"; */
+"bN7-HH-tdU.text" = "Tenants Registration Process";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "cch-A1-rSh"; */
+"cch-A1-rSh.text" = "Name";
+
+/* Class = "UILabel"; text = "SIGN UP"; ObjectID = "e3g-Aw-4Uy"; */
+"e3g-Aw-4Uy.text" = "SIGN UP";
+
+/* Class = "UILabel"; text = "Flat F1002"; ObjectID = "fbb-7g-Soq"; */
+"fbb-7g-Soq.text" = "Flat F1002";
+
+/* Class = "UILabel"; text = "CONTINUE"; ObjectID = "g4Y-vL-P1L"; */
+"g4Y-vL-P1L.text" = "CONTINUE";
+
+/* Class = "UITextField"; placeholder = "Rohi Residence"; ObjectID = "glh-Ci-K5G"; */
+"glh-Ci-K5G.placeholder" = "Rohi Residence";
+
+/* Class = "UILabel"; text = "Verify"; ObjectID = "hhb-Hy-IsK"; */
+"hhb-Hy-IsK.text" = "Verify";
+
+/* Class = "UILabel"; text = "We’ve sent an SMS with an activation code to your phone number ending with *****290. Enter the Code below"; ObjectID = "jBY-eO-rPV"; */
+"jBY-eO-rPV.text" = "We’ve sent an SMS with an activation code to your phone number ending with *****290. Enter the Code below";
+
+/* Class = "UILabel"; text = "Scan QR Code below to enter property to complete Tenant Registration"; ObjectID = "jJQ-mI-7Pr"; */
+"jJQ-mI-7Pr.text" = "Scan QR Code below to enter property to complete Tenant Registration";
+
+/* Class = "UILabel"; text = "Success!"; ObjectID = "k0Y-e6-3ar"; */
+"k0Y-e6-3ar.text" = "Success!";
+
+/* Class = "UILabel"; text = "SUBMIT"; ObjectID = "n4L-bf-L9s"; */
+"n4L-bf-L9s.text" = "SUBMIT";
+
+/* Class = "UITextField"; placeholder = "abc@gmail.com"; ObjectID = "n6q-hy-MbH"; */
+"n6q-hy-MbH.placeholder" = "abc@gmail.com";
+
+/* Class = "UILabel"; text = "DONE"; ObjectID = "omZ-Jz-82K"; */
+"omZ-Jz-82K.text" = "DONE";
+
+/* Class = "UILabel"; text = "SUBMIT"; ObjectID = "qVB-b8-t8z"; */
+"qVB-b8-t8z.text" = "SUBMIT";
+
+/* Class = "UITextField"; placeholder = "Rohi Residence"; ObjectID = "rTm-Jd-o0r"; */
+"rTm-Jd-o0r.placeholder" = "Rohi Residence";
+
+/* Class = "UITextField"; placeholder = "Rohi Residence"; ObjectID = "rq1-oc-RiN"; */
+"rq1-oc-RiN.placeholder" = "Rohi Residence";
+
+/* Class = "UILabel"; text = "Success!"; ObjectID = "soj-CV-Vyu"; */
+"soj-CV-Vyu.text" = "Success!";
+
+/* Class = "UILabel"; text = "Flat Number"; ObjectID = "uoT-X2-B8B"; */
+"uoT-X2-B8B.text" = "Flat Number";
+
+/* Class = "UILabel"; text = "Contact Number"; ObjectID = "xns-sg-9Ry"; */
+"xns-sg-9Ry.text" = "Contact Number";
+
+/* Class = "UITextField"; placeholder = "3947"; ObjectID = "y2M-zf-bES"; */
+"y2M-zf-bES.placeholder" = "3947";
+
+/* Class = "UILabel"; text = "Tenant"; ObjectID = "yXE-rE-u8y"; */
+"yXE-rE-u8y.text" = "Tenant";
+
+/* Class = "UILabel"; text = "Please choose one to continue"; ObjectID = "zC5-dV-Bhe"; */
+"zC5-dV-Bhe.text" = "Please choose one to continue";
+
+/* Class = "UITextField"; placeholder = "Ali Khan"; ObjectID = "zLp-4Y-hVs"; */
+"zLp-4Y-hVs.placeholder" = "Ali Khan";

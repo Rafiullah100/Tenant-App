@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  Tenant
+
+  Created by MacBook Pro on 6/24/24.
+  
+*/
+ "welcome" ="Welcome";
+"slogan" = "Register yourself now to enjoy our  services!";
+"signup" = "SIGN UP";
+"chooseOne" = "Please choose one to continue";
+"continuee" = "Continue";
+"registration" = "REGISTRATION";
+"name" = "Name";
+"contactNumber" = "Contact Number";
+"email" = "Email";
+"optional" = "Optional";
+"submit" = "Submit";
+"alreadyRegistered" = "Already a Registered User?";
+"signin" = "Sign In";
+"numberOrEmail" = "Number or Email";
+"noAccount" = "Don’t have an account?";
+
+"verifyNumber" = "Verify your phone number";
+"optMessage" = "We’ve sent an SMS with an activation code to your phone number ending with *****290. Enter the Code below";
+"didnotReceiveCode" = "I didn’t receive a code";
+"resend" = "Resend";
+"verify" = "Verify";
+"complaintID" = "Complaint ID:";
+"status" = "Status:";
+"posted" = "Posted:";
+"buildingNo" = "Building No";
+"flatNo" = "Flat No";
+"history" = "History";
+
+"newComplaint" = "New Complaint";
+"title" = "Enter Title";
+"category" = "Category";
+"description" = "Description";
+"imageSize" = "Please upload the images, size less than 100KB";
+"chooseFile" = "Choose File";
+"noFileChoose" = "No File Chosen";
+"submitComplaint" = "Submit Complaint";
+"photos" = "Photos";
+"done" = "Done";
+"photosUploaded" = "Photos Uploaded by Company";
+"confirm" = "Confirm";
+
+"new" = "New";
+"ongoing" = "Ongoing";
+"search" = "Search";
+"by" = "By";
+
+"editProfile" = "Edit Profile";
+"branches" = "Branches";
+"addBranches" = "Add Branches";
+"googleMapLoc" = "Google Map Location";

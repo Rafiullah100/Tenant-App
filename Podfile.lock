@@ -1,0 +1,36 @@
+PODS:
+  - GoogleMaps (9.0.0):
+    - GoogleMaps/Maps (= 9.0.0)
+  - GoogleMaps/Base (9.0.0)
+  - GoogleMaps/Maps (9.0.0):
+    - GoogleMaps/Base
+  - SDWebImage (5.19.2):
+    - SDWebImage/Core (= 5.19.2)
+  - SDWebImage/Core (5.19.2)
+  - SpinKit (1.2.0)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
+
+DEPENDENCIES:
+  - GoogleMaps
+  - SDWebImage (~> 5.0)
+  - SpinKit
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - GoogleMaps
+    - SDWebImage
+    - SpinKit
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  GoogleMaps: 4907d0d42bf8cd58f56743e31f91d23c10682745
+  SDWebImage: dfe95b2466a9823cf9f0c6d01217c06550d7b29a
+  SpinKit: 65906a8b534a4e14cbfd3f8b0b6c329131faef4a
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
+
+PODFILE CHECKSUM: 155e8bea7e0f1e5543dbc70dabfde6349eed6fd6
+
+COCOAPODS: 1.15.2

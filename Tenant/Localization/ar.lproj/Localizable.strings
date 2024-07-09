@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  Tenant
+
+  Created by MacBook Pro on 6/24/24.
+  
+*/
+"welcome" = "مرحباً";
+"slogan" = "سجل نفسك الآن لتستمتع بخدماتنا!";
+"signup" = "اشتراك";
+"chooseOne" = "الرجاء اختيار واحد للمتابعة";
+"continuee" = "يكمل";
+"registration" = "تسجيل";
+"name" = "اسم";
+"contactNumber" = "رقم الاتصال";
+"email" = "بريد إلكتروني";
+"optional" = "خياري";
+"submit" = "يُقدِّم";
+"alreadyRegistered" = "هل أنت مستخدم مسجل بالفعل؟";
+"signin" = "تسجيل الدخول";
+"numberOrEmail" = "الرقم أو البريد الإلكتروني";
+"noAccount" = "ليس لديك حساب؟";
+
+"verifyNumber" = "اكد على رقم هاتفك او جوالك";
+"optMessage" = "لقد أرسلنا رسالة نصية تحتوي على رمز التفعيل إلى رقم هاتفك المنتهي بـ *****290. أدخل الرمز في الأسفل";
+"didnotReceiveCode" = "لم أتلق الرمز";
+"resend" = "إعادة إرسال";
+"verify" = "يؤكد";
+"complaintID" = "معرف الشكوى:";
+"status" = "حالة:";
+"posted" = "نشر:";
+"buildingNo" = "لا للبناء";
+"flatNo" = "رقم الشقة";
+"history" = "تاريخ";
+
+"newComplaint" = "شكوى جديدة";
+"title" = "أدخل العنوان";
+"category" = "فئة";
+"description" = "وصف";
+"imageSize" = "يرجى تحميل الصور، حجمها أقل من 100 كيلو بايت";
+"chooseFile" = "اختر ملف";
+"noFileChoose" = "لم تقم باختيار ملف";
+"submitComplaint" = "تقديم شكوى";
+"photos" = "الصور";
+"done" = "منتهي";
+"photosUploaded" = "الصور التي تم تحميلها من قبل الشركة";
+"confirm" = "يتأكد";
+
+"new" = "جديد";
+"ongoing" = "جاري التنفيذ";
+"search" = "يبحث";
+"by" = "بواسطة";
+
+"editProfile" = "تعديل الملف الشخصي";
+"branches" = "الفروع";
+"addBranches" = "إضافة فروع";
+"googleMapLoc" = "الموقع على خريطة جوجل";
