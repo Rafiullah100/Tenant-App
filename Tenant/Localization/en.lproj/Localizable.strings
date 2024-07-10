@@ -49,9 +49,24 @@
 "new" = "New";
 "ongoing" = "Ongoing";
 "search" = "Search";
-"by" = "By";
+"by" = "By:";
 
 "editProfile" = "Edit Profile";
 "branches" = "Branches";
 "addBranches" = "Add Branches";
 "googleMapLoc" = "Google Map Location";
+"assignTo" = "Assigned to:";
+
+"property" = "Property:";
+"tenant" = "Tenant:";
+"postedOn" = "Posted on:";
+"schedule" = "Scheduled Maintenance";
+"dateAndTime" = "Date and Time";
+"person" = "Maintenance Person #:";
+"uploadedByWorker" = "Photos Uploaded by Worker:";
+"acceptedOn" = "Company Accepted on:";
+
+"owner" = "Owner";
+"ownerAndTenant" = "Owner and Tenant Both";
+"company" = "Maintenance Company";
+"workers" = "Worker";

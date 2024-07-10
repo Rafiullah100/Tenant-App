@@ -54,5 +54,18 @@ enum LocalizationKeys: String {
     case branches
     case addBranches
     case googleMapLoc
+    case assignTo
+    case property
+    case tenant
+    case postedOn
+    case schedule
+    case dateAndTime
+    case person
+    case uploadedByWorker
+    case acceptedOn
+    case owner
+    case ownerAndTenant
+    case company
+    case workers
 }
 

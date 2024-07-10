@@ -147,9 +147,9 @@ extension UIView {
     
     func addNormalShadowMethod() {
         layer.masksToBounds = false
-        layer.shadowOpacity = 0.08
+        layer.shadowOpacity = 0.1
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowOffset = CGSize(width: 1, height: 1)
         layer.shadowRadius = 4
     }
     
@@ -203,10 +203,10 @@ extension UIView {
     
     func addSmallColorShadowMethod() {
         layer.masksToBounds = false
-        layer.shadowOpacity = 0.4
+        layer.shadowOpacity = 0.2
 //        layer.shadowColor = backgroundColor?.cgColor
-        layer.shadowColor = Constants.appColor.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 3)
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1.5)
         layer.shadowRadius = 2
     }
     

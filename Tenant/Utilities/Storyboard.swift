@@ -11,6 +11,7 @@ enum Storyboard: String {
     case auth = "Auth"
     case tenant = "Tenant"
     case maintenance = "Maintenance"
+    case worker = "Worker"
     
     func instantiate<T>(identifier: T.Type) -> T {
         let storyboard = UIStoryboard(name: rawValue, bundle: nil)

@@ -24,7 +24,5 @@ struct Constants {
 
     static let appBoldFont = UIFont(name: "ebrima-bold", size: 12.0)
     static let appRegularFont = UIFont(name: "ebrima", size: 12.0)
-    
-    
-
 }
+

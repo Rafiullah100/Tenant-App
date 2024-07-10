@@ -9,6 +9,7 @@ import UIKit
 
 class OngoingMaintenanceTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var assignedtoLabel: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var timelbl: UILabel!
     @IBOutlet weak var postDate: UILabel!
@@ -25,7 +26,7 @@ class OngoingMaintenanceTableViewCell: UITableViewCell {
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
         byLabel.text = LocalizationKeys.by.rawValue.localizeString()
-
+        assignedtoLabel.text = LocalizationKeys.assignTo.rawValue.localizeString()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

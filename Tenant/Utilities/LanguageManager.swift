@@ -19,9 +19,6 @@ enum AppLanguage: String, CaseIterable {
 
 enum AppLanguagecode: String {
     case en
-    case ur
-    case fa
-    case fr
     case ar
 }
 

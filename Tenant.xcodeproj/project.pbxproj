@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		351963292FA7329719DE57E0 /* Pods_Tenant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C3D1B2015F40A34174936A /* Pods_Tenant.framework */; };
+		525B37762C3E6DB80087CB5C /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B37752C3E6DB80087CB5C /* LanguageViewController.swift */; };
+		525B37782C3E86300087CB5C /* Worker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525B37772C3E86300087CB5C /* Worker.storyboard */; };
+		525B377B2C3E92D30087CB5C /* WorkerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B377A2C3E92D30087CB5C /* WorkerHomeViewController.swift */; };
+		525B377D2C3E92E10087CB5C /* WorkerHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B377C2C3E92E00087CB5C /* WorkerHomeTableViewCell.swift */; };
+		525B377F2C3E96EA0087CB5C /* WorkerHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 525B377E2C3E96EA0087CB5C /* WorkerHomeTableViewCell.xib */; };
 		52688B0D2C3290EF001C55A8 /* TenantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B0C2C3290EF001C55A8 /* TenantDetailViewController.swift */; };
 		52688B102C32916A001C55A8 /* ComplainDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52688B0E2C329169001C55A8 /* ComplainDetailCollectionViewCell.xib */; };
 		52688B112C32916A001C55A8 /* ComplainDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B0F2C32916A001C55A8 /* ComplainDetailCollectionViewCell.swift */; };
@@ -19,6 +24,7 @@
 		526A2D5B2C3D0B7000C716A8 /* OngoingMaintenanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526A2D592C3D0B7000C716A8 /* OngoingMaintenanceTableViewCell.xib */; };
 		526A2D5E2C3D22E200C716A8 /* CompanyProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A2D5C2C3D22E200C716A8 /* CompanyProfileTableViewCell.swift */; };
 		526A2D5F2C3D22E200C716A8 /* CompanyProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526A2D5D2C3D22E200C716A8 /* CompanyProfileTableViewCell.xib */; };
+		526A2D612C3D468600C716A8 /* MainCompStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A2D602C3D468500C716A8 /* MainCompStatusViewController.swift */; };
 		5279F8982C2967BF003B28A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5279F89A2C2967BF003B28A9 /* Localizable.strings */; };
 		5279F8B32C2968EA003B28A9 /* ABeeZee-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5279F89F2C2968E9003B28A9 /* ABeeZee-Italic.ttf */; };
 		5279F8B42C2968EA003B28A9 /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5279F8A02C2968E9003B28A9 /* ABeeZee-Regular.ttf */; };
@@ -88,6 +94,11 @@
 /* Begin PBXFileReference section */
 		117C7C3372E5562A2B7D05FC /* Pods-Tenant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tenant.debug.xcconfig"; path = "Target Support Files/Pods-Tenant/Pods-Tenant.debug.xcconfig"; sourceTree = "<group>"; };
 		52362EA92C2D46C1009D3DC8 /* IQKeyboardManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		525B37752C3E6DB80087CB5C /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		525B37772C3E86300087CB5C /* Worker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Worker.storyboard; sourceTree = "<group>"; };
+		525B377A2C3E92D30087CB5C /* WorkerHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerHomeViewController.swift; sourceTree = "<group>"; };
+		525B377C2C3E92E00087CB5C /* WorkerHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkerHomeTableViewCell.swift; sourceTree = "<group>"; };
+		525B377E2C3E96EA0087CB5C /* WorkerHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkerHomeTableViewCell.xib; sourceTree = "<group>"; };
 		52688B0C2C3290EF001C55A8 /* TenantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenantDetailViewController.swift; sourceTree = "<group>"; };
 		52688B0E2C329169001C55A8 /* ComplainDetailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComplainDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		52688B0F2C32916A001C55A8 /* ComplainDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplainDetailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +110,7 @@
 		526A2D592C3D0B7000C716A8 /* OngoingMaintenanceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingMaintenanceTableViewCell.xib; sourceTree = "<group>"; };
 		526A2D5C2C3D22E200C716A8 /* CompanyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileTableViewCell.swift; sourceTree = "<group>"; };
 		526A2D5D2C3D22E200C716A8 /* CompanyProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyProfileTableViewCell.xib; sourceTree = "<group>"; };
+		526A2D602C3D468500C716A8 /* MainCompStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCompStatusViewController.swift; sourceTree = "<group>"; };
 		5279F8962C296625003B28A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		5279F8972C296625003B28A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5279F8992C2967BF003B28A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -184,6 +196,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		525B37792C3E86440087CB5C /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				525B377A2C3E92D30087CB5C /* WorkerHomeViewController.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		5279F88F2C2964FF003B28A9 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +292,8 @@
 				52995C5F2C37F5EB00AFDA47 /* TabbarController.swift */,
 				52995C612C38058900AFDA47 /* CompanyProfileViewController.swift */,
 				526A2D542C3BC99D00C716A8 /* MaintenaceDetailViewController.swift */,
+				526A2D602C3D468500C716A8 /* MainCompStatusViewController.swift */,
+				525B37752C3E6DB80087CB5C /* LanguageViewController.swift */,
 			);
 			path = MaintenanceModule;
 			sourceTree = "<group>";
@@ -312,6 +334,8 @@
 				526A2D592C3D0B7000C716A8 /* OngoingMaintenanceTableViewCell.xib */,
 				526A2D5C2C3D22E200C716A8 /* CompanyProfileTableViewCell.swift */,
 				526A2D5D2C3D22E200C716A8 /* CompanyProfileTableViewCell.xib */,
+				525B377E2C3E96EA0087CB5C /* WorkerHomeTableViewCell.xib */,
+				525B377C2C3E92E00087CB5C /* WorkerHomeTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -406,6 +430,7 @@
 				529E175F2C2E8CA40063B204 /* AuthModel */,
 				52995C562C37C4F300AFDA47 /* TenantModule */,
 				52995C592C37C73100AFDA47 /* MaintenanceModule */,
+				525B37792C3E86440087CB5C /* Worker */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -417,6 +442,7 @@
 				52995C502C37C24500AFDA47 /* Auth.storyboard */,
 				52995C522C37C2AF00AFDA47 /* Tenant.storyboard */,
 				52995C542C37C2E600AFDA47 /* Maintenance.storyboard */,
+				525B37772C3E86300087CB5C /* Worker.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -529,8 +555,10 @@
 				5279F8C32C2968EA003B28A9 /* Manrope-Light.ttf in Resources */,
 				52DBCCDF2C16C3B200A7B612 /* Main.storyboard in Resources */,
 				526A2D5F2C3D22E200C716A8 /* CompanyProfileTableViewCell.xib in Resources */,
+				525B377F2C3E96EA0087CB5C /* WorkerHomeTableViewCell.xib in Resources */,
 				52995C512C37C24600AFDA47 /* Auth.storyboard in Resources */,
 				5279F8BA2C2968EA003B28A9 /* Inter-ExtraBold.ttf in Resources */,
+				525B37782C3E86300087CB5C /* Worker.storyboard in Resources */,
 				5279F8BE2C2968EA003B28A9 /* Manrope-Medium.ttf in Resources */,
 				5279F8BC2C2968EA003B28A9 /* Inter-Black.ttf in Resources */,
 				5279F8CB2C297F72003B28A9 /* Outfit-Medium.ttf in Resources */,
@@ -607,9 +635,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				52995C622C38058900AFDA47 /* CompanyProfileViewController.swift in Sources */,
+				525B37762C3E6DB80087CB5C /* LanguageViewController.swift in Sources */,
 				52DBCD0B2C16C52C00A7B612 /* IBDesignableExtensions.swift in Sources */,
 				52DBCCF92C16C51A00A7B612 /* Method.swift in Sources */,
 				52688B172C32C56F001C55A8 /* TenantCompletedViewController.swift in Sources */,
+				525B377B2C3E92D30087CB5C /* WorkerHomeViewController.swift in Sources */,
+				525B377D2C3E92E10087CB5C /* WorkerHomeTableViewCell.swift in Sources */,
 				526A2D552C3BC99D00C716A8 /* MaintenaceDetailViewController.swift in Sources */,
 				529E17712C2EBA870063B204 /* HistoryTableViewCell.swift in Sources */,
 				529E175B2C2E85DD0063B204 /* LocalizationKeys.swift in Sources */,
@@ -626,6 +657,7 @@
 				52DBCD0E2C16C52C00A7B612 /* Color.swift in Sources */,
 				526A2D5E2C3D22E200C716A8 /* CompanyProfileTableViewCell.swift in Sources */,
 				529E17692C2E9EAE0063B204 /* OTPViewController.swift in Sources */,
+				526A2D612C3D468600C716A8 /* MainCompStatusViewController.swift in Sources */,
 				52DBCCF72C16C51A00A7B612 /* URLSession+Extension.swift in Sources */,
 				529E17672C2E99C90063B204 /* SigninViewController.swift in Sources */,
 				526A2D5A2C3D0B7000C716A8 /* OngoingMaintenanceTableViewCell.swift in Sources */,

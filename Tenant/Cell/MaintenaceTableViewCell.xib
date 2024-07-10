@@ -93,7 +93,7 @@
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpq-bP-tOR">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="16" height="14"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="width" priority="250" constant="15" id="3yV-Ks-vOv"/>
+                                                                                            <constraint firstAttribute="width" priority="250" id="3yV-Ks-vOv"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="9"/>
                                                                                         <nil key="textColor"/>
@@ -134,16 +134,16 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="12"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baX-Eu-kAh">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="12"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="33.5" height="12"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" priority="250" constant="35" id="zAr-CN-FKn"/>
+                                                                            <constraint firstAttribute="width" priority="250" id="zAr-CN-FKn"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
                                                                         <color key="textColor" red="0.23137254900000001" green="0.7725490196" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Approval is Pending " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLM-3Z-Jhw">
-                                                                        <rect key="frame" x="40" y="0.0" width="295" height="12"/>
+                                                                        <rect key="frame" x="38.5" y="0.0" width="296.5" height="12"/>
                                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
                                                                         <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -221,9 +221,9 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
-                                <real key="value" value="6"/>
+                                <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="addBezierShadow" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="addNormalShadow" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
