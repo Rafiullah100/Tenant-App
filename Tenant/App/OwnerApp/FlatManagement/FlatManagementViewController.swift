@@ -8,7 +8,7 @@
 import UIKit
 
 class FlatManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    //
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
