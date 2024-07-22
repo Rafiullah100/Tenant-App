@@ -70,3 +70,79 @@
 "ownerAndTenant" = "Owner and Tenant Both";
 "company" = "Maintenance Company";
 "workers" = "Worker";
+
+"scheduleMain" = "Scheduled Maintenance:";
+"assignedOn" = "Assigned On:";
+"completed" = "Completed";
+
+"complaintPhoto" = "Complaint Photos";
+
+"skill" = "Skill";
+"selectDate" = "Select Date";
+"assignToWorker" = "Assign To Worker";
+
+"titlle" = "Title:";
+
+"reject" = "Reject";
+
+"chooseLanguage" = "Choose Language";
+
+"chooseDate" = "Choose Date";
+"selectBranch" = "Select Branch";
+"selectSkills" = "Select Skills";
+"selectWorkers" = "Select Workers";
+"contactPerson" = "Contact Persons";
+
+"trade" = "Trades:";
+"branch" = "Branch:";
+
+"myProperties" = "My Properties";
+"searchByTitle" = "Search property by title";
+"flats" = "Flats:";
+"properties" = "Properties:";
+
+"addNewProperty" = "Add a New Property";
+"enterPropertyTitle" = "Enter Property Title";
+"propertyTitle" = "Property Title";
+"selectTrade" = "Select Trades";
+"locationCode" = "Location Code";
+"enterLocationCode" = "Enter Location Code";
+"enterCity" = "Enter City";
+"enterDistrict" = "Enter District";
+"googleMapLocation" = "Google Map Location";
+"confirmLocation" = "Confirm Location";
+"addProperty" = "Add Property";
+"cancel" = "Cancel";
+
+
+"type" = "Type:";
+"totalFlats" = "Total Flats:";
+"maintainedBy" = "Maintained by:";
+"managements" = "Managements";
+"flatManagement" = "Flat Management";
+"tenantManagement" = "Tenant Management";
+"maintainanceCompanyManagement" = "Maintenance Company Management";
+
+"searchFlatNumber" = "Search flat number";
+
+"deleteTenant" = "Delete Tenant";
+"contact" = "Contact:";
+
+"addTenantToFlat" = "Add Tenant to Flat 1002";
+"tenantName" = "Tenant Name";
+"enterTenantName" = "Enter Tenant Name";
+"tenantContact" = "Tenant Contact";
+"addtenantContactNumber" = "Add Tenant Contact Number";
+"assignTenantToFlat" = "Assign Tenant to Flat";
+
+"searchTenants" = "Search Tenants";
+
+"maintenanceCompanyManagement" = "Maintenance Company Management";
+"searchMaintenanceCompany" = "Search Maintenance Company";
+"currentAddress" = "Your Current Home Address:";
+
+"addNewWorker" = "Add New Worker";
+"workerName" = "Worker Name";
+"selectCategory" = "Select Category";
+"selectTrades" = "Select Category";
+"addWorker" = "Add Worker";

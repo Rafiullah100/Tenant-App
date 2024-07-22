@@ -22,8 +22,26 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoMaintenanceScreen(delegate: UIViewController){
-        let vc = UIStoryboard(name: Storyboard.maintenance.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TabbarController") as! TabbarController
+    static func gotoOwnerHome(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "OwnerTabbarController") as! OwnerTabbarController
+        vc.modalPresentationStyle = .fullScreen
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoCompanyScreen(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyTabbarController") as! CompanyTabbarController
+        vc.modalPresentationStyle = .fullScreen
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoWorkerScreen(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkersHomeViewController") as! WorkersHomeViewController
+        vc.modalPresentationStyle = .fullScreen
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoOwnerScreen(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkersHomeViewController") as! WorkersHomeViewController
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
@@ -37,12 +55,70 @@ class Switcher {
     static func gotoTenantCompletedDetailScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantCompletedViewController") as! TenantCompletedViewController
         vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoMaintenanceDetail(delegate: UIViewController){
-        let vc = UIStoryboard(name: Storyboard.maintenance.rawValue, bundle: nil).instantiateViewController(withIdentifier: "MaintenaceDetailViewController") as! MaintenaceDetailViewController
+    static func gotoPendingDetail(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyPendingController") as! CompanyPendingController
         vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoCompletedDetail(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyCompletedViewController") as! CompanyCompletedViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoWorkerDetailScreen(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkerDetailViewController") as! WorkerDetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoWorkerListScreen(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkersHomeViewController") as! WorkersHomeViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoPropertyDetail(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "PropertyDetailViewController") as! PropertyDetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoRemoveTenant(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "RemoveTenanatViewController") as! RemoveTenanatViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoAddTenant(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddTenanToFlatViewController") as! AddTenanToFlatViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoContactList(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "ContactPersonViewController") as! ContactPersonViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoOwnerDetail(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "OwnerDetailViewController") as! OwnerDetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     

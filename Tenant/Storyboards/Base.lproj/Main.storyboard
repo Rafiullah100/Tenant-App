@@ -30,12 +30,21 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CurvedBG" translatesAutoresizingMaskIntoConstraints="NO" id="bub-Fm-baV">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="689"/>
                                             </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 2043" translatesAutoresizingMaskIntoConstraints="NO" id="gIS-m4-ITS">
+                                                <rect key="frame" x="20" y="578" width="140" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="140" id="B2D-2E-yFc"/>
+                                                    <constraint firstAttribute="height" constant="60" id="Kki-4R-Kk2"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="bub-Fm-baV" firstAttribute="top" secondItem="vwF-fs-DnE" secondAttribute="top" id="3Az-ve-wJS"/>
                                             <constraint firstAttribute="bottom" secondItem="bub-Fm-baV" secondAttribute="bottom" constant="-41" id="Ek5-aQ-Vhm"/>
                                             <constraint firstItem="bub-Fm-baV" firstAttribute="leading" secondItem="vwF-fs-DnE" secondAttribute="leading" id="Mo7-w6-x7U"/>
                                             <constraint firstAttribute="trailing" secondItem="bub-Fm-baV" secondAttribute="trailing" id="NS4-4Z-LKs"/>
+                                            <constraint firstItem="gIS-m4-ITS" firstAttribute="leading" secondItem="vwF-fs-DnE" secondAttribute="leading" constant="20" id="WCI-UD-vkF"/>
+                                            <constraint firstAttribute="bottom" secondItem="gIS-m4-ITS" secondAttribute="bottom" constant="10" id="aHx-rz-6BW"/>
                                             <constraint firstAttribute="height" priority="250" constant="737" id="pTs-bQ-MsI"/>
                                         </constraints>
                                     </view>
@@ -209,6 +218,7 @@
     </scenes>
     <resources>
         <image name="CurvedBG" width="430" height="730"/>
+        <image name="Rectangle 2043" width="148" height="74"/>
         <image name="next-en" width="44" height="44"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

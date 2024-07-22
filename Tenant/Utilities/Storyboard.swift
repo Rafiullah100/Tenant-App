@@ -10,9 +10,9 @@ enum Storyboard: String {
     case main = "Main"
     case auth = "Auth"
     case tenant = "Tenant"
-    case maintenance = "Maintenance"
+    case company = "Company"
     case worker = "Worker"
-    
+    case owner = "Owner"
     func instantiate<T>(identifier: T.Type) -> T {
         let storyboard = UIStoryboard(name: rawValue, bundle: nil)
         guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: String(describing: identifier)) as? T else {

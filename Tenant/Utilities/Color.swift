@@ -10,6 +10,9 @@ import UIKit
 enum CustomColor {
     case appColor
     case grayColor
+    case redColor
+    case blueColor
+    case greenColor
 }
 
 extension CustomColor {
@@ -19,6 +22,12 @@ extension CustomColor {
             return UIColor(hex: 0x3B72C5, alpha: 1.0)
         case .grayColor:
             return UIColor(hex: 0xD8D8D8, alpha: 1.0)
+        case .redColor:
+            return UIColor(hex: 0xEB4335)
+        case .blueColor:
+            return UIColor(hex: 0x3B72C5)
+        case .greenColor:
+            return UIColor(hex: 0x3BC551)
         }
     }
 }

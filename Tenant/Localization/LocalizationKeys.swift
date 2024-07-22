@@ -67,5 +67,75 @@ enum LocalizationKeys: String {
     case ownerAndTenant
     case company
     case workers
+    
+    case scheduleMain
+    case assignedOn
+    case completed
+    case complaintPhoto
+    
+    case skill
+    case selectDate
+    case assignToWorker
+    case titlle
+    case reject
+    case chooseLanguage
+    
+    case chooseDate
+    case selectBranch
+    case selectSkills
+    case selectWorkers
+
+    case contactPerson
+    
+    case trade
+    case branch
+    
+    case myProperties
+    case searchByTitle
+    case flats
+    case properties
+    
+    case addNewProperty
+    case enterPropertyTitle
+    case propertyTitle
+    case selectTrade
+    case locationCode
+    case enterLocationCode
+    case enterCity
+    case enterDistrict
+    case googleMapLocation
+    case confirmLocation
+    case addProperty
+    case cancel
+    
+    case type
+    case totalFlats
+    case maintainedBy
+    case managements
+    case flatManagement
+    case tenantManagement
+    case maintainanceCompanyManagement
+    
+    case searchFlatNumber
+    
+    case deleteTenant
+    case contact
+    
+    case addTenantToFlat
+    case tenantName
+    case enterTenantName
+    case tenantContact
+    case addtenantContactNumber
+    case assignTenantToFlat
+    case searchTenants
+    case maintenanceCompanyManagement
+    case searchMaintenanceCompany
+    case currentAddress
+    
+    case addNewWorker
+    case workerName
+    case selectCategory
+    case selectTrades
+    case addWorker
 }
 

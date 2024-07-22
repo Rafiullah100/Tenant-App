@@ -5,27 +5,28 @@
   Created by MacBook Pro on 6/24/24.
   
 */
-"welcome" = "مرحباً";
-"slogan" = "سجل نفسك الآن لتستمتع بخدماتنا!";
-"signup" = "اشتراك";
+"welcome" = "مرحبا";
+"slogan" = "سجل نفسك الآن لتستمتع بخدماتنا !";
+"signup" = "قم بالتسجيل";
 "chooseOne" = "الرجاء اختيار واحد للمتابعة";
-"continuee" = "يكمل";
-"registration" = "تسجيل";
-"name" = "اسم";
-"contactNumber" = "رقم الاتصال";
+"continuee" = "تابع";
+"registration" = "التسجيل";
+"name" = "الاسم";
+"contactNumber" = "رقم االتصال";
 "email" = "بريد إلكتروني";
 "optional" = "خياري";
-"submit" = "يُقدِّم";
-"alreadyRegistered" = "هل أنت مستخدم مسجل بالفعل؟";
+"submit" = "ارسال";
+"alreadyRegistered" = "هل انت مستخدم مسجل بالفعل؟";
 "signin" = "تسجيل الدخول";
-"numberOrEmail" = "الرقم أو البريد الإلكتروني";
+"numberOrEmail" = "الرقم او البريد الالكتروني";
 "noAccount" = "ليس لديك حساب؟";
 
-"verifyNumber" = "اكد على رقم هاتفك او جوالك";
-"optMessage" = "لقد أرسلنا رسالة نصية تحتوي على رمز التفعيل إلى رقم هاتفك المنتهي بـ *****290. أدخل الرمز في الأسفل";
+"verifyNumber" = "التحقق من رقم هاتفك";
+"optMessage" = "لقد قمنا بإرسال رسالة نصية قصيرة تحتوي على رمز التفعيل إلى رقم هاتفك المنتهي بـ";
 "didnotReceiveCode" = "لم أتلق الرمز";
 "resend" = "إعادة إرسال";
-"verify" = "يؤكد";
+"resend" = "إعادة إرسال";
+"verify" = "تحقق";
 "complaintID" = "معرف الشكوى:";
 "status" = "حالة:";
 "posted" = "نشر:";
@@ -68,11 +69,91 @@
 
 
 "owner" = "المالك";
-"ownerAndTenant" = "المالك والمستأجر كلاهما";
+"ownerAndTenant" = "المالك والمستأجر معا";
 "company" = "شركة الصيانة";
-"workers" = "العامل";
+"workers" = "عامل";
 
 
 
+"scheduleMain" = "الصيانة المجدولة:";
+"assignedOn" = "تاريخ التعيين:";
+
+
+"completed" = "مكتمل";
+
+"complaintPhoto" = "صور الشكوى";
+
+"skill" = "المهارة";
+"selectDate" = "اختر التاريخ";
+"assignToWorker" = "تعيين للعامل";
+
+"titlle" = "العنوان:";
+
+"reject" = "رفض";
+
+
+"chooseLanguage" = "اختر اللغة";
+
+"chooseDate" = "اختر التاريخ";
+"selectBranch" = "اختر الفرع";
+"selectSkills" = "اختر المهارات";
+"selectWorkers" = "اختر العمال";
+"contactPerson" = "جهات الاتصال";
+
+"trade" = "المهن:";
+"branch" = "الفرع:";
+
+
+"myProperties" = "ممتلكاتي";
+"searchByTitle" = "ابحث عن العقار بالعنوان";
+"flats" = "الشقق:";
+"properties" = "الممتلكات:";
+
+"addNewProperty" = "إضافة عقار جديد";
+"enterPropertyTitle" = "أدخل عنوان العقار";
+"propertyTitle" = "عنوان العقار";
+"selectTrade" = "اختر المهن";
+"locationCode" = "رمز الموقع";
+"enterLocationCode" = "أدخل رمز الموقع";
+"enterCity" = "أدخل المدينة";
+"enterDistrict" = "أدخل المنطقة";
+"googleMapLocation" = "موقع خرائط جوجل";
+"confirmLocation" = "تأكيد الموقع";
+"addProperty" = "إضافة العقار";
+"cancel" = "إلغاء";
+
+"type" = "النوع:";
+"totalFlats" = "إجمالي الشقق:";
+"maintainedBy" = "تمت الصيانة بواسطة:";
+"managements" = "الإدارات";
+"flatManagement" = "إدارة الشقق";
+"tenantManagement" = "إدارة المستأجرين";
+"maintainanceCompanyManagement" = "إدارة شركة الصيانة";
+
+
+"searchFlatNumber" = "ابحث عن رقم الشقة";
+
+"deleteTenant" = "حذف المستأجر";
+"contact" = "جهة الاتصال:";
+
+"addTenantToFlat" = "إضافة مستأجر إلى الشقة 1002";
+"tenantName" = "اسم المستأجر";
+"enterTenantName" = "أدخل اسم المستأجر";
+"tenantContact" = "جهة اتصال المستأجر";
+"addtenantContactNumber" = "أضف رقم اتصال المستأجر";
+"assignTenantToFlat" = "تعيين مستأجر إلى الشقة";
+
+
+"searchTenants" = "ابحث عن المستأجرين";
+
+"maintenanceCompanyManagement" = "إدارة شركة الصيانة";
+"searchMaintenanceCompany" = "ابحث عن شركة الصيانة";
+"currentAddress" = "عنوان منزلك الحالي:";
+
+"addNewWorker" = "إضافة عامل جديد";
+"workerName" = "اسم العامل";
+"selectCategory" = "اختر الفئة";
+"selectTrades" = "اختر المهن";
+"addWorker" = "أضف العامل";
 
 
