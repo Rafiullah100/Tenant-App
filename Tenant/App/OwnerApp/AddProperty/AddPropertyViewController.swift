@@ -9,6 +9,8 @@ import UIKit
 import GoogleMaps
 class AddPropertyViewController: UIViewController {
 
+    @IBOutlet weak var villaImageView: UIImageView!
+    @IBOutlet weak var buildingImageView: UIImageView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
@@ -49,7 +51,11 @@ class AddPropertyViewController: UIViewController {
         propertyLabel.text = LocalizationKeys.propertyTitle.rawValue.localizeString()
         backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
     }
+    @IBAction func villaBtnAction(_ sender: Any) {
+    }
     
+    @IBAction func buildingBtnAction(_ sender: Any) {
+    }
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

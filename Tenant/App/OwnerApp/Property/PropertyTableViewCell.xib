@@ -21,7 +21,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcB-h9-nEw">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcB-h9-nEw">
                         <rect key="frame" x="3" y="10" width="314" height="60"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building 50, District ABC, City XYZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QV-32-7FW">
@@ -53,9 +53,18 @@
                     <constraint firstItem="GcB-h9-nEw" firstAttribute="leading" secondItem="GzH-im-aRQ" secondAttribute="leading" constant="3" id="b4H-tC-Ebp"/>
                     <constraint firstAttribute="bottom" secondItem="GcB-h9-nEw" secondAttribute="bottom" constant="10" id="b4c-wK-MPx"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                        <real key="value" value="7"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="addNormalShadow" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="dfm-Hj-180"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="bgView" destination="GcB-h9-nEw" id="ng6-DG-mss"/>
+            </connections>
             <point key="canvasLocation" x="-111.45038167938931" y="19.014084507042256"/>
         </tableViewCell>
     </objects>

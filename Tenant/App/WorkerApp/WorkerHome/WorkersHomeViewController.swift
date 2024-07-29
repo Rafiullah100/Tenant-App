@@ -27,13 +27,34 @@ class WorkersHomeViewController: UIViewController, UITableViewDelegate, UITableV
     }
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var completedButton: UIButton!
-    
-    
+    var isNew = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
         completedButton.setTitle(LocalizationKeys.completed.rawValue.localizeString(), for: .normal)
+    }
+    
+    @IBAction func newBtnAction(_ sender: Any) {
+        isNew = true
+        setupButton()
+    }
+    @IBAction func completeBtnAction(_ sender: Any) {
+        isNew = false
+        setupButton()
+    }
+    
+    private func setupButton(){
+        workerHomeTableView.reloadData()
+        if isNew {
+            newButton.backgroundColor = CustomColor.appColor.color
+            completedButton.backgroundColor = CustomColor.grayColor.color
+        }
+        else{
+            completedButton.backgroundColor = CustomColor.appColor.color
+            newButton.backgroundColor = CustomColor.grayColor.color
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,6 +63,12 @@ class WorkersHomeViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WorkerTableViewCell.cellReuseIdentifier(), for: indexPath) as! WorkerTableViewCell
+        if isNew{
+            cell.colorView.backgroundColor = CustomColor.blueColor.color
+        }
+        else{
+            cell.colorView.backgroundColor = CustomColor.greenColor.color
+        }
         return cell
     }
 

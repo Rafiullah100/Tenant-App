@@ -13,6 +13,7 @@ enum CustomColor {
     case redColor
     case blueColor
     case greenColor
+    case categoryGrayColor
 }
 
 extension CustomColor {
@@ -28,6 +29,8 @@ extension CustomColor {
             return UIColor(hex: 0x3B72C5)
         case .greenColor:
             return UIColor(hex: 0x3BC551)
+        case .categoryGrayColor:
+            return UIColor(hex: 0x797979)
         }
     }
 }

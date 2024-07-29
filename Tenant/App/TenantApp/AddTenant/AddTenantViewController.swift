@@ -9,6 +9,7 @@ import UIKit
 
 class AddTenantViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var descriptionTextView: UITextField!
@@ -29,6 +30,8 @@ class AddTenantViewController: UIViewController, UICollectionViewDelegate, UICol
         }
     }
     var selectedImages = [UIImage]()
+    var pickerView = UIPickerView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +46,14 @@ class AddTenantViewController: UIViewController, UICollectionViewDelegate, UICol
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
         sizeLabel.text = LocalizationKeys.imageSize.rawValue.localizeString()
         noFileLabel.text = LocalizationKeys.noFileChoose.rawValue.localizeString()
-        
         fileButton.setTitle(LocalizationKeys.chooseFile.rawValue.localizeString(), for: .normal)
         submitButton.setTitle(LocalizationKeys.submitComplaint.rawValue.localizeString(), for: .normal)
+        categoryTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        categoryTextField.placeholder = LocalizationKeys.selectCategory.rawValue.localizeString()
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        categoryTextField.inputView = pickerView
     }
     
     private func hideGalleryView(){
@@ -95,3 +103,17 @@ extension AddTenantViewController: UIImagePickerControllerDelegate & UINavigatio
 }
 
 
+
+extension AddTenantViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 5
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "category name"
+    }
+}

@@ -146,3 +146,7 @@
 "selectCategory" = "Select Category";
 "selectTrades" = "Select Category";
 "addWorker" = "Add Worker";
+
+"recent" = "Current";
+
+"tenantWithoutColon" = "Tenant";

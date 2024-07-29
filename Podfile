@@ -10,6 +10,7 @@ target 'Tenant' do
   pod 'SpinKit'
   pod 'SDWebImage', '~> 5.0'
   pod 'GoogleMaps'
+  pod 'IQKeyboardManager' #iOS8 and later
 
 end
 

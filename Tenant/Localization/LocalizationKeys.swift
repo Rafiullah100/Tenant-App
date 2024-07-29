@@ -137,5 +137,8 @@ enum LocalizationKeys: String {
     case selectCategory
     case selectTrades
     case addWorker
+    
+    case recent
+    case tenantWithoutColon
 }
 

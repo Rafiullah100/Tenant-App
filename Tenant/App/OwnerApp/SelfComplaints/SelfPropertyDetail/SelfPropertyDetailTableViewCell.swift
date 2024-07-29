@@ -12,9 +12,9 @@ class SelfPropertyDetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var homeTypeLbl: UILabel!
     
-    public func homeInfo(homeType: homeType )  {
-        homeTypeLbl.text = homeType.type
-    }
+//    public func homeInfo(homeType: homeType )  {
+//        homeTypeLbl.text = homeType.type
+//    }
     
     
     override func awakeFromNib() {

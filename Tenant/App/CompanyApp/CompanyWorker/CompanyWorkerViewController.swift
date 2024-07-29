@@ -50,12 +50,12 @@ class CompanyWorkerViewController: UIViewController, UICollectionViewDelegate, U
                     
             if row == indexPath{
                 cell.servicesBgView.backgroundColor = .black
+                cell.titleLbl.textColor = .black
             }else{
                 cell.servicesBgView.backgroundColor = .white
+                cell.titleLbl.textColor = CustomColor.categoryGrayColor.color
             }
-            
             return cell
-            
         }else{
             let cell = workerCollectionView.dequeueReusableCell(withReuseIdentifier: CompanyWorkerCollectionViewCell.identifier, for: indexPath)as! CompanyWorkerCollectionViewCell
             return cell

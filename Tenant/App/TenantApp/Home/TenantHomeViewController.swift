@@ -20,6 +20,9 @@ class TenantHomeViewController: UIViewController , UITableViewDataSource , UITab
     @IBOutlet weak var buildingLabel: UILabel!
     @IBOutlet weak var flatLabel: UILabel!
     @IBOutlet weak var historyLabel: UILabel!
+    @IBOutlet weak var historyButton: UIButton!
+    
+    var isRecent = false
     
     
     override func viewDidLoad() {
@@ -28,6 +31,17 @@ class TenantHomeViewController: UIViewController , UITableViewDataSource , UITab
         flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString()):   14"
         historyLabel.text = LocalizationKeys.history.rawValue.localizeString()
 
+    }
+    @IBAction func historyBtnAction(_ sender: Any) {
+        isRecent.toggle()
+        if isRecent {
+            historyButton.setImage(UIImage(named: "recent"), for: .normal)
+            historyLabel.text = LocalizationKeys.recent.rawValue.localizeString()
+        }
+        else{
+            historyButton.setImage(UIImage(named: "history"), for: .normal)
+            historyLabel.text = LocalizationKeys.history.rawValue.localizeString()
+        }
     }
     
     @IBAction func contactButtonAction(_ sender: Any) {

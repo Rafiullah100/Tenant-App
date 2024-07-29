@@ -729,7 +729,7 @@
         <scene sceneID="QwY-C9-qpD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KRY-eD-FEL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="menu - home" id="oIY-Jc-ZEf">
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="menu-home-en" id="oIY-Jc-ZEf">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="-8" maxY="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -4223,7 +4223,7 @@
         <image name="home" width="25" height="24"/>
         <image name="language" width="22" height="22"/>
         <image name="language-selected" width="101" height="42"/>
-        <image name="menu - home" width="90" height="42"/>
+        <image name="menu-home-en" width="90" height="42"/>
         <image name="profile-tab" width="27" height="24"/>
         <image name="properties-selected" width="107" height="42"/>
         <image name="ri_english-input" width="17" height="17"/>
@@ -4233,7 +4233,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

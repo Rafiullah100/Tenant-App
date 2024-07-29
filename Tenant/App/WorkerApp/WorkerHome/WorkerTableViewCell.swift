@@ -11,6 +11,7 @@ class WorkerTableViewCell: UITableViewCell {
     @IBOutlet weak var byLabel: UILabel!
     @IBOutlet weak var scheduleLabel: UILabel!
     
+    @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var assignedLabel: UILabel!
     @IBOutlet weak var postedLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!

@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import IQKeyboardManager
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyBC2Xdb2ato7ULwuGnDjPLXLAvqUZx_1VM")
         let language: AppLanguage = AppLanguage(rawValue: UserDefaults.standard.selectedLanguage ?? "") ?? .english
         UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)
+        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared().isEnableAutoToolbar = true
         return true
     }
 

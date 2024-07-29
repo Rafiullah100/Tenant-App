@@ -26,11 +26,10 @@ class SignupViewController: UIViewController {
         continueButton.setTitle(LocalizationKeys.continuee.rawValue.localizeString(), for: .normal)
         
         ownerButton.setTitle(LocalizationKeys.owner.rawValue.localizeString(), for: .normal)
-        tenantButton.setTitle(LocalizationKeys.tenant.rawValue.localizeString(), for: .normal)
+        tenantButton.setTitle(LocalizationKeys.tenantWithoutColon.rawValue.localizeString(), for: .normal)
         ownerTenantButton.setTitle(LocalizationKeys.ownerAndTenant.rawValue.localizeString(), for: .normal)
         companyButton.setTitle(LocalizationKeys.company.rawValue.localizeString(), for: .normal)
         workerButton.setTitle(LocalizationKeys.workers.rawValue.localizeString(), for: .normal)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
