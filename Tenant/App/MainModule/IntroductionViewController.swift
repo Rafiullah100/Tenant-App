@@ -22,6 +22,11 @@ class IntroductionViewController: UIViewController {
         curveImageView.image = UIImage(named: Helper.shared.isRTL() ? "curved-bg-ar" : "curved-bg-en")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     @IBAction func nextBtnAction(_ sender: Any) {
         Switcher.gotoSignupScreen(delegate: self)
     }

@@ -18,7 +18,8 @@ class SigninViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var signinLabel: UILabel!
-   
+    var userType: UserType = .tenant
+
     override func viewDidLoad() {
         super.viewDidLoad()
         curveImageView.image = UIImage(named: Helper.shared.isRTL() ? "bg-ar" : "bg")
@@ -30,5 +31,23 @@ class SigninViewController: UIViewController {
         noAccountLabel.text = LocalizationKeys.noAccount.rawValue.localizeString()
         submitButton.setTitle(LocalizationKeys.submit.rawValue.localizeString(), for: .normal)
         signupButton.setTitle(LocalizationKeys.signup.rawValue.localizeString(), for: .normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    @IBAction func submitBtnAction(_ sender: Any) {
+        switch userType {
+        case .owner:
+            Switcher.gotoOwnerHome(delegate: self)
+        case .tenant:
+            Switcher.gotoTenantScreen(delegate: self)
+        case .company:
+            Switcher.gotoCompanyScreen(delegate: self)
+        case .worker:
+            Switcher.gotoWorkerScreen(delegate: self)
+        }
     }
 }

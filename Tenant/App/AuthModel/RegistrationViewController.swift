@@ -38,4 +38,9 @@ class RegistrationViewController: UIViewController {
         signinLabel.setTitle(LocalizationKeys.signin.rawValue.localizeString(), for: .normal)
         submitButton.setTitle(LocalizationKeys.submit.rawValue.localizeString(), for: .normal)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }

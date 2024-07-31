@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 class Switcher {
     
+    static func gotoSigninScreen(delegate: UIViewController, userType: UserType){
+        let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
+        vc.userType = userType
+        vc.modalPresentationStyle = .fullScreen
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     static func gotoSignupScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
         vc.modalPresentationStyle = .fullScreen
@@ -80,6 +87,13 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
+    static func gotoWorkerOngoingDetailScreen(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkerOngoingDetailViewController") as! WorkerOngoingDetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     static func gotoWorkerListScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkersHomeViewController") as! WorkersHomeViewController
         vc.modalPresentationStyle = .fullScreen
@@ -139,5 +153,10 @@ class Switcher {
 //        delegate.navigationController?.pushViewController(vc, animated: true)
 //    }
     
-    
+    static func gotoAddComplaintScreen(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddTenantViewController") as! AddTenantViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
 }

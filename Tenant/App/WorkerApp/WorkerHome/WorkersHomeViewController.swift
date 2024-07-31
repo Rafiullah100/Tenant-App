@@ -77,6 +77,11 @@ class WorkersHomeViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Switcher.gotoWorkerDetailScreen(delegate: self)
+        if isNew{
+            Switcher.gotoWorkerOngoingDetailScreen(delegate: self)
+        }
+        else{
+            Switcher.gotoWorkerDetailScreen(delegate: self)
+        }
     }
 }

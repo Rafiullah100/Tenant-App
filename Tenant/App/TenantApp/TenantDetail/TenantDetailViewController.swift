@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TenantDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
             collectionView.register(ComplainDetailCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplainDetailCollectionViewCell.identifier)
@@ -26,7 +26,6 @@ class TenantDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backBtn.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
         complaintIdLabel.text = LocalizationKeys.complaintID.rawValue.localizeString()
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
@@ -34,6 +33,13 @@ class TenantDetailViewController: UIViewController, UICollectionViewDelegate, UI
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
         
         doneButton.setTitle(LocalizationKeys.done.rawValue.localizeString(), for: .normal)
+        
+        type = .tenant
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -46,10 +52,7 @@ class TenantDetailViewController: UIViewController, UICollectionViewDelegate, UI
             return cell
             
         }
-    
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
+
 }
 
 extension TenantDetailViewController:UICollectionViewDelegateFlowLayout{

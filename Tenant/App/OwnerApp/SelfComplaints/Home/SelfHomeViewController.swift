@@ -27,9 +27,9 @@ class SelfHomeViewController: UIViewController , UITableViewDataSource , UITable
         addressLbl.text = LocalizationKeys.currentAddress.rawValue.localizeString()
 
     }
-    
-    @IBAction func contactButtonAction(_ sender: Any) {
-        Switcher.gotoContactList(delegate: self)
+
+    @IBAction func addBtnAction(_ sender: Any) {
+        Switcher.gotoAddComplaintScreen(delegate: self)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10

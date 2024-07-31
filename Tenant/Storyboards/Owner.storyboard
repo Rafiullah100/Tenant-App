@@ -452,6 +452,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4A-sM-6dT">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <connections>
+                                                    <action selector="addBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="acH-BN-gFs"/>
                                                     <segue destination="XRm-ow-42N" kind="show" id="Cxg-Ra-Qcg"/>
                                                 </connections>
                                             </button>
@@ -3520,16 +3521,16 @@ Cg
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="707"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47Y-GO-pwN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="692.66666666666663"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="767.66666666666663"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="45.170000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="AOy-y2-BxF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="692.66666666666663"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="767.66666666666663"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2I1-JY-Td5">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="692.66666666666663"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="767.66666666666663"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AVP-ju-iNQ">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="692.66666666666663"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="767.66666666666663"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xl-wl-kfZ">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="75"/>
@@ -4089,6 +4090,58 @@ Cg
                                                                                             <constraint firstAttribute="bottom" secondItem="cVt-2c-Ayv" secondAttribute="bottom" id="t1x-dy-cs2"/>
                                                                                         </constraints>
                                                                                     </view>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T93-ZV-fEt">
+                                                                                        <rect key="frame" x="0.0" y="707.66666666666663" width="343" height="60"/>
+                                                                                        <subviews>
+                                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qkv-r1-v6b">
+                                                                                                <rect key="frame" x="10" y="12.333333333333371" width="323" height="35"/>
+                                                                                                <subviews>
+                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N78-lc-5ZM">
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="35"/>
+                                                                                                        <color key="backgroundColor" red="0.23137254900000001" green="0.7725490196" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
+                                                                                                        <state key="normal" title="Approve">
+                                                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                        </state>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="addNormalShadow" value="YES"/>
+                                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                                                                                                                <real key="value" value="5"/>
+                                                                                                            </userDefinedRuntimeAttribute>
+                                                                                                        </userDefinedRuntimeAttributes>
+                                                                                                    </button>
+                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fio-dq-jsA">
+                                                                                                        <rect key="frame" x="166.66666666666663" y="0.0" width="156.33333333333337" height="35"/>
+                                                                                                        <color key="backgroundColor" red="0.92156862750000001" green="0.26274509800000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
+                                                                                                        <state key="normal" title="Reject">
+                                                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                        </state>
+                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                                                                                                                <real key="value" value="5"/>
+                                                                                                            </userDefinedRuntimeAttribute>
+                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="addNormalShadow" value="YES"/>
+                                                                                                        </userDefinedRuntimeAttributes>
+                                                                                                    </button>
+                                                                                                </subviews>
+                                                                                                <constraints>
+                                                                                                    <constraint firstAttribute="height" constant="35" id="nMG-bQ-sbj"/>
+                                                                                                </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                                                                                                        <real key="value" value="5"/>
+                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                </userDefinedRuntimeAttributes>
+                                                                                            </stackView>
+                                                                                        </subviews>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="trailing" secondItem="qkv-r1-v6b" secondAttribute="trailing" constant="10" id="VPJ-C9-RuV"/>
+                                                                                            <constraint firstItem="qkv-r1-v6b" firstAttribute="centerY" secondItem="T93-ZV-fEt" secondAttribute="centerY" id="aRr-Wf-jcs"/>
+                                                                                            <constraint firstAttribute="height" constant="60" id="mcK-za-LJI"/>
+                                                                                            <constraint firstItem="qkv-r1-v6b" firstAttribute="leading" secondItem="T93-ZV-fEt" secondAttribute="leading" constant="10" id="pCy-RS-Hxs"/>
+                                                                                        </constraints>
+                                                                                    </view>
                                                                                 </subviews>
                                                                             </stackView>
                                                                         </subviews>
@@ -4610,6 +4663,9 @@ Cg
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dD-Jq-ex0">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <connections>
+                                                    <action selector="addBtnAction:" destination="0as-F1-3Et" eventType="touchUpInside" id="q1c-ZZ-2at"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.71372549019999998" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -5230,7 +5286,7 @@ Cg
         <image name="properties-selected" width="107" height="42"/>
         <image name="ri_english-input" width="17" height="17"/>
         <image name="self-complaints" width="27" height="26"/>
-        <image name="self-complaints-selected" width="167" height="46"/>
+        <image name="self-complaints-selected" width="131" height="46"/>
         <image name="tenan" width="12" height="12"/>
         <image name="tick-gray" width="19" height="19"/>
         <image name="worker-home" width="15" height="13"/>
@@ -5238,7 +5294,7 @@ Cg
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

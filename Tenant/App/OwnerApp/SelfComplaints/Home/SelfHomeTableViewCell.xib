@@ -129,7 +129,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="15"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVd-7E-9Ec">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="15"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="41" height="15"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" priority="250" constant="35" id="ReJ-xN-rws"/>
                                                                         </constraints>
@@ -137,8 +137,8 @@
                                                                         <color key="textColor" red="0.23137254901960785" green="0.77254901960784317" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approval Pending from Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsP-LD-zcB">
-                                                                        <rect key="frame" x="46.5" y="0.0" width="284.5" height="15"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acceptance Pending from Maintenance Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsP-LD-zcB">
+                                                                        <rect key="frame" x="46" y="0.0" width="285" height="15"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                         <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>

@@ -35,6 +35,8 @@ class PropertyViewController: UIViewController {
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
     }
+    @IBAction func addBtnAction(_ sender: Any) {
+    }
 }
 
 extension PropertyViewController: UITableViewDelegate, UITableViewDataSource{

@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class TenantHomeViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
+class TenantHomeViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
     @IBOutlet weak var historyTableView: UITableView!{
         didSet{
             historyTableView.delegate = self
@@ -30,8 +30,17 @@ class TenantHomeViewController: UIViewController , UITableViewDataSource , UITab
         buildingLabel.text = "\(LocalizationKeys.buildingNo.rawValue.localizeString()):   12ADF"
         flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString()):   14"
         historyLabel.text = LocalizationKeys.history.rawValue.localizeString()
-
     }
+    
+    @IBAction func addBtnAction(_ sender: Any) {
+        Switcher.gotoAddComplaintScreen(delegate: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     @IBAction func historyBtnAction(_ sender: Any) {
         isRecent.toggle()
         if isRecent {
