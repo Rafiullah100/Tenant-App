@@ -54,6 +54,7 @@ class SignupViewController: UIViewController {
         selectButton(index: 2)
         userType = .company
     }
+    
     @IBAction func workerBtnAction(_ sender: Any) {
 //        Switcher.gotoWorkerScreen(delegate: self)
         selectButton(index: 3)

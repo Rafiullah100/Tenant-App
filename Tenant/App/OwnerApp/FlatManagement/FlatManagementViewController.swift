@@ -34,6 +34,9 @@ class FlatManagementViewController: UIViewController, UITableViewDelegate, UITab
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func addBtnAction(_ sender: Any) {
+        Switcher.gotoAddFlat(delegate: self)
+    }
     
     //TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -11,7 +11,7 @@ enum ViewControllerType {
     case tenant
 }
 
-class BaseViewController: UIViewController, UINavigationControllerDelegate {
+class BaseViewController: UIViewController {
     var type: ViewControllerType = .otpBack
     var titleLabel: UILabel?
     
@@ -19,7 +19,7 @@ class BaseViewController: UIViewController, UINavigationControllerDelegate {
         didSet {
             titleLabel?.text = viewControllerTitle ?? ""
             switch type {
-            case .otpBack:
+            case .otpBack, .tenant:
                 addCenterLabel()
             default:
                 break
@@ -42,7 +42,7 @@ class BaseViewController: UIViewController, UINavigationControllerDelegate {
         if let titleLabel = titleLabel {
             print(viewControllerTitle ?? "")
             titleLabel.text = viewControllerTitle ?? ""
-            titleLabel.font = UIFont(name: Constants.fontNameBold, size: 17)
+            titleLabel.font = UIFont(name: Constants.fontNameBold, size: 20)
             titleLabel.textColor = .black
             self.navigationItem.titleView = titleLabel
         }

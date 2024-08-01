@@ -15,7 +15,6 @@ class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, 
             collectionView.dataSource = self
         }
     }
-    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var complaintIdLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!

@@ -11,6 +11,7 @@ class CompanyProfileViewController: UIViewController {
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mapLabel: UILabel!
     @IBOutlet weak var buttonLabel: UILabel!
     @IBOutlet weak var branchLabel: UILabel!
@@ -24,7 +25,8 @@ class CompanyProfileViewController: UIViewController {
             tableView.register(UINib(nibName: "CompanyProfileTableViewCell", bundle: nil), forCellReuseIdentifier: CompanyProfileTableViewCell.cellReuseIdentifier())
         }
     }
-    
+    var pickerView = UIPickerView()
+
     @IBOutlet weak var mapView: GMSMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,14 @@ class CompanyProfileViewController: UIViewController {
         
         let camera = GMSCameraPosition.camera(withLatitude: 34.0151, longitude: 71.5249, zoom: 6.0)
         mapView.camera = camera
+    }
+    
+    @IBAction func takePhotoBtn(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+        
     }
     
     @IBAction func back(_ sender: Any) {
@@ -64,5 +74,18 @@ extension CompanyProfileViewController: UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 20
+    }
+}
+
+extension CompanyProfileViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            self.imageView.image = image
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }

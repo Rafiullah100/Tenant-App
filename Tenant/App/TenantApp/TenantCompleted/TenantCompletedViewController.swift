@@ -7,9 +7,8 @@
 
 import UIKit
 
-class TenantCompletedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class TenantCompletedViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var photoLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
@@ -24,11 +23,17 @@ class TenantCompletedViewController: UIViewController, UICollectionViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
         complaintIdLabel.text = LocalizationKeys.complaintID.rawValue.localizeString()
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         photoLabel.text = LocalizationKeys.photosUploaded.rawValue.localizeString()
         confirmButton.setTitle(LocalizationKeys.confirm.rawValue.localizeString(), for: .normal)
+        
+        type = .tenant
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

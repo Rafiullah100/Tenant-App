@@ -7,10 +7,9 @@
 
 import UIKit
 
-class AddTenantViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var descriptionTextView: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
@@ -20,8 +19,7 @@ class AddTenantViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var complaintLabel: UILabel!
+    @IBOutlet weak var enterTitleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
             collectionView.register(ComplaintCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplaintCollectionViewCell.identifier)
@@ -32,16 +30,12 @@ class AddTenantViewController: UIViewController, UICollectionViewDelegate, UICol
     var selectedImages = [UIImage]()
     var pickerView = UIPickerView()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideGalleryView()
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
-
         titleTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         descriptionTextView.textAlignment = Helper.shared.isRTL() ? .right : .left
-        complaintLabel.text = LocalizationKeys.newComplaint.rawValue.localizeString()
-        titleLabel.text = LocalizationKeys.title.rawValue.localizeString()
+        enterTitleLabel.text = LocalizationKeys.title.rawValue.localizeString()
         categoryLabel.text = LocalizationKeys.category.rawValue.localizeString()
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
         sizeLabel.text = LocalizationKeys.imageSize.rawValue.localizeString()
@@ -54,15 +48,20 @@ class AddTenantViewController: UIViewController, UICollectionViewDelegate, UICol
         pickerView.delegate = self
         pickerView.dataSource = self
         categoryTextField.inputView = pickerView
+        
+        type = .tenant
+        viewControllerTitle = LocalizationKeys.newComplaint.rawValue.localizeString()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
     
     private func hideGalleryView(){
         self.galleryView.isHidden = selectedImages.count == 0 ? true : false
     }
-    
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
+   
     @IBAction func pickImages(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -101,8 +100,6 @@ extension AddTenantViewController: UIImagePickerControllerDelegate & UINavigatio
         picker.dismiss(animated: true, completion: nil)
     }
 }
-
-
 
 extension AddTenantViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

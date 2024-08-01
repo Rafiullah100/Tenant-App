@@ -25,7 +25,7 @@ class BothPropertyViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         searchView.clipsToBounds = true
         backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
-        titleLabel.text = LocalizationKeys.flatManagement.rawValue.localizeString()
+        titleLabel.text = "Select a Property as Your Own Home"
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
     }
@@ -44,10 +44,10 @@ class BothPropertyViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
+        return 60
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        Switcher.gotoFlatasHomeVC(delegate: self)
     }
 }

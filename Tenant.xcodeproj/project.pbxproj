@@ -111,6 +111,7 @@
 		529E17722C2EBA870063B204 /* ComplaintCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529E176E2C2EBA870063B204 /* ComplaintCollectionViewCell.xib */; };
 		529E17742C2EC32B0063B204 /* AddTenantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529E17732C2EC32B0063B204 /* AddTenantViewController.swift */; };
 		529E17762C2EC35F0063B204 /* TenantHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529E17752C2EC35F0063B204 /* TenantHomeViewController.swift */; };
+		52AB80502C5B841B001011C0 /* AddFlatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB804F2C5B841B001011C0 /* AddFlatViewController.swift */; };
 		52AC564B2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AC564A2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift */; };
 		52AC564D2C5A3EBC00F37A3C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AC564C2C5A3EBC00F37A3C /* BaseViewController.swift */; };
 		52DBCCD82C16C3B200A7B612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DBCCD72C16C3B200A7B612 /* AppDelegate.swift */; };
@@ -246,6 +247,7 @@
 		529E176E2C2EBA870063B204 /* ComplaintCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComplaintCollectionViewCell.xib; sourceTree = "<group>"; };
 		529E17732C2EC32B0063B204 /* AddTenantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTenantViewController.swift; sourceTree = "<group>"; };
 		529E17752C2EC35F0063B204 /* TenantHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenantHomeViewController.swift; sourceTree = "<group>"; };
+		52AB804F2C5B841B001011C0 /* AddFlatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlatViewController.swift; sourceTree = "<group>"; };
 		52AC564A2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerOngoingDetailViewController.swift; sourceTree = "<group>"; };
 		52AC564C2C5A3EBC00F37A3C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		52DBCCD42C16C3B200A7B612 /* Tenant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tenant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -581,6 +583,7 @@
 		52633D762C40F7B80029C954 /* OwnerApp */ = {
 			isa = PBXGroup;
 			children = (
+				52AB804E2C5B83FD001011C0 /* AddFlat */,
 				521B922B2C4BBFEB000F1B82 /* Tabbar */,
 				521B922C2C4BC099000F1B82 /* Home */,
 				521B92352C4BC92A000F1B82 /* Detail */,
@@ -729,6 +732,14 @@
 				529E176E2C2EBA870063B204 /* ComplaintCollectionViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		52AB804E2C5B83FD001011C0 /* AddFlat */ = {
+			isa = PBXGroup;
+			children = (
+				52AB804F2C5B841B001011C0 /* AddFlatViewController.swift */,
+			);
+			path = AddFlat;
 			sourceTree = "<group>";
 		};
 		52AC56482C5A22CC00F37A3C /* WorkerOngoing */ = {
@@ -1110,6 +1121,7 @@
 				522FFBBA2C4CE7970010A2EF /* SelfHomeViewController.swift in Sources */,
 				52DBCCD82C16C3B200A7B612 /* AppDelegate.swift in Sources */,
 				521B92302C4BC3FC000F1B82 /* CompanyHomeViewController.swift in Sources */,
+				52AB80502C5B841B001011C0 /* AddFlatViewController.swift in Sources */,
 				52AC564D2C5A3EBC00F37A3C /* BaseViewController.swift in Sources */,
 				527616372C48E860007F7C66 /* FlatManagementViewController.swift in Sources */,
 				52688B0D2C3290EF001C55A8 /* TenantDetailViewController.swift in Sources */,

@@ -9,6 +9,7 @@ import UIKit
 
 class BothPropertyTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var flatNumberLbl: UILabel!
     
     
@@ -16,6 +17,7 @@ class BothPropertyTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        bgView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

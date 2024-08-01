@@ -18,7 +18,7 @@ struct Constants {
     static let noLoggin = "You're not loggin"
     static let appColor = #colorLiteral(red: 0.2705882353, green: 0.7882352941, blue: 0.9568627451, alpha: 1)
     static let fontName = "ebrima"
-    static let fontNameBold = "ebrima-bold"
+    static let fontNameBold = "Outfit-SemiBold"
     static var news = "news"
     static var opinion = "opinion"
 

@@ -59,6 +59,12 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
+    static func gotoCompanyProfile(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyProfileViewController") as! CompanyProfileViewController
+        vc.modalPresentationStyle = .fullScreen
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     static func gotoTenantCompletedDetailScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantCompletedViewController") as! TenantCompletedViewController
         vc.modalPresentationStyle = .fullScreen
@@ -158,5 +164,22 @@ class Switcher {
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoFlatasHomeVC(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SelfPropertyDetailViewController") as! SelfPropertyDetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoAddFlat(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddFlatViewController") as! AddFlatViewController
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .overCurrentContext
+        delegate.present(navController, animated: true)
     }
 }

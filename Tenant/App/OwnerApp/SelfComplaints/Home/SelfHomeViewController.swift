@@ -18,12 +18,10 @@ class SelfHomeViewController: UIViewController , UITableViewDataSource , UITable
             historyTableView.register(UINib(nibName: "SelfHomeTableViewCell", bundle: nil), forCellReuseIdentifier: SelfHomeTableViewCell.cellReuseIdentifier())
         }
     }
-    @IBOutlet weak var historyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        historyLabel.text = LocalizationKeys.history.rawValue.localizeString()
         addressLbl.text = LocalizationKeys.currentAddress.rawValue.localizeString()
 
     }
@@ -31,6 +29,7 @@ class SelfHomeViewController: UIViewController , UITableViewDataSource , UITable
     @IBAction func addBtnAction(_ sender: Any) {
         Switcher.gotoAddComplaintScreen(delegate: self)
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }

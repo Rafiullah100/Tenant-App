@@ -49,10 +49,10 @@ class CompanyHomeViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    @IBAction func rejectedButtonAction(_ sender: Any) {
-        isNew = false
-        setupButton()
+    @IBAction func profileBtnAction(_ sender: Any) {
+        Switcher.gotoCompanyProfile(delegate: self)
     }
+    
     
     @IBAction func ongoingBtnAction(_ sender: Any) {
         isNew = false
