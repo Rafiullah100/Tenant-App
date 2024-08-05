@@ -11,6 +11,8 @@ import UIKit
 
 class SelfHomeViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
     @IBOutlet weak var addressLbl: UILabel!
+    @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var historyTableView: UITableView!{
         didSet{
             historyTableView.delegate = self
@@ -21,11 +23,33 @@ class SelfHomeViewController: UIViewController , UITableViewDataSource , UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        historyTableView.showsVerticalScrollIndicator = false
         self.navigationController?.navigationBar.isHidden = true
         addressLbl.text = LocalizationKeys.currentAddress.rawValue.localizeString()
 
     }
 
+    @IBAction func newBtnAction(_ sender: Any) {
+        setupButton(complaintType: .new)
+    }
+    
+    @IBAction func historyBtnAction(_ sender: Any) {
+        setupButton(complaintType: .history)
+    }
+    
+    private func setupButton(complaintType: SelfComplaintType = .new){
+        historyTableView.reloadData()
+        newButton.backgroundColor = CustomColor.grayColor.color
+        historyButton.backgroundColor = CustomColor.grayColor.color
+
+        switch complaintType {
+        case .new:
+            newButton.backgroundColor = CustomColor.appColor.color
+        case .history:
+            historyButton.backgroundColor = CustomColor.appColor.color
+        }
+    }
+    
     @IBAction func addBtnAction(_ sender: Any) {
         Switcher.gotoAddComplaintScreen(delegate: self)
     }

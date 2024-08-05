@@ -32,6 +32,9 @@ class CompanyWorkerViewController: UIViewController, UICollectionViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryCollectionView.showsVerticalScrollIndicator = false
+        workerCollectionView.showsVerticalScrollIndicator = false
+
         self.navigationController?.navigationBar.isHidden = true
         searchView.clipsToBounds = true
         searchButtonView.clipsToBounds = true

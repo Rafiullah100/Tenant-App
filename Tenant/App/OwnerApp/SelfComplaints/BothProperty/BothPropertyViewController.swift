@@ -7,11 +7,10 @@
 
 import UIKit
 
-class BothPropertyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -23,15 +22,18 @@ class BothPropertyViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.showsVerticalScrollIndicator = false
+
         searchView.clipsToBounds = true
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
-        titleLabel.text = "Select a Property as Your Own Home"
+        titlLabel.text = "Select a Property as Your Own Home"
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        type = .company
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

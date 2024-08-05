@@ -7,11 +7,10 @@
 
 import UIKit
 import GoogleMaps
-class AddPropertyViewController: UIViewController {
+class AddPropertyViewController: BaseViewController {
 
     @IBOutlet weak var villaImageView: UIImageView!
     @IBOutlet weak var buildingImageView: UIImageView!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
@@ -25,15 +24,16 @@ class AddPropertyViewController: UIViewController {
     @IBOutlet weak var tradeLabel: UILabel!
     @IBOutlet weak var propertyTextField: UITextField!
     @IBOutlet weak var propertyLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let camera = GMSCameraPosition.camera(withLatitude: 34.0151, longitude: 71.5249, zoom: 6.0)
         mapView.camera = camera
         
-        titleLabel.text = LocalizationKeys.addNewProperty.rawValue.localizeString()
+        titlLabel.text = LocalizationKeys.addNewProperty.rawValue.localizeString()
         propertyTextField.placeholder = LocalizationKeys.enterPropertyTitle.rawValue.localizeString()
         propertyTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         tradeLabel.text = LocalizationKeys.selectTrade.rawValue.localizeString()
@@ -49,25 +49,35 @@ class AddPropertyViewController: UIViewController {
         addButton.setTitle(LocalizationKeys.addProperty.rawValue.localizeString(), for: .normal)
         cancelButton.setTitle(LocalizationKeys.cancel.rawValue.localizeString(), for: .normal)
         propertyLabel.text = LocalizationKeys.propertyTitle.rawValue.localizeString()
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
+        
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
+        
+        selectPopertyType()
+        
+        type = .tenant
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     @IBAction func villaBtnAction(_ sender: Any) {
+        selectPopertyType(type: .villa)
     }
     
     @IBAction func buildingBtnAction(_ sender: Any) {
-    }
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        selectPopertyType(type: .building)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func selectPopertyType(type: PropertyType = .building){
+        switch type {
+        case .building:
+            villaImageView.image = UIImage(named: "circle-empty")
+            buildingImageView.image = UIImage(named: "circle-fill")
+        case .villa:
+            buildingImageView.image = UIImage(named: "circle-empty")
+            villaImageView.image = UIImage(named: "circle-fill")
+        }
     }
-    */
-
 }

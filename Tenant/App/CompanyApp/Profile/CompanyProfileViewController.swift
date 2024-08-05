@@ -7,16 +7,14 @@
 
 import UIKit
 import GoogleMaps
-class CompanyProfileViewController: UIViewController {
-    @IBOutlet weak var backLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
+class CompanyProfileViewController: BaseViewController {
+    @IBOutlet weak var titlLabel: UILabel!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mapLabel: UILabel!
     @IBOutlet weak var buttonLabel: UILabel!
     @IBOutlet weak var branchLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -30,18 +28,24 @@ class CompanyProfileViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        backBtn.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
-        backLabel.text = LocalizationKeys.editProfile.rawValue.localizeString()
-        titleLabel.text = LocalizationKeys.title.rawValue.localizeString()
+        titlLabel.text = LocalizationKeys.title.rawValue.localizeString()
         numberLabel.text = LocalizationKeys.contactNumber.rawValue.localizeString()
         branchLabel.text = LocalizationKeys.branches.rawValue.localizeString()
         buttonLabel.text = LocalizationKeys.addBranches.rawValue.localizeString()
         mapLabel.text = LocalizationKeys.googleMapLoc.rawValue.localizeString()
 
-        
+        tableView.showsVerticalScrollIndicator = false
+
         let camera = GMSCameraPosition.camera(withLatitude: 34.0151, longitude: 71.5249, zoom: 6.0)
         mapView.camera = camera
+        
+        type = .company
+        viewControllerTitle = LocalizationKeys.editProfile.rawValue.localizeString()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
     
     @IBAction func takePhotoBtn(_ sender: Any) {
@@ -50,10 +54,6 @@ class CompanyProfileViewController: UIViewController {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
         
-    }
-    
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
     }
 
     override func viewWillLayoutSubviews() {

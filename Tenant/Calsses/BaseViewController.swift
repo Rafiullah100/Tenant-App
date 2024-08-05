@@ -9,6 +9,7 @@ import UIKit
 enum ViewControllerType {
     case otpBack
     case tenant
+    case company
 }
 
 class BaseViewController: UIViewController {
@@ -19,7 +20,7 @@ class BaseViewController: UIViewController {
         didSet {
             titleLabel?.text = viewControllerTitle ?? ""
             switch type {
-            case .otpBack, .tenant:
+            case .otpBack, .tenant, .company:
                 addCenterLabel()
             default:
                 break
@@ -57,6 +58,8 @@ class BaseViewController: UIViewController {
             setupBackButtonWithTitle()
         case .tenant:
             setupHomeBarButtonItems()
+        case .company:
+            setupBackButtonForCompany()
         }
     }
     
@@ -92,9 +95,22 @@ class BaseViewController: UIViewController {
         addBackButtonWithTitle()
     }
     
+    func setupBackButtonForCompany() {
+        navigationItem.rightBarButtonItems = []
+        navigationItem.leftBarButtonItems = []
+        addBackButtonForCompany()
+    }
+    
     func addBackButtonWithTitle() {
         let leftButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backButtonAction))
         leftButton.image = Helper.shared.isRTL() ? UIImage(named: "back-ar") : UIImage(named: "back-en")
+        self.navigationController?.navigationItem.hidesBackButton = true
+        self.navigationItem.leftBarButtonItem = leftButton
+    }
+    
+    func addBackButtonForCompany() {
+        let leftButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backButtonAction))
+        leftButton.image = Helper.shared.isRTL() ? UIImage(named: "back-arrow-ar") : UIImage(named: "back-arrow-en")
         self.navigationController?.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = leftButton
     }

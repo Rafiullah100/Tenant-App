@@ -7,10 +7,9 @@
 
 import UIKit
 
-class CompanyCompletedViewController: UIViewController {
+class CompanyCompletedViewController: BaseViewController {
     @IBOutlet weak var photoLabel: UILabel!
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -30,7 +29,8 @@ class CompanyCompletedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
+        collectionView.showsVerticalScrollIndicator = false
+
 
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postedLabel.text = LocalizationKeys.postedOn.rawValue.localizeString()
@@ -42,10 +42,14 @@ class CompanyCompletedViewController: UIViewController {
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
+        type = .tenant
     }
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
+
 }
 
 extension CompanyCompletedViewController: UICollectionViewDelegate, UICollectionViewDataSource{

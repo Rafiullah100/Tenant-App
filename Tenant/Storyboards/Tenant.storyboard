@@ -837,6 +837,9 @@
                                                                     <constraint firstItem="llA-5V-sJ2" firstAttribute="top" secondItem="ILR-4U-qdD" secondAttribute="top" id="S5g-kM-wcR"/>
                                                                     <constraint firstAttribute="bottom" secondItem="llA-5V-sJ2" secondAttribute="bottom" id="YCG-fL-zrt"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="addNormalShadow" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>
                                                     </stackView>
@@ -891,10 +894,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZF-09-Ad5">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ms2-3P-CT9">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hsl-tM-EJ1">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
@@ -1058,10 +1061,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-74-hFh">
-                                                <rect key="frame" x="0.0" y="216" width="393" height="602"/>
+                                                <rect key="frame" x="0.0" y="216" width="393" height="636"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8e2-vC-lZj">
-                                                        <rect key="frame" x="20" y="0.0" width="353" height="602"/>
+                                                        <rect key="frame" x="20" y="0.0" width="353" height="636"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="e11-XX-ijR">
@@ -1082,11 +1085,14 @@
                                                     <constraint firstItem="8e2-vC-lZj" firstAttribute="leading" secondItem="Bx7-74-hFh" secondAttribute="leading" constant="20" id="Yg0-Ys-QLh"/>
                                                     <constraint firstAttribute="trailing" secondItem="8e2-vC-lZj" secondAttribute="trailing" constant="20" id="sZV-3j-0v6"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="addNormalShadow" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nE-rz-fKS">
-                                        <rect key="frame" x="318" y="748" width="50" height="50"/>
+                                        <rect key="frame" x="318" y="782" width="50" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add" translatesAutoresizingMaskIntoConstraints="NO" id="OCn-oc-mbt">
                                                 <rect key="frame" x="12.666666666666686" y="12.666666666666629" width="25" height="25"/>
@@ -1135,7 +1141,7 @@
                         <viewLayoutGuide key="safeArea" id="yyq-wD-ZAb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bZF-09-Ad5" firstAttribute="bottom" secondItem="yyq-wD-ZAb" secondAttribute="bottom" id="0qS-9b-qkv"/>
+                            <constraint firstItem="bZF-09-Ad5" firstAttribute="bottom" secondItem="F7G-5k-4wB" secondAttribute="bottom" id="0qS-9b-qkv"/>
                             <constraint firstItem="bZF-09-Ad5" firstAttribute="top" secondItem="F7G-5k-4wB" secondAttribute="top" id="L9W-KY-83X"/>
                             <constraint firstItem="bZF-09-Ad5" firstAttribute="leading" secondItem="yyq-wD-ZAb" secondAttribute="leading" id="OBV-n1-RuU"/>
                             <constraint firstItem="bZF-09-Ad5" firstAttribute="trailing" secondItem="yyq-wD-ZAb" secondAttribute="trailing" id="OaP-Z5-9fX"/>

@@ -7,34 +7,36 @@
 
 import UIKit
 
-class PropertyDetailViewController: UIViewController {
+class PropertyDetailViewController: BaseViewController {
     @IBOutlet weak var maintainLabel: UILabel!
     @IBOutlet weak var flatManagmentButton: UIButton!
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var companyButton: UIButton!
     @IBOutlet weak var tenantMangementButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var flatLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
         flatManagmentButton.setTitle(LocalizationKeys.flatManagement.rawValue.localizeString(), for: .normal)
         tenantMangementButton.setTitle(LocalizationKeys.tenantManagement.rawValue.localizeString(), for: .normal)
         companyButton.setTitle(LocalizationKeys.maintainanceCompanyManagement.rawValue.localizeString(), for: .normal)
         typeLabel.text = LocalizationKeys.type.rawValue.localizeString()
         flatLabel.text = LocalizationKeys.totalFlats.rawValue.localizeString()
         maintainLabel.text = LocalizationKeys.maintainedBy.rawValue.localizeString()
-        titleLabel.text = LocalizationKeys.managements.rawValue.localizeString()
+        titlLabel.text = LocalizationKeys.managements.rawValue.localizeString()
         
         flatLabel.text = LocalizationKeys.flats.rawValue.localizeString() + "   25"
         typeLabel.text = LocalizationKeys.properties.rawValue.localizeString() + "   Building"
+        
+        type = .company
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
+    
     /*
     // MARK: - Navigation
 

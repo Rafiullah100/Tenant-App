@@ -8,10 +8,9 @@
 import UIKit
 
 
-class WorkerOngoingDetailViewController: UIViewController  {
+class WorkerOngoingDetailViewController: BaseViewController  {
     @IBOutlet weak var photoLabel: UILabel!
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -31,7 +30,8 @@ class WorkerOngoingDetailViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
+        collectionView.showsVerticalScrollIndicator = false
+
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postedLabel.text = LocalizationKeys.postedOn.rawValue.localizeString()
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
@@ -42,12 +42,15 @@ class WorkerOngoingDetailViewController: UIViewController  {
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
+        type = .tenant
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     var selectedImages = [UIImage]()
-
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
     
 //    private func hideGalleryView(){
 //        self.galleryView.isHidden = selectedImages.count == 0 ? true : false

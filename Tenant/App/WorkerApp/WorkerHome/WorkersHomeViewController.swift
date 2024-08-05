@@ -17,7 +17,7 @@ struct workDetails{
 }
 
 
-class WorkersHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var workerHomeTableView: UITableView!{
         didSet{
             workerHomeTableView.delegate = self
@@ -27,33 +27,36 @@ class WorkersHomeViewController: UIViewController, UITableViewDelegate, UITableV
     }
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var completedButton: UIButton!
-    var isNew = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        workerHomeTableView.showsVerticalScrollIndicator = false
+
         newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
         completedButton.setTitle(LocalizationKeys.completed.rawValue.localizeString(), for: .normal)
     }
     
-    @IBAction func newBtnAction(_ sender: Any) {
-        isNew = true
-        setupButton()
-    }
-    @IBAction func completeBtnAction(_ sender: Any) {
-        isNew = false
-        setupButton()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
     
-    private func setupButton(){
+    @IBAction func newBtnAction(_ sender: Any) {
+        setupButton(complaintType: .new)
+    }
+    @IBAction func completeBtnAction(_ sender: Any) {
+        setupButton(complaintType: .completed)
+    }
+    
+    private func setupButton(complaintType: WorkerComplaintType = .new){
         workerHomeTableView.reloadData()
-        if isNew {
+        newButton.backgroundColor = CustomColor.grayColor.color
+        completedButton.backgroundColor = CustomColor.grayColor.color
+        switch complaintType {
+        case .new:
             newButton.backgroundColor = CustomColor.appColor.color
-            completedButton.backgroundColor = CustomColor.grayColor.color
-        }
-        else{
+        case .completed:
             completedButton.backgroundColor = CustomColor.appColor.color
-            newButton.backgroundColor = CustomColor.grayColor.color
         }
     }
     
@@ -63,12 +66,7 @@ class WorkersHomeViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WorkerTableViewCell.cellReuseIdentifier(), for: indexPath) as! WorkerTableViewCell
-        if isNew{
-            cell.colorView.backgroundColor = CustomColor.blueColor.color
-        }
-        else{
-            cell.colorView.backgroundColor = CustomColor.greenColor.color
-        }
+        cell.colorView.backgroundColor = CustomColor.blueColor.color
         return cell
     }
 
@@ -77,11 +75,6 @@ class WorkersHomeViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isNew{
-            Switcher.gotoWorkerOngoingDetailScreen(delegate: self)
-        }
-        else{
-            Switcher.gotoWorkerDetailScreen(delegate: self)
-        }
+        Switcher.gotoWorkerOngoingDetailScreen(delegate: self)
     }
 }

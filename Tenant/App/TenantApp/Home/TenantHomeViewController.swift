@@ -30,6 +30,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         buildingLabel.text = "\(LocalizationKeys.buildingNo.rawValue.localizeString()):   12ADF"
         flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString()):   14"
         historyLabel.text = LocalizationKeys.history.rawValue.localizeString()
+        historyTableView.showsVerticalScrollIndicator = false
     }
     
     @IBAction func addBtnAction(_ sender: Any) {

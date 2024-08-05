@@ -7,13 +7,13 @@
 
 import UIKit
 
-class PropertyViewController: UIViewController {
+class PropertyViewController: BaseViewController {
 
     @IBOutlet weak var tenantLabel: UILabel!
     @IBOutlet weak var propertyLabel: UILabel!
     @IBOutlet weak var flatLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -25,13 +25,14 @@ class PropertyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.isHidden = true
+        tableView.showsVerticalScrollIndicator = false
 
         searchView.clipsToBounds = true
         flatLabel.text = LocalizationKeys.flats.rawValue.localizeString() + "   25"
         tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
         propertyLabel.text = LocalizationKeys.properties.rawValue.localizeString() + "   Building"
-        titleLabel.text = LocalizationKeys.myProperties.rawValue.localizeString()
+        titlLabel.text = LocalizationKeys.myProperties.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
     }

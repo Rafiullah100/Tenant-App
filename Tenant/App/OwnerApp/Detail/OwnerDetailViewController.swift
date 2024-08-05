@@ -7,10 +7,9 @@
 
 import UIKit
 
-class OwnerDetailViewController: UIViewController {
+class OwnerDetailViewController: BaseViewController {
     @IBOutlet weak var photoLabel: UILabel!
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -38,9 +37,9 @@ class OwnerDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        companyCollectionView.showsVerticalScrollIndicator = false
+        tenantCollectionView.showsVerticalScrollIndicator = false
 
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postedLabel.text = LocalizationKeys.postedOn.rawValue.localizeString()
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
@@ -51,11 +50,15 @@ class OwnerDetailViewController: UIViewController {
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
+        
+        type = .tenant
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
+
 }
 
 extension OwnerDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{

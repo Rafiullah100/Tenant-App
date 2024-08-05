@@ -7,11 +7,10 @@
 
 import UIKit
 
-class FlatManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FlatManagementViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     //
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var FlatTableView: UITableView!{
         didSet{
@@ -23,15 +22,19 @@ class FlatManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FlatTableView.showsVerticalScrollIndicator = false
+
         searchView.clipsToBounds = true
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
-        titleLabel.text = LocalizationKeys.flatManagement.rawValue.localizeString()
+        titlLabel.text = LocalizationKeys.flatManagement.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchFlatNumber.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        
+        type = .company
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     @IBAction func addBtnAction(_ sender: Any) {

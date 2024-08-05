@@ -7,12 +7,11 @@
 
 import UIKit
 
-class CompanyManagmentViewController: UIViewController {
+class CompanyManagmentViewController: BaseViewController {
 
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -24,15 +23,18 @@ class CompanyManagmentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.showsVerticalScrollIndicator = false
+
         searchView.clipsToBounds = true
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
-        titleLabel.text = LocalizationKeys.maintenanceCompanyManagement.rawValue.localizeString()
+        titlLabel.text = LocalizationKeys.maintenanceCompanyManagement.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchMaintenanceCompany.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        type = .company
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
 }
 

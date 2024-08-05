@@ -7,21 +7,22 @@
 
 import UIKit
 
-class RemoveTenanatViewController: UIViewController {
+class RemoveTenanatViewController: BaseViewController {
 
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var contactLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
         deleteButton.setTitle(LocalizationKeys.deleteTenant.rawValue.localizeString(), for: .normal)
         contactLabel.text = LocalizationKeys.contact.rawValue.localizeString()
-
+        type = .company
+        viewControllerTitle = "Flat 1001"
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
+    
 
 }

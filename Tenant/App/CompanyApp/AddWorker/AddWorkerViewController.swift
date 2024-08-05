@@ -7,8 +7,9 @@
 
 import UIKit
 
-class AddWorkerViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class AddWorkerViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var tradeView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var tradeLabel: UILabel!
@@ -18,8 +19,7 @@ class AddWorkerViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
@@ -29,11 +29,14 @@ class AddWorkerViewController: UIViewController, UICollectionViewDelegate, UICol
         }
     }
     private var selectedIndexes: Set<IndexPath> = []
+    var pickerView = UIPickerView()
+
     override func viewDidLoad() {
             super.viewDidLoad()
+        collectionView.showsVerticalScrollIndicator = false
+
         reloadData()
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
-        titleLabel.text = LocalizationKeys.addNewWorker.rawValue.localizeString()
+        titlLabel.text = LocalizationKeys.addNewWorker.rawValue.localizeString()
         nameLabel.text = LocalizationKeys.workerName.rawValue.localizeString()
         numberLabel.text = LocalizationKeys.contactNumber.rawValue.localizeString()
         categoryLabel.text = LocalizationKeys.selectCategory.rawValue.localizeString()
@@ -44,11 +47,18 @@ class AddWorkerViewController: UIViewController, UICollectionViewDelegate, UICol
         nameTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         numberTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         categoryTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        categoryTextField.inputView = pickerView
+        type = .company
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
+   
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         updateCollectionViewHeight()
@@ -56,6 +66,7 @@ class AddWorkerViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func updateCollectionViewHeight() {
         collectionViewHeight.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
+        tradeView.frame = CGRect(origin: CGPoint(x: collectionView.frame.origin.x, y: collectionView.frame.origin.y), size: CGSize(width: collectionView.frame.size.width, height: collectionViewHeight.constant))
     }
     
     func reloadData() {
@@ -86,6 +97,20 @@ class AddWorkerViewController: UIViewController, UICollectionViewDelegate, UICol
 extension AddWorkerViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width: 105, height: 37)
+    }
+}
+
+extension AddWorkerViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 5
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "worker name"
     }
 }
 

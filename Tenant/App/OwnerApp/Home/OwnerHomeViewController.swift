@@ -8,7 +8,7 @@
 import UIKit
 
 
-class OwnerHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var rejectedButton: UIButton!
@@ -25,51 +25,55 @@ class OwnerHomeViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     private var isDone = false
-    var isNew = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        tableView.showsVerticalScrollIndicator = false
+
         searchView.clipsToBounds = true
         newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
         ongoingButton.setTitle(LocalizationKeys.ongoing.rawValue.localizeString(), for: .normal)
         searchTextField.placeholder = LocalizationKeys.search.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        
+        setupButton(complaintType: .new)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     @IBAction func doneBtnAction(_ sender: Any) {
         isDone.toggle()
-        if isDone {
-            doneButton.setImage(UIImage(named: "tick-green"), for: .normal)
-        }else{
-            doneButton.setImage(UIImage(named: "tick-gray"), for: .normal)
-        }
+        doneButton.setImage(UIImage(named: isDone ? "tick-green" : "tick-gray"), for: .normal)
     }
     
     @IBAction func rejectedButtonAction(_ sender: Any) {
-        isNew = false
-        setupButton()
+        setupButton(complaintType: .rejected)
     }
     
     @IBAction func ongoingBtnAction(_ sender: Any) {
-        isNew = false
-        setupButton()
+        setupButton(complaintType: .ongoing)
     }
     
     @IBAction func newBtnAction(_ sender: Any) {
-        isNew = true
-        setupButton()
+        setupButton(complaintType: .new)
     }
     
-    private func setupButton(){
+    private func setupButton(complaintType: OwnerComplaintType = .new){
         tableView.reloadData()
-        if isNew {
+        newButton.backgroundColor = CustomColor.grayColor.color
+        ongoingButton.backgroundColor = CustomColor.grayColor.color
+        rejectedButton.backgroundColor = CustomColor.grayColor.color
+
+        switch complaintType {
+        case .new:
             newButton.backgroundColor = CustomColor.appColor.color
-            ongoingButton.backgroundColor = CustomColor.grayColor.color
-        }
-        else{
+        case .ongoing:
             ongoingButton.backgroundColor = CustomColor.appColor.color
-            newButton.backgroundColor = CustomColor.grayColor.color
+        case .rejected:
+            rejectedButton.backgroundColor = CustomColor.appColor.color
         }
     }
     

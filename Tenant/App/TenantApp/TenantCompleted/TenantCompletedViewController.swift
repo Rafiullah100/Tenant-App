@@ -27,7 +27,8 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         photoLabel.text = LocalizationKeys.photosUploaded.rawValue.localizeString()
         confirmButton.setTitle(LocalizationKeys.confirm.rawValue.localizeString(), for: .normal)
-        
+        collectionViewDone.showsVerticalScrollIndicator = false
+
         type = .tenant
     }
     

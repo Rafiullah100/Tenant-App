@@ -8,7 +8,7 @@
 import UIKit
 
 
-class SelfPropertyDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -17,15 +17,19 @@ class SelfPropertyDetailViewController: UIViewController, UITableViewDelegate, U
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        
+        tableView.showsVerticalScrollIndicator = false
+        type = .company
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     
-    //TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }

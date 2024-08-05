@@ -32,7 +32,8 @@ class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, 
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
         
         doneButton.setTitle(LocalizationKeys.done.rawValue.localizeString(), for: .normal)
-        
+        collectionView.showsVerticalScrollIndicator = false
+
         type = .tenant
     }
     

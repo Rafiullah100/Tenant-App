@@ -33,3 +33,29 @@ enum UserType {
     case worker
 }
 
+enum PropertyType {
+    case building
+    case villa
+
+}
+
+enum OwnerComplaintType {
+    case new
+    case ongoing
+    case rejected
+}
+
+enum SelfComplaintType {
+    case new
+    case history
+}
+
+enum CompanyComplaintType {
+    case new
+    case ongoing
+}
+
+enum WorkerComplaintType {
+    case new
+    case completed
+}

@@ -51,6 +51,8 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
         
         type = .tenant
         viewControllerTitle = LocalizationKeys.newComplaint.rawValue.localizeString()
+        
+        collectionView.showsVerticalScrollIndicator = false
     }
     
     override func viewWillAppear(_ animated: Bool) {

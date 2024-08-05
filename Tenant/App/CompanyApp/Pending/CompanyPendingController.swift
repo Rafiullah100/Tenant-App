@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CompanyPendingController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
+class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
 
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
@@ -16,7 +16,6 @@ class CompanyPendingController: UIViewController, UICollectionViewDelegate, UICo
             collectionView.dataSource = self
         }
     }
-    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var complaintIdLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -29,16 +28,23 @@ class CompanyPendingController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var assignButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        backBtn.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
         complaintIdLabel.text = LocalizationKeys.complaintID.rawValue.localizeString()
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         photoLabel.text = LocalizationKeys.photos.rawValue.localizeString()
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
         tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
+        collectionView.showsVerticalScrollIndicator = false
 
         assignButton.setTitle(LocalizationKeys.assignToWorker.rawValue.localizeString(), for: .normal)
         rejectButton.setTitle(LocalizationKeys.reject.rawValue.localizeString(), for: .normal)
+        
+        type = .tenant
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -7,11 +7,10 @@
 
 import UIKit
 
-class TenantsManagementViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class TenantsManagementViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var cardCollectionView: UICollectionView!{
         didSet{
@@ -23,20 +22,23 @@ class TenantsManagementViewController: UIViewController, UICollectionViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
-        titleLabel.text = LocalizationKeys.tenantManagement.rawValue.localizeString()
+        cardCollectionView.showsVerticalScrollIndicator = false
+
+        titlLabel.text = LocalizationKeys.tenantManagement.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchTenants.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        type = .company
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchView.layer.masksToBounds = true
         searchView.clipsToBounds = true
-    }
-    
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
