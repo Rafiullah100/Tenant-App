@@ -25,6 +25,7 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
     }
     
     private var isDone = false
+    private var complaintType: OwnerComplaintType = .new
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,7 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
     @IBAction func doneBtnAction(_ sender: Any) {
         isDone.toggle()
         doneButton.setImage(UIImage(named: isDone ? "tick-green" : "tick-gray"), for: .normal)
+        setupButton(complaintType: .completed)
     }
     
     @IBAction func rejectedButtonAction(_ sender: Any) {
@@ -70,10 +72,15 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         switch complaintType {
         case .new:
             newButton.backgroundColor = CustomColor.appColor.color
+            self.complaintType = .new
         case .ongoing:
             ongoingButton.backgroundColor = CustomColor.appColor.color
+            self.complaintType = .ongoing
         case .rejected:
             rejectedButton.backgroundColor = CustomColor.appColor.color
+            self.complaintType = .rejected
+        case .completed:
+            self.complaintType = .completed
         }
     }
     
@@ -102,6 +109,6 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {            Switcher.gotoOwnerDetail(delegate: self)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {            Switcher.gotoOwnerDetail(delegate: self, complaintType: complaintType)
     }
 }

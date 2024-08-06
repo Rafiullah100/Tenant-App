@@ -157,6 +157,7 @@
 "addWorker" = "أضف العامل";
 
 
-"recent" = "حاضِر";
+"current" = "حاضِر";
+"recent" = "مؤخرًا";
 
 "tenantWithoutColon" = "المستأجر";

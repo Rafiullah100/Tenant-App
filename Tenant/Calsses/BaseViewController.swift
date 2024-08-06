@@ -180,7 +180,7 @@ class BaseViewController: UIViewController {
         let backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backAction))
         let profileButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(menuButtonAction))
         profileButton.image = UIImage(named: "User")
-        backButton.image = UIImage(named: "back-arrow-en")
+        backButton.image = UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en")
         self.navigationController?.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.rightBarButtonItem = profileButton

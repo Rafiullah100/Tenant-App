@@ -1141,7 +1141,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m37-cK-qCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-282" y="575"/>
+            <point key="canvasLocation" x="-283.20610687022901" y="574.64788732394368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="h74-Et-aee">
@@ -3038,7 +3038,7 @@ Cg
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQN-9P-lh2">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="63" height="35"/>
                                                                                                 <color key="backgroundColor" red="0.23137254900000001" green="0.44705882349999998" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                                 <state key="normal" title="New">
                                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 </state>
@@ -3067,7 +3067,7 @@ Cg
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaR-ad-U1m">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="35"/>
                                                                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                                 <state key="normal" title="Ongoing">
                                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 </state>
@@ -3096,7 +3096,7 @@ Cg
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f71-vV-E6d">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="85.333333333333329" height="35"/>
                                                                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                                 <state key="normal" title="Rejected">
                                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 </state>
@@ -3975,7 +3975,9 @@ Cg
                     <navigationItem key="navigationItem" id="aJK-jc-icM"/>
                     <connections>
                         <outlet property="acceptedLabel" destination="shN-ug-DMv" id="exF-tS-JBF"/>
+                        <outlet property="buttonsView" destination="T93-ZV-fEt" id="92Z-oS-wH2"/>
                         <outlet property="companyCollectionView" destination="5xX-Cw-nR1" id="Cmi-vQ-nfL"/>
+                        <outlet property="companyPhotoView" destination="IA3-Cs-mWr" id="jzy-Py-aWm"/>
                         <outlet property="dateLabel" destination="GGq-m5-FPH" id="Vp9-Rx-BvE"/>
                         <outlet property="descriptionLabel" destination="ras-Ld-zfG" id="MEz-ON-h0c"/>
                         <outlet property="personLabel" destination="jCy-Xz-AGM" id="VOp-Rg-1BB"/>
@@ -3986,6 +3988,7 @@ Cg
                         <outlet property="statusLabel" destination="7ZN-PV-0FJ" id="0MZ-kQ-4Z0"/>
                         <outlet property="tenantCollectionView" destination="mem-e2-vM0" id="YZu-ea-jOc"/>
                         <outlet property="tenantLabel" destination="wbO-ac-lVB" id="siV-Mg-xgK"/>
+                        <outlet property="tenantPhotoView" destination="QIa-Gd-7UY" id="L3O-Yu-9zQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMQ-aN-KXX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4264,12 +4267,23 @@ Cg
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdx-OI-EO0">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="dismissBtn:" destination="bQP-Xb-Qhg" eventType="touchUpInside" id="Dto-cB-PrU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rje-n5-GBE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Jdx-OI-EO0" firstAttribute="leading" secondItem="aqA-4T-QeW" secondAttribute="leading" id="Jg1-qN-vCy"/>
                             <constraint firstAttribute="bottom" secondItem="XWw-Gd-GxU" secondAttribute="bottom" id="N0T-mA-u3e"/>
                             <constraint firstItem="XWw-Gd-GxU" firstAttribute="trailing" secondItem="rje-n5-GBE" secondAttribute="trailing" id="Ql3-la-Pft"/>
+                            <constraint firstItem="Jdx-OI-EO0" firstAttribute="top" secondItem="aqA-4T-QeW" secondAttribute="top" id="R22-ye-dUJ"/>
+                            <constraint firstItem="rje-n5-GBE" firstAttribute="bottom" secondItem="Jdx-OI-EO0" secondAttribute="bottom" id="d3y-ZN-c6T"/>
+                            <constraint firstAttribute="trailing" secondItem="Jdx-OI-EO0" secondAttribute="trailing" id="ohi-6O-nLI"/>
                             <constraint firstItem="XWw-Gd-GxU" firstAttribute="leading" secondItem="rje-n5-GBE" secondAttribute="leading" id="wFk-mH-jen"/>
                         </constraints>
                     </view>
@@ -4474,7 +4488,7 @@ Cg
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7s-dJ-JLF">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="63" height="35"/>
                                                                                         <color key="backgroundColor" red="0.23137254900000001" green="0.44705882349999998" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                         <state key="normal" title="New">
                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
@@ -4499,12 +4513,12 @@ Cg
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFZ-1V-U3j">
-                                                                                <rect key="frame" x="69.666666666666686" y="0.0" width="85.333333333333314" height="35"/>
+                                                                                <rect key="frame" x="69.333333333333314" y="0.0" width="85.666666666666686" height="35"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSn-td-ow7">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="85.333333333333329" height="35"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="35"/>
                                                                                         <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                         <state key="normal" title="History">
                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
@@ -4543,15 +4557,15 @@ Cg
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmj-r1-6fb">
-                                                                <rect key="frame" x="155" y="0.0" width="98" height="35"/>
+                                                                <rect key="frame" x="155" y="0.0" width="88" height="35"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81H-E5-mt0">
-                                                                <rect key="frame" x="253" y="0.0" width="100" height="35"/>
+                                                                <rect key="frame" x="243" y="0.0" width="110" height="35"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILd-Qt-Mzh">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="110" height="35"/>
                                                                         <color key="backgroundColor" red="0.32549019607843138" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                         <state key="normal" title="Select Home">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -4569,7 +4583,7 @@ Cg
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="ILd-Qt-Mzh" secondAttribute="bottom" id="8bj-Lp-fY6"/>
-                                                                    <constraint firstAttribute="width" constant="100" id="A3K-5B-1sU"/>
+                                                                    <constraint firstAttribute="width" constant="110" id="A3K-5B-1sU"/>
                                                                     <constraint firstAttribute="trailing" secondItem="ILd-Qt-Mzh" secondAttribute="trailing" id="AY7-HF-lJi"/>
                                                                     <constraint firstItem="ILd-Qt-Mzh" firstAttribute="top" secondItem="81H-E5-mt0" secondAttribute="top" id="LT7-Qh-EWv"/>
                                                                     <constraint firstItem="ILd-Qt-Mzh" firstAttribute="leading" secondItem="81H-E5-mt0" secondAttribute="leading" id="q2a-cB-hGj"/>

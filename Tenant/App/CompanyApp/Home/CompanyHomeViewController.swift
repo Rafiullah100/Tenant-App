@@ -28,7 +28,8 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     
     var isNew = true
     private var isDone = false
-    
+    private var complaintType: CompanyComplaintType = .new
+
     override func viewDidLoad() {
         super.viewDidLoad()
         searchView.clipsToBounds = true
@@ -71,6 +72,8 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
             newButton.backgroundColor = CustomColor.appColor.color
         case .ongoing:
             ongoingButton.backgroundColor = CustomColor.appColor.color
+        case .completed:
+            print("")
         }
     }
     

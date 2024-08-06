@@ -135,8 +135,9 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoOwnerDetail(delegate: UIViewController){
+    static func gotoOwnerDetail(delegate: UIViewController, complaintType: OwnerComplaintType){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "OwnerDetailViewController") as! OwnerDetailViewController
+        vc.ownerComplaint = complaintType
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
@@ -175,11 +176,17 @@ class Switcher {
     
     static func gotoAddFlat(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddFlatViewController") as! AddFlatViewController
-        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-
-        let navController = UINavigationController(rootViewController: vc)
-        navController.modalPresentationStyle = .overCurrentContext
-        delegate.present(navController, animated: true)
+        delegate.present(vc, animated: true)
+    }
+    
+    static func gotoAddBranch(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddBranchViewController") as! AddBranchViewController
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        delegate.present(vc, animated: true)
     }
 }

@@ -93,6 +93,7 @@
 		5279F8CD2C297F73003B28A9 /* Outfit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5279F8C92C297F72003B28A9 /* Outfit-SemiBold.ttf */; };
 		527FB0C42C36BAE000504E3D /* OwnerHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FB0C22C36BAE000504E3D /* OwnerHomeTableViewCell.swift */; };
 		527FB0C52C36BAE000504E3D /* OwnerHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527FB0C32C36BAE000504E3D /* OwnerHomeTableViewCell.xib */; };
+		528345232C623F5B00800160 /* AddBranchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528345222C623F5A00800160 /* AddBranchViewController.swift */; };
 		52995C512C37C24600AFDA47 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C502C37C24500AFDA47 /* Auth.storyboard */; };
 		52995C532C37C2AF00AFDA47 /* Tenant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C522C37C2AF00AFDA47 /* Tenant.storyboard */; };
 		52995C552C37C2E600AFDA47 /* Company.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C542C37C2E600AFDA47 /* Company.storyboard */; };
@@ -229,6 +230,7 @@
 		5279F8C92C297F72003B28A9 /* Outfit-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Outfit-SemiBold.ttf"; sourceTree = "<group>"; };
 		527FB0C22C36BAE000504E3D /* OwnerHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerHomeTableViewCell.swift; sourceTree = "<group>"; };
 		527FB0C32C36BAE000504E3D /* OwnerHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnerHomeTableViewCell.xib; sourceTree = "<group>"; };
+		528345222C623F5A00800160 /* AddBranchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBranchViewController.swift; sourceTree = "<group>"; };
 		52995C502C37C24500AFDA47 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		52995C522C37C2AF00AFDA47 /* Tenant.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tenant.storyboard; sourceTree = "<group>"; };
 		52995C542C37C2E600AFDA47 /* Company.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Company.storyboard; sourceTree = "<group>"; };
@@ -670,6 +672,14 @@
 			path = Outfit;
 			sourceTree = "<group>";
 		};
+		528345212C623EEF00800160 /* AddBranch */ = {
+			isa = PBXGroup;
+			children = (
+				528345222C623F5A00800160 /* AddBranchViewController.swift */,
+			);
+			path = AddBranch;
+			sourceTree = "<group>";
+		};
 		52995C562C37C4F300AFDA47 /* TenantApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,6 +703,7 @@
 				524D70CB2C4A895D00C7490C /* Language */,
 				524D70CC2C4A898100C7490C /* Assign */,
 				524D70CD2C4A8A7800C7490C /* CompanyWorker */,
+				528345212C623EEF00800160 /* AddBranch */,
 				522F76152C4E49F10035B8A4 /* AddWorker */,
 			);
 			path = CompanyApp;
@@ -1092,6 +1103,7 @@
 				52995C602C37F5EB00AFDA47 /* OwnerTabbarController.swift in Sources */,
 				52DBCCFB2C16C51A00A7B612 /* Route.swift in Sources */,
 				525F5C1C2C3FC34400FE4B89 /* ContactPersonViewController.swift in Sources */,
+				528345232C623F5B00800160 /* AddBranchViewController.swift in Sources */,
 				52DBCD0E2C16C52C00A7B612 /* Color.swift in Sources */,
 				522F761A2C4E4A2B0035B8A4 /* AddWorkerViewController.swift in Sources */,
 				525F5C292C3FDD7C00FE4B89 /* CompanyWorkerCategoryCollectionViewCell.swift in Sources */,

@@ -9,6 +9,8 @@ import UIKit
 
 class ContactPersonTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var contactLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

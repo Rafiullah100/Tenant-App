@@ -50,16 +50,16 @@
                                         <rect key="frame" x="47" y="0.0" width="217" height="44"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="GXY-lv-2Mp">
-                                                <rect key="frame" x="0.0" y="5.3333333333333321" width="217" height="33.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="6" width="217" height="32.333333333333329"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZ6-uD-pIX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="217" height="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="217" height="15.333333333333334"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+233 2471 72 944" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3j-02-9sc">
-                                                        <rect key="frame" x="0.0" y="19.000000000000004" width="217" height="14.666666666666668"/>
+                                                        <rect key="frame" x="0.0" y="18.333333333333336" width="217" height="14"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -123,6 +123,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="contactLabel" destination="H3j-02-9sc" id="FdV-Bu-Hyd"/>
+                <outlet property="nameLabel" destination="LZ6-uD-pIX" id="qvj-df-KTP"/>
+            </connections>
             <point key="canvasLocation" x="-111.45038167938931" y="19.366197183098592"/>
         </tableViewCell>
     </objects>

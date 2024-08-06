@@ -10,6 +10,9 @@ import UIKit
 class OwnerDetailViewController: BaseViewController {
     @IBOutlet weak var photoLabel: UILabel!
     
+    @IBOutlet weak var buttonsView: UIView!
+    @IBOutlet weak var companyPhotoView: UIView!
+    @IBOutlet weak var tenantPhotoView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -26,6 +29,7 @@ class OwnerDetailViewController: BaseViewController {
             companyCollectionView.dataSource = self
         }
     }
+    var ownerComplaint: OwnerComplaintType = .new
     
     
     @IBOutlet weak var tenantCollectionView: UICollectionView!{
@@ -50,6 +54,21 @@ class OwnerDetailViewController: BaseViewController {
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
+        
+        if ownerComplaint == .new {
+            companyPhotoView.isHidden = true
+        }
+        else if ownerComplaint == .rejected{
+            companyPhotoView.isHidden = true
+            buttonsView.isHidden = true
+        }
+        else if ownerComplaint == .ongoing{
+            companyPhotoView.isHidden = true
+            buttonsView.isHidden = true
+        }
+        else if ownerComplaint == .completed{
+            buttonsView.isHidden = true
+        }
         
         type = .tenant
     }

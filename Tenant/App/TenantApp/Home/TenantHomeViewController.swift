@@ -22,14 +22,13 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     @IBOutlet weak var historyLabel: UILabel!
     @IBOutlet weak var historyButton: UIButton!
     
-    var isRecent = false
-    
+    var isRecent = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         buildingLabel.text = "\(LocalizationKeys.buildingNo.rawValue.localizeString()):   12ADF"
         flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString()):   14"
-        historyLabel.text = LocalizationKeys.history.rawValue.localizeString()
+        historyLabel.text = LocalizationKeys.recent.rawValue.localizeString()
         historyTableView.showsVerticalScrollIndicator = false
     }
     
@@ -49,7 +48,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
             historyLabel.text = LocalizationKeys.recent.rawValue.localizeString()
         }
         else{
-            historyButton.setImage(UIImage(named: "history"), for: .normal)
+            historyButton.setImage(UIImage(named: "refresh"), for: .normal)
             historyLabel.text = LocalizationKeys.history.rawValue.localizeString()
         }
     }
@@ -77,11 +76,11 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row % 2 == 0{
-            Switcher.gotoTenantCompletedDetailScreen(delegate: self)
+        if isRecent{
+            Switcher.gotoTenantDetailScreen(delegate: self)
         }
         else{
-            Switcher.gotoTenantDetailScreen(delegate: self)
+            Switcher.gotoTenantCompletedDetailScreen(delegate: self)
         }
     }
 }

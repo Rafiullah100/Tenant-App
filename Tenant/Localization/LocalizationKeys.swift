@@ -140,5 +140,7 @@ enum LocalizationKeys: String {
     
     case recent
     case tenantWithoutColon
+    
+    case current
 }
 

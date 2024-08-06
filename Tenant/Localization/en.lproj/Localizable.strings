@@ -147,6 +147,6 @@
 "selectTrades" = "Select Category";
 "addWorker" = "Add Worker";
 
-"recent" = "Current";
-
+"current" = "Current";
+"recent" = "Recent";
 "tenantWithoutColon" = "Tenant";

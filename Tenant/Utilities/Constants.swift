@@ -43,6 +43,7 @@ enum OwnerComplaintType {
     case new
     case ongoing
     case rejected
+    case completed
 }
 
 enum SelfComplaintType {
@@ -53,6 +54,7 @@ enum SelfComplaintType {
 enum CompanyComplaintType {
     case new
     case ongoing
+    case completed
 }
 
 enum WorkerComplaintType {

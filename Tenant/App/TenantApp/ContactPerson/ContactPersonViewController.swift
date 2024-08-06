@@ -6,7 +6,12 @@
 //
 
 import UIKit
-
+struct ContactPerson {
+    let name: String?
+    let contact: String?
+    
+    
+}
 class ContactPersonViewController: UIViewController {
 
     @IBOutlet weak var contactLabel: UILabel!
@@ -18,6 +23,10 @@ class ContactPersonViewController: UIViewController {
             tableView.register(UINib(nibName: "ContactPersonTableViewCell", bundle: nil), forCellReuseIdentifier: ContactPersonTableViewCell.cellReuseIdentifier())
         }
     }
+    
+    let contacts = [ContactPerson(name: "Owner Contact", contact: "+233 2471 72 944"), ContactPerson(name: "Maintenance Company Contact", contact: "+233 5921 61 530")]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         contactLabel.text = LocalizationKeys.contactPerson.rawValue.localizeString()
@@ -32,11 +41,13 @@ class ContactPersonViewController: UIViewController {
 extension ContactPersonViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ContactPersonTableViewCell.cellReuseIdentifier(), for: indexPath) as! ContactPersonTableViewCell
+        cell.nameLabel.text = contacts[indexPath.row].name
+        cell.contactLabel.text = contacts[indexPath.row].contact
         return cell
     }
 

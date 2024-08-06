@@ -1,27 +1,24 @@
 //
-//  AddFlatViewController.swift
+//  AddBranchViewController.swift
 //  Tenant
 //
-//  Created by MacBook Pro on 8/1/24.
+//  Created by MacBook Pro on 8/6/24.
 //
 
 import UIKit
 
-class AddFlatViewController: UIViewController {
+class AddBranchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-  
-    }
-    
+
     @IBAction func dismissBtn(_ sender: Any) {
         self.dismiss(animated: true)
     }
-
     /*
     // MARK: - Navigation
 

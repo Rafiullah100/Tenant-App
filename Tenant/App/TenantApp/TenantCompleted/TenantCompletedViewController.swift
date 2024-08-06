@@ -13,6 +13,11 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     @IBOutlet weak var photoLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var complaintIdLabel: UILabel!
+    
+    @IBOutlet weak var personLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var scheduleLabel: UILabel!
+    
     @IBOutlet weak var collectionViewDone: UICollectionView!{
         didSet{
             collectionViewDone.register(StatusDoneCollectionViewCell.nib(), forCellWithReuseIdentifier: StatusDoneCollectionViewCell.identifier)
@@ -27,6 +32,10 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         photoLabel.text = LocalizationKeys.photosUploaded.rawValue.localizeString()
         confirmButton.setTitle(LocalizationKeys.confirm.rawValue.localizeString(), for: .normal)
+        scheduleLabel.text = LocalizationKeys.schedule.rawValue.localizeString()
+        dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
+        personLabel.text = LocalizationKeys.person.rawValue.localizeString()
+        
         collectionViewDone.showsVerticalScrollIndicator = false
 
         type = .tenant
