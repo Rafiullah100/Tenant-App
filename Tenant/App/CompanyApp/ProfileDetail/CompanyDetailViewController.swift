@@ -1,19 +1,19 @@
 //
-//  CompanyProfileViewController.swift
+//  CompanyDetailViewController.swift
 //  Tenant
 //
-//  Created by MacBook Pro on 7/5/24.
+//  Created by MacBook Pro on 8/7/24.
 //
 
 import UIKit
 import GoogleMaps
-class CompanyProfileViewController: BaseViewController {
+class CompanyDetailViewController: BaseViewController {
+
     @IBOutlet weak var titlLabel: UILabel!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mapLabel: UILabel!
-    @IBOutlet weak var buttonLabel: UILabel!
     @IBOutlet weak var branchLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
@@ -29,11 +29,10 @@ class CompanyProfileViewController: BaseViewController {
     @IBOutlet weak var mapView: GMSMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        titlLabel.text = LocalizationKeys.title.rawValue.localizeString()
-        numberLabel.text = LocalizationKeys.contactNumber.rawValue.localizeString()
-        branchLabel.text = LocalizationKeys.branches.rawValue.localizeString()
-        buttonLabel.text = LocalizationKeys.addBranches.rawValue.localizeString()
-        mapLabel.text = LocalizationKeys.googleMapLoc.rawValue.localizeString()
+//        titlLabel.text = LocalizationKeys.title.rawValue.localizeString()
+//        numberLabel.text = LocalizationKeys.contactNumber.rawValue.localizeString()
+//        branchLabel.text = LocalizationKeys.branches.rawValue.localizeString()
+//        mapLabel.text = LocalizationKeys.googleMapLoc.rawValue.localizeString()
 
         tableView.showsVerticalScrollIndicator = false
 
@@ -41,24 +40,14 @@ class CompanyProfileViewController: BaseViewController {
         mapView.camera = camera
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
         type = .company
-        viewControllerTitle = LocalizationKeys.editProfile.rawValue.localizeString()
+//        viewControllerTitle = LocalizationKeys.editProfile.rawValue.localizeString()
     }
     
-    @IBAction func addBranchBtn(_ sender: Any) {
-        Switcher.gotoAddBranch(delegate: self)
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
     }
-    
-    @IBAction func takePhotoBtn(_ sender: Any) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
-        present(imagePickerController, animated: true, completion: nil)
-        
-    }
+  
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -66,7 +55,7 @@ class CompanyProfileViewController: BaseViewController {
     }
 }
 
-extension CompanyProfileViewController: UITableViewDelegate, UITableViewDataSource{
+extension CompanyDetailViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -78,18 +67,5 @@ extension CompanyProfileViewController: UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 30
-    }
-}
-
-extension CompanyProfileViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as? UIImage {
-            self.imageView.image = image
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
     }
 }

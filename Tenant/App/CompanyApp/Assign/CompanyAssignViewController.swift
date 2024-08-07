@@ -9,6 +9,8 @@ import UIKit
 
 class CompanyAssignViewController: BaseViewController {
 
+    @IBOutlet weak var timeTextField: UITextField!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var assignButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var workerLabel: UILabel!
@@ -18,7 +20,7 @@ class CompanyAssignViewController: BaseViewController {
     @IBOutlet weak var tenantLabel: UILabel!
     @IBOutlet weak var propertyLabel: UILabel!
     
-    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var workerTextField: UITextField!
     @IBOutlet weak var skillTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
@@ -26,12 +28,11 @@ class CompanyAssignViewController: BaseViewController {
     var categoryPickerView = UIPickerView()
     var skillPickerView = UIPickerView()
     var workerPickerView = UIPickerView()
+    var slotPickerView = UIPickerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
-        dateTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         workerTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         skillTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         categoryTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
@@ -45,7 +46,7 @@ class CompanyAssignViewController: BaseViewController {
         dateLabel.text = LocalizationKeys.selectDate.rawValue.localizeString()
         assignButton.setTitle(LocalizationKeys.assignToWorker.rawValue.localizeString(), for: .normal)
         
-        dateTextField.placeholder = LocalizationKeys.chooseDate.rawValue.localizeString()
+        dateButton.setTitle(LocalizationKeys.chooseDate.rawValue.localizeString(), for: .normal)
         workerTextField.placeholder = LocalizationKeys.selectWorkers.rawValue.localizeString()
         skillTextField.placeholder = LocalizationKeys.selectSkills.rawValue.localizeString()
         categoryTextField.placeholder = LocalizationKeys.selectBranch.rawValue.localizeString()
@@ -61,6 +62,11 @@ class CompanyAssignViewController: BaseViewController {
         workerPickerView.delegate = self
         workerPickerView.dataSource = self
         workerTextField.inputView = workerPickerView
+        
+        slotPickerView.delegate = self
+        slotPickerView.dataSource = self
+        timeTextField.inputView = slotPickerView
+        
         type = .company
     }
     
@@ -68,7 +74,9 @@ class CompanyAssignViewController: BaseViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
     }
-    
+    @IBAction func dateBtnAction(_ sender: Any) {
+        Switcher.gotoDatePicker(delegate: self)
+    }
 }
 
 extension CompanyAssignViewController: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -87,8 +95,11 @@ extension CompanyAssignViewController: UIPickerViewDelegate, UIPickerViewDataSou
         else if pickerView == skillPickerView{
             return "skill name"
         }
-        else{
+        else if pickerView == workerPickerView{
             return "worker name"
+        }
+        else {
+            return "9am-12pm"
         }
     }
 }

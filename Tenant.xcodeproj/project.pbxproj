@@ -31,6 +31,10 @@
 		522FFBC92C4CEDEF0010A2EF /* BothPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522FFBC62C4CEDEF0010A2EF /* BothPropertyViewController.swift */; };
 		522FFBCA2C4CEDEF0010A2EF /* BothPropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522FFBC72C4CEDEF0010A2EF /* BothPropertyTableViewCell.xib */; };
 		522FFBCB2C4CEDEF0010A2EF /* BothPropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522FFBC82C4CEDEF0010A2EF /* BothPropertyTableViewCell.swift */; };
+		525AEAA42C6348360089FB50 /* CompanyPropertiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AEAA32C6348360089FB50 /* CompanyPropertiesViewController.swift */; };
+		525AEAA72C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AEAA62C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift */; };
+		525AEAAA2C63659F0089FB50 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AEAA92C63659F0089FB50 /* DateViewController.swift */; };
+		525AEAAD2C637C480089FB50 /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AEAAC2C637C480089FB50 /* CompanyDetailViewController.swift */; };
 		525B37762C3E6DB80087CB5C /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B37752C3E6DB80087CB5C /* LanguageViewController.swift */; };
 		525B37782C3E86300087CB5C /* Worker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525B37772C3E86300087CB5C /* Worker.storyboard */; };
 		525B377B2C3E92D30087CB5C /* WorkersHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B377A2C3E92D30087CB5C /* WorkersHomeViewController.swift */; };
@@ -165,6 +169,10 @@
 		522FFBC72C4CEDEF0010A2EF /* BothPropertyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BothPropertyTableViewCell.xib; sourceTree = "<group>"; };
 		522FFBC82C4CEDEF0010A2EF /* BothPropertyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BothPropertyTableViewCell.swift; sourceTree = "<group>"; };
 		52362EA92C2D46C1009D3DC8 /* IQKeyboardManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		525AEAA32C6348360089FB50 /* CompanyPropertiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPropertiesViewController.swift; sourceTree = "<group>"; };
+		525AEAA62C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPropertyDetailViewController.swift; sourceTree = "<group>"; };
+		525AEAA92C63659F0089FB50 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
+		525AEAAC2C637C480089FB50 /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
 		525B37752C3E6DB80087CB5C /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		525B37772C3E86300087CB5C /* Worker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Worker.storyboard; sourceTree = "<group>"; };
 		525B377A2C3E92D30087CB5C /* WorkersHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkersHomeViewController.swift; sourceTree = "<group>"; };
@@ -572,6 +580,38 @@
 			path = WorkerHome;
 			sourceTree = "<group>";
 		};
+		525AEAA22C63480B0089FB50 /* CompanyProperty */ = {
+			isa = PBXGroup;
+			children = (
+				525AEAA32C6348360089FB50 /* CompanyPropertiesViewController.swift */,
+			);
+			path = CompanyProperty;
+			sourceTree = "<group>";
+		};
+		525AEAA52C634C100089FB50 /* PropertyCompanyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				525AEAA62C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift */,
+			);
+			path = PropertyCompanyDetail;
+			sourceTree = "<group>";
+		};
+		525AEAA82C6363520089FB50 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				525AEAA92C63659F0089FB50 /* DateViewController.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		525AEAAB2C637C240089FB50 /* ProfileDetail */ = {
+			isa = PBXGroup;
+			children = (
+				525AEAAC2C637C480089FB50 /* CompanyDetailViewController.swift */,
+			);
+			path = ProfileDetail;
+			sourceTree = "<group>";
+		};
 		525B37792C3E86440087CB5C /* WorkerApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +735,7 @@
 		52995C592C37C73100AFDA47 /* CompanyApp */ = {
 			isa = PBXGroup;
 			children = (
+				525AEAAB2C637C240089FB50 /* ProfileDetail */,
 				524D70C72C4A880800C7490C /* Tabbar */,
 				524D70C62C4A87F400C7490C /* Home */,
 				524D70C82C4A881000C7490C /* Profile */,
@@ -705,6 +746,9 @@
 				524D70CD2C4A8A7800C7490C /* CompanyWorker */,
 				528345212C623EEF00800160 /* AddBranch */,
 				522F76152C4E49F10035B8A4 /* AddWorker */,
+				525AEAA22C63480B0089FB50 /* CompanyProperty */,
+				525AEAA82C6363520089FB50 /* DatePicker */,
+				525AEAA52C634C100089FB50 /* PropertyCompanyDetail */,
 			);
 			path = CompanyApp;
 			sourceTree = "<group>";
@@ -1073,6 +1117,7 @@
 			files = (
 				525F5C282C3FDD7C00FE4B89 /* CompanyWorkerCollectionViewCell.swift in Sources */,
 				52995C622C38058900AFDA47 /* CompanyProfileViewController.swift in Sources */,
+				525AEAA72C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift in Sources */,
 				52633D7B2C410A640029C954 /* PropertyTableViewCell.swift in Sources */,
 				525B37762C3E6DB80087CB5C /* LanguageViewController.swift in Sources */,
 				52DBCD0B2C16C52C00A7B612 /* IBDesignableExtensions.swift in Sources */,
@@ -1115,6 +1160,7 @@
 				529E17672C2E99C90063B204 /* SigninViewController.swift in Sources */,
 				522FFBB22C4CE1670010A2EF /* CompanyManagmentViewController.swift in Sources */,
 				522F76202C4E78370035B8A4 /* SelfPropertyDetailTableViewCell.swift in Sources */,
+				525AEAAD2C637C480089FB50 /* CompanyDetailViewController.swift in Sources */,
 				526A2D5A2C3D0B7000C716A8 /* CompanyOngoingTableViewCell.swift in Sources */,
 				52688B142C32C563001C55A8 /* StatusDoneCollectionViewCell.swift in Sources */,
 				527FB0C42C36BAE000504E3D /* OwnerHomeTableViewCell.swift in Sources */,
@@ -1147,7 +1193,9 @@
 				522F76212C4E78370035B8A4 /* SelfPropertyDetailViewController.swift in Sources */,
 				52DBCCF82C16C51A00A7B612 /* Networking.swift in Sources */,
 				529E17742C2EC32B0063B204 /* AddTenantViewController.swift in Sources */,
+				525AEAA42C6348360089FB50 /* CompanyPropertiesViewController.swift in Sources */,
 				52DBCD092C16C52C00A7B612 /* Extensions.swift in Sources */,
+				525AEAAA2C63659F0089FB50 /* DateViewController.swift in Sources */,
 				527616412C48F4C9007F7C66 /* TenantsManagementViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

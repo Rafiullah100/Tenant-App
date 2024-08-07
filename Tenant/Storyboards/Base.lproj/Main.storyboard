@@ -8,8 +8,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Outfit-Regular.ttf">
-            <string>Outfit-Regular</string>
+        <array key="Outfit-Medium.ttf">
+            <string>Outfit-Medium</string>
         </array>
     </customFonts>
     <scenes>
@@ -59,7 +59,7 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jq6-DY-tQd">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
-                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="40"/>
+                                                                <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="40"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -83,7 +83,7 @@
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register yourself now to enjoy our  services!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07e-2b-7ne">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="20"/>
-                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>

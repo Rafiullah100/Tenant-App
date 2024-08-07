@@ -189,4 +189,25 @@ class Switcher {
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         delegate.present(vc, animated: true)
     }
+    
+    static func gotoCompanyPropertyDetail(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyPropertyDetailViewController") as! CompanyPropertyDetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoDatePicker(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "DateViewController") as! DateViewController
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        delegate.present(vc, animated: true)
+    }
+    
+    static func gotoCompanyDetail(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyDetailViewController") as! CompanyDetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
 }

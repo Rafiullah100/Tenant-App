@@ -72,7 +72,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 130
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

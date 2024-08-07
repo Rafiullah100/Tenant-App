@@ -142,5 +142,6 @@ enum LocalizationKeys: String {
     case tenantWithoutColon
     
     case current
+    case propertiesAssigned
 }
 
