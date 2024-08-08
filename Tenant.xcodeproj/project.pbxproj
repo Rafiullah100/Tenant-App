@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52104A292C64B27D0060B217 /* ProfileHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52104A282C64B27D0060B217 /* ProfileHomeViewController.swift */; };
 		5211E4EF2C3EA1F80023A8E6 /* WorkerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5211E4EE2C3EA1F80023A8E6 /* WorkerDetailViewController.swift */; };
 		5211E4F12C3EA74B0023A8E6 /* CompanyAssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5211E4F02C3EA74B0023A8E6 /* CompanyAssignViewController.swift */; };
 		521B922E2C4BC378000F1B82 /* CompanyTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B922D2C4BC378000F1B82 /* CompanyTabbarController.swift */; };
@@ -144,6 +145,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52104A282C64B27D0060B217 /* ProfileHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeViewController.swift; sourceTree = "<group>"; };
 		5211E4EE2C3EA1F80023A8E6 /* WorkerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerDetailViewController.swift; sourceTree = "<group>"; };
 		5211E4F02C3EA74B0023A8E6 /* CompanyAssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyAssignViewController.swift; sourceTree = "<group>"; };
 		521B922D2C4BC378000F1B82 /* CompanyTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyTabbarController.swift; sourceTree = "<group>"; };
@@ -300,6 +302,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52104A272C64B26B0060B217 /* ProfileHome */ = {
+			isa = PBXGroup;
+			children = (
+				52104A282C64B27D0060B217 /* ProfileHomeViewController.swift */,
+			);
+			path = ProfileHome;
+			sourceTree = "<group>";
+		};
 		521B922A2C4BBDE6000F1B82 /* WorkerCompletedDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -735,6 +745,7 @@
 		52995C592C37C73100AFDA47 /* CompanyApp */ = {
 			isa = PBXGroup;
 			children = (
+				52104A272C64B26B0060B217 /* ProfileHome */,
 				525AEAAB2C637C240089FB50 /* ProfileDetail */,
 				524D70C72C4A880800C7490C /* Tabbar */,
 				524D70C62C4A87F400C7490C /* Home */,
@@ -1160,6 +1171,7 @@
 				529E17672C2E99C90063B204 /* SigninViewController.swift in Sources */,
 				522FFBB22C4CE1670010A2EF /* CompanyManagmentViewController.swift in Sources */,
 				522F76202C4E78370035B8A4 /* SelfPropertyDetailTableViewCell.swift in Sources */,
+				52104A292C64B27D0060B217 /* ProfileHomeViewController.swift in Sources */,
 				525AEAAD2C637C480089FB50 /* CompanyDetailViewController.swift in Sources */,
 				526A2D5A2C3D0B7000C716A8 /* CompanyOngoingTableViewCell.swift in Sources */,
 				52688B142C32C563001C55A8 /* StatusDoneCollectionViewCell.swift in Sources */,

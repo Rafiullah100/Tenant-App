@@ -12,17 +12,17 @@
         <array key="ABeeZee-Italic.ttf">
             <string>ABeeZee-Italic</string>
         </array>
-        <array key="Inter-Bold.ttf">
-            <string>Inter-Bold</string>
-        </array>
         <array key="Inter-Medium.ttf">
             <string>Inter-Medium</string>
         </array>
-        <array key="Inter-Regular.ttf">
-            <string>Inter-Regular</string>
+        <array key="Outfit-Medium.ttf">
+            <string>Outfit-Medium</string>
         </array>
-        <array key="Inter-SemiBold.ttf">
-            <string>Inter-SemiBold</string>
+        <array key="Outfit-Regular.ttf">
+            <string>Outfit-Regular</string>
+        </array>
+        <array key="Outfit-SemiBold.ttf">
+            <string>Outfit-SemiBold</string>
         </array>
     </customFonts>
     <scenes>
@@ -63,7 +63,7 @@
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fan Repair Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoQ-2F-MHi">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="32"/>
-                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="25"/>
+                                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="25"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
@@ -74,17 +74,17 @@
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
                                                                                                                 <subviews>
                                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complaint ID: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqf-5e-ccN">
-                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="18"/>
+                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="101" height="18"/>
                                                                                                                         <constraints>
                                                                                                                             <constraint firstAttribute="width" priority="250" constant="60" id="H9n-XC-nCm"/>
                                                                                                                         </constraints>
-                                                                                                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                                                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                                                         <color key="textColor" red="0.23137254900000001" green="0.44705882349999998" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                                         <nil key="highlightedColor"/>
                                                                                                                     </label>
                                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3874981 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhD-Lk-oQG">
-                                                                                                                        <rect key="frame" x="97.666666666666671" y="0.0" width="245.33333333333331" height="18"/>
-                                                                                                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                                                                                                        <rect key="frame" x="106" y="0.0" width="237" height="18"/>
+                                                                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                                                         <color key="textColor" red="0.23137254900000001" green="0.44705882349999998" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                                         <nil key="highlightedColor"/>
                                                                                                                     </label>
@@ -123,13 +123,13 @@
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="height" constant="21" id="pzh-pz-M86"/>
                                                                                                         </constraints>
-                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
+                                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="17"/>
                                                                                                         <color key="textColor" red="0.23137254900000001" green="0.7725490196" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WAITING FOR OWNER APPROVAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtr-ME-s6f">
                                                                                                         <rect key="frame" x="0.0" y="21" width="343" height="29"/>
-                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
+                                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
@@ -162,7 +162,7 @@
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqT-a4-ESt">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
-                                                                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                                                                 <nil key="textColor"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
@@ -338,7 +338,7 @@
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT8-49-kjp">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="323" height="40"/>
-                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="15"/>
+                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="15"/>
                                                                                         <state key="normal" title="Done">
                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
@@ -460,7 +460,7 @@
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fan Repair Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ty-dZ-VRe">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="32"/>
-                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="25"/>
+                                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="25"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
@@ -471,17 +471,17 @@
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
                                                                                                                 <subviews>
                                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complaint ID: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9Y-S3-ph3">
-                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="18"/>
+                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="101" height="18"/>
                                                                                                                         <constraints>
                                                                                                                             <constraint firstAttribute="width" priority="250" constant="60" id="WGm-lt-ahU"/>
                                                                                                                         </constraints>
-                                                                                                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                                                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                                                         <color key="textColor" red="0.23137254900000001" green="0.44705882349999998" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                                         <nil key="highlightedColor"/>
                                                                                                                     </label>
                                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3874981 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlO-x3-kBe">
-                                                                                                                        <rect key="frame" x="97.666666666666671" y="0.0" width="245.33333333333331" height="18"/>
-                                                                                                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                                                                                                        <rect key="frame" x="106" y="0.0" width="237" height="18"/>
+                                                                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                                                         <color key="textColor" red="0.23137254900000001" green="0.44705882349999998" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                                         <nil key="highlightedColor"/>
                                                                                                                     </label>
@@ -520,13 +520,13 @@
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="height" constant="21" id="kTF-1q-AfT"/>
                                                                                                         </constraints>
-                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
+                                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="17"/>
                                                                                                         <color key="textColor" red="0.23137254900000001" green="0.7725490196" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Done - Confirmation Pending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEJ-9b-etX">
                                                                                                         <rect key="frame" x="0.0" y="21" width="343" height="29"/>
-                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
+                                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
@@ -568,7 +568,7 @@
                                                                                                     </view>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+92 23187 72183  |  120391230381" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94H-xq-4FB">
                                                                                                         <rect key="frame" x="29.333333333333343" y="0.0" width="313.66666666666663" height="22"/>
-                                                                                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
@@ -601,7 +601,7 @@
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled Maintenance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zP9-lR-UkW">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="26.666666666666668"/>
-                                                                                                                                <fontDescription key="fontDescription" type="system" pointSize="15.299999237060547"/>
+                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15.299999237060547"/>
                                                                                                                                 <nil key="textColor"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
@@ -618,7 +618,7 @@
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izQ-EQ-IjI">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="26.666666666666668"/>
-                                                                                                                                <fontDescription key="fontDescription" type="system" pointSize="15.300000190734863"/>
+                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15.300000190734863"/>
                                                                                                                                 <nil key="textColor"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
@@ -635,7 +635,7 @@
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maintenance Person #: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqn-0S-FL8">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="26.666666666666668"/>
-                                                                                                                                <fontDescription key="fontDescription" type="system" pointSize="15.300000190734863"/>
+                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15.300000190734863"/>
                                                                                                                                 <nil key="textColor"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
@@ -669,7 +669,7 @@
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 June 2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysm-S6-9Ii">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="124" height="26.666666666666668"/>
-                                                                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15.300000190734863"/>
+                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15.300000190734863"/>
                                                                                                                                 <color key="textColor" red="0.79215686269999996" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
@@ -686,7 +686,7 @@
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11 AM - 01 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSK-TA-Fx5">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="124" height="26.666666666666668"/>
-                                                                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15.300000190734863"/>
+                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15.300000190734863"/>
                                                                                                                                 <color key="textColor" red="0.79215686269999996" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
@@ -703,7 +703,7 @@
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02 931 9391" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWC-Hh-v5m">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="124" height="26.666666666666668"/>
-                                                                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15.300000190734863"/>
+                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15.300000190734863"/>
                                                                                                                                 <color key="textColor" red="0.79215686269999996" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
@@ -753,7 +753,7 @@
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="height" priority="250" constant="24" id="gEv-3g-TnE"/>
                                                                                                         </constraints>
-                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
@@ -808,7 +808,7 @@
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show more details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uT6-In-o9X">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="22"/>
-                                                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="14"/>
                                                                                                 <nil key="textColor"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
@@ -841,7 +841,7 @@
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jq8-wg-diK">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="323" height="40"/>
-                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
+                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                                         <state key="normal" title="CONFIRM">
                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
@@ -972,7 +972,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Persons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgy-m0-34h">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
-                                                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="25"/>
+                                                                        <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="25"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -1091,7 +1091,7 @@
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matthew John" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KV3-CK-rF0">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="235" height="20"/>
-                                                                                        <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="20"/>
+                                                                                        <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="20"/>
                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
@@ -1112,13 +1112,13 @@
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building No: 12ADF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eD3-kr-7Cr">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="235" height="22.666666666666668"/>
-                                                                                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flat No.  14" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xE0-zx-b6x">
                                                                                                 <rect key="frame" x="0.0" y="22.666666666666671" width="235" height="22.333333333333329"/>
-                                                                                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
@@ -1193,8 +1193,8 @@
                                                 <rect key="frame" x="0.0" y="170" width="393" height="26"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fg-Qd-fJN">
-                                                        <rect key="frame" x="20" y="0.0" width="69.333333333333329" height="26"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                        <rect key="frame" x="20" y="0.0" width="66" height="26"/>
+                                                        <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -1365,7 +1365,7 @@
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zay-dG-c2D">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
-                                                                                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
+                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="17"/>
                                                                                                                                 <nil key="textColor"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
@@ -1430,7 +1430,7 @@
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqd-yR-SIA">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
-                                                                                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
+                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="17"/>
                                                                                                                                 <nil key="textColor"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
@@ -1527,7 +1527,7 @@
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hif-Y6-g1C">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="20"/>
-                                                                                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
+                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="17"/>
                                                                                                                                 <nil key="textColor"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
@@ -1645,7 +1645,7 @@
                                                                                                                                                         <subviews>
                                                                                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIi-Ff-30n">
                                                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="32.333333333333336"/>
-                                                                                                                                                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
+                                                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="14"/>
                                                                                                                                                                 <state key="normal" title="Choose File">
                                                                                                                                                                     <color key="titleColor" red="0.062745098040000002" green="0.72549019609999998" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                                                                                 </state>
@@ -1678,7 +1678,7 @@
                                                                                                                                                         <subviews>
                                                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No File Chosen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMQ-p9-CdS">
                                                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="117" height="32.333333333333336"/>
-                                                                                                                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="15"/>
+                                                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15"/>
                                                                                                                                                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                                                             </label>
@@ -1787,7 +1787,7 @@
                                                                                                 <subviews>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMT-rC-hO7">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="323" height="40"/>
-                                                                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
+                                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                                                                                                         <state key="normal" title="Submit Complaint">
                                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         </state>

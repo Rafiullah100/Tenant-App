@@ -7,8 +7,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Regular.ttf">
-            <string>Inter-Regular</string>
+        <array key="Outfit-Regular.ttf">
+            <string>Outfit-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -26,7 +26,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building 50, District ABC, City XYZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QV-32-7FW">
                                 <rect key="frame" x="20" y="0.0" width="294" height="60"/>
-                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -63,7 +63,8 @@
             <viewLayoutGuide key="safeArea" id="dfm-Hj-180"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="bgView" destination="GcB-h9-nEw" id="ng6-DG-mss"/>
+                <outlet property="bgView" destination="GcB-h9-nEw" id="gU3-MX-bEW"/>
+                <outlet property="label" destination="0QV-32-7FW" id="Dlc-hm-Pft"/>
             </connections>
             <point key="canvasLocation" x="-111.45038167938931" y="19.014084507042256"/>
         </tableViewCell>

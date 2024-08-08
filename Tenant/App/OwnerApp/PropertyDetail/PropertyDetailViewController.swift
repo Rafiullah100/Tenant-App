@@ -11,11 +11,18 @@ class PropertyDetailViewController: BaseViewController {
     @IBOutlet weak var maintainLabel: UILabel!
     @IBOutlet weak var flatManagmentButton: UIButton!
     
+    @IBOutlet weak var tenantMngmtView: UIView!
+    @IBOutlet weak var flatMngmtView: UIView!
     @IBOutlet weak var companyButton: UIButton!
     @IBOutlet weak var tenantMangementButton: UIButton!
     @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var flatLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var buidlingTypeNameLabel: UILabel!
+    
+    @IBOutlet weak var villaTenantMangmtView: UIView!
+    var propertyType: PropertyType?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         flatManagmentButton.setTitle(LocalizationKeys.flatManagement.rawValue.localizeString(), for: .normal)
@@ -25,10 +32,11 @@ class PropertyDetailViewController: BaseViewController {
         flatLabel.text = LocalizationKeys.totalFlats.rawValue.localizeString()
         maintainLabel.text = LocalizationKeys.maintainedBy.rawValue.localizeString()
         titlLabel.text = LocalizationKeys.managements.rawValue.localizeString()
-        
-        flatLabel.text = LocalizationKeys.flats.rawValue.localizeString() + "   25"
-        typeLabel.text = LocalizationKeys.properties.rawValue.localizeString() + "   Building"
-        
+        buidlingTypeNameLabel.text = propertyType == .building ? "Building" : "Villa"
+        flatMngmtView.isHidden = propertyType == .building ? false : true
+        tenantMngmtView.isHidden = propertyType == .building ? false : true
+        villaTenantMangmtView.isHidden = propertyType == .villa ? false : true
+
         type = .company
     }
     
@@ -36,15 +44,5 @@ class PropertyDetailViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

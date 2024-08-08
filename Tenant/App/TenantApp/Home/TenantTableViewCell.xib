@@ -8,11 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Medium.ttf">
-            <string>Inter-Medium</string>
+        <array key="Outfit-Medium.ttf">
+            <string>Outfit-Medium</string>
         </array>
-        <array key="Inter-Regular.ttf">
-            <string>Inter-Regular</string>
+        <array key="Outfit-Regular.ttf">
+            <string>Outfit-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -59,7 +59,7 @@
                                                                                     <constraint firstAttribute="width" constant="300" id="pax-5A-gOk"/>
                                                                                     <constraint firstAttribute="height" priority="250" constant="14.5" id="xll-nv-NBv"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -90,17 +90,17 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="16"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complaint ID: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyX-gh-xiU">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="82" height="16"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="16"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" priority="250" constant="60" id="bp5-dk-EG6"/>
                                                                                         </constraints>
-                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="12"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3874981 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9r7-X2-0fd">
-                                                                                        <rect key="frame" x="87" y="0.0" width="244" height="16"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                        <rect key="frame" x="81" y="0.0" width="250" height="16"/>
+                                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="12"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
@@ -133,17 +133,17 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="15"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVd-7E-9Ec">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="47.5" height="15"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="15"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" priority="250" constant="35" id="ReJ-xN-rws"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="14"/>
                                                                         <color key="textColor" red="0.23137254901960785" green="0.77254901960784317" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approval Pending from Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsP-LD-zcB">
-                                                                        <rect key="frame" x="52.5" y="0.0" width="278.5" height="15"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                                        <rect key="frame" x="48.5" y="0.0" width="282.5" height="15"/>
+                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="14"/>
                                                                         <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -162,23 +162,23 @@
                                                         <rect key="frame" x="0.0" y="68" width="331" height="0.0"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ec1-wd-Yi9">
-                                                                <rect key="frame" x="138.5" y="-7.5" width="192.5" height="15"/>
+                                                                <rect key="frame" x="157.5" y="-7.5" width="173.5" height="15.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJM-hl-CUf">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="15"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="15.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" priority="250" constant="30" id="JH8-h8-EuZ"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="12"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="June 25, 2024   12:25 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCH-4Y-bCc">
-                                                                        <rect key="frame" x="48.5" y="0.0" width="144" height="15"/>
+                                                                        <rect key="frame" x="45" y="0.0" width="128.5" height="15.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" priority="250" constant="60" id="YvI-TF-jF7"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="12"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>

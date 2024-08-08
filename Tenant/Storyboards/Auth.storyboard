@@ -11,9 +11,6 @@
         <array key="ABeeZee-Italic.ttf">
             <string>ABeeZee-Italic</string>
         </array>
-        <array key="ABeeZee-Regular.ttf">
-            <string>ABeeZee-Regular</string>
-        </array>
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
@@ -22,9 +19,6 @@
         </array>
         <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
-        </array>
-        <array key="Inter-SemiBold.ttf">
-            <string>Inter-SemiBold</string>
         </array>
         <array key="Manrope-Medium.ttf">
             <string>Manrope-Medium</string>
@@ -168,7 +162,7 @@
                                                                                                                                         <subviews>
                                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyb-tG-PGr">
                                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="349" height="19"/>
-                                                                                                                                                <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="20"/>
+                                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="20"/>
                                                                                                                                                 <nil key="textColor"/>
                                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                                             </label>
@@ -227,7 +221,7 @@
                                                                                                                                         <subviews>
                                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number or Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JS2-Zk-aXv">
                                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="349" height="19"/>
-                                                                                                                                                <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="20"/>
+                                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="20"/>
                                                                                                                                                 <nil key="textColor"/>
                                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                                             </label>
@@ -1579,7 +1573,7 @@
                                                                                                         <subviews>
                                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgs-vp-LdP">
                                                                                                                 <rect key="frame" x="13" y="0.0" width="323" height="43.666666666666664"/>
-                                                                                                                <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="20"/>
+                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="20"/>
                                                                                                                 <state key="normal" title="Owner">
                                                                                                                     <color key="titleColor" systemColor="systemGrayColor"/>
                                                                                                                 </state>
@@ -1612,7 +1606,7 @@
                                                                                                         <subviews>
                                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1h-Zt-uQT">
                                                                                                                 <rect key="frame" x="13" y="0.0" width="323" height="43.333333333333336"/>
-                                                                                                                <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="20"/>
+                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="20"/>
                                                                                                                 <state key="normal" title="Tenant">
                                                                                                                     <color key="titleColor" systemColor="systemGrayColor"/>
                                                                                                                 </state>
@@ -1645,7 +1639,7 @@
                                                                                                         <subviews>
                                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbQ-F5-gjV">
                                                                                                                 <rect key="frame" x="13" y="0.0" width="323" height="43.666666666666664"/>
-                                                                                                                <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="20"/>
+                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="20"/>
                                                                                                                 <state key="normal" title="Maintenance Company">
                                                                                                                     <color key="titleColor" systemColor="systemGrayColor"/>
                                                                                                                 </state>
@@ -1678,7 +1672,7 @@
                                                                                                         <subviews>
                                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dO-P1-HXJ">
                                                                                                                 <rect key="frame" x="13" y="0.0" width="323" height="43.666666666666664"/>
-                                                                                                                <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="20"/>
+                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="20"/>
                                                                                                                 <state key="normal" title="Worker">
                                                                                                                     <color key="titleColor" systemColor="systemGrayColor"/>
                                                                                                                 </state>
@@ -1960,7 +1954,7 @@
                                                                                                                                         <subviews>
                                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLe-OY-96m">
                                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="349" height="19"/>
-                                                                                                                                                <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="20"/>
+                                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="20"/>
                                                                                                                                                 <nil key="textColor"/>
                                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                                             </label>
@@ -2019,7 +2013,7 @@
                                                                                                                                         <subviews>
                                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNd-nV-ng7">
                                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="349" height="19"/>
-                                                                                                                                                <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="20"/>
+                                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="20"/>
                                                                                                                                                 <nil key="textColor"/>
                                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                                             </label>
@@ -2084,7 +2078,7 @@
                                                                                                                                                         <subviews>
                                                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zn-id-Adt">
                                                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="53.666666666666664" height="19"/>
-                                                                                                                                                                <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="20"/>
+                                                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="20"/>
                                                                                                                                                                 <nil key="textColor"/>
                                                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                                                             </label>
@@ -2103,7 +2097,7 @@
                                                                                                                                                         <subviews>
                                                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKC-b0-xuR">
                                                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="293.33333333333331" height="19"/>
-                                                                                                                                                                <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="13"/>
+                                                                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="13"/>
                                                                                                                                                                 <nil key="textColor"/>
                                                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                                                             </label>
@@ -2415,7 +2409,7 @@
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We’ve sent an SMS with an activation code to your phone number ending with *****290. Enter the Code below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lm9-PP-i0T">
                                                                                 <rect key="frame" x="7" y="0.0" width="329" height="60"/>
-                                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -2637,7 +2631,7 @@
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I didn’t receive a code" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="886-UA-vAt">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="215" height="20"/>
-                                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -2656,7 +2650,7 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzZ-Vz-8Si">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="66" height="20"/>
-                                                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="18"/>
+                                                                                <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="18"/>
                                                                                 <state key="normal" title="Resend">
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
@@ -3730,7 +3724,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

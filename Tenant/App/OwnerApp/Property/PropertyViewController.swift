@@ -25,7 +25,6 @@ class PropertyViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
         tableView.showsVerticalScrollIndicator = false
 
         searchView.clipsToBounds = true
@@ -35,6 +34,12 @@ class PropertyViewController: BaseViewController {
         titlLabel.text = LocalizationKeys.myProperties.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+
     }
     @IBAction func addBtnAction(_ sender: Any) {
     }
@@ -48,6 +53,12 @@ extension PropertyViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PropertyTableViewCell.cellReuseIdentifier(), for: indexPath) as! PropertyTableViewCell
+        if indexPath.row % 2 == 0{
+            cell.label.text = "Building 50, District ABC, City XYZ"
+        }
+        else{
+            cell.label.text = "Villa 50, District ABC, City XYZ"
+        }
         return cell
     }
 
@@ -56,6 +67,7 @@ extension PropertyViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Switcher.gotoPropertyDetail(delegate: self)
+        let type: PropertyType = indexPath.row % 2 == 0 ? .building : .villa
+        Switcher.gotoPropertyDetail(delegate: self, propertyType: type)
     }
 }

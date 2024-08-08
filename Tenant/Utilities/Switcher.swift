@@ -60,7 +60,7 @@ class Switcher {
     }
     
     static func gotoCompanyProfile(delegate: UIViewController){
-        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyProfileViewController") as! CompanyProfileViewController
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "ProfileHomeViewController") as! ProfileHomeViewController
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
@@ -107,8 +107,9 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoPropertyDetail(delegate: UIViewController){
+    static func gotoPropertyDetail(delegate: UIViewController, propertyType: PropertyType){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "PropertyDetailViewController") as! PropertyDetailViewController
+        vc.propertyType = propertyType
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)

@@ -9,6 +9,7 @@ import UIKit
 
 class PropertyTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var bgView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
