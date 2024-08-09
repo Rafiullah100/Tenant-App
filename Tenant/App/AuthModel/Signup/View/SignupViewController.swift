@@ -18,7 +18,8 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var ownerButton: UIButton!
     
     @IBOutlet var btnsView: [UIView]!
-    private var userType: UserType?
+     var userType: UserType?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         curveImageView.image = UIImage(named: Helper.shared.isRTL() ? "bg-ar" : "bg")

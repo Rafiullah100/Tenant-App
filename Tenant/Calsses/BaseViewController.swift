@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SpinKit
 enum ViewControllerType {
     case otpBack
     case tenant
@@ -13,6 +14,7 @@ enum ViewControllerType {
 }
 
 class BaseViewController: UIViewController {
+    let spinnerView = RTSpinKitView(style: .styleThreeBounce, color: CustomColor.appColor.color, spinnerSize: 70.0)
     var type: ViewControllerType = .otpBack
     var titleLabel: UILabel?
     
@@ -32,7 +34,15 @@ class BaseViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
     }
+    func animateSpinner() {
+        spinnerView?.center = view.center
+        view.addSubview(spinnerView ?? UIView())
+        spinnerView?.startAnimating()
+    }
     
+    func stopAnimation() {
+        spinnerView?.stopAnimating()
+    }
     override func viewWillDisappear(_ animated: Bool) {
 //        self.isFirstLoad = true
     }

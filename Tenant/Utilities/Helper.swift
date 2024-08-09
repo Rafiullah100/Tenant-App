@@ -48,6 +48,23 @@ public class Helper{
     func isRTL() -> Bool{
         return UserDefaults.standard.isRTL == 1 ? true : false
     }
+    
+    func userType() -> UserType {
+        let user = UserDefaults.standard.userType
+        if user == "company"{
+            return .company
+        }
+        else if user == "tenant"{
+            return .tenant
+        }
+        else if user == "worker"{
+            return .worker
+        }
+        else if user == "owner"{
+            return .owner
+        }
+        return .tenant
+    }
 }
 
 

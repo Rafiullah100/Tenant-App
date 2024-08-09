@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-class RegistrationViewController: UIViewController {
+import SpinKit
+class RegistrationViewController: BaseViewController {
 
    
     @IBOutlet weak var curveImageView: UIImageView!
@@ -22,7 +22,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var registrationLabel: UILabel!
-   
+    private var viewModel = SignupViewModel()
+    var userType: UserType = .tenant
     override func viewDidLoad() {
         super.viewDidLoad()
         curveImageView.image = UIImage(named: Helper.shared.isRTL() ? "bg-ar" : "bg")
@@ -37,10 +38,35 @@ class RegistrationViewController: UIViewController {
         alreadyRegisteredLabel.text = LocalizationKeys.alreadyRegistered.rawValue.localizeString()
         signinLabel.setTitle(LocalizationKeys.signin.rawValue.localizeString(), for: .normal)
         submitButton.setTitle(LocalizationKeys.submit.rawValue.localizeString(), for: .normal)
+        
+        viewModel.signup.bind { [unowned self] signup in
+            guard let signup = signup else{return}
+            self.stopAnimation()
+            if signup.success == true{
+                Switcher.gotoOtpScreen(delegate: self, userType: userType)
+            }
+            else{
+                showAlert(message: signup.message ?? "")
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
     }
+    
+    @IBAction func registerBtnAction(_ sender: Any) {
+        let signup = SignupInputModel(userType: userType.rawValue, email: emailTextField.text ?? "", mobile: contactTextField.text ?? "", name: nameTextField.text ?? "")
+        let validationResponse = viewModel.isFormValid(user: signup)
+        if validationResponse.isValid {
+            self.animateSpinner()
+            self.viewModel.signupUser()
+        }
+        else{
+            showAlert(message: validationResponse.message)
+        }
+    }
 }
+
+

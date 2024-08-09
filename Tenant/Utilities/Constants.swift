@@ -26,7 +26,7 @@ struct Constants {
     static let appRegularFont = UIFont(name: "ebrima", size: 12.0)
 }
 
-enum UserType {
+enum UserType: String {
     case owner
     case tenant
     case company

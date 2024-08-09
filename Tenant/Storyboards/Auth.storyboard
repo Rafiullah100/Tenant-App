@@ -350,7 +350,7 @@
                                                                                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                                                 </state>
                                                                                                                                                 <connections>
-                                                                                                                                                    <segue destination="Lxr-01-MoV" kind="show" id="8OH-w1-TQL"/>
+                                                                                                                                                    <action selector="noAccountBtnAction:" destination="azM-Ad-PQ3" eventType="touchUpInside" id="oJ8-7g-glT"/>
                                                                                                                                                 </connections>
                                                                                                                                             </button>
                                                                                                                                         </subviews>
@@ -1832,13 +1832,13 @@
         <!--Registration View Controller-->
         <scene sceneID="fkN-Gz-YVS">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Lxr-01-MoV" customClass="RegistrationViewController" customModule="Tenant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationViewController" modalPresentationStyle="fullScreen" id="Lxr-01-MoV" customClass="RegistrationViewController" customModule="Tenant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Hv-gt-E3D">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fkd-yd-pzP">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uw0-xn-RaV">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="195"/>
@@ -1857,16 +1857,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIy-lI-tk1">
-                                        <rect key="frame" x="0.0" y="195" width="393" height="657"/>
+                                        <rect key="frame" x="0.0" y="195" width="393" height="623"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hF4-Wx-sdi">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="657"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="623"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DtD-Wa-V1O">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="657"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="623"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="62" translatesAutoresizingMaskIntoConstraints="NO" id="TSN-VC-IkP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="657"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="623"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeH-31-S8p">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
@@ -1926,10 +1926,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1P-0a-d6r">
-                                                                        <rect key="frame" x="0.0" y="107" width="393" height="550"/>
+                                                                        <rect key="frame" x="0.0" y="107" width="393" height="516"/>
                                                                         <subviews>
                                                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abZ-Lf-98p">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="545"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="511"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-ot-0sv">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="433"/>
@@ -2184,7 +2184,7 @@
                                                                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                                 </state>
                                                                                                                                 <connections>
-                                                                                                                                    <segue destination="NtT-G0-XPR" kind="show" id="jX3-fz-SOP"/>
+                                                                                                                                    <action selector="registerBtnAction:" destination="Lxr-01-MoV" eventType="touchUpInside" id="Czh-fn-iQB"/>
                                                                                                                                 </connections>
                                                                                                                             </button>
                                                                                                                         </subviews>
@@ -2371,13 +2371,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="OmF-by-tSS">
-                                <rect key="frame" x="25" y="20" width="343" height="832"/>
+                                <rect key="frame" x="25" y="79" width="343" height="739"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpC-sk-CUQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="832"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="739"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="1q1-mY-aJE">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="832"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="739"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4A-a4-lnI">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="113"/>
@@ -2420,6 +2420,7 @@
                                                                             <constraint firstAttribute="trailing" secondItem="lm9-PP-i0T" secondAttribute="trailing" constant="7" id="3nT-0Y-joG"/>
                                                                             <constraint firstItem="lm9-PP-i0T" firstAttribute="top" secondItem="uks-rV-Elo" secondAttribute="top" id="504-Bk-QkR"/>
                                                                             <constraint firstItem="lm9-PP-i0T" firstAttribute="leading" secondItem="uks-rV-Elo" secondAttribute="leading" constant="7" id="TJZ-YM-d5I"/>
+                                                                            <constraint firstAttribute="height" priority="250" constant="60" id="jbc-Jb-lse"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -2429,7 +2430,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="aC4-A0-5Zz" secondAttribute="trailing" id="bIl-9u-Ull"/>
                                                             <constraint firstItem="aC4-A0-5Zz" firstAttribute="top" secondItem="o4A-a4-lnI" secondAttribute="top" id="cdd-40-DCJ"/>
-                                                            <constraint firstAttribute="height" constant="113" id="qoE-Dx-HQ3"/>
+                                                            <constraint firstAttribute="height" priority="250" constant="113" id="qoE-Dx-HQ3"/>
                                                             <constraint firstItem="aC4-A0-5Zz" firstAttribute="leading" secondItem="o4A-a4-lnI" secondAttribute="leading" id="swZ-4a-reE"/>
                                                             <constraint firstAttribute="bottom" secondItem="aC4-A0-5Zz" secondAttribute="bottom" id="uvC-LH-hVG"/>
                                                         </constraints>
@@ -2437,16 +2438,21 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kws-Yk-PLU">
                                                         <rect key="frame" x="0.0" y="155" width="343" height="55"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Hbg-Nu-E5A">
-                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="55"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hbg-Nu-E5A">
+                                                                <rect key="frame" x="46.666666666666686" y="0.0" width="250" height="55"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pat-G3-ddb">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="55"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWk-P1-fyT">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="55"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                                        <integer key="value" value="1"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2469,12 +2475,17 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30p-CO-o2s">
-                                                                        <rect key="frame" x="58.666666666666671" y="0.0" width="49.666666666666671" height="55"/>
+                                                                        <rect key="frame" x="64.999999999999986" y="0.0" width="55" height="55"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lRl-Ck-c6g">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="55"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                                        <integer key="value" value="1"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2497,12 +2508,17 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBs-ol-HK7">
-                                                                        <rect key="frame" x="117.33333333333336" y="0.0" width="49.666666666666671" height="55"/>
+                                                                        <rect key="frame" x="130" y="0.0" width="55" height="55"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gea-Uj-JHP">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="55"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                                        <integer key="value" value="1"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2525,12 +2541,17 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fn-6B-3BE">
-                                                                        <rect key="frame" x="176" y="0.0" width="49.666666666666657" height="55"/>
+                                                                        <rect key="frame" x="195" y="0.0" width="55" height="55"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KNY-fo-LvT">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="55"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                                        <integer key="value" value="1"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2552,72 +2573,18 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5q-nN-hC3">
-                                                                        <rect key="frame" x="234.66666666666666" y="0.0" width="49.666666666666657" height="55"/>
-                                                                        <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JbI-Yj-G6r">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="55"/>
-                                                                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                        </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                        <constraints>
-                                                                            <constraint firstItem="JbI-Yj-G6r" firstAttribute="leading" secondItem="z5q-nN-hC3" secondAttribute="leading" id="4gS-lP-DLc"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="JbI-Yj-G6r" secondAttribute="bottom" id="MZ3-HG-wbT"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="JbI-Yj-G6r" secondAttribute="trailing" id="TfM-oV-p3H"/>
-                                                                            <constraint firstItem="JbI-Yj-G6r" firstAttribute="top" secondItem="z5q-nN-hC3" secondAttribute="top" id="gNl-me-vba"/>
-                                                                        </constraints>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                                <color key="value" red="0.84705882349999995" green="0.85490196080000003" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                                <real key="value" value="2"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
-                                                                                <real key="value" value="15"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1S-ya-KIi">
-                                                                        <rect key="frame" x="293.33333333333331" y="0.0" width="49.666666666666686" height="55"/>
-                                                                        <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BYI-SO-Xt2">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="55"/>
-                                                                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="24"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                        </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                        <constraints>
-                                                                            <constraint firstItem="BYI-SO-Xt2" firstAttribute="leading" secondItem="t1S-ya-KIi" secondAttribute="leading" id="9kf-n3-HoS"/>
-                                                                            <constraint firstItem="BYI-SO-Xt2" firstAttribute="top" secondItem="t1S-ya-KIi" secondAttribute="top" id="J98-pT-bKa"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="BYI-SO-Xt2" secondAttribute="bottom" id="oLb-q2-Yc0"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="BYI-SO-Xt2" secondAttribute="trailing" id="pHl-qT-tdt"/>
-                                                                        </constraints>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                                <color key="value" red="0.84705882349999995" green="0.85490196080000003" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                                <real key="value" value="2"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
-                                                                                <real key="value" value="15"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </view>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="250" id="Npz-Gm-Xgh"/>
+                                                                </constraints>
                                                             </stackView>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="Hbg-Nu-E5A" secondAttribute="trailing" id="3W8-ES-GGv"/>
                                                             <constraint firstAttribute="bottom" secondItem="Hbg-Nu-E5A" secondAttribute="bottom" id="HoL-66-0qA"/>
                                                             <constraint firstItem="Hbg-Nu-E5A" firstAttribute="top" secondItem="Kws-Yk-PLU" secondAttribute="top" id="KIE-St-rPz"/>
                                                             <constraint firstAttribute="height" constant="55" id="bVn-uR-1bA"/>
-                                                            <constraint firstItem="Hbg-Nu-E5A" firstAttribute="leading" secondItem="Kws-Yk-PLU" secondAttribute="leading" id="tbC-Pi-5ea"/>
+                                                            <constraint firstItem="Hbg-Nu-E5A" firstAttribute="centerX" secondItem="Kws-Yk-PLU" secondAttribute="centerX" id="dZx-6f-k8O"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l82-L3-QDt">
@@ -2688,6 +2655,9 @@
                                                                 <state key="normal" title="Verify">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="verifyBtnAction:" destination="NtT-G0-XPR" eventType="touchUpInside" id="Il2-7l-Ehy"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2705,7 +2675,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eny-oS-lVV">
-                                                        <rect key="frame" x="0.0" y="412" width="343" height="420"/>
+                                                        <rect key="frame" x="0.0" y="412" width="343" height="327"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </view>
                                                 </subviews>
@@ -2737,6 +2707,10 @@
                         <outlet property="messageLabel" destination="lm9-PP-i0T" id="eGd-bJ-aZM"/>
                         <outlet property="receiveLabel" destination="886-UA-vAt" id="bez-gG-qgS"/>
                         <outlet property="resendButton" destination="QzZ-Vz-8Si" id="Cpe-wK-k0a"/>
+                        <outlet property="textField1" destination="aWk-P1-fyT" id="u2D-Eg-ICE"/>
+                        <outlet property="textField3" destination="gea-Uj-JHP" id="pa5-qt-zsZ"/>
+                        <outlet property="textField4" destination="KNY-fo-LvT" id="b8d-3Y-2ms"/>
+                        <outlet property="textfield2" destination="lRl-Ck-c6g" id="sd1-YK-mK2"/>
                         <outlet property="topLabel" destination="yrK-fg-N9d" id="CRo-US-Pxe"/>
                         <outlet property="verifyButton" destination="rXq-lo-Imm" id="ysu-cj-z5W"/>
                     </connections>
@@ -3705,9 +3679,6 @@
             <point key="canvasLocation" x="5734.7826086956529" y="59.598214285714285"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="8OH-w1-TQL"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Back" width="39" height="39"/>
         <image name="BlackTick" width="34" height="27"/>

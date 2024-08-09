@@ -8,13 +8,13 @@
 import Foundation
 
 enum Route {
-    static let baseUrl = "https://staging-ap.newshunt.io/"
+    static let baseUrl = "https://rabt-admin.nextgcircle.com/"
     
     case signup
     case login
     case forgot
     case otp
-    case resetPassword
+    case addComplaint
     case logout
     case googleSignup
     case categories
@@ -62,9 +62,9 @@ enum Route {
         case .forgot:
             return "api/mobile/auth/forget-password"
         case .otp:
-            return "api/mobile/auth/verify-user"
-        case .resetPassword:
-            return "api/mobile/auth/reset-password"
+            return "api/mobile/auth/verify_user"
+        case .addComplaint:
+            return "api/mobile/complaints/add_new"
         case .logout:
             return "api/mobile/auth/logout"
         case .googleSignup:

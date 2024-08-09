@@ -11,7 +11,7 @@ target 'Tenant' do
   pod 'SDWebImage', '~> 5.0'
   pod 'GoogleMaps'
   pod 'IQKeyboardManager' #iOS8 and later
-
+  pod 'SpinKit'
 end
 
 post_install do |installer|

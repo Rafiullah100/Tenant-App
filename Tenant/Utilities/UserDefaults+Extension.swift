@@ -26,6 +26,8 @@ extension UserDefaults{
         case isOpenFromLink
         case appleSigninIdentifier
         case appleEmail
+        case userID
+        case userType
     }
     
     var selectedLanguage: String?  {
@@ -160,6 +162,24 @@ extension UserDefaults{
         }
         set {
             set(newValue, forKey: userdefaultsKey.appleEmail.rawValue)
+        }
+    }
+    
+    var userID: Int?  {
+        get {
+            value(forKey: userdefaultsKey.userID.rawValue) as? Int
+        }
+        set {
+            set(newValue, forKey: userdefaultsKey.userID.rawValue)
+        }
+    }
+    
+    var userType: String?  {
+        get {
+            value(forKey: userdefaultsKey.userType.rawValue) as? String
+        }
+        set {
+            set(newValue, forKey: userdefaultsKey.userType.rawValue)
         }
     }
 }
