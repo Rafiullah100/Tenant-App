@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.0.5)
   - GoogleMaps (9.0.0):
     - GoogleMaps/Maps (= 9.0.0)
   - GoogleMaps/Base (9.0.0)
@@ -14,6 +15,7 @@ PODS:
   - SVProgressHUD/Core (2.3.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-rc.2)
   - GoogleMaps
   - IQKeyboardManager
   - SDWebImage (~> 5.0)
@@ -22,6 +24,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - GoogleMaps
     - IQKeyboardManager
     - SDWebImage
@@ -29,12 +32,13 @@ SPEC REPOS:
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   GoogleMaps: 4907d0d42bf8cd58f56743e31f91d23c10682745
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   SDWebImage: dfe95b2466a9823cf9f0c6d01217c06550d7b29a
   SpinKit: 65906a8b534a4e14cbfd3f8b0b6c329131faef4a
   SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
 
-PODFILE CHECKSUM: 8a0927c05fce2ac19e07873f8d078e509edcff3c
+PODFILE CHECKSUM: 2253ef1140c2c070bf33dadfe95073fd67eb7287
 
 COCOAPODS: 1.15.2

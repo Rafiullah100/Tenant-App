@@ -28,6 +28,7 @@ extension UserDefaults{
         case appleEmail
         case userID
         case userType
+        case propertyIDIfTenant
     }
     
     var selectedLanguage: String?  {
@@ -90,6 +91,15 @@ extension UserDefaults{
         }
         set {
             set(newValue, forKey: userdefaultsKey.uuid.rawValue)
+        }
+    }
+    
+    var propertyIDIfTenant: String?  {
+        get {
+            value(forKey: userdefaultsKey.propertyIDIfTenant.rawValue) as? String
+        }
+        set {
+            set(newValue, forKey: userdefaultsKey.propertyIDIfTenant.rawValue)
         }
     }
     

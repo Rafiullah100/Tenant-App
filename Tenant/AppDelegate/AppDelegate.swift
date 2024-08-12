@@ -10,12 +10,17 @@ import GoogleMaps
 import IQKeyboardManager
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //         Override point for customization after application launch.
 //        let language: AppLanguage = AppLanguage(rawValue: UserDefaults.standard.selectedLanguage ?? "") ?? .arabic
 //        UserDefaults.standard.isRTL = 1
 //        UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)
+        
+       
+        
+        
         GMSServices.provideAPIKey("AIzaSyBC2Xdb2ato7ULwuGnDjPLXLAvqUZx_1VM")
         let language: AppLanguage = AppLanguage(rawValue: UserDefaults.standard.selectedLanguage ?? "") ?? .english
         UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)

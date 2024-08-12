@@ -42,7 +42,7 @@ class SigninViewController: BaseViewController {
             guard let login = login else {return}
             self.stopAnimation()
             if login.success == true{
-                Switcher.gotoOtpScreen(delegate: self, userType: userType)
+                Switcher.gotoOtpScreen(delegate: self, userType: userType, contact: emailTextField.text ?? "")
             }
             else{
                 showAlert(message: login.message ?? "")

@@ -15,6 +15,8 @@ enum Route {
     case forgot
     case otp
     case addComplaint
+    case getComplaints
+
     case logout
     case googleSignup
     case categories
@@ -62,7 +64,7 @@ enum Route {
         case .forgot:
             return "api/mobile/auth/forget-password"
         case .otp:
-            return "api/mobile/auth/verify_user"
+            return "api/mobile/auth/verify_login"
         case .addComplaint:
             return "api/mobile/complaints/add_new"
         case .logout:
@@ -139,6 +141,8 @@ enum Route {
             return "api/mobile/news/detail"
         case .opinionDetail:
             return "api/mobile/opinions/detail"
+        case .getComplaints:
+            return "api/mobile/complaints/get_tenant_complaints"
         }
     }
 }

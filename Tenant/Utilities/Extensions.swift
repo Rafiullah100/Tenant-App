@@ -266,7 +266,7 @@ extension String{
 
 extension UITableView{
     func setEmptyView(_ message: String? = nil) {
-        let image = UIImage(named: "")
+        let image = UIImage(named: "empty")
         let emptyImageView = UIImageView(image: image)
         emptyImageView.contentMode = .scaleAspectFit
         if let _ = image {
@@ -282,7 +282,9 @@ extension UITableView{
         messageLabel.textColor = .label
         messageLabel.font = UIFont(name: "Poppins-regular", size: 14)
 //        titleLabel.text = message ?? LocalizationKeys.noRecordFound.rawValue.localizeString()
-        messageLabel.text = ""
+//        titleLabel.text =
+
+        messageLabel.text = "No Complaints to Show"
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         
@@ -296,7 +298,7 @@ extension UITableView{
         containerView.addSubview(containerStack)
         containerStack.translatesAutoresizingMaskIntoConstraints = false
         containerStack.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.7, constant: 0).isActive = true
-        containerStack.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -20).isActive = true
+        containerStack.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -70).isActive = true
         containerStack.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 0).isActive = true
         self.backgroundView = containerView
     }

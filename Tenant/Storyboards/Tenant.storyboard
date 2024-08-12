@@ -1286,7 +1286,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Ms2-3P-CT9" firstAttribute="leading" secondItem="bZF-09-Ad5" secondAttribute="leading" id="BYU-Ph-zjz"/>
                                     <constraint firstAttribute="bottom" secondItem="Ms2-3P-CT9" secondAttribute="bottom" id="Giy-WH-9EE"/>
@@ -1791,6 +1790,9 @@
                                                                                                         <state key="normal" title="Submit Complaint">
                                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         </state>
+                                                                                                        <connections>
+                                                                                                            <action selector="submitBtnAction:" destination="KSg-In-oKI" eventType="touchUpInside" id="Nl8-v9-vXb"/>
+                                                                                                        </connections>
                                                                                                     </button>
                                                                                                 </subviews>
                                                                                                 <color key="backgroundColor" red="0.23137254900000001" green="0.44705882349999998" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>

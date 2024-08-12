@@ -20,7 +20,7 @@ public class Helper{
     
     func dateFormate(dateString: String) -> String {
         let inputDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        let outputDateFormat = "dd MMMM yyyy"
+        let outputDateFormat = "MMM d, yyyy, h:mm a"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = inputDateFormat
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")

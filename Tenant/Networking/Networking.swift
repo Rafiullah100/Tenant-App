@@ -9,12 +9,58 @@ import Foundation
 
 import Foundation
 import UIKit
-//import Alamofire
-//import SDWebImage
+import Alamofire
+import SDWebImage
+
+
+class Networking {
+    static let shared = Networking()
+
+    func addComplaint(route: Route, imageParameter: String, images: [UIImage], parameters: [String: Any], completion: @escaping (Result<AddTenantModel, AppError>) -> Void) {
+        
+        let urlStr = Route.baseUrl + route.description
+        let headers: HTTPHeaders = [
+            "Content-type": "multipart/form-data",
+            "x-access-token": "\(UserDefaults.standard.token ?? "")"
+        ]
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            // Append parameters
+            for (key, value) in parameters {
+                if let valueData = "\(value)".data(using: .utf8) {
+                    multipartFormData.append(valueData, withName: key)
+                }
+            }
+            
+            // Append each image
+            for (index, image) in images.enumerated() {
+                if let imageData = image.jpegData(compressionQuality: 1.0) {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'_'HH:mm:ss"
+                    let imageName = "\(dateFormatter.string(from: Date()))_\(index).jpg"
+                    multipartFormData.append(imageData, withName: imageParameter, fileName: imageName, mimeType: "image/jpg")
+                }
+            }
+        }, to: urlStr, headers: headers)
+        .responseDecodable(of: AddTenantModel.self) { response in
+            switch response.result {
+            case .success(let success):
+                completion(.success(success))
+            case .failure(let error):
+                print(error)
+                completion(.failure(AppError.unknownError))
+            }
+        }
+    }
+}
+
+
+
+
 //class Networking{
 //    static let shared = Networking()
-//    
-//    func updateProfile(route: Route, imageParameter: String, image: UIImage, parameters: [String: Any], completion: @escaping (Result<EditedProfileModel, AppError>) -> Void) {
+////    
+//    func addComplaint(route: Route, imageParameter: String, image: UIImage, parameters: [String: Any], completion: @escaping (Result<AddTenantModel, AppError>) -> Void) {
 //        
 //        let urlStr = Route.baseUrl + route.description
 //        //        let urlRequest: Alamofire.URLRequestConvertible = URLRequest(url: url)
@@ -23,6 +69,7 @@ import UIKit
 //            "Content-type": "multipart/form-data",
 //            "x-access-token": "\(UserDefaults.standard.token ?? "")"
 //        ]
+//        print(UserDefaults.standard.token)
 //        //file name
 //        let date: Date = Date()
 //        let dateFormatter = DateFormatter()
@@ -36,7 +83,7 @@ import UIKit
 //            }
 //            multipartFormData.append(imageData ?? Data(), withName: imageParameter, fileName: imageName, mimeType: "image/jpg")
 //        }, to: urlStr, headers: headers)
-//        .responseDecodable(of: EditedProfileModel.self) { (response) in
+//        .responseDecodable(of: AddTenantModel.self) { (response) in
 ////            SVProgressHUD.dismiss()
 //            switch response.result{
 //            case .success(let success):

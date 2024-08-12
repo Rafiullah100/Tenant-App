@@ -12,6 +12,7 @@ target 'Tenant' do
   pod 'GoogleMaps'
   pod 'IQKeyboardManager' #iOS8 and later
   pod 'SpinKit'
+  pod 'Alamofire', '~> 5.0.0-rc.2'
 end
 
 post_install do |installer|

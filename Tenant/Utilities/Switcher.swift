@@ -10,9 +10,17 @@ import Foundation
 import UIKit
 class Switcher {
     
-    static func gotoOtpScreen(delegate: UIViewController, userType: UserType){
+//    static func makeTenantAsInitial(delegate: UIViewController, userType: UserType, contact: String){
+//        let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantHomeViewController") as! TenantHomeViewController
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window?.rootViewController = vc
+//        self.window?.makeKeyAndVisible()
+//    }
+    
+    static func gotoOtpScreen(delegate: UIViewController, userType: UserType, contact: String){
         let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
         vc.userType = userType
+        vc.contact = contact
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: true)
     }

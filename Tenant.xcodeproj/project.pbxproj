@@ -99,6 +99,7 @@
 		527FB0C42C36BAE000504E3D /* OwnerHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FB0C22C36BAE000504E3D /* OwnerHomeTableViewCell.swift */; };
 		527FB0C52C36BAE000504E3D /* OwnerHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527FB0C32C36BAE000504E3D /* OwnerHomeTableViewCell.xib */; };
 		528345232C623F5B00800160 /* AddBranchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528345222C623F5A00800160 /* AddBranchViewController.swift */; };
+		529599F32C69EF19006188B1 /* AddTenantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529599F22C69EF19006188B1 /* AddTenantModel.swift */; };
 		52995C512C37C24600AFDA47 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C502C37C24500AFDA47 /* Auth.storyboard */; };
 		52995C532C37C2AF00AFDA47 /* Tenant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C522C37C2AF00AFDA47 /* Tenant.storyboard */; };
 		52995C552C37C2E600AFDA47 /* Company.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C542C37C2E600AFDA47 /* Company.storyboard */; };
@@ -119,6 +120,9 @@
 		52AB80502C5B841B001011C0 /* AddFlatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB804F2C5B841B001011C0 /* AddFlatViewController.swift */; };
 		52AC564B2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AC564A2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift */; };
 		52AC564D2C5A3EBC00F37A3C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AC564C2C5A3EBC00F37A3C /* BaseViewController.swift */; };
+		52B1DA6E2C69F3B4001EE096 /* AddTenantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B1DA6D2C69F3B4001EE096 /* AddTenantViewModel.swift */; };
+		52B1DA722C6A02AB001EE096 /* TenantComplaintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B1DA712C6A02AB001EE096 /* TenantComplaintModel.swift */; };
+		52B1DA752C6A0307001EE096 /* TenantComplaintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B1DA742C6A0307001EE096 /* TenantComplaintViewModel.swift */; };
 		52CCB2782C65EEB900A57B59 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CCB2772C65EEB900A57B59 /* SignupViewModel.swift */; };
 		52CCB27A2C65EEEE00A57B59 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CCB2792C65EEEE00A57B59 /* SignupModel.swift */; };
 		52DBCCD82C16C3B200A7B612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DBCCD72C16C3B200A7B612 /* AppDelegate.swift */; };
@@ -247,6 +251,7 @@
 		527FB0C22C36BAE000504E3D /* OwnerHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerHomeTableViewCell.swift; sourceTree = "<group>"; };
 		527FB0C32C36BAE000504E3D /* OwnerHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnerHomeTableViewCell.xib; sourceTree = "<group>"; };
 		528345222C623F5A00800160 /* AddBranchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBranchViewController.swift; sourceTree = "<group>"; };
+		529599F22C69EF19006188B1 /* AddTenantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTenantModel.swift; sourceTree = "<group>"; };
 		52995C502C37C24500AFDA47 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		52995C522C37C2AF00AFDA47 /* Tenant.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tenant.storyboard; sourceTree = "<group>"; };
 		52995C542C37C2E600AFDA47 /* Company.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Company.storyboard; sourceTree = "<group>"; };
@@ -267,6 +272,9 @@
 		52AB804F2C5B841B001011C0 /* AddFlatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlatViewController.swift; sourceTree = "<group>"; };
 		52AC564A2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerOngoingDetailViewController.swift; sourceTree = "<group>"; };
 		52AC564C2C5A3EBC00F37A3C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		52B1DA6D2C69F3B4001EE096 /* AddTenantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTenantViewModel.swift; sourceTree = "<group>"; };
+		52B1DA712C6A02AB001EE096 /* TenantComplaintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantComplaintModel.swift; sourceTree = "<group>"; };
+		52B1DA742C6A0307001EE096 /* TenantComplaintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantComplaintViewModel.swift; sourceTree = "<group>"; };
 		52CCB2772C65EEB900A57B59 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		52CCB2792C65EEEE00A57B59 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		52DBCCD42C16C3B200A7B612 /* Tenant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tenant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -479,9 +487,9 @@
 		524D70C12C4A86C800C7490C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				529E176D2C2EBA870063B204 /* TenantTableViewCell.swift */,
-				529E176C2C2EBA870063B204 /* TenantTableViewCell.xib */,
-				529E17752C2EC35F0063B204 /* TenantHomeViewController.swift */,
+				52B1DA732C6A02F1001EE096 /* ViewModel */,
+				52B1DA702C6A0298001EE096 /* Model */,
+				52B1DA6F2C6A0290001EE096 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -489,7 +497,9 @@
 		524D70C22C4A86DC00C7490C /* AddTenant */ = {
 			isa = PBXGroup;
 			children = (
-				529E17732C2EC32B0063B204 /* AddTenantViewController.swift */,
+				52B1DA6C2C69F39D001EE096 /* ViewModel */,
+				529599F12C69EF09006188B1 /* Model */,
+				529599F02C69EEFD006188B1 /* View */,
 			);
 			path = AddTenant;
 			sourceTree = "<group>";
@@ -742,6 +752,22 @@
 			path = AddBranch;
 			sourceTree = "<group>";
 		};
+		529599F02C69EEFD006188B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				529E17732C2EC32B0063B204 /* AddTenantViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		529599F12C69EF09006188B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				529599F22C69EF19006188B1 /* AddTenantModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		52995C562C37C4F300AFDA47 /* TenantApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,6 +852,40 @@
 				52AC564A2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift */,
 			);
 			path = WorkerOngoing;
+			sourceTree = "<group>";
+		};
+		52B1DA6C2C69F39D001EE096 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52B1DA6D2C69F3B4001EE096 /* AddTenantViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52B1DA6F2C6A0290001EE096 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				529E176D2C2EBA870063B204 /* TenantTableViewCell.swift */,
+				529E176C2C2EBA870063B204 /* TenantTableViewCell.xib */,
+				529E17752C2EC35F0063B204 /* TenantHomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52B1DA702C6A0298001EE096 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52B1DA712C6A02AB001EE096 /* TenantComplaintModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52B1DA732C6A02F1001EE096 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52B1DA742C6A0307001EE096 /* TenantComplaintViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		52CCB2732C65EDC800A57B59 /* Signup */ = {
@@ -1261,6 +1321,7 @@
 				52995C5C2C37E54C00AFDA47 /* OwnerHomeViewController.swift in Sources */,
 				52DBCD0C2C16C52C00A7B612 /* UserDefaults+Extension.swift in Sources */,
 				52F188AC2C660AFD00085EE7 /* LoginModel.swift in Sources */,
+				52B1DA752C6A0307001EE096 /* TenantComplaintViewModel.swift in Sources */,
 				52DBCD0D2C16C52C00A7B612 /* Helper.swift in Sources */,
 				52F188B62C661BFA00085EE7 /* OtpModel.swift in Sources */,
 				52DBCD062C16C52C00A7B612 /* Constants.swift in Sources */,
@@ -1278,6 +1339,7 @@
 				528345232C623F5B00800160 /* AddBranchViewController.swift in Sources */,
 				52DBCD0E2C16C52C00A7B612 /* Color.swift in Sources */,
 				522F761A2C4E4A2B0035B8A4 /* AddWorkerViewController.swift in Sources */,
+				52B1DA6E2C69F3B4001EE096 /* AddTenantViewModel.swift in Sources */,
 				52CCB27A2C65EEEE00A57B59 /* SignupModel.swift in Sources */,
 				525F5C292C3FDD7C00FE4B89 /* CompanyWorkerCategoryCollectionViewCell.swift in Sources */,
 				522FFBB42C4CE1B00010A2EF /* CompanyCardTableViewCell.swift in Sources */,
@@ -1301,6 +1363,7 @@
 				52DBCCF62C16C51A00A7B612 /* AppError.swift in Sources */,
 				529E176F2C2EBA870063B204 /* ComplaintCollectionViewCell.swift in Sources */,
 				5223FAFC2C411EA2002D8E09 /* PropertyDetailViewController.swift in Sources */,
+				529599F32C69EF19006188B1 /* AddTenantModel.swift in Sources */,
 				529E17762C2EC35F0063B204 /* TenantHomeViewController.swift in Sources */,
 				5223FAFA2C411B6B002D8E09 /* AddPropertyViewController.swift in Sources */,
 				529E17632C2E8EEA0063B204 /* RegistrationViewController.swift in Sources */,
@@ -1329,6 +1392,7 @@
 				52DBCD092C16C52C00A7B612 /* Extensions.swift in Sources */,
 				525AEAAA2C63659F0089FB50 /* DateViewController.swift in Sources */,
 				527616412C48F4C9007F7C66 /* TenantsManagementViewController.swift in Sources */,
+				52B1DA722C6A02AB001EE096 /* TenantComplaintModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

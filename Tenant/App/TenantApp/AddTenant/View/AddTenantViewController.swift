@@ -29,7 +29,8 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
     }
     var selectedImages = [UIImage]()
     var pickerView = UIPickerView()
-    
+    private var viewModel = AddTenantViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         hideGalleryView()
@@ -53,6 +54,18 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
         viewControllerTitle = LocalizationKeys.newComplaint.rawValue.localizeString()
         
         collectionView.showsVerticalScrollIndicator = false
+    }
+    
+    @IBAction func submitBtnAction(_ sender: Any) {
+        let add = AddComplaintInputModel(title: titleTextField.text ?? "", description: descriptionTextView.text ?? "", images: selectedImages.count, propertyId: "1", skill: "1")
+        let validationResponse = viewModel.isFormValid(complaint: add)
+        if validationResponse.isValid {
+            self.animateSpinner()
+            self.viewModel.addComplaint(image: selectedImages[0])
+        }
+        else{
+            showAlert(message: validationResponse.message)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -16,5 +16,15 @@ struct OtpModel: Codable {
 // MARK: - User
 struct OtpUser: Codable {
     let id: Int?
-    let name, contact, type: String?
+    let uuid, name, contact: String?
+    let verified: Int?
+    let type: String?
+    let propertyIDIfTenant: String?
+    let token: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id, uuid, name, contact, verified, type
+        case propertyIDIfTenant = "propertyId_if_tenant"
+        case token
+    }
 }

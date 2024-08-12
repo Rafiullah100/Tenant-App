@@ -16,6 +16,8 @@ class OTPViewController: BaseViewController {
     @IBOutlet weak var topLabel: UILabel!
     var userType: UserType = .tenant
     private var viewModel = OtpViewModel()
+    var contact: String?
+    
 
     @IBOutlet weak var textField4: UITextField!
     @IBOutlet weak var textField3: UITextField!
@@ -102,7 +104,7 @@ class OTPViewController: BaseViewController {
             showAlert(message: "Please fill all field and try again!")
         }
         else{
-            viewModel.verifyUSer(otp: otp, type: userType.rawValue)
+            viewModel.verifyUSer(otp: otp, type: userType.rawValue, contact: contact ?? "")
         }
     } 
 }

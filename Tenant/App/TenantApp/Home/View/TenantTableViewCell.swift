@@ -38,6 +38,14 @@ class TenantTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var complaint: TenantComplaintsRow? {
+        didSet{
+            titleLbl.text = complaint?.title
+            complaintIdLbl.text = "\(complaint?.id ?? 0)"
+            postDate.text = Helper.shared.dateFormate(dateString: complaint?.timestamp ?? "")
+        }
+    }
+    
 }
 
 extension UIColor {
