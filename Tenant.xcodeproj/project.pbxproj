@@ -32,6 +32,8 @@
 		522FFBC92C4CEDEF0010A2EF /* BothPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522FFBC62C4CEDEF0010A2EF /* BothPropertyViewController.swift */; };
 		522FFBCA2C4CEDEF0010A2EF /* BothPropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522FFBC72C4CEDEF0010A2EF /* BothPropertyTableViewCell.xib */; };
 		522FFBCB2C4CEDEF0010A2EF /* BothPropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522FFBC82C4CEDEF0010A2EF /* BothPropertyTableViewCell.swift */; };
+		524FD36A2C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524FD3692C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift */; };
+		524FD36C2C6B41BC0023F5DF /* TenantComplaintDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524FD36B2C6B41BC0023F5DF /* TenantComplaintDetailModel.swift */; };
 		525AEAA42C6348360089FB50 /* CompanyPropertiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AEAA32C6348360089FB50 /* CompanyPropertiesViewController.swift */; };
 		525AEAA72C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AEAA62C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift */; };
 		525AEAAA2C63659F0089FB50 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AEAA92C63659F0089FB50 /* DateViewController.swift */; };
@@ -181,6 +183,8 @@
 		522FFBC72C4CEDEF0010A2EF /* BothPropertyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BothPropertyTableViewCell.xib; sourceTree = "<group>"; };
 		522FFBC82C4CEDEF0010A2EF /* BothPropertyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BothPropertyTableViewCell.swift; sourceTree = "<group>"; };
 		52362EA92C2D46C1009D3DC8 /* IQKeyboardManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		524FD3692C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantComplaintDetailViewModel.swift; sourceTree = "<group>"; };
+		524FD36B2C6B41BC0023F5DF /* TenantComplaintDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantComplaintDetailModel.swift; sourceTree = "<group>"; };
 		525AEAA32C6348360089FB50 /* CompanyPropertiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPropertiesViewController.swift; sourceTree = "<group>"; };
 		525AEAA62C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPropertyDetailViewController.swift; sourceTree = "<group>"; };
 		525AEAA92C63659F0089FB50 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
@@ -507,17 +511,11 @@
 		524D70C32C4A86E900C7490C /* TenantDetail */ = {
 			isa = PBXGroup;
 			children = (
-				52688B0C2C3290EF001C55A8 /* TenantDetailViewController.swift */,
+				524FD3682C6B417C0023F5DF /* ViewModel */,
+				524FD3672C6B41750023F5DF /* Model */,
+				524FD3662C6B41610023F5DF /* View */,
 			);
 			path = TenantDetail;
-			sourceTree = "<group>";
-		};
-		524D70C42C4A86F400C7490C /* TenantCompleted */ = {
-			isa = PBXGroup;
-			children = (
-				52688B162C32C56F001C55A8 /* TenantCompletedViewController.swift */,
-			);
-			path = TenantCompleted;
 			sourceTree = "<group>";
 		};
 		524D70C52C4A870800C7490C /* ContactPerson */ = {
@@ -610,6 +608,31 @@
 				525B377A2C3E92D30087CB5C /* WorkersHomeViewController.swift */,
 			);
 			path = WorkerHome;
+			sourceTree = "<group>";
+		};
+		524FD3662C6B41610023F5DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52688B0C2C3290EF001C55A8 /* TenantDetailViewController.swift */,
+				52688B162C32C56F001C55A8 /* TenantCompletedViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		524FD3672C6B41750023F5DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				524FD36B2C6B41BC0023F5DF /* TenantComplaintDetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		524FD3682C6B417C0023F5DF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				524FD3692C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		525AEAA22C63480B0089FB50 /* CompanyProperty */ = {
@@ -774,7 +797,6 @@
 				524D70C12C4A86C800C7490C /* Home */,
 				524D70C22C4A86DC00C7490C /* AddTenant */,
 				524D70C32C4A86E900C7490C /* TenantDetail */,
-				524D70C42C4A86F400C7490C /* TenantCompleted */,
 				524D70C52C4A870800C7490C /* ContactPerson */,
 			);
 			path = TenantApp;
@@ -1351,6 +1373,7 @@
 				522F76202C4E78370035B8A4 /* SelfPropertyDetailTableViewCell.swift in Sources */,
 				52104A292C64B27D0060B217 /* ProfileHomeViewController.swift in Sources */,
 				525AEAAD2C637C480089FB50 /* CompanyDetailViewController.swift in Sources */,
+				524FD36A2C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift in Sources */,
 				526A2D5A2C3D0B7000C716A8 /* CompanyOngoingTableViewCell.swift in Sources */,
 				52688B142C32C563001C55A8 /* StatusDoneCollectionViewCell.swift in Sources */,
 				52F188AE2C660B1100085EE7 /* LoginViewModel.swift in Sources */,
@@ -1367,6 +1390,7 @@
 				529E17762C2EC35F0063B204 /* TenantHomeViewController.swift in Sources */,
 				5223FAFA2C411B6B002D8E09 /* AddPropertyViewController.swift in Sources */,
 				529E17632C2E8EEA0063B204 /* RegistrationViewController.swift in Sources */,
+				524FD36C2C6B41BC0023F5DF /* TenantComplaintDetailModel.swift in Sources */,
 				5276163F2C48F14B007F7C66 /* AddTenanToFlatViewController.swift in Sources */,
 				52F188A62C660A7C00085EE7 /* SigninViewController.swift in Sources */,
 				527616452C48F51A007F7C66 /* TenantCollectionViewCell.swift in Sources */,

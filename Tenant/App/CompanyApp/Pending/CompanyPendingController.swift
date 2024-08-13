@@ -53,7 +53,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplainDetailCollectionViewCell.identifier, for: indexPath)as! ComplainDetailCollectionViewCell
-            cell.configure(with: UIImage(named: "Img1")!)
+//            cell.configure(with: UIImage(named: "Img1")!)
             return cell
             
         }

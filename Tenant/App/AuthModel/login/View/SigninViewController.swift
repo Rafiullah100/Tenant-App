@@ -24,7 +24,7 @@ class SigninViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.text = "03046929791"
+        emailTextField.text = "123456789"
         nameTextField.text = "Rafiullah"
         
         

@@ -23,6 +23,14 @@ class TenantComplaintViewModel {
             }
         }
     }
+    
+    func getRecentID(index: Int) -> Int{
+        return self.complaintList.value?.complaintsRecent?.rows?[index].id ?? 0
+    }
+    
+    func getHistoryID(index: Int) -> Int{
+        return self.complaintList.value?.complaintsHistory?.rows?[index].id ?? 0
+    }
 
     func getRecentCount() -> Int {
         return self.complaintList.value?.complaintsRecent?.rows?.count ?? 0
@@ -41,4 +49,14 @@ class TenantComplaintViewModel {
         guard let complaint = self.complaintList.value?.complaintsHistory?.rows?[index] else { return nil }
         return complaint
     }
+    
+    func isTaskCompleted(index: Int) -> Int {
+        return self.complaintList.value?.complaintsRecent?.rows?[index].taskComplete ?? 0
+    }
+    
+    //for history
+//    func isTaskCompleted(index: Int) -> Int {
+//        return self.complaintList.value?.complaintsRecent?.rows?[index].taskComplete ?? 0
+//    }
+    
 }

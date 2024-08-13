@@ -19,7 +19,7 @@ struct OtpUser: Codable {
     let uuid, name, contact: String?
     let verified: Int?
     let type: String?
-    let propertyIDIfTenant: String?
+    let propertyIDIfTenant: Int?
     let token: String?
 
     enum CodingKeys: String, CodingKey {

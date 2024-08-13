@@ -75,8 +75,9 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoTenantDetailScreen(delegate: UIViewController){
+    static func gotoTenantDetailScreen(delegate: UIViewController, complaintID: Int){
         let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantDetailViewController") as! TenantDetailViewController
+        vc.complaintID = complaintID
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
@@ -93,8 +94,9 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoTenantCompletedDetailScreen(delegate: UIViewController){
+    static func gotoTenantCompletedDetailScreen(delegate: UIViewController, complaintID: Int){
         let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantCompletedViewController") as! TenantCompletedViewController
+        vc.complaintID = complaintID
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)

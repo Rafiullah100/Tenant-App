@@ -43,9 +43,12 @@ class TenantTableViewCell: UITableViewCell {
             titleLbl.text = complaint?.title
             complaintIdLbl.text = "\(complaint?.id ?? 0)"
             postDate.text = Helper.shared.dateFormate(dateString: complaint?.timestamp ?? "")
+            let status = Helper.shared.getComplaintStatus(ownerApproval: complaint?.ownerApproval, companyApproval: complaint?.companyApproval, taskComplete: complaint?.taskComplete, tenantApproval: complaint?.tenantApproval, workerID: ((complaint?.workerID) != nil) ? 1 : 0)
+            
+            statusLbl.text = status.0
+            colorView.backgroundColor = status.1.color
         }
     }
-    
 }
 
 extension UIColor {

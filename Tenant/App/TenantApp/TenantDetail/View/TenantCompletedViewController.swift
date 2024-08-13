@@ -9,6 +9,11 @@ import UIKit
 
 class TenantCompletedViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var confirmView: UIView!
+    @IBOutlet weak var phoneLbl: UILabel!
+    @IBOutlet weak var statusLbl: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var complaintTitleLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var photoLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
@@ -17,6 +22,13 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var scheduleLabel: UILabel!
+    
+    @IBOutlet weak var personLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var scheduleLbl: UILabel!
+    
+    private var viewModel = TenantComplaintDetailViewModel()
+    var complaintID: Int?
     
     @IBOutlet weak var collectionViewDone: UICollectionView!{
         didSet{
@@ -39,6 +51,28 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         collectionViewDone.showsVerticalScrollIndicator = false
 
         type = .tenant
+        viewModel.complaintDetail.bind { [unowned self] detail in
+            guard let _ = detail else {return}
+            self.stopAnimation()
+            self.updateUI()
+        }
+        self.animateSpinner()
+        viewModel.getComplaints(complaintID: complaintID ?? 0)
+    }
+    
+    private func updateUI(){
+        complaintTitleLabel.text = viewModel.getTitle()
+        idLabel.text = "\(viewModel.getCompalintID())"
+        statusLbl.text = viewModel.getStatus()
+//        descriptionLbl.text = viewModel.getDescription()
+        scheduleLbl.text = viewModel.getScheduleDate()
+        timeLbl.text = viewModel.getScheduleTime()
+        if viewModel.isTaskCompleted() == 0{
+            confirmView.isHidden = true
+        }
+        else {
+            confirmView.isHidden = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

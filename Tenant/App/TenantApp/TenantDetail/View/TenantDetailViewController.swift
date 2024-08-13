@@ -23,6 +23,23 @@ class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, 
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var postLabel: UILabel!
     
+    @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var statusLbl: UILabel!
+    @IBOutlet weak var complaintTitleLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    
+    @IBOutlet weak var scheduleLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var personLabel: UILabel!
+    @IBOutlet weak var scheduleView: UIView!
+   
+    @IBOutlet weak var scheduleLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var personLbl: UILabel!
+    
+    private var viewModel = TenantComplaintDetailViewModel()
+    var complaintID: Int?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
@@ -31,10 +48,40 @@ class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, 
         photoLabel.text = LocalizationKeys.photos.rawValue.localizeString()
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
         
+        scheduleLabel.text = LocalizationKeys.schedule.rawValue.localizeString()
+        timeLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
+        personLabel.text = LocalizationKeys.person.rawValue.localizeString()
+        
         doneButton.setTitle(LocalizationKeys.done.rawValue.localizeString(), for: .normal)
         collectionView.showsVerticalScrollIndicator = false
-
         type = .tenant
+        
+        viewModel.complaintDetail.bind { [unowned self] detail in
+            guard let _ = detail else {return}
+            self.stopAnimation()
+            self.updateUI()
+            self.collectionView.reloadData()
+        }
+        self.animateSpinner()
+        viewModel.getComplaints(complaintID: complaintID ?? 0)
+    }
+    
+    private func updateUI(){
+        complaintTitleLabel.text = viewModel.getTitle()
+        idLabel.text = "\(viewModel.getCompalintID())"
+        statusLbl.text = viewModel.getStatus()
+        descriptionLbl.text = viewModel.getDescription()
+        dateLabel.text = viewModel.getPostedDate()
+        scheduleLbl.text = viewModel.getScheduleDate()
+        timeLbl.text = viewModel.getScheduleTime()
+
+        //show if worker id is not null and complete task is zero
+        if viewModel.getWorkerID() == 1 && viewModel.isTaskCompleted() == 0{
+            scheduleView.isHidden = false
+        }
+        else {
+            scheduleView.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,16 +90,14 @@ class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        return viewModel.getPhotosForInProgressComplaint().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplainDetailCollectionViewCell.identifier, for: indexPath)as! ComplainDetailCollectionViewCell
-            cell.configure(with: UIImage(named: "Img1")!)
-            return cell
-            
-        }
-
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplainDetailCollectionViewCell.identifier, for: indexPath)as! ComplainDetailCollectionViewCell
+        cell.configure(with: viewModel.getPhoto(index: indexPath.row))
+        return cell
+    }
 }
 
 extension TenantDetailViewController:UICollectionViewDelegateFlowLayout{

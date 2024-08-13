@@ -94,9 +94,9 @@ extension UserDefaults{
         }
     }
     
-    var propertyIDIfTenant: String?  {
+    var propertyIDIfTenant: Int?  {
         get {
-            value(forKey: userdefaultsKey.propertyIDIfTenant.rawValue) as? String
+            value(forKey: userdefaultsKey.propertyIDIfTenant.rawValue) as? Int
         }
         set {
             set(newValue, forKey: userdefaultsKey.propertyIDIfTenant.rawValue)

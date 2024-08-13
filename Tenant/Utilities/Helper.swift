@@ -65,6 +65,34 @@ public class Helper{
         }
         return .tenant
     }
+    
+    func getComplaintStatus(
+        ownerApproval: Int?,
+        companyApproval: Int?,
+        taskComplete: Int?,
+        tenantApproval: Int?,
+        workerID: Int) -> (String, CustomColor) {
+            if ownerApproval == 0 {
+                return ("Approval Pending from Owner", CustomColor.redColor)
+            }
+            else if ownerApproval == 1 && companyApproval == 0{
+                return ("Acceptance Pending from Maintenance Company", CustomColor.redColor)
+            }
+            else if ownerApproval == 1 && workerID == 0 && taskComplete == 0{
+                return ("Not assign to worker", CustomColor.redColor)
+            }
+            else if workerID != 0 && taskComplete == 0{
+                return ("Worker in progress", CustomColor.blueColor)
+            }
+            else if taskComplete == 1 && tenantApproval == 0{
+                return ("Work Done - Waiting for Confirmation", CustomColor.greenColor)
+            }
+            else if tenantApproval == 1{
+                return ("Work done, approved", CustomColor.greenColor)
+            }
+            return ("", CustomColor.redColor)
+        }
+    
 }
 
 

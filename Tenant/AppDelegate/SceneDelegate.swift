@@ -14,14 +14,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
 
         if UserDefaults.standard.isLogin == true{
             
-            window = UIWindow(windowScene: windowScene)
 
             let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantHomeViewController") as! TenantHomeViewController
             let nav = UINavigationController(rootViewController: vc)
             
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
+        else{
+            let vc = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil).instantiateViewController(withIdentifier: "IntroductionViewController") as! IntroductionViewController
+            let nav = UINavigationController(rootViewController: vc)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()
         }

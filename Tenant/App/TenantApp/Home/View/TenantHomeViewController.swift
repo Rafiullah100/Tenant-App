@@ -31,12 +31,15 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString()):   14"
         historyLabel.text = LocalizationKeys.recent.rawValue.localizeString()
         historyTableView.showsVerticalScrollIndicator = false
+        
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
             self.isLoading = false
             self.stopAnimation()
             self.historyTableView.reloadData()
         }
+        self.historyTableView.rowHeight = UITableView.automaticDimension
+        self.historyTableView.estimatedRowHeight = 44.0
         self.animateSpinner()
         viewModel.getComplaints()
     }
@@ -86,17 +89,13 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         cell.complaint = isRecent ? viewModel.getRecentComplaint(index: indexPath.row) : viewModel.getHistoryComplaint(index: indexPath.row)
         return cell
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isRecent{
-            Switcher.gotoTenantDetailScreen(delegate: self)
+        if viewModel.isTaskCompleted(index: indexPath.row) == 1{
+            Switcher.gotoTenantCompletedDetailScreen(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
         }
         else{
-            Switcher.gotoTenantCompletedDetailScreen(delegate: self)
+            Switcher.gotoTenantDetailScreen(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
         }
     }
 }

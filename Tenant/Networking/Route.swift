@@ -16,6 +16,7 @@ enum Route {
     case otp
     case addComplaint
     case getComplaints
+    case getComplaintDetail
 
     case logout
     case googleSignup
@@ -143,6 +144,8 @@ enum Route {
             return "api/mobile/opinions/detail"
         case .getComplaints:
             return "api/mobile/complaints/get_tenant_complaints"
+        case .getComplaintDetail:
+            return "api/mobile/complaints/get_complaint_detail"
         }
     }
 }
