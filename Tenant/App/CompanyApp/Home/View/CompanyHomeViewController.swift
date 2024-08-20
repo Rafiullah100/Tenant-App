@@ -38,6 +38,9 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         searchTextField.placeholder = LocalizationKeys.search.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 44.0
+        
         tableView.showsVerticalScrollIndicator = false
     }
     
@@ -56,10 +59,12 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func ongoingBtnAction(_ sender: Any) {
+        isNew = false
         setupButton(complaintType: .ongoing)
     }
     
     @IBAction func newBtnAction(_ sender: Any) {
+        isNew = true
         setupButton(complaintType: .new)
     }
     
@@ -113,15 +118,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
             return cell
         }
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if isNew{
-            return 120
-        }
-        else{
-            return 130
-        }
-    }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isNew{
