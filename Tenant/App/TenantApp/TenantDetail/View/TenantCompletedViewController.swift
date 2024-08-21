@@ -55,6 +55,7 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
             guard let _ = detail else {return}
             self.stopAnimation()
             self.updateUI()
+            self.collectionViewDone.reloadData()
         }
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
@@ -67,6 +68,8 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
 //        descriptionLbl.text = viewModel.getDescription()
         scheduleLbl.text = viewModel.getScheduleDate()
         timeLbl.text = viewModel.getScheduleTime()
+        personLbl.text = viewModel.getMaintenancePersonContact()
+        phoneLbl.text = viewModel.getContacts()
         if viewModel.isTaskCompleted() == 0{
             confirmView.isHidden = true
         }
@@ -81,18 +84,14 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        return viewModel.getCompanyUploadedPhotos().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatusDoneCollectionViewCell.identifier, for: indexPath)as! StatusDoneCollectionViewCell
-            
-            cell.configure(with: UIImage(named: "Img1")!)
-          
-            
-            return cell
-            
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatusDoneCollectionViewCell.identifier, for: indexPath)as! StatusDoneCollectionViewCell
+        cell.configure(with: viewModel.getCompanyPhoto(index: indexPath.row))
+        return cell
+    }
     
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -101,6 +100,6 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
 
 extension TenantCompletedViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 76.83, height: 76.83)
+        return CGSize(width: 80, height: 80)
     }
 }

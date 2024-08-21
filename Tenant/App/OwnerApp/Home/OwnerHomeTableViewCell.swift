@@ -14,6 +14,7 @@ class CompanyNewTableViewCell: UITableViewCell {
     @IBOutlet weak var timelbl: UILabel!
     @IBOutlet weak var postDate: UILabel!
     
+    @IBOutlet weak var statusLbl: UILabel!
     @IBOutlet weak var byLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     
@@ -25,8 +26,20 @@ class CompanyNewTableViewCell: UITableViewCell {
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
         byLabel.text = LocalizationKeys.by.rawValue.localizeString()
-        
-            }
+    }
+    
+    var complaint: CompanyComplaintsRow? {
+        didSet{
+            titleLbl.text = complaint?.title
+            addressLabel.text = complaint?.tenantDistrict
+            postDate.text = Helper.shared.dateFormate(dateString: complaint?.timestamp ?? "")
+            let status = Helper.shared.getComplaintStatus(ownerApproval: complaint?.ownerApproval, companyApproval: complaint?.companyApproval, taskComplete: complaint?.taskComplete, tenantApproval: complaint?.tenantApproval, workerID: ((complaint?.workerID) != nil) ? 1 : 0)
+            
+            statusLbl.text = status.0
+            colorView.backgroundColor = status.1.color
+        }
+    }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

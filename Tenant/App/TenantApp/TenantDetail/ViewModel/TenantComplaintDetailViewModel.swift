@@ -41,7 +41,8 @@ class TenantComplaintDetailViewModel {
         return status.0
     }
     
-    func getPhotos() -> [String] {
+    func getCompanyUploadedPhotos() -> [ComplainImage] {
+        print(self.complaintDetail.value?.completionImages ?? [])
         return self.complaintDetail.value?.completionImages ?? []
     }
     
@@ -49,13 +50,17 @@ class TenantComplaintDetailViewModel {
         return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.timestamp ?? "")
     }
     
-    func getPhotosForInProgressComplaint() -> [TenantComplainImage] {
+    func getPhotosForInProgressComplaint() -> [ComplainImage] {
         return self.complaintDetail.value?.complainImages ?? []
     }
     
     func getPhoto(index: Int) -> String {
         print(self.complaintDetail.value?.complainImages?[index].imageURL ?? "")
         return self.complaintDetail.value?.complainImages?[index].imageURL ?? ""
+    }
+    
+    func getCompanyPhoto(index: Int) -> String {
+        return self.complaintDetail.value?.completionImages?[index].imageURL ?? ""
     }
     
     func getWorkerID() -> Int {
@@ -72,5 +77,16 @@ class TenantComplaintDetailViewModel {
     
     func getScheduleTime() -> String {
         return self.complaintDetail.value?.scheduleTime ?? ""
+    }
+    
+    func getMaintenancePersonContact() -> String {
+        return self.complaintDetail.value?.property?.company?.contact ?? ""
+    }
+    
+    func getContacts() -> String? {
+        let company = self.complaintDetail.value?.property?.company?.contact ?? ""
+        let person = self.complaintDetail.value?.property?.company?.contact ?? ""
+
+        return company + " | " + person
     }
 }

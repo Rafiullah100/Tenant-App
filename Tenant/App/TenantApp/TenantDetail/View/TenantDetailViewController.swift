@@ -57,10 +57,12 @@ class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, 
         type = .tenant
         
         viewModel.complaintDetail.bind { [unowned self] detail in
-            guard let _ = detail else {return}
-            self.stopAnimation()
-            self.updateUI()
-            self.collectionView.reloadData()
+            DispatchQueue.main.async {
+                guard let _ = detail else {return}
+                self.stopAnimation()
+                self.updateUI()
+                self.collectionView.reloadData()
+            }
         }
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)

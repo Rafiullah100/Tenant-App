@@ -33,6 +33,11 @@ enum UserType: String {
     case worker
 }
 
+enum OtpType: String {
+    case signin
+    case signup
+}
+
 enum PropertyType {
     case building
     case villa

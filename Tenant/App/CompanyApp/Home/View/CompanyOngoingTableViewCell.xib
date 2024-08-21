@@ -95,7 +95,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acA-8N-e2H">
-                                                                        <rect key="frame" x="0.0" y="15.666666666666666" width="335" height="17.666666666666679"/>
+                                                                        <rect key="frame" x="0.0" y="15.666666666666666" width="335" height="17.666666666666671"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q9c-Qc-Vx9">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="17.666666666666668"/>
@@ -288,12 +288,14 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="addressLabel" destination="orh-eV-yRV" id="TYJ-Xa-uxk"/>
+                <outlet property="assignedLbl" destination="Tja-58-aus" id="AS9-4q-mTX"/>
                 <outlet property="assignedtoLabel" destination="4ty-PX-q8E" id="8ZV-kp-FZV"/>
                 <outlet property="byLabel" destination="YYd-SK-IyI" id="qNi-Nd-QsJ"/>
                 <outlet property="colorView" destination="pfK-7c-sj6" id="EmP-98-jSt"/>
                 <outlet property="postDate" destination="bvg-Mu-zra" id="VN8-2n-IYv"/>
                 <outlet property="postLabel" destination="AY4-G9-quv" id="ArE-at-QnO"/>
                 <outlet property="statusLabel" destination="Ye1-4g-L0s" id="OIx-LL-Alw"/>
+                <outlet property="statusLbl" destination="Idm-RM-Yb1" id="ULL-vY-3LZ"/>
                 <outlet property="titleLbl" destination="Xhv-ki-T2C" id="sg3-CL-jZV"/>
             </connections>
             <point key="canvasLocation" x="-25.190839694656489" y="74.647887323943664"/>

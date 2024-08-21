@@ -9,6 +9,8 @@ import UIKit
 
 class CompanyOngoingTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var statusLbl: UILabel!
+    @IBOutlet weak var assignedLbl: UILabel!
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var assignedtoLabel: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
@@ -34,6 +36,18 @@ class CompanyOngoingTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    var complaint: CompanyComplaintsRow? {
+        didSet{
+            titleLbl.text = complaint?.title
+            addressLabel.text = complaint?.tenantDistrict
+            postDate.text = Helper.shared.dateFormate(dateString: complaint?.timestamp ?? "")
+            let status = Helper.shared.getComplaintStatus(ownerApproval: complaint?.ownerApproval, companyApproval: complaint?.companyApproval, taskComplete: complaint?.taskComplete, tenantApproval: complaint?.tenantApproval, workerID: ((complaint?.workerID) != nil) ? 1 : 0)
+            
+            statusLbl.text = status.0
+            colorView.backgroundColor = status.1.color
+        }
     }
     
 }

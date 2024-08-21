@@ -481,10 +481,10 @@
                                                                         <rect key="frame" x="0.0" y="165" width="393" height="45"/>
                                                                         <subviews>
                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMP-GV-Ulp">
-                                                                                <rect key="frame" x="25" y="0.0" width="343" height="41"/>
+                                                                                <rect key="frame" x="20" y="0.0" width="353" height="41"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JjS-4d-B6g">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="41"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="41"/>
                                                                                         <subviews>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fr6-gA-dcY">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="318" height="41"/>
@@ -505,10 +505,10 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5k-a7-tSo">
-                                                                                                <rect key="frame" x="318" y="0.0" width="25" height="41"/>
+                                                                                                <rect key="frame" x="318" y="0.0" width="35" height="41"/>
                                                                                                 <subviews>
                                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="vzL-Qt-tpk">
-                                                                                                        <rect key="frame" x="-8" y="11.666666666666657" width="18" height="18"/>
+                                                                                                        <rect key="frame" x="2" y="11.666666666666657" width="18" height="18"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="height" constant="18" id="F9X-aI-xMi"/>
                                                                                                             <constraint firstAttribute="width" constant="18" id="zUE-CZ-IiG"/>
@@ -539,10 +539,10 @@
                                                                             </view>
                                                                         </subviews>
                                                                         <constraints>
-                                                                            <constraint firstItem="SMP-GV-Ulp" firstAttribute="leading" secondItem="19q-sS-IjX" secondAttribute="leading" constant="25" id="F4U-Ze-zhW"/>
+                                                                            <constraint firstItem="SMP-GV-Ulp" firstAttribute="leading" secondItem="19q-sS-IjX" secondAttribute="leading" constant="20" id="F4U-Ze-zhW"/>
                                                                             <constraint firstAttribute="bottom" secondItem="SMP-GV-Ulp" secondAttribute="bottom" constant="4" id="MN3-k6-Tq8"/>
                                                                             <constraint firstItem="SMP-GV-Ulp" firstAttribute="top" secondItem="19q-sS-IjX" secondAttribute="top" id="QFT-dr-50H"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="SMP-GV-Ulp" secondAttribute="trailing" constant="25" id="bow-E0-wUG"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="SMP-GV-Ulp" secondAttribute="trailing" constant="20" id="bow-E0-wUG"/>
                                                                             <constraint firstAttribute="height" constant="45" id="zkO-CT-AY9"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
@@ -736,9 +736,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Jte-jX-cTB"/>
                     <connections>
+                        <outlet property="contactLabel" destination="79c-G2-Mm7" id="7Fh-e8-dJD"/>
                         <outlet property="doneButton" destination="vb4-qc-Quo" id="dIq-OQ-DDH"/>
+                        <outlet property="nameLabel" destination="dCO-sF-wa9" id="0gB-ee-W4Q"/>
                         <outlet property="newButton" destination="zde-Tk-tRz" id="T40-7D-Tel"/>
                         <outlet property="ongoingButton" destination="Ojo-6m-6dB" id="SPs-SI-Rmu"/>
+                        <outlet property="profileImageView" destination="eyM-7T-38B" id="wRL-N2-8oN"/>
                         <outlet property="searchTextField" destination="DY6-EH-h4Z" id="zEG-Re-DDk"/>
                         <outlet property="searchView" destination="SMP-GV-Ulp" id="AcS-K2-lqL"/>
                         <outlet property="tableView" destination="0Zt-B5-KyJ" id="v51-hx-FaS"/>
@@ -1279,9 +1282,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="1UQ-eT-5Ym"/>
                     <connections>
+                        <outlet property="contactTextField" destination="Cum-qG-fbW" id="Uld-hW-Sut"/>
                         <outlet property="imageView" destination="2ga-ac-tkZ" id="y5h-sR-a2K"/>
                         <outlet property="mapLabel" destination="BO0-8F-Npc" id="kHL-uW-QJo"/>
                         <outlet property="mapView" destination="RIF-72-v8I" id="LIv-xG-Y7I"/>
+                        <outlet property="nameTextField" destination="Wuw-Jj-Epv" id="1yR-0P-ryp"/>
                         <outlet property="numberLabel" destination="pQA-nw-0c9" id="Eon-go-duW"/>
                         <outlet property="scrollView" destination="FCz-1T-hpp" id="tXW-4F-Bje"/>
                         <outlet property="titlLabel" destination="Oju-dp-wh6" id="Cgg-qg-BIw"/>
@@ -4448,6 +4453,9 @@
                                                                         <real key="value" value="20"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="addBtnAction:" destination="fhH-US-DNy" eventType="touchUpInside" id="1hf-Ni-BoK"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -4469,7 +4477,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Branches" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u82-Di-SeR">
                                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
-                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15"/>
+                                                                        <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -4522,7 +4530,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addressTextField" destination="uOK-ug-UnD" id="DaK-sp-DWB"/>
                         <outlet property="branchLabel" destination="u82-Di-SeR" id="wUe-yR-POW"/>
+                        <outlet property="contactTextField" destination="a0n-Xk-T7a" id="uwy-EA-aXz"/>
+                        <outlet property="nameTextField" destination="mkC-8C-c1S" id="PfG-rE-QpV"/>
                         <outlet property="tableView" destination="RGj-ae-HPU" id="y1O-v9-BF3"/>
                     </connections>
                 </viewController>

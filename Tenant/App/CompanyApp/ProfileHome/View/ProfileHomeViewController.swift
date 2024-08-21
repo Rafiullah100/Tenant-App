@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 class ProfileHomeViewController: BaseViewController {
     let profileInfo = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyProfileViewController") as! CompanyProfileViewController
     let branchVC = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddBranchViewController") as! AddBranchViewController
@@ -29,8 +29,10 @@ class ProfileHomeViewController: BaseViewController {
     @IBAction func branchBtnAction(_ sender: Any) {
         branchButton.backgroundColor = CustomColor.appColor.color
         infoButton.backgroundColor = CustomColor.grayColor.color
+        branchVC.branchesList = profileInfo.branches
         self.add(branchVC, in: containerView)
     }
+    
     @IBAction func infoBtnAction(_ sender: Any) {
         branchButton.backgroundColor = CustomColor.grayColor.color
         infoButton.backgroundColor = CustomColor.appColor.color

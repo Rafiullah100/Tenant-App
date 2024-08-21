@@ -17,7 +17,13 @@ enum Route {
     case addComplaint
     case getComplaints
     case getComplaintDetail
-
+    case contactList
+    case skillCategories
+    case addBranch
+    case getCompanyComplaints
+    case getCompanyProfile
+    case addWorker
+    
     case logout
     case googleSignup
     case categories
@@ -146,6 +152,18 @@ enum Route {
             return "api/mobile/complaints/get_tenant_complaints"
         case .getComplaintDetail:
             return "api/mobile/complaints/get_complaint_detail"
+        case .contactList:
+            return "api/mobile/complaints/get_complaint_contacts"
+        case .skillCategories:
+            return "api/mobile/skills/get_all"
+        case .addBranch:
+            return "api/mobile/company/add_branch"
+        case .getCompanyComplaints:
+            return "api/mobile/complaints/get_company_complaints"
+        case .getCompanyProfile:
+            return "api/mobile/company/get_profile"
+        case .addWorker:
+            return "api/mobile/company/add_worker"
         }
     }
 }

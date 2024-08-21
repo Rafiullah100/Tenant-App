@@ -9,6 +9,7 @@ import UIKit
 
 class CompanyProfileTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var branchlabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +21,13 @@ class CompanyProfileTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var branch: CompanyBranch?{
+        didSet{
+            var name = branch?.name ?? ""
+            var district = branch?.district ?? ""
+            var city = branch?.city ?? ""
+            var contact = branch?.contact ?? ""
+            branchlabel.text = "\(name), \(district), \(city), \(contact)"
+        }
+    }
 }

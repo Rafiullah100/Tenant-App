@@ -143,5 +143,6 @@ enum LocalizationKeys: String {
     
     case current
     case propertiesAssigned
+    
 }
 

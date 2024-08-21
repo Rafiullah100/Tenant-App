@@ -37,6 +37,9 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         searchTextField.placeholder = LocalizationKeys.search.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 44.0
+        
         setupButton(complaintType: .new)
     }
     
@@ -101,11 +104,6 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
             cell.colorView.backgroundColor = CustomColor.greenColor.color
         }
         return cell
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
         
     }
     

@@ -12,7 +12,7 @@ struct ContactPerson {
     
     
 }
-class ContactPersonViewController: UIViewController {
+class ContactPersonViewController: BaseViewController {
 
     @IBOutlet weak var contactLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
@@ -23,14 +23,22 @@ class ContactPersonViewController: UIViewController {
             tableView.register(UINib(nibName: "ContactPersonTableViewCell", bundle: nil), forCellReuseIdentifier: ContactPersonTableViewCell.cellReuseIdentifier())
         }
     }
-    
+    private var viewModel = ContactViewModel()
+
     let contacts = [ContactPerson(name: "Owner Contact", contact: "+233 2471 72 944"), ContactPerson(name: "Maintenance Company Contact", contact: "+233 5921 61 530")]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         contactLabel.text = LocalizationKeys.contactPerson.rawValue.localizeString()
         backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
+        
+        viewModel.contactList.bind { [unowned self] list in
+            guard let _ = list else {return}
+            self.stopAnimation()
+            self.tableView.reloadData()
+        }
+        self.animateSpinner()
+        viewModel.getComplaints(id: UserDefaults.standard.userID ?? 0)
     }
 
     @IBAction func back(_ sender: Any) {
@@ -41,13 +49,12 @@ class ContactPersonViewController: UIViewController {
 extension ContactPersonViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        return viewModel.getContactCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ContactPersonTableViewCell.cellReuseIdentifier(), for: indexPath) as! ContactPersonTableViewCell
-        cell.nameLabel.text = contacts[indexPath.row].name
-        cell.contactLabel.text = contacts[indexPath.row].contact
+        cell.contact = viewModel.getContact(at: indexPath.row)
         return cell
     }
 

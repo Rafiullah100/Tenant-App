@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class TenantHomeViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
     @IBOutlet weak var historyTableView: UITableView!{
         didSet{
@@ -27,6 +25,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UserDefaults.standard.token ?? "")
         buildingLabel.text = "\(LocalizationKeys.buildingNo.rawValue.localizeString()):   12ADF"
         flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString()):   14"
         historyLabel.text = LocalizationKeys.recent.rawValue.localizeString()

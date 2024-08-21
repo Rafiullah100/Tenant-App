@@ -18,6 +18,8 @@ class OTPViewController: BaseViewController {
     private var viewModel = OtpViewModel()
     var contact: String?
     
+    var otpType: OtpType?
+    
 
     @IBOutlet weak var textField4: UITextField!
     @IBOutlet weak var textField3: UITextField!
@@ -37,6 +39,8 @@ class OTPViewController: BaseViewController {
         textField3.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         textField4.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
    
+        textField1.becomeFirstResponder()
+        
         viewModel.otp.bind { [unowned self] otp in
             guard let otp = otp else{return}
             self.stopAnimation()

@@ -25,5 +25,11 @@ struct AddComplaintInputModel {
     let images: Int
     let propertyId: String
     let skill: String
-    
+}
+
+struct AddWorkerInputModel {
+    let name: String
+    let contact: String
+    let branchID: Int
+    let skillID: Int
 }

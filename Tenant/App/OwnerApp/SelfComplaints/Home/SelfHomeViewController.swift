@@ -26,7 +26,8 @@ class SelfHomeViewController: UIViewController , UITableViewDataSource , UITable
         historyTableView.showsVerticalScrollIndicator = false
         self.navigationController?.navigationBar.isHidden = true
         addressLbl.text = LocalizationKeys.currentAddress.rawValue.localizeString()
-
+        self.historyTableView.rowHeight = UITableView.automaticDimension
+        self.historyTableView.estimatedRowHeight = 44.0
     }
 
     @IBAction func newBtnAction(_ sender: Any) {
@@ -67,10 +68,6 @@ class SelfHomeViewController: UIViewController , UITableViewDataSource , UITable
             cell.colorView.backgroundColor = CustomColor.blueColor.color
         }
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

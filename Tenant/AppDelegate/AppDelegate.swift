@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UserDefaults.standard.isRTL = 1
 //        UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)
         
-       
         
         
         GMSServices.provideAPIKey("AIzaSyBC2Xdb2ato7ULwuGnDjPLXLAvqUZx_1VM")

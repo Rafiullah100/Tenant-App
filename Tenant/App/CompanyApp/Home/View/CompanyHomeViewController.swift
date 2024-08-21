@@ -10,6 +10,9 @@ import UIKit
 
 class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var contactLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var rejectedButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
@@ -25,10 +28,10 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
             tableView.register(UINib(nibName: "CompanyOngoingTableViewCell", bundle: nil), forCellReuseIdentifier: "ongoing")
         }
     }
-    
-    var isNew = true
+    private var viewModel = CompanyComplaintViewModel()
     private var isDone = false
     private var complaintType: CompanyComplaintType = .new
+    var isLoading = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +45,16 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         self.tableView.estimatedRowHeight = 44.0
         
         tableView.showsVerticalScrollIndicator = false
+        nameLabel.text = UserDefaults.standard.name
+        contactLabel.text = UserDefaults.standard.mobile
+        viewModel.complaintList.bind { [unowned self] list in
+            guard let _ = list else {return}
+            self.isLoading = false
+            self.stopAnimation()
+            self.tableView.reloadData()
+        }
+        self.animateSpinner()
+        viewModel.getComplaints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +65,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     @IBAction func doneBtnAction(_ sender: Any) {
         isDone.toggle()
         doneButton.setImage(UIImage(named: isDone ? "tick-green" : "tick-gray"), for: .normal)
+        complaintType = .completed
     }
     
     @IBAction func profileBtnAction(_ sender: Any) {
@@ -59,12 +73,12 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func ongoingBtnAction(_ sender: Any) {
-        isNew = false
+        complaintType = .ongoing
         setupButton(complaintType: .ongoing)
     }
     
     @IBAction func newBtnAction(_ sender: Any) {
-        isNew = true
+        complaintType = .new
         setupButton(complaintType: .new)
     }
     
@@ -83,49 +97,61 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if isLoading{
+            return 0
+        }
+        switch complaintType {
+        case .new:
+            if viewModel.getRecentCount() == 0{
+                self.tableView.setEmptyView()
+            }
+            else{
+                self.tableView.backgroundView = nil
+            }
+            return viewModel.getRecentCount()
+        case .ongoing:
+            if viewModel.getOngoingCount() == 0{
+                self.tableView.setEmptyView()
+            }
+            else{
+                self.tableView.backgroundView = nil
+            }
+            return viewModel.getOngoingCount()
+        case .completed:
+            if viewModel.getHistoryCount() == 0{
+                self.tableView.setEmptyView()
+            }
+            else{
+                self.tableView.backgroundView = nil
+            }
+            return viewModel.getHistoryCount()
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if isNew {
+        switch complaintType {
+        case .new:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CompanyNewTableViewCell
-            switch Int.random(in: 0..<3) {
-            case 0:
-                cell.colorView.backgroundColor = CustomColor.greenColor.color
-            case 1:
-                cell.colorView.backgroundColor = CustomColor.blueColor.color
-            case 2:
-                cell.colorView.backgroundColor = CustomColor.redColor.color
-            default:
-                cell.colorView.backgroundColor = CustomColor.greenColor.color
-            }
-
+            cell.complaint = viewModel.getRecentComplaint(index: indexPath.row)
             return cell
-        }
-        else{
+        case .ongoing:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ongoing", for: indexPath) as! CompanyOngoingTableViewCell
-            switch Int.random(in: 0..<3) {
-            case 0:
-                cell.colorView.backgroundColor = CustomColor.greenColor.color
-            case 1:
-                cell.colorView.backgroundColor = CustomColor.blueColor.color
-            case 2:
-                cell.colorView.backgroundColor = CustomColor.redColor.color
-            default:
-                cell.colorView.backgroundColor = CustomColor.greenColor.color
-            }
+            cell.complaint = viewModel.getOngoingComplaint(index: indexPath.row)
+            return cell
+        case .completed:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ongoing", for: indexPath) as! CompanyOngoingTableViewCell
+            cell.complaint = viewModel.getHistoryComplaint(index: indexPath.row)
             return cell
         }
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isNew{
-            Switcher.gotoPendingDetail(delegate: self)
-        }
-        else{
-            Switcher.gotoCompletedDetail(delegate: self)
-        }
+//        if isNew{
+//            Switcher.gotoPendingDetail(delegate: self)
+//        }
+//        else{
+//            Switcher.gotoCompletedDetail(delegate: self)
+//        }
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 class AddTenantViewModel {
     var errorMessage: Observable<String> = Observable("")
     var add: Observable<AddTenantModel> = Observable(nil)
+    var skill: Observable<SkillModel> = Observable(nil)
 
     var parameters: [String: Any]?
     
@@ -37,8 +38,8 @@ class AddTenantViewModel {
 //        }
 //    }
     
-    func addComplaint(image: UIImage)  {
-        Networking.shared.addComplaint(route: .addComplaint, imageParameter: "images", images: [image], parameters: parameters ?? [:]) { result in
+    func addComplaint(image: [UIImage])  {
+        Networking.shared.addComplaint(route: .addComplaint, imageParameter: "images", images: image, parameters: parameters ?? [:]) { result in
             switch result {
             case .success(let add):
                 self.add.value = add
@@ -46,5 +47,24 @@ class AddTenantViewModel {
                 self.errorMessage.value = error.localizedDescription
             }
         }
+    }
+    
+    func getSkillcategories(){
+        _ = URLSession.shared.request(route: .skillCategories, method: .get, parameters: [:], model: SkillModel.self) { result in
+            switch result {
+            case .success(let list):
+                self.skill.value = list
+            case .failure(let error):
+                self.errorMessage.value = error.localizedDescription
+            }
+        }
+    }
+    
+    func getSkillCount() -> Int {
+        return self.skill.value?.skills?.count ?? 0
+    }
+    
+    func getSkillName(at index: Int) -> String {
+        return self.skill.value?.skills?.rows?[index].title ?? ""
     }
 }

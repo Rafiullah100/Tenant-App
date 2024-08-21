@@ -54,6 +54,28 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
         viewControllerTitle = LocalizationKeys.newComplaint.rawValue.localizeString()
         
         collectionView.showsVerticalScrollIndicator = false
+        
+//        titleTextField.text = "My Complaints"
+//        categoryTextField.text = "Plumber"
+//        descriptionTextView.text = "This is my complaint description"
+//        
+        viewModel.skill.bind { skill in
+            guard let skill = skill else {return}
+            self.pickerView.reloadAllComponents()
+        }
+        
+        viewModel.add.bind { add in
+            guard let add = add else {return}
+            self.stopAnimation()
+            if add.success == true{
+                self.navigationController?.popViewController(animated: true)
+            }
+            else{
+                self.showAlert(message: add.message ?? "")
+            }
+        }
+        
+        viewModel.getSkillcategories()
     }
     
     @IBAction func submitBtnAction(_ sender: Any) {
@@ -61,7 +83,7 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
         let validationResponse = viewModel.isFormValid(complaint: add)
         if validationResponse.isValid {
             self.animateSpinner()
-            self.viewModel.addComplaint(image: selectedImages[0])
+            self.viewModel.addComplaint(image: selectedImages)
         }
         else{
             showAlert(message: validationResponse.message)
@@ -122,10 +144,14 @@ extension AddTenantViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 5
+        return viewModel.getSkillCount()
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "category name"
+        return viewModel.getSkillName(at: row)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryTextField.text = viewModel.getSkillName(at: row)
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 //import MaterialComponents.MaterialTabs_TabBarView
 //import SpinKit
 enum NotificationObserverKeys: String {
@@ -93,6 +94,22 @@ public class Helper{
             return ("", CustomColor.redColor)
         }
     
+    func getCoordinates(for postalCode: String, completion: @escaping (CLLocationCoordinate2D?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(postalCode) { placemarks, error in
+            guard error == nil else {
+                print("Geocoding error: \(error!.localizedDescription)")
+                completion(nil)
+                return
+            }
+
+            if let placemark = placemarks?.first, let location = placemark.location {
+                completion(location.coordinate)
+            } else {
+                completion(nil)
+            }
+        }
+    }
 }
 
 
