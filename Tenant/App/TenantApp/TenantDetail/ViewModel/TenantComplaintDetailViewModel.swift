@@ -10,7 +10,8 @@ import Foundation
 class TenantComplaintDetailViewModel {
     var errorMessage: Observable<String> = Observable("")
     var complaintDetail: Observable<TenantComplaintDetail> = Observable(nil)
-    
+    var confirm: Observable<ConfirmModel> = Observable(nil)
+
     var parameters: [String: Any]?
     
     func getComplaints(complaintID: Int){
@@ -18,6 +19,17 @@ class TenantComplaintDetailViewModel {
             switch result {
             case .success(let details):
                 self.complaintDetail.value = details.complaintDetail
+            case .failure(let error):
+                self.errorMessage.value = error.localizedDescription
+            }
+        }
+    }
+    
+    func confirm(complaintID: Int){
+        _ = URLSession.shared.request(route: .tenantConfirmation, method: .post, parameters: ["id": complaintID], model: ConfirmModel.self) { result in
+            switch result {
+            case .success(let confirm):
+                self.confirm.value = confirm
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription
             }

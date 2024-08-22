@@ -1646,7 +1646,7 @@
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
-                                                                                            <segue destination="hDI-Yb-8Kl" kind="show" id="EN6-yK-lxT"/>
+                                                                                            <action selector="assignBtnAction:" destination="ai2-TS-Kzf" eventType="touchUpInside" id="LPr-Rg-P3x"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TL-Pa-1TM">
@@ -2312,17 +2312,17 @@
             <objects>
                 <viewController storyboardIdentifier="CompanyAssignViewController" id="hDI-Yb-8Kl" customClass="CompanyAssignViewController" customModule="Tenant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ycu-Oo-gU6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DIt-ra-DOW">
-                                <rect key="frame" x="0.0" y="0.0" width="198" height="842"/>
+                                <rect key="frame" x="0.0" y="59" width="198" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWN-J7-LK7">
-                                        <rect key="frame" x="0.0" y="0.0" width="198" height="842"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="198" height="759"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-2h-hYo">
-                                                <rect key="frame" x="0.0" y="0.0" width="198" height="842"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="198" height="759"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESO-e2-fSU">
                                                         <rect key="frame" x="0.0" y="0.0" width="198" height="819"/>
@@ -4162,6 +4162,9 @@
                                                                                                                         <state key="normal" title="Add Worker">
                                                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                         </state>
+                                                                                                                        <connections>
+                                                                                                                            <action selector="addBtnAction:" destination="Nff-gZ-b4O" eventType="touchUpInside" id="Gom-Qm-HOg"/>
+                                                                                                                        </connections>
                                                                                                                     </button>
                                                                                                                 </subviews>
                                                                                                                 <color key="backgroundColor" red="0.23137254900000001" green="0.44705882349999998" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
@@ -4186,6 +4189,9 @@
                                                                                                                         <state key="normal" title="Cancel">
                                                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                         </state>
+                                                                                                                        <connections>
+                                                                                                                            <action selector="cancelBtnAction:" destination="Nff-gZ-b4O" eventType="touchUpInside" id="lan-ZD-505"/>
+                                                                                                                        </connections>
                                                                                                                     </button>
                                                                                                                 </subviews>
                                                                                                                 <color key="backgroundColor" red="0.4941176471" green="0.50588235290000005" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>

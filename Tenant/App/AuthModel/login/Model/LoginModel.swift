@@ -31,5 +31,5 @@ struct AddWorkerInputModel {
     let name: String
     let contact: String
     let branchID: Int
-    let skillID: Int
+    let skillIDs: String
 }

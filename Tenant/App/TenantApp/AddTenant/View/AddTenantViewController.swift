@@ -60,7 +60,7 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
 //        descriptionTextView.text = "This is my complaint description"
 //        
         viewModel.skill.bind { skill in
-            guard let skill = skill else {return}
+            guard let _ = skill else {return}
             self.pickerView.reloadAllComponents()
         }
         

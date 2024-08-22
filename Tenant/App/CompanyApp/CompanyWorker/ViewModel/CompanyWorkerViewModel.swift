@@ -1,35 +1,23 @@
 //
-//  AddWorkerViewModel.swift
+//  CompanyWorkerViewModel.swift
 //  Tenant
 //
-//  Created by MacBook Pro on 8/21/24.
+//  Created by MacBook Pro on 8/22/24.
 //
 
 import Foundation
 
-class AddWorkerViewModel{
+class CompanyWorkerViewModel{
     var errorMessage: Observable<String> = Observable("")
-    var workerAdded: Observable<AddWorkerModel> = Observable(nil)
+    var workers: Observable<CompanyWorkerModel> = Observable(nil)
     var branches: Observable<CompanyProfileModel> = Observable(nil)
     var skill: Observable<SkillModel> = Observable(nil)
-
-    var parameters: [String: Any]?
     
-    func isFormValid(worker: AddWorkerInputModel) -> ValidationResponse {
-        if worker.name.isEmpty || worker.contact.isEmpty || worker.branchID == 0 || worker.skillIDs == ""{
-            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
-        }
-        else{
-            parameters = ["branch_id": worker.branchID, "contact": worker.contact, "name": worker.name, "skill_ids[]": worker.skillIDs]
-            return ValidationResponse(isValid: true, message: "")
-        }
-    }
-    
-    func addWorker(){
-        _ = URLSession.shared.request(route: .addWorker, method: .post, parameters: parameters, model: AddWorkerModel.self) { result in
+    func getWorkers(branchID: Int, skillID: Int){
+        _ = URLSession.shared.request(route: .getWorker, method: .post, parameters: ["branch_id": branchID, "skill_id": skillID], model: CompanyWorkerModel.self) { result in
             switch result {
-            case .success(let addWorker):
-                self.workerAdded.value = addWorker
+            case .success(let workers):
+                self.workers.value = workers
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription
             }
@@ -58,6 +46,14 @@ class AddWorkerViewModel{
         }
     }
     
+    func getWorkerCount() -> Int{
+        return self.workers.value?.workers?.rows?.count ?? 0
+    }
+    
+    func getWorker(at index: Int) -> CompanyWorkerRow?{
+        return self.workers.value?.workers?.rows?[index]
+    }
+    
     func getBranchesCount() -> Int{
         return self.branches.value?.companyProfile?.branches?.count ?? 0
     }
@@ -80,5 +76,9 @@ class AddWorkerViewModel{
     
     func getSkillID(at index: Int) -> Int {
         return self.skill.value?.skills?.rows?[index].id ?? 0
+    }
+    
+    func getSkill(at index: Int) -> SkillRow? {
+        return self.skill.value?.skills?.rows?[index]
     }
 }

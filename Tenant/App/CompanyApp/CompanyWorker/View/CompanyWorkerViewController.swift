@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-class CompanyWorkerViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+import Dispatch
+class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var searchButtonView: UIView!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var textField: UITextField!
@@ -26,10 +26,13 @@ class CompanyWorkerViewController: UIViewController, UICollectionViewDelegate, U
             workerCollectionView.dataSource = self
         }
     }
-    
-    
-    var row: IndexPath?
-    
+    private var viewModel = CompanyWorkerViewModel()
+    var row: IndexPath = IndexPath(row: 0, section: 0)
+    var pickerView = UIPickerView()
+    var branchIndex = 0
+    var skillIndex = 0
+    var dispatchGroup: DispatchGroup?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryCollectionView.showsVerticalScrollIndicator = false
@@ -40,17 +43,63 @@ class CompanyWorkerViewController: UIViewController, UICollectionViewDelegate, U
         searchButtonView.clipsToBounds = true
         textField.textAlignment = Helper.shared.isRTL() ? .right : .left
         textField.placeholder = LocalizationKeys.selectBranch.rawValue.localizeString()
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        textField.inputView = pickerView
+        self.animateSpinner()
+        networkingCall()
+    }
+    
+    private func networkingCall(){
+        dispatchGroup = DispatchGroup()
+        dispatchGroup?.enter()
+        viewModel.getSkillcategories()
+        dispatchGroup?.enter()
+        viewModel.getBranches()
+        
+        
+        viewModel.branches.bind { [weak self] branches in
+            guard let _ = branches else {return}
+            self?.dispatchGroup?.leave()
+        }
+        
+        viewModel.skill.bind { [weak self] skill in
+            guard let _ = skill else {return}
+            self?.dispatchGroup?.leave()
+        }
+                
+        dispatchGroup?.notify(queue: .main) {
+            self.getWorker()
+        }
+    }
+    
+    func getWorker(){
+        viewModel.workers.bind { [weak self] workers in
+            self?.stopAnimation()
+            guard let _ = workers else {return}
+            self?.workerCollectionView.reloadData()
+            self?.categoryCollectionView.reloadData()
+            self?.pickerView.reloadAllComponents()
+            self?.textField.text = self?.viewModel.getBranchName(at: self?.branchIndex ?? 0)
+        }
+        viewModel.getWorkers(branchID: viewModel.getBranchID(at: branchIndex), skillID: viewModel.getSkillID(at: skillIndex))
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        if collectionView == categoryCollectionView {
+            return viewModel.getSkillCount()
+        }
+        else{
+            return viewModel.getWorkerCount()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == categoryCollectionView {
             let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: CompanyWorkerCategoryCollectionViewCell.identifier, for: indexPath) as! CompanyWorkerCategoryCollectionViewCell
-                    
+            cell.skill = viewModel.getSkill(at: indexPath.row)
             if row == indexPath{
                 cell.servicesBgView.backgroundColor = .black
                 cell.titleLbl.textColor = .black
@@ -69,6 +118,7 @@ class CompanyWorkerViewController: UIViewController, UICollectionViewDelegate, U
         if collectionView == categoryCollectionView {
             row = indexPath
             collectionView.reloadData()
+            skillIndex = indexPath.row
         }
         else{
             Switcher.gotoWorkerListScreen(delegate: self)
@@ -89,5 +139,26 @@ extension CompanyWorkerViewController: UICollectionViewDelegateFlowLayout{
         }
     }
 }
+
+extension CompanyWorkerViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return viewModel.getBranchesCount()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.getBranchName(at: row)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        textField.text = viewModel.getBranchName(at: row)
+        branchIndex = row
+        self.getWorker()
+    }
+}
+
 
 

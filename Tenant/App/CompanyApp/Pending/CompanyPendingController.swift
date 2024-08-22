@@ -26,6 +26,11 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     
     @IBOutlet weak var tenantLabel: UILabel!
     @IBOutlet weak var assignButton: UIButton!
+    
+    
+    var complaintID: Int?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
@@ -42,6 +47,8 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         type = .tenant
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
@@ -52,14 +59,13 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplainDetailCollectionViewCell.identifier, for: indexPath)as! ComplainDetailCollectionViewCell
-//            cell.configure(with: UIImage(named: "Img1")!)
-            return cell
-            
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplainDetailCollectionViewCell.identifier, for: indexPath)as! ComplainDetailCollectionViewCell
+        //            cell.configure(with: UIImage(named: "Img1")!)
+        return cell
+    }
     
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    @IBAction func assignBtnAction(_ sender: Any) {
+        Switcher.gotoAssignWorker(delegate: self, complaintID: complaintID ?? 0)
     }
 }
 

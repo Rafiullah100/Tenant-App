@@ -33,6 +33,8 @@
 		522FFBCB2C4CEDEF0010A2EF /* BothPropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522FFBC82C4CEDEF0010A2EF /* BothPropertyTableViewCell.swift */; };
 		524FD36A2C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524FD3692C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift */; };
 		524FD36C2C6B41BC0023F5DF /* TenantComplaintDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524FD36B2C6B41BC0023F5DF /* TenantComplaintDetailModel.swift */; };
+		52583D782C7730080023EBDE /* CompanyWorkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52583D772C7730080023EBDE /* CompanyWorkerModel.swift */; };
+		52583D7A2C7735E30023EBDE /* CompanyWorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52583D792C7735E30023EBDE /* CompanyWorkerViewModel.swift */; };
 		525AEAA42C6348360089FB50 /* CompanyPropertiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AEAA32C6348360089FB50 /* CompanyPropertiesViewController.swift */; };
 		525AEAA72C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AEAA62C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift */; };
 		525AEAAA2C63659F0089FB50 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AEAA92C63659F0089FB50 /* DateViewController.swift */; };
@@ -194,6 +196,8 @@
 		52362EA92C2D46C1009D3DC8 /* IQKeyboardManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		524FD3692C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantComplaintDetailViewModel.swift; sourceTree = "<group>"; };
 		524FD36B2C6B41BC0023F5DF /* TenantComplaintDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantComplaintDetailModel.swift; sourceTree = "<group>"; };
+		52583D772C7730080023EBDE /* CompanyWorkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyWorkerModel.swift; sourceTree = "<group>"; };
+		52583D792C7735E30023EBDE /* CompanyWorkerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyWorkerViewModel.swift; sourceTree = "<group>"; };
 		525AEAA32C6348360089FB50 /* CompanyPropertiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPropertiesViewController.swift; sourceTree = "<group>"; };
 		525AEAA62C634C3C0089FB50 /* CompanyPropertyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPropertyDetailViewController.swift; sourceTree = "<group>"; };
 		525AEAA92C63659F0089FB50 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
@@ -603,7 +607,7 @@
 		524D70CC2C4A898100C7490C /* Assign */ = {
 			isa = PBXGroup;
 			children = (
-				5211E4F02C3EA74B0023A8E6 /* CompanyAssignViewController.swift */,
+				52583D7B2C775B770023EBDE /* View */,
 			);
 			path = Assign;
 			sourceTree = "<group>";
@@ -611,11 +615,9 @@
 		524D70CD2C4A8A7800C7490C /* CompanyWorker */ = {
 			isa = PBXGroup;
 			children = (
-				525F5C252C3FDD7C00FE4B89 /* CompanyWorkerCategoryCollectionViewCell.swift */,
-				525F5C262C3FDD7C00FE4B89 /* CompanyWorkerCategoryCollectionViewCell.xib */,
-				525F5C242C3FDD7C00FE4B89 /* CompanyWorkerCollectionViewCell.swift */,
-				525F5C232C3FDD7B00FE4B89 /* CompanyWorkerCollectionViewCell.xib */,
-				525F5C212C3FDD6900FE4B89 /* CompanyWorkerViewController.swift */,
+				52583D752C772FCF0023EBDE /* Model */,
+				52583D762C772FD50023EBDE /* ViewModel */,
+				52583D742C772FB60023EBDE /* View */,
 			);
 			path = CompanyWorker;
 			sourceTree = "<group>";
@@ -653,6 +655,42 @@
 				524FD3692C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52583D742C772FB60023EBDE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				525F5C252C3FDD7C00FE4B89 /* CompanyWorkerCategoryCollectionViewCell.swift */,
+				525F5C262C3FDD7C00FE4B89 /* CompanyWorkerCategoryCollectionViewCell.xib */,
+				525F5C242C3FDD7C00FE4B89 /* CompanyWorkerCollectionViewCell.swift */,
+				525F5C232C3FDD7B00FE4B89 /* CompanyWorkerCollectionViewCell.xib */,
+				525F5C212C3FDD6900FE4B89 /* CompanyWorkerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52583D752C772FCF0023EBDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52583D772C7730080023EBDE /* CompanyWorkerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52583D762C772FD50023EBDE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52583D792C7735E30023EBDE /* CompanyWorkerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52583D7B2C775B770023EBDE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5211E4F02C3EA74B0023A8E6 /* CompanyAssignViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		525AEAA22C63480B0089FB50 /* CompanyProperty */ = {
@@ -1511,6 +1549,7 @@
 				52DBCD0C2C16C52C00A7B612 /* UserDefaults+Extension.swift in Sources */,
 				52F188AC2C660AFD00085EE7 /* LoginModel.swift in Sources */,
 				52B1DA752C6A0307001EE096 /* TenantComplaintViewModel.swift in Sources */,
+				52583D782C7730080023EBDE /* CompanyWorkerModel.swift in Sources */,
 				52DBCD0D2C16C52C00A7B612 /* Helper.swift in Sources */,
 				52F188B62C661BFA00085EE7 /* OtpModel.swift in Sources */,
 				52DBCD062C16C52C00A7B612 /* Constants.swift in Sources */,
@@ -1563,6 +1602,7 @@
 				5223FAFA2C411B6B002D8E09 /* AddPropertyViewController.swift in Sources */,
 				529E17632C2E8EEA0063B204 /* RegistrationViewController.swift in Sources */,
 				524FD36C2C6B41BC0023F5DF /* TenantComplaintDetailModel.swift in Sources */,
+				52583D7A2C7735E30023EBDE /* CompanyWorkerViewModel.swift in Sources */,
 				5276163F2C48F14B007F7C66 /* AddTenanToFlatViewController.swift in Sources */,
 				52F188A62C660A7C00085EE7 /* SigninViewController.swift in Sources */,
 				527616452C48F51A007F7C66 /* TenantCollectionViewCell.swift in Sources */,

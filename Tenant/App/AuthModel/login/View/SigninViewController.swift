@@ -31,7 +31,6 @@ class SigninViewController: BaseViewController {
         emailTextField.text = "3244-3256346"
         nameTextField.text = "Rafiullah"
         
-        
         curveImageView.image = UIImage(named: Helper.shared.isRTL() ? "bg-ar" : "bg")
         nameTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         emailTextField.textAlignment = Helper.shared.isRTL() ? .right : .left

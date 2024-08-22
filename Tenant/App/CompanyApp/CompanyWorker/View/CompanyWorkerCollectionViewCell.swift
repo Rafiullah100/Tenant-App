@@ -28,6 +28,12 @@ class CompanyWorkerCollectionViewCell: UICollectionViewCell {
     static func nib()->UINib{
         return UINib(nibName: "WorkerCollectionViewCell", bundle: nil)
     }
+    
+    var worker: CompanyWorkerRow? {
+        didSet{
+            //
+        }
+    }
 
 }
 

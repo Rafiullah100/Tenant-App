@@ -30,6 +30,9 @@ class CompanyAssignViewController: BaseViewController {
     var workerPickerView = UIPickerView()
     var slotPickerView = UIPickerView()
 
+    var complaintID: Int?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

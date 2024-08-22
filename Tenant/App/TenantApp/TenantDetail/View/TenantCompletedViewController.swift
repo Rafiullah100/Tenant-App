@@ -59,6 +59,16 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         }
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
+        
+        confirmWork()
+    }
+    
+    private func confirmWork(){
+        viewModel.confirm.bind { [unowned self] confirm in
+            guard let confirm = confirm else {return}
+            self.stopAnimation()
+            showAlert(message: confirm.message ?? "")
+        }
     }
     
     private func updateUI(){
@@ -92,9 +102,10 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         cell.configure(with: viewModel.getCompanyPhoto(index: indexPath.row))
         return cell
     }
-    
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+ 
+    @IBAction func confirmBtnAction(_ sender: Any) {
+        self.animateSpinner()
+        viewModel.confirm(complaintID: complaintID ?? 0)
     }
 }
 

@@ -23,6 +23,8 @@ enum Route {
     case getCompanyComplaints
     case getCompanyProfile
     case addWorker
+    case getWorker
+    case tenantConfirmation
     
     case logout
     case googleSignup
@@ -164,6 +166,10 @@ enum Route {
             return "api/mobile/company/get_profile"
         case .addWorker:
             return "api/mobile/company/add_worker"
+        case .getWorker:
+            return "api/mobile/company/get_workers"
+        case .tenantConfirmation:
+            return "api/mobile/tenant/complaint_completion_confirmation"
         }
     }
 }

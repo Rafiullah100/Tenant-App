@@ -23,5 +23,12 @@ class CompanyWorkerCategoryCollectionViewCell: UICollectionViewCell {
     static func nib()->UINib{
         return UINib(nibName: "CompanyWorkerCategoryCollectionViewCell", bundle: nil)
     }
+    
+    var skill: SkillRow?{
+        didSet{
+            titleLbl.text = skill?.title
+        }
+    }
+    
 
 }

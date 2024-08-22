@@ -25,7 +25,7 @@ class AddWorkerCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    public func configure(with tradeTitle:String){
-        tradesTitleLbl.text = tradeTitle
-    }
+//    public func configure(with tradeTitle:String){
+//        tradesTitleLbl.text = tradeTitle
+//    }
 }

@@ -102,8 +102,15 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoPendingDetail(delegate: UIViewController){
+    static func gotoPendingDetail(delegate: UIViewController, complaintID: Int){
         let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyPendingController") as! CompanyPendingController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoAssignWorker(delegate: UIViewController, complaintID: Int){
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyAssignViewController") as! CompanyAssignViewController
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)

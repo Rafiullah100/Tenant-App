@@ -147,11 +147,11 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if isNew{
-//            Switcher.gotoPendingDetail(delegate: self)
-//        }
-//        else{
-//            Switcher.gotoCompletedDetail(delegate: self)
-//        }
+        if complaintType == .new{
+            Switcher.gotoPendingDetail(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
+        }
+        else{
+            Switcher.gotoCompletedDetail(delegate: self)
+        }
     }
 }
