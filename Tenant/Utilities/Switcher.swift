@@ -104,6 +104,7 @@ class Switcher {
     
     static func gotoPendingDetail(delegate: UIViewController, complaintID: Int){
         let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyPendingController") as! CompanyPendingController
+        vc.complaintID = complaintID
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
@@ -111,6 +112,7 @@ class Switcher {
     
     static func gotoAssignWorker(delegate: UIViewController, complaintID: Int){
         let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyAssignViewController") as! CompanyAssignViewController
+        vc.complaintID = complaintID
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
@@ -240,6 +242,7 @@ class Switcher {
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        vc.delegate = delegate as? any DateProtocol
         delegate.present(vc, animated: true)
     }
     

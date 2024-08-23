@@ -1,17 +1,47 @@
 //
-//  CompanyWorkerViewModel.swift
+//  AssignViewModel.swift
 //  Tenant
 //
-//  Created by MacBook Pro on 8/22/24.
+//  Created by MacBook Pro on 8/23/24.
 //
 
 import Foundation
 
-class CompanyWorkerViewModel{
+
+class AssignViewModel {
     var errorMessage: Observable<String> = Observable("")
+    var assign: Observable<AssignModel> = Observable(nil)
     var workers: Observable<CompanyWorkerModel> = Observable(nil)
     var branches: Observable<CompanyProfileModel> = Observable(nil)
     var skill: Observable<SkillModel> = Observable(nil)
+    
+    var parameters: [String: Any]?
+    
+    func isFormValid(assign: AssignInputModel) -> ValidationResponse {
+        if assign.complaintID == 0 || assign.workerID == 0 || assign.branchID == 0 || assign.skillID == 0 || assign.date.isEmpty || assign.time.isEmpty{
+            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
+        }
+        else{
+            guard let time12 = assign.time.components(separatedBy: " ").first else {
+                return ValidationResponse(isValid: false, message: "Error")}
+            let time24 = Helper.shared.convertTo24HourFormat(time12: time12)
+            
+            parameters = ["branch_id": assign.branchID, "skill_id": assign.skillID, "worker_id": assign.workerID, "complaint_id": assign.complaintID, "schedule_date": assign.date + " " + (time24 ?? "")]
+            print(parameters ?? [:])
+            return ValidationResponse(isValid: true, message: "")
+        }
+    }
+    
+    func assignToWorker(){
+        _ = URLSession.shared.request(route: .assign, method: .post, parameters: parameters, model: AssignModel.self) { result in
+            switch result {
+            case .success(let assign):
+                self.assign.value = assign
+            case .failure(let error):
+                self.errorMessage.value = error.localizedDescription
+            }
+        }
+    }
     
     func getWorkers(branchID: Int? = nil, skillID: Int? = nil){
         var parameters = [String: Int]()
@@ -64,8 +94,12 @@ class CompanyWorkerViewModel{
         return self.workers.value?.workers?.rows?.count ?? 0
     }
     
-    func getWorker(at index: Int) -> CompanyWorkerRow?{
-        return self.workers.value?.workers?.rows?[index]
+    func getWorkerName(at index: Int) -> String?{
+        return self.workers.value?.workers?.rows?[index].name ?? ""
+    }
+    
+    func getWorkerID(at index: Int) -> Int?{
+        return self.workers.value?.workers?.rows?[index].id ?? 0
     }
     
     func getBranchesCount() -> Int{

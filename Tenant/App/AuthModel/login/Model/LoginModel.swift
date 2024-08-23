@@ -33,3 +33,12 @@ struct AddWorkerInputModel {
     let branchID: Int
     let skillIDs: String
 }
+
+struct AssignInputModel {
+    let complaintID: Int
+    let branchID: Int
+    let skillID: Int
+    let workerID: Int
+    let date: String
+    let time: String    
+}

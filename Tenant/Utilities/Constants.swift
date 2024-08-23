@@ -24,6 +24,18 @@ struct Constants {
 
     static let appBoldFont = UIFont(name: "ebrima-bold", size: 12.0)
     static let appRegularFont = UIFont(name: "ebrima", size: 12.0)
+    
+    static let timeSlotArray = [
+        "9AM to 10AM",
+        "10AM to 11AM",
+        "11AM to 12AM",
+        "12PM to 1PM",
+        "1PM to 2PM",
+        "2PM to 3PM",
+        "3PM to 4PM",
+        "4PM to 5PM",
+        "5PM to 6PM"
+    ]
 }
 
 enum UserType: String {
@@ -66,3 +78,5 @@ enum WorkerComplaintType {
     case new
     case completed
 }
+
+

@@ -20,7 +20,7 @@ class AddWorkerViewModel{
             return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
         }
         else{
-            parameters = ["branch_id": worker.branchID, "contact": worker.contact, "name": worker.name, "skill_ids[]": worker.skillIDs]
+            parameters = ["branch_id": worker.branchID, "contact": worker.contact, "name": worker.name, "skill_ids": worker.skillIDs]
             return ValidationResponse(isValid: true, message: "")
         }
     }

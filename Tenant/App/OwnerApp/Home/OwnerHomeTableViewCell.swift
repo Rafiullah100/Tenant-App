@@ -33,6 +33,7 @@ class CompanyNewTableViewCell: UITableViewCell {
             titleLbl.text = complaint?.title
             addressLabel.text = complaint?.tenantDistrict
             postDate.text = Helper.shared.dateFormate(dateString: complaint?.timestamp ?? "")
+            addressLabel.text = complaint?.tenantName
             let status = Helper.shared.getComplaintStatus(ownerApproval: complaint?.ownerApproval, companyApproval: complaint?.companyApproval, taskComplete: complaint?.taskComplete, tenantApproval: complaint?.tenantApproval, workerID: ((complaint?.workerID) != nil) ? 1 : 0)
             
             statusLbl.text = status.0

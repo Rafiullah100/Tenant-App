@@ -25,6 +25,8 @@ enum Route {
     case addWorker
     case getWorker
     case tenantConfirmation
+    case reject
+    case assign
     
     case logout
     case googleSignup
@@ -170,6 +172,10 @@ enum Route {
             return "api/mobile/company/get_workers"
         case .tenantConfirmation:
             return "api/mobile/tenant/complaint_completion_confirmation"
+        case .reject:
+            return "api/mobile/company/reject_complaint"
+        case .assign:
+            return "api/mobile/company/assign_worker"
         }
     }
 }

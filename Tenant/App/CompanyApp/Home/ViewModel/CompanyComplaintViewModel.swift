@@ -72,4 +72,6 @@ class CompanyComplaintViewModel {
 //        return self.complaintList.value?.complaintsRecent?.rows?[index].taskComplete ?? 0
 //    }
     
+    
+    
 }

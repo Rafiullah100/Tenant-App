@@ -10,7 +10,13 @@ import UIKit
 class CompanyCompletedViewController: BaseViewController {
     @IBOutlet weak var photoLabel: UILabel!
     
+    @IBOutlet weak var complaintTypeLabel: UILabel!
+    @IBOutlet weak var postedValueLabel: UILabel!
+    @IBOutlet weak var statusValueLabel: UILabel!
+    @IBOutlet weak var tenantValueLabel: UILabel!
+    @IBOutlet weak var propertyValueLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var scheduleLabel: UILabel!
@@ -26,11 +32,12 @@ class CompanyCompletedViewController: BaseViewController {
             collectionView.dataSource = self
         }
     }
-    
+    private var viewModel = CompanyDetailViewModel()
+    var complaintID: Int?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.showsVerticalScrollIndicator = false
-
 
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postedLabel.text = LocalizationKeys.postedOn.rawValue.localizeString()
@@ -43,7 +50,27 @@ class CompanyCompletedViewController: BaseViewController {
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
         type = .tenant
+        
+        viewModel.complaintDetail.bind { [unowned self] detail in
+            DispatchQueue.main.async {
+                guard let _ = detail else {return}
+                self.stopAnimation()
+//                self.updateUI()
+                self.collectionView.reloadData()
+            }
+        }
+        self.animateSpinner()
+        viewModel.getComplaints(complaintID: complaintID ?? 0)
     }
+    
+//    private func updateUI(){
+////        complaintTitleLabel.text = viewModel.getTitle()
+////        propertyValueLabel.text = "\(viewModel.getCompalintID())"
+//        statusValueLabel.text = viewModel.getStatus()
+//        dateLabel.text = viewModel.getPostedDate()
+//        scheduleLbl.text = viewModel.getScheduleDate()
+//        timeLbl.text = viewModel.getScheduleTime()
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -9,6 +9,12 @@ import UIKit
 
 class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
 
+    @IBOutlet weak var postedValueLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UILabel!
+    @IBOutlet weak var statusValueLabel: UILabel!
+    @IBOutlet weak var tenantValueLabel: UILabel!
+    @IBOutlet weak var propertyValueLabel: UILabel!
+    @IBOutlet weak var complaintTitleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
             collectionView.register(ComplainDetailCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplainDetailCollectionViewCell.identifier)
@@ -27,10 +33,9 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var tenantLabel: UILabel!
     @IBOutlet weak var assignButton: UIButton!
     
-    
     var complaintID: Int?
-    
-    
+    private var viewModel = CompanyDetailViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
@@ -45,9 +50,25 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         rejectButton.setTitle(LocalizationKeys.reject.rawValue.localizeString(), for: .normal)
         
         type = .tenant
+        viewModel.complaintDetail.bind { [unowned self] detail in
+            DispatchQueue.main.async {
+                guard let _ = detail else {return}
+                self.stopAnimation()
+                self.updateUI()
+                self.collectionView.reloadData()
+            }
+        }
+        self.animateSpinner()
+        viewModel.getComplaints(complaintID: complaintID ?? 0)
     }
     
-    
+    private func updateUI(){
+        complaintTitleLabel.text = viewModel.getTitle()
+//        propertyValueLabel.text = "\(viewModel.getCompalintID())"
+        statusValueLabel.text = viewModel.getStatus()
+        postedValueLabel.text = viewModel.getPostedDate()
+        descriptionTextView.text = viewModel.getDescription()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,12 +76,12 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        return viewModel.getPhotosForInProgressComplaint().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplainDetailCollectionViewCell.identifier, for: indexPath)as! ComplainDetailCollectionViewCell
-        //            cell.configure(with: UIImage(named: "Img1")!)
+        cell.configure(with: viewModel.getPhoto(index: indexPath.row))
         return cell
     }
     

@@ -35,6 +35,29 @@ public class Helper{
         }
     }
     
+    func convertDateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let myString = formatter.string(from: date)
+        let yourDate = formatter.date(from: myString)
+        formatter.dateFormat = "yyyy-MM-dd"
+        let myStringDate = formatter.string(from: yourDate!)
+        return myStringDate
+    }
+    
+    func convertTo24HourFormat(time12: String) -> String? {
+        print(time12)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "ha" // Format for 12-hour time with AM/PM
+        
+        if let date = dateFormatter.date(from: time12) {
+            dateFormatter.dateFormat = "HH:mm" // Format for 24-hour time with minutes
+            return dateFormatter.string(from: date)
+        } else {
+            return nil // Return nil if the input is invalid
+        }
+    }
+    
     func semantic(_ language: AppLanguage) -> UISemanticContentAttribute{
 //        let language: AppLanguage = AppLanguage(rawValue: UserDefaults.standard.selectedLanguage ?? "") ?? .arabic
         print(language)

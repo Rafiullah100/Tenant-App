@@ -27,10 +27,10 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         }
     }
     private var viewModel = CompanyWorkerViewModel()
-    var row: IndexPath = IndexPath(row: 0, section: 0)
+    var row: IndexPath?
     var pickerView = UIPickerView()
-    var branchIndex = 0
-    var skillIndex = 0
+    var branchIndex: Int?
+    var skillIndex: Int?
     var dispatchGroup: DispatchGroup?
 
     override func viewDidLoad() {
@@ -70,20 +70,35 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         }
                 
         dispatchGroup?.notify(queue: .main) {
+            self.bindWorkerToView()
             self.getWorker()
         }
     }
     
-    func getWorker(){
+    private func getWorker(){
+        self.animateSpinner()
+        if branchIndex == nil && skillIndex == nil {
+            viewModel.getWorkers()
+        }
+        else if branchIndex == nil{
+            viewModel.getWorkers(skillID: viewModel.getSkillID(at: skillIndex ?? 0))
+        }
+        else if skillIndex == nil{
+            viewModel.getWorkers(skillID: viewModel.getSkillID(at: skillIndex ?? 0))
+        }
+        else {
+            viewModel.getWorkers(branchID: viewModel.getBranchID(at: branchIndex ?? 0), skillID: viewModel.getSkillID(at: skillIndex ?? 0))
+        }
+    }
+    
+    func bindWorkerToView(){
         viewModel.workers.bind { [weak self] workers in
             self?.stopAnimation()
             guard let _ = workers else {return}
             self?.workerCollectionView.reloadData()
             self?.categoryCollectionView.reloadData()
             self?.pickerView.reloadAllComponents()
-            self?.textField.text = self?.viewModel.getBranchName(at: self?.branchIndex ?? 0)
         }
-        viewModel.getWorkers(branchID: viewModel.getBranchID(at: branchIndex), skillID: viewModel.getSkillID(at: skillIndex))
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -119,6 +134,7 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
             row = indexPath
             collectionView.reloadData()
             skillIndex = indexPath.row
+            self.getWorker()
         }
         else{
             Switcher.gotoWorkerListScreen(delegate: self)

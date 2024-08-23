@@ -7,8 +7,19 @@
 
 import UIKit
 
+protocol DateProtocol {
+    func getDate(date: Date)
+}
+
 class DateViewController: UIViewController {
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    
+    var delegate: DateProtocol?
+    
+    var date: Date?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +27,9 @@ class DateViewController: UIViewController {
     }
     
 
+    @IBAction func datePickerAction(_ sender: Any) {
+        date = self.datePicker.date
+    }
     /*
     // MARK: - Navigation
 
@@ -30,6 +44,7 @@ class DateViewController: UIViewController {
         self.dismiss(animated: true)
     }
     @IBAction func okBtnAction(_ sender: Any) {
+        delegate?.getDate(date: date ?? Date())
         self.dismiss(animated: true)
     }
 }
