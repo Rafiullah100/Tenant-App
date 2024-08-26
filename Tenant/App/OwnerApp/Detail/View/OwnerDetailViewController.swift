@@ -8,8 +8,26 @@
 import UIKit
 
 class OwnerDetailViewController: BaseViewController {
+    @IBOutlet weak var postedValueLabel: UILabel!
+    @IBOutlet weak var timeValueLabel: UILabel!
+    
+    @IBOutlet weak var scheduleView: UIView!
+    @IBOutlet weak var completedView: UIView!
+    @IBOutlet weak var companyAcceptedView: UIView!
+    @IBOutlet weak var approveView: UIView!
+    @IBOutlet weak var personValueLabel: UILabel!
+    @IBOutlet weak var scheduleValueLabel: UILabel!
+    @IBOutlet weak var statusValueLabel: UILabel!
+    @IBOutlet weak var tenantValueLabel: UILabel!
+    @IBOutlet weak var propertyValueLabel: UILabel!
+    @IBOutlet weak var complaintTitleLabel: UILabel!
+    
+    @IBOutlet weak var acceptedValueLabel: UILabel!
+    @IBOutlet weak var approvedValueLabel: UILabel!
+    @IBOutlet weak var completedValueLabel: UILabel!
     @IBOutlet weak var photoLabel: UILabel!
     
+    @IBOutlet weak var approveLabel: UILabel!
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var companyPhotoView: UIView!
     @IBOutlet weak var tenantPhotoView: UIView!
@@ -17,7 +35,6 @@ class OwnerDetailViewController: BaseViewController {
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var scheduleLabel: UILabel!
-    @IBOutlet weak var acceptedLabel: UILabel!
     @IBOutlet weak var postedLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var tenantLabel: UILabel!
@@ -31,7 +48,10 @@ class OwnerDetailViewController: BaseViewController {
     }
     var ownerComplaint: OwnerComplaintType = .new
     
+    private var viewModel = OwnerDetailViewModel()
+    var complaintID: Int?
     
+    @IBOutlet weak var companyAcceptedLabel: UILabel!
     @IBOutlet weak var tenantCollectionView: UICollectionView!{
         didSet{
             tenantCollectionView.register(ComplaintCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier())
@@ -53,24 +73,82 @@ class OwnerDetailViewController: BaseViewController {
         scheduleLabel.text = LocalizationKeys.schedule.rawValue.localizeString()
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
-        acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
+        approveLabel.text = LocalizationKeys.approvedOn.rawValue.localizeString()
+        companyAcceptedLabel.text = LocalizationKeys.companyAcceptedOn.rawValue.localizeString()
+
+        type = .tenant
         
+        viewModel.complaintDetail.bind { [weak self] details in
+            guard let _ = details else {return}
+            DispatchQueue.main.async {
+                self?.stopAnimation()
+                self?.updateUI()
+            }
+        }
+        
+        viewModel.approve.bind { [weak self] approve in
+            guard let approve = approve else {return}
+            DispatchQueue.main.async {
+                self?.stopAnimation()
+                self?.showAlert(message: approve.message ?? "")
+            }
+        }
+        
+        self.animateSpinner()
+        viewModel.getComplaints(complaintID: complaintID ?? 0)
+    }
+    
+    private func updateUI(){
         if ownerComplaint == .new {
             companyPhotoView.isHidden = true
+            companyAcceptedView.isHidden = true
+            approveView.isHidden = true
+            completedView.isHidden = true
+            scheduleView.isHidden = true
         }
         else if ownerComplaint == .rejected{
             companyPhotoView.isHidden = true
             buttonsView.isHidden = true
+            companyAcceptedView.isHidden = true
+            completedView.isHidden = true
+            scheduleView.isHidden = true
         }
         else if ownerComplaint == .ongoing{
             companyPhotoView.isHidden = true
             buttonsView.isHidden = true
+            completedView.isHidden = true
         }
         else if ownerComplaint == .completed{
             buttonsView.isHidden = true
         }
         
-        type = .tenant
+        approveLabel.text = viewModel.isRejected() == true ? LocalizationKeys.rejectedOn.rawValue.localizeString() : LocalizationKeys.approvedOn.rawValue.localizeString()
+
+        
+        complaintTitleLabel.text = viewModel.getTitle()
+        statusValueLabel.text = viewModel.getStatus()
+        postedValueLabel.text = viewModel.getPostedDate()
+        approvedValueLabel.text = viewModel.getOwnerApprovalDate()
+        acceptedValueLabel.text = viewModel.getCompanyAcceptedDate()
+
+        scheduleValueLabel.text = viewModel.getScheduleDate()
+        timeValueLabel.text = viewModel.getScheduleTime()
+//        personValueLabel.text = viewModel.g
+        tenantCollectionView.reloadData()
+        companyCollectionView.reloadData()
+        
+    }
+    
+    @IBAction func rejectBtnAction(_ sender: Any) {
+        changeStatus(status: .reject)
+    }
+    @IBAction func approveBtnAction(_ sender: Any) {
+        changeStatus(status: .approve)
+    }
+    
+    private func changeStatus(status: OwnerApprovalType){
+        self.animateSpinner()
+        viewModel.changeStatus(complaintID: complaintID ?? 0, action: status.rawValue)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,12 +160,22 @@ class OwnerDetailViewController: BaseViewController {
 
 extension OwnerDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        if collectionView == tenantCollectionView {
+            return viewModel.getTenantPhotoCount()
+        }
+        else{
+            return viewModel.getCompanyPhotoCount()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier(), for: indexPath)as! ComplaintCollectionViewCell
-        cell.configure(with: UIImage(named: "Img1")!)
+        if collectionView == tenantCollectionView {
+            cell.configure(with: viewModel.getTenantPhoto(index: indexPath.row))
+        }
+        else{
+            cell.configure(with: viewModel.getCompanyPhoto(index: indexPath.row))
+        }
         return cell
     }
 }

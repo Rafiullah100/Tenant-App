@@ -175,9 +175,10 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoOwnerDetail(delegate: UIViewController, complaintType: OwnerComplaintType){
+    static func gotoOwnerDetail(delegate: UIViewController, complaintType: OwnerComplaintType,  complaintID: Int){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "OwnerDetailViewController") as! OwnerDetailViewController
         vc.ownerComplaint = complaintType
+        vc.complaintID = complaintID
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
@@ -202,6 +203,14 @@ class Switcher {
     
     static func gotoAddComplaintScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddTenantViewController") as! AddTenantViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoAddProperty(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddPropertyViewController") as! AddPropertyViewController
+        vc.delegate = delegate as? any AddPropertyDelegate
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)

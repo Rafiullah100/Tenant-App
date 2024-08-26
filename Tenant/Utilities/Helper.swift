@@ -99,6 +99,9 @@ public class Helper{
             if ownerApproval == 0 {
                 return ("Approval Pending from Owner", CustomColor.redColor)
             }
+            else if ownerApproval == 2{
+                return ("Rejected by Owner", CustomColor.redColor)
+            }
             else if ownerApproval == 1 && companyApproval == 0{
                 return ("Acceptance Pending from Maintenance Company", CustomColor.redColor)
             }

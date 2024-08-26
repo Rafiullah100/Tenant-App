@@ -42,3 +42,14 @@ struct AssignInputModel {
     let date: String
     let time: String    
 }
+
+struct AddPropertyInputModel {
+    let name: String
+    let buildingType: String
+    let locationCode: String
+    let city: String
+    let district: String
+    
+    
+    
+}

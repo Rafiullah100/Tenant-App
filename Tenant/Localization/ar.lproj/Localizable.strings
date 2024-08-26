@@ -163,3 +163,7 @@
 "tenantWithoutColon" = "المستأجر";
 "propertiesAssigned" = "الخصائص المخصصة";
 
+"approvedOn" = "تمت الموافقة عليه في:";
+    "companyAcceptedOn" = "الشركة مقبولة في:";
+
+"rejectedOn" = "تم الرفض في:";

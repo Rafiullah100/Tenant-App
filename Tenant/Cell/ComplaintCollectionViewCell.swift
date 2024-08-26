@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class ComplaintCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var imageView:UIImageView!
@@ -17,8 +17,8 @@ class ComplaintCollectionViewCell: UICollectionViewCell {
         
     }
 
-    public func configure(with image:UIImage){
-        imageView.image = image
+    public func configure(with image: String){
+        imageView.sd_setImage(with: URL(string: Route.baseUrl + image), placeholderImage: UIImage(named: "placeholder"))
     }
     
     static func nib()->UINib{

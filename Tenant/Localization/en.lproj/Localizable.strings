@@ -152,3 +152,6 @@
 "tenantWithoutColon" = "Tenant";
  "propertiesAssigned" = "Properties Assigned";
 
+"approvedOn" = "Approved On:";
+"companyAcceptedOn" = "Company Accepted on:";
+ "rejectedOn" = "Rejected On:";

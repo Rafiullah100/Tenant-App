@@ -27,7 +27,12 @@ enum Route {
     case tenantConfirmation
     case reject
     case assign
-    
+    case ownerComplaints
+    case ownerProfile
+    case ownerApproval
+    case properties
+    case addProperty
+
     case logout
     case googleSignup
     case categories
@@ -176,6 +181,17 @@ enum Route {
             return "api/mobile/company/reject_complaint"
         case .assign:
             return "api/mobile/company/assign_worker"
+            
+        case .ownerComplaints:
+            return "api/mobile/complaints/get_owner_complaints"
+        case .ownerProfile:
+                return "api/mobile/owner/get_profile"
+        case .ownerApproval:
+            return "api/mobile/owner/confirmation"
+        case .properties:
+            return "api/mobile/owner/get_properties"
+        case .addProperty:
+            return "api/mobile/owner/add_property"
         }
     }
 }

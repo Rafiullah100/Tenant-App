@@ -7,6 +7,12 @@
 
 import UIKit
 import GoogleMaps
+
+
+protocol AddPropertyDelegate {
+    func propertyAdded()
+}
+
 class AddPropertyViewController: BaseViewController {
 
     @IBOutlet weak var villaImageView: UIImageView!
@@ -27,6 +33,11 @@ class AddPropertyViewController: BaseViewController {
     @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var scrollView: UIScrollView!
+    var buildingType: PropertyType?
+    private var viewModel = AddPropertyViewModel()
+
+    var delegate: AddPropertyDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +63,24 @@ class AddPropertyViewController: BaseViewController {
         
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
         
+        buildingType = .building
         selectPopertyType()
         
         type = .tenant
+        
+        viewModel.add.bind { [unowned self] add in
+            guard let add = add else {return}
+            DispatchQueue.main.async {
+                self.stopAnimation()
+                if add.success == true{
+                    self.delegate?.propertyAdded()
+                    self.navigationController?.popViewController(animated: true)
+                }
+                else{
+                    self.showAlert(message: add.message ?? "")
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,11 +89,25 @@ class AddPropertyViewController: BaseViewController {
     }
     
     @IBAction func villaBtnAction(_ sender: Any) {
+        buildingType = .villa
         selectPopertyType(type: .villa)
     }
     
     @IBAction func buildingBtnAction(_ sender: Any) {
+        buildingType = .building
         selectPopertyType(type: .building)
+    }
+    
+    @IBAction func addBtnAction(_ sender: Any) {
+        let property = AddPropertyInputModel(name: propertyTextField.text ?? "", buildingType: buildingType?.rawValue ?? "", locationCode: locationTextField.text ?? "", city: cityTextField.text ?? "", district: districtTextField.text ?? "")
+        let validationResponse = viewModel.isFormValid(property: property)
+        if validationResponse.isValid {
+            self.animateSpinner()
+            self.viewModel.addProperty()
+        }
+        else{
+            showAlert(message: validationResponse.message)
+        }
     }
     
     private func selectPopertyType(type: PropertyType = .building){

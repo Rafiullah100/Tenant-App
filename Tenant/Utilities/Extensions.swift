@@ -284,7 +284,7 @@ extension UITableView{
 //        titleLabel.text = message ?? LocalizationKeys.noRecordFound.rawValue.localizeString()
 //        titleLabel.text =
 
-        messageLabel.text = "No Complaints to Show"
+        messageLabel.text = message ?? "No Complaints to Show"
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         

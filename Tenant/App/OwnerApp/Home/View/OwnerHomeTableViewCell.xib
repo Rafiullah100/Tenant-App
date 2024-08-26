@@ -247,6 +247,7 @@
                 <outlet property="postDate" destination="pjI-2B-5AS" id="RbQ-38-oCw"/>
                 <outlet property="postLabel" destination="2Fe-2r-Nlj" id="L19-Nn-YvB"/>
                 <outlet property="statusLabel" destination="baX-Eu-kAh" id="fUK-Ae-bTQ"/>
+                <outlet property="statusValueLabel" destination="qLM-3Z-Jhw" id="I2k-Kl-vlm"/>
                 <outlet property="titleLbl" destination="TnT-bY-XP1" id="EI8-Dh-zqI"/>
             </connections>
             <point key="canvasLocation" x="-23.913043478260871" y="75"/>

@@ -58,6 +58,13 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
                 self.collectionView.reloadData()
             }
         }
+        
+        viewModel.reject.bind { [unowned self] reject in
+            guard let reject = reject else{return}
+                self.stopAnimation()
+            showAlert(message: reject.message ?? "")
+        }
+        
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
     }
@@ -87,6 +94,11 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     
     @IBAction func assignBtnAction(_ sender: Any) {
         Switcher.gotoAssignWorker(delegate: self, complaintID: complaintID ?? 0)
+    }
+    
+    @IBAction func rejectBtnAction(_ sender: Any) {
+        self.animateSpinner()
+        viewModel.reject(complaintID: complaintID ?? 0)
     }
 }
 

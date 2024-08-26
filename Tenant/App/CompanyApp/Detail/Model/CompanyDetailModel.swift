@@ -13,3 +13,10 @@ struct RejectModel: Codable {
     let success: Bool?
     let message: String?
 }
+
+
+struct ApproveModel: Codable {
+    let success: Bool?
+    let message: String?
+}
+

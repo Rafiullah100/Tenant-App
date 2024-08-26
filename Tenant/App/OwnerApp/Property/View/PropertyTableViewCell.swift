@@ -23,4 +23,16 @@ class PropertyTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var property: PropertiesRow? {
+        didSet{
+            let buildingNo = property?.buildingNo ?? ""
+            let district = property?.district ?? ""
+            let city = property?.city ?? ""
+
+            
+            
+            self.label.text = "\(buildingNo), \(district), \(city)"
+        }
+    }
+    
 }

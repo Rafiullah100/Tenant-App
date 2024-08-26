@@ -27,8 +27,13 @@ class SigninViewController: BaseViewController {
         
         //tenant
 //        emailTextField.text = "123456789"
+        
         //company
-        emailTextField.text = "3244-3256346"
+//        emailTextField.text = "3244-3256346"
+//                emailTextField.text = "123456789"
+        
+        //owner
+        emailTextField.text = "03009911223"
         nameTextField.text = "Rafiullah"
         
         curveImageView.image = UIImage(named: Helper.shared.isRTL() ? "bg-ar" : "bg")

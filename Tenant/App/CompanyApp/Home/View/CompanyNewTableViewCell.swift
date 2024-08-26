@@ -9,6 +9,7 @@ import UIKit
 
 class OwnerHomeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var statusValueLabel: UILabel!
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var timelbl: UILabel!
@@ -32,6 +33,19 @@ class OwnerHomeTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    var complaint: OwnerComplaintsRow? {
+        didSet{
+            titleLbl.text = complaint?.title
+            postDate.text = Helper.shared.dateFormate(dateString: complaint?.timestamp ?? "")
+            let status = Helper.shared.getComplaintStatus(ownerApproval: complaint?.ownerApproval, companyApproval: complaint?.companyApproval, taskComplete: complaint?.taskComplete, tenantApproval: complaint?.tenantApproval, workerID: ((complaint?.workerID) != nil) ? 1 : 0)
+            
+            statusValueLabel.text = status.0
+            colorView.backgroundColor = status.1.color
+//            addressLabel.text = complaint.
+        }
+    }
+
 }
     
 

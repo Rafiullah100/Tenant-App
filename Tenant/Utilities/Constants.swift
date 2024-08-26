@@ -50,7 +50,7 @@ enum OtpType: String {
     case signup
 }
 
-enum PropertyType {
+enum PropertyType: String {
     case building
     case villa
 
@@ -80,3 +80,7 @@ enum WorkerComplaintType {
 }
 
 
+enum OwnerApprovalType: String{
+    case approve = "approved"
+    case reject = "rejected"
+}

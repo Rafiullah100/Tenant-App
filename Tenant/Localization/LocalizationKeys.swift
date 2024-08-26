@@ -143,6 +143,12 @@ enum LocalizationKeys: String {
     
     case current
     case propertiesAssigned
-        
+       
+    case approvedOn
+    case companyAcceptedOn
+    
+    case rejectedOn
+
 }
+
 

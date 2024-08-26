@@ -86,7 +86,7 @@ extension CompanyCompletedViewController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier(), for: indexPath)as! ComplaintCollectionViewCell
-        cell.configure(with: UIImage(named: "Img1")!)
+//        cell.configure(with: UIImage(named: "Img1")!)
         return cell
         
     }

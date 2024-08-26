@@ -1660,6 +1660,9 @@
                                                                                             </userDefinedRuntimeAttribute>
                                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="addNormalShadow" value="YES"/>
                                                                                         </userDefinedRuntimeAttributes>
+                                                                                        <connections>
+                                                                                            <action selector="rejectBtnAction:" destination="ai2-TS-Kzf" eventType="touchUpInside" id="1xs-3r-WcH"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <userDefinedRuntimeAttributes>
