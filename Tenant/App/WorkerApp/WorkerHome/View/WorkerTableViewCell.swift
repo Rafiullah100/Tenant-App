@@ -40,6 +40,19 @@ class WorkerTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var complaint: WorkersRow? {
+        didSet{
+            titleLbl.text = complaint?.title?.capitalized
+            postedTimeLbl.text = Helper.shared.dateFormate(dateString: complaint?.timestamp ?? "")
+            assignedTimeLbl.text = Helper.shared.dateFormate(dateString: complaint?.workerAssignedDatetime ?? "")
+            maintananceLbl.text = Helper.shared.dateFormate(dateString: complaint?.workerAssignedDatetime ?? "")
+
+            let status = Helper.shared.getComplaintStatus(ownerApproval: complaint?.ownerApproval, companyApproval: complaint?.companyApproval, taskComplete: complaint?.taskComplete, tenantApproval: complaint?.tenantApproval, workerID: ((complaint?.workerID) != nil) ? 1 : 0)
+            statusLbl.text = status.0
+            colorView.backgroundColor = status.1.color
+        }
+    }
+    
 }
     
 

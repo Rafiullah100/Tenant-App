@@ -58,4 +58,9 @@ class PropertyViewModel {
     func getFlatCount() -> Int {
         return profile.value?.ownerProfile?.totalFlats ?? 0
     }
+    
+    func getBuildingType(at index: Int) -> PropertyType {
+        let type = self.propertyList.value?.properties?.rows?[index].buildingType
+        return type == "building" ? .building : .villa
+    }
 }

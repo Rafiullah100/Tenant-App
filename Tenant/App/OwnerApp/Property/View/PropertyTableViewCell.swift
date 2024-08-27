@@ -25,14 +25,13 @@ class PropertyTableViewCell: UITableViewCell {
     
     var property: PropertiesRow? {
         didSet{
+            let buildingType = property?.buildingType?.capitalized ?? ""
+
             let buildingNo = property?.buildingNo ?? ""
             let district = property?.district ?? ""
             let city = property?.city ?? ""
-
             
-            
-            self.label.text = "\(buildingNo), \(district), \(city)"
+            self.label.text = "\(buildingType) \(buildingNo), \(city), \(district)"
         }
     }
-    
 }

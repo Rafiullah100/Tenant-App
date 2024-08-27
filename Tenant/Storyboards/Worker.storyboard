@@ -348,6 +348,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="completedButton" destination="sT4-MJ-g8l" id="Vnf-AG-bwf"/>
+                        <outlet property="mobileLabel" destination="t3F-Ng-zfZ" id="L9C-sL-FMX"/>
+                        <outlet property="nameLabel" destination="VwC-1O-afQ" id="kUm-c4-rtl"/>
                         <outlet property="newButton" destination="IFx-1B-IMK" id="oHt-Gq-JE2"/>
                         <outlet property="workerHomeTableView" destination="2W1-t8-0eu" id="dXo-Ie-DRT"/>
                     </connections>

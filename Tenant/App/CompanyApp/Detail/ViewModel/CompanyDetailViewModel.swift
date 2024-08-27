@@ -37,7 +37,7 @@ class CompanyDetailViewModel {
     }
     
     func getTitle() -> String {
-        return self.complaintDetail.value?.title ?? ""
+        return self.complaintDetail.value?.title?.capitalized ?? ""
     }
     
     func getDescription() -> String {
@@ -46,6 +46,23 @@ class CompanyDetailViewModel {
     
     func getCompalintID() -> Int {
         return self.complaintDetail.value?.id ?? 0
+    }
+    
+    func getProperty() -> String? {
+        let type = self.complaintDetail.value?.property?.buildingType
+        var propertyType = ""
+        
+        if type == "builidng" {
+            propertyType = "Builidng"
+        }
+        else{
+            propertyType = "Villa"
+        }
+        let buildingNo = self.complaintDetail.value?.property?.buildingNo
+        let district = self.complaintDetail.value?.property?.district
+        let city = self.complaintDetail.value?.property?.city
+
+        return "\(propertyType ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
     }
     
     func getStatus() -> String {

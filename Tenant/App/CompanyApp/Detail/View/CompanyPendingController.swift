@@ -39,7 +39,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
-        complaintIdLabel.text = LocalizationKeys.complaintID.rawValue.localizeString()
+        complaintIdLabel.text = LocalizationKeys.property.rawValue.localizeString()
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         photoLabel.text = LocalizationKeys.photos.rawValue.localizeString()
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
@@ -71,7 +71,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     
     private func updateUI(){
         complaintTitleLabel.text = viewModel.getTitle()
-//        propertyValueLabel.text = "\(viewModel.getCompalintID())"
+        propertyValueLabel.text = "\(viewModel.getProperty() ?? "")"
         statusValueLabel.text = viewModel.getStatus()
         postedValueLabel.text = viewModel.getPostedDate()
         descriptionTextView.text = viewModel.getDescription()

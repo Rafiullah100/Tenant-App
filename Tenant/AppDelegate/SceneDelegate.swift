@@ -24,13 +24,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             switch Helper.shared.userType() {
             case .owner:
-//                UserDefaults.standard.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiY29udGFjdCI6IjIzODQ3OTI4MyIsImlhdCI6MTcyMTcxNjU3MSwiZXhwIjoxNzUzMjUyNTcxfQ.SrReVUcX0j-LTvGUlHNJBxEq-dKwVJSfUVisO_CHfC8"
+                UserDefaults.standard.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiY29udGFjdCI6IjIzODQ3OTI4MyIsImlhdCI6MTcyMTcxNjU3MSwiZXhwIjoxNzUzMjUyNTcxfQ.SrReVUcX0j-LTvGUlHNJBxEq-dKwVJSfUVisO_CHfC8"
                 vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "OwnerTabbarController") as! OwnerTabbarController
             case .tenant:
                 vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantHomeViewController") as! TenantHomeViewController
             case .company:
                 vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyTabbarController") as! CompanyTabbarController
             case .worker:
+                UserDefaults.standard.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiY29udGFjdCI6IjIzODQ3OTI4MyIsImlhdCI6MTcyMTcxNjU3MSwiZXhwIjoxNzUzMjUyNTcxfQ.SrReVUcX0j-LTvGUlHNJBxEq-dKwVJSfUVisO_CHfC8"
                 vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkersHomeViewController") as! WorkersHomeViewController
             }
             let nav = UINavigationController(rootViewController: vc ?? UIViewController())

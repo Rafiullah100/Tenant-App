@@ -176,6 +176,8 @@
 		52F188AE2C660B1100085EE7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F188AD2C660B1100085EE7 /* LoginViewModel.swift */; };
 		52F188B42C661BE900085EE7 /* OtpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F188B32C661BE900085EE7 /* OtpViewModel.swift */; };
 		52F188B62C661BFA00085EE7 /* OtpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F188B52C661BFA00085EE7 /* OtpModel.swift */; };
+		52FD2BA62C7DB37400B2B914 /* WorkersComplaintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD2BA52C7DB37400B2B914 /* WorkersComplaintViewModel.swift */; };
+		52FD2BA82C7DB38100B2B914 /* WorkersComplaintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD2BA72C7DB38100B2B914 /* WorkersComplaintModel.swift */; };
 		A464A0C6F8E0778DF60EAF2D /* Pods_Tenant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2B301050BDEA968097910F /* Pods_Tenant.framework */; };
 /* End PBXBuildFile section */
 
@@ -355,6 +357,8 @@
 		52F188AD2C660B1100085EE7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		52F188B32C661BE900085EE7 /* OtpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewModel.swift; sourceTree = "<group>"; };
 		52F188B52C661BFA00085EE7 /* OtpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpModel.swift; sourceTree = "<group>"; };
+		52FD2BA52C7DB37400B2B914 /* WorkersComplaintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersComplaintViewModel.swift; sourceTree = "<group>"; };
+		52FD2BA72C7DB38100B2B914 /* WorkersComplaintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersComplaintModel.swift; sourceTree = "<group>"; };
 		7969E806CAB2B0894882A23C /* Pods-Tenant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tenant.release.xcconfig"; path = "Target Support Files/Pods-Tenant/Pods-Tenant.release.xcconfig"; sourceTree = "<group>"; };
 		8E2B301050BDEA968097910F /* Pods_Tenant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tenant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42DEBE2135DDB6FCC63810C /* Pods-Tenant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tenant.debug.xcconfig"; path = "Target Support Files/Pods-Tenant/Pods-Tenant.debug.xcconfig"; sourceTree = "<group>"; };
@@ -672,9 +676,9 @@
 		524D70CE2C4A92C800C7490C /* WorkerHome */ = {
 			isa = PBXGroup;
 			children = (
-				525B377E2C3E96EA0087CB5C /* WorkerTableViewCell.xib */,
-				525B377C2C3E92E00087CB5C /* WorkerTableViewCell.swift */,
-				525B377A2C3E92D30087CB5C /* WorkersHomeViewController.swift */,
+				52FD2BA42C7DB33E00B2B914 /* ViewModel */,
+				52FD2BA32C7DB33100B2B914 /* Model */,
+				52FD2BA22C7DB31E00B2B914 /* View */,
 			);
 			path = WorkerHome;
 			sourceTree = "<group>";
@@ -1487,6 +1491,32 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		52FD2BA22C7DB31E00B2B914 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				525B377E2C3E96EA0087CB5C /* WorkerTableViewCell.xib */,
+				525B377C2C3E92E00087CB5C /* WorkerTableViewCell.swift */,
+				525B377A2C3E92D30087CB5C /* WorkersHomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52FD2BA32C7DB33100B2B914 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52FD2BA72C7DB38100B2B914 /* WorkersComplaintModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52FD2BA42C7DB33E00B2B914 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52FD2BA52C7DB37400B2B914 /* WorkersComplaintViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C05C01BF1FD6829E37E2EC1A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1694,6 +1724,7 @@
 				525B37762C3E6DB80087CB5C /* LanguageViewController.swift in Sources */,
 				52DBCD0B2C16C52C00A7B612 /* IBDesignableExtensions.swift in Sources */,
 				52DBCCF92C16C51A00A7B612 /* Method.swift in Sources */,
+				52FD2BA62C7DB37400B2B914 /* WorkersComplaintViewModel.swift in Sources */,
 				52688B172C32C56F001C55A8 /* TenantCompletedViewController.swift in Sources */,
 				525B377B2C3E92D30087CB5C /* WorkersHomeViewController.swift in Sources */,
 				525B377D2C3E92E10087CB5C /* WorkerTableViewCell.swift in Sources */,
@@ -1705,6 +1736,7 @@
 				5284FEDE2C74B2B900F8B9CB /* AddBranchModel.swift in Sources */,
 				526B7E152C7CA55C00D8A335 /* AddPropertyModel.swift in Sources */,
 				52DBCD0A2C16C52C00A7B612 /* Storyboard.swift in Sources */,
+				52FD2BA82C7DB38100B2B914 /* WorkersComplaintModel.swift in Sources */,
 				525F5C222C3FDD6900FE4B89 /* CompanyWorkerViewController.swift in Sources */,
 				52DBCD082C16C52C00A7B612 /* LanguageManager.swift in Sources */,
 				526B7E042C7C4CB300D8A335 /* OwnerComplaintViewModel.swift in Sources */,
@@ -1970,9 +2002,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9K786374U5;
+				DEVELOPMENT_TEAM = LV2P494H8U;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=*]" = arm64;
@@ -1991,6 +2024,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ngen.tenant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2003,9 +2037,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9K786374U5;
+				DEVELOPMENT_TEAM = LV2P494H8U;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=*]" = arm64;
@@ -2023,6 +2058,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ngen.tenant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

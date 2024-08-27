@@ -44,7 +44,7 @@ struct CompanyComplaintsRow: Codable {
     let tenantRegisteredFrom, tenantType: String?
     let tenantStatus, tenantIsDeleted: Int?
     let tenantTimestamp: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case rowPropertyID = "property_id"

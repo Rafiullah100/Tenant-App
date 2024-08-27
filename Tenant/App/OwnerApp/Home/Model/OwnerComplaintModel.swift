@@ -41,6 +41,9 @@ struct OwnerComplaintsRow: Codable {
     let workerAssignedDatetime, scheduleDate, scheduleTime: String?
     let timestamp: String?
     let propertyOwnerID: Int?
+    let tenantName: String?
+    let tenantContact: String?
+    
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -63,6 +66,8 @@ struct OwnerComplaintsRow: Codable {
         case scheduleTime = "schedule_time"
         case timestamp
         case propertyOwnerID = "property.owner_id"
+        case tenantName = "tenant.name"
+        case tenantContact = "tenant.contact"
     }
 }
 
