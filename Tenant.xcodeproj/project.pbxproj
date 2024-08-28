@@ -58,6 +58,8 @@
 		52633D782C40F7D10029C954 /* PropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52633D772C40F7D10029C954 /* PropertyViewController.swift */; };
 		52633D7B2C410A640029C954 /* PropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52633D792C410A640029C954 /* PropertyTableViewCell.swift */; };
 		52633D7C2C410A640029C954 /* PropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52633D7A2C410A640029C954 /* PropertyTableViewCell.xib */; };
+		5265FCE72C7F43A800A4118A /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5265FCE62C7F43A800A4118A /* CompanyModel.swift */; };
+		5265FCEA2C7F445B00A4118A /* CompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5265FCE92C7F445B00A4118A /* CompanyViewModel.swift */; };
 		52688B0D2C3290EF001C55A8 /* TenantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B0C2C3290EF001C55A8 /* TenantDetailViewController.swift */; };
 		52688B102C32916A001C55A8 /* ComplainDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52688B0E2C329169001C55A8 /* ComplainDetailCollectionViewCell.xib */; };
 		52688B112C32916A001C55A8 /* ComplainDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B0F2C32916A001C55A8 /* ComplainDetailCollectionViewCell.swift */; };
@@ -171,6 +173,7 @@
 		52DBCD0C2C16C52C00A7B612 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DBCD032C16C52C00A7B612 /* UserDefaults+Extension.swift */; };
 		52DBCD0D2C16C52C00A7B612 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DBCD042C16C52C00A7B612 /* Helper.swift */; };
 		52DBCD0E2C16C52C00A7B612 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DBCD052C16C52C00A7B612 /* Color.swift */; };
+		52EA8D112C7EFEB70049CE99 /* WorkerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA8D102C7EFEB70049CE99 /* WorkerDetailViewModel.swift */; };
 		52F188A62C660A7C00085EE7 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F188A52C660A7C00085EE7 /* SigninViewController.swift */; };
 		52F188AC2C660AFD00085EE7 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F188AB2C660AFD00085EE7 /* LoginModel.swift */; };
 		52F188AE2C660B1100085EE7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F188AD2C660B1100085EE7 /* LoginViewModel.swift */; };
@@ -234,6 +237,8 @@
 		52633D772C40F7D10029C954 /* PropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyViewController.swift; sourceTree = "<group>"; };
 		52633D792C410A640029C954 /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
 		52633D7A2C410A640029C954 /* PropertyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertyTableViewCell.xib; sourceTree = "<group>"; };
+		5265FCE62C7F43A800A4118A /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
+		5265FCE92C7F445B00A4118A /* CompanyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyViewModel.swift; sourceTree = "<group>"; };
 		52688B0C2C3290EF001C55A8 /* TenantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenantDetailViewController.swift; sourceTree = "<group>"; };
 		52688B0E2C329169001C55A8 /* ComplainDetailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComplainDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		52688B0F2C32916A001C55A8 /* ComplainDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplainDetailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -352,6 +357,7 @@
 		52DBCD032C16C52C00A7B612 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		52DBCD042C16C52C00A7B612 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		52DBCD052C16C52C00A7B612 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		52EA8D102C7EFEB70049CE99 /* WorkerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerDetailViewModel.swift; sourceTree = "<group>"; };
 		52F188A52C660A7C00085EE7 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		52F188AB2C660AFD00085EE7 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		52F188AD2C660B1100085EE7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -387,7 +393,9 @@
 		521B922A2C4BBDE6000F1B82 /* WorkerCompletedDetail */ = {
 			isa = PBXGroup;
 			children = (
-				5211E4EE2C3EA1F80023A8E6 /* WorkerDetailViewController.swift */,
+				52EA8D0F2C7EF4440049CE99 /* ViewModel */,
+				52EA8D0E2C7EF42B0049CE99 /* Model */,
+				52EA8D0D2C7EF3960049CE99 /* View */,
 			);
 			path = WorkerCompletedDetail;
 			sourceTree = "<group>";
@@ -505,9 +513,9 @@
 		522FFBB02C4CE1410010A2EF /* CompanyManagment */ = {
 			isa = PBXGroup;
 			children = (
-				522FFBB32C4CE1B00010A2EF /* CompanyCardTableViewCell.swift */,
-				522FFBB52C4CE1D20010A2EF /* CompanyCardTableViewCell.xib */,
-				522FFBB12C4CE1670010A2EF /* CompanyManagmentViewController.swift */,
+				5265FCE52C7F439A00A4118A /* Model */,
+				5265FCE82C7F443100A4118A /* ViewModel */,
+				5265FCE42C7F437E00A4118A /* View */,
 			);
 			path = CompanyManagment;
 			sourceTree = "<group>";
@@ -780,7 +788,6 @@
 			isa = PBXGroup;
 			children = (
 				524D70CE2C4A92C800C7490C /* WorkerHome */,
-				52AC56482C5A22CC00F37A3C /* WorkerOngoing */,
 				521B922A2C4BBDE6000F1B82 /* WorkerCompletedDetail */,
 			);
 			path = WorkerApp;
@@ -804,6 +811,32 @@
 				522FFBB72C4CE7410010A2EF /* SelfComplaints */,
 			);
 			path = OwnerApp;
+			sourceTree = "<group>";
+		};
+		5265FCE42C7F437E00A4118A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				522FFBB32C4CE1B00010A2EF /* CompanyCardTableViewCell.swift */,
+				522FFBB52C4CE1D20010A2EF /* CompanyCardTableViewCell.xib */,
+				522FFBB12C4CE1670010A2EF /* CompanyManagmentViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5265FCE52C7F439A00A4118A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5265FCE62C7F43A800A4118A /* CompanyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5265FCE82C7F443100A4118A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5265FCE92C7F445B00A4118A /* CompanyViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		526B7DFE2C7C4BEF00D8A335 /* View */ = {
@@ -1221,14 +1254,6 @@
 			path = AddFlat;
 			sourceTree = "<group>";
 		};
-		52AC56482C5A22CC00F37A3C /* WorkerOngoing */ = {
-			isa = PBXGroup;
-			children = (
-				52AC564A2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift */,
-			);
-			path = WorkerOngoing;
-			sourceTree = "<group>";
-		};
 		52B1DA6C2C69F39D001EE096 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1421,6 +1446,30 @@
 				52633D742C40F7360029C954 /* Owner.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		52EA8D0D2C7EF3960049CE99 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5211E4EE2C3EA1F80023A8E6 /* WorkerDetailViewController.swift */,
+				52AC564A2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52EA8D0E2C7EF42B0049CE99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52EA8D0F2C7EF4440049CE99 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52EA8D102C7EFEB70049CE99 /* WorkerDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		52F188A72C660A8A00085EE7 /* login */ = {
@@ -1743,6 +1792,7 @@
 				52995C5C2C37E54C00AFDA47 /* OwnerHomeViewController.swift in Sources */,
 				52DBCD0C2C16C52C00A7B612 /* UserDefaults+Extension.swift in Sources */,
 				52F188AC2C660AFD00085EE7 /* LoginModel.swift in Sources */,
+				52EA8D112C7EFEB70049CE99 /* WorkerDetailViewModel.swift in Sources */,
 				52B1DA752C6A0307001EE096 /* TenantComplaintViewModel.swift in Sources */,
 				52583D782C7730080023EBDE /* CompanyWorkerModel.swift in Sources */,
 				52DBCD0D2C16C52C00A7B612 /* Helper.swift in Sources */,
@@ -1821,6 +1871,8 @@
 				529E17612C2E8D480063B204 /* SignupViewController.swift in Sources */,
 				52DBCCFA2C16C51A00A7B612 /* ApiResponse.swift in Sources */,
 				5276163B2C48E876007F7C66 /* FlatCardTableViewCell.swift in Sources */,
+				5265FCEA2C7F445B00A4118A /* CompanyViewModel.swift in Sources */,
+				5265FCE72C7F43A800A4118A /* CompanyModel.swift in Sources */,
 				529E175E2C2E87D20063B204 /* IntroductionViewController.swift in Sources */,
 				52DBCCDA2C16C3B200A7B612 /* SceneDelegate.swift in Sources */,
 				521B92322C4BC4B6000F1B82 /* CompanyNewTableViewCell.swift in Sources */,

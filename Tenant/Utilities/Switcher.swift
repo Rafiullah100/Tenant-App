@@ -132,8 +132,17 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoWorkerOngoingDetailScreen(delegate: UIViewController){
+    static func gotoWorkerOngoingDetailScreen(delegate: UIViewController, complaintID: Int){
         let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkerOngoingDetailViewController") as! WorkerOngoingDetailViewController
+        vc.complaintID = complaintID
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoWorkerComplaintDetailScreen(delegate: UIViewController, complaintID: Int){
+        let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkerDetailViewController") as! WorkerDetailViewController
+        vc.complaintID = complaintID
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
@@ -146,9 +155,10 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoPropertyDetail(delegate: UIViewController, propertyType: PropertyType){
+    static func gotoPropertyDetail(delegate: UIViewController, propertyType: PropertyType, propertyID: Int){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "PropertyDetailViewController") as! PropertyDetailViewController
         vc.propertyType = propertyType
+        vc.propertyID = propertyID
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
@@ -156,6 +166,14 @@ class Switcher {
     
     static func gotoRemoveTenant(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "RemoveTenanatViewController") as! RemoveTenanatViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoCompanyList(delegate: UIViewController, propertyID: Int){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyManagmentViewController") as! CompanyManagmentViewController
+        vc.propertyID = propertyID
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)

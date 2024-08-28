@@ -24,6 +24,14 @@ class WorkersComplaintViewModel {
         }
     }
     
+    func getRecentComplaintID(at index: Int) -> Int {
+        return self.complaintList.value?.complaintsRecent?.rows?[index].id ?? 0
+    }
+    
+    func getCompletedComplaintID(at index: Int) -> Int {
+        return self.complaintList.value?.complaintsHistory?.rows?[index].id ?? 0
+    }
+    
     func getRecentCount() -> Int {
         return self.complaintList.value?.complaintsRecent?.rows?.count ?? 0
     }

@@ -33,6 +33,9 @@ enum Route {
     case properties
     case addProperty
     case workerComplaints
+    case workerCompletion
+    case companies
+    case assignProperty
 
     case logout
     case googleSignup
@@ -194,7 +197,13 @@ enum Route {
         case .addProperty:
             return "api/mobile/owner/add_property"
         case .workerComplaints:
-            return "api/mobile/complaints/get_tenant_complaints"
+            return "api/mobile/complaints/get_worker_complaints"
+        case .workerCompletion:
+            return "api/mobile/worker/completion_confirmation"
+        case .companies:
+            return "api/mobile/company/get_list"
+        case .assignProperty:
+            return "api/mobile/company/assign_property"
         }
     }
 }

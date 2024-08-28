@@ -23,8 +23,12 @@ class PropertyViewModel {
         }
     }
     
+    func getPropertyID(at index: Int) -> Int {
+        return self.propertyList.value?.properties?.rows?[index].id ?? 0
+    }
+    
     func getPropertiesCount() -> Int {
-        return self.propertyList.value?.properties?.count ?? 0
+        return self.propertyList.value?.properties?.rows?.count ?? 0
     }
     
     func getProperty(at index: Int) -> PropertiesRow? {

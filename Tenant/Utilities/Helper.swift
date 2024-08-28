@@ -109,7 +109,7 @@ public class Helper{
                 return ("Not assign to worker", CustomColor.redColor)
             }
             else if workerID != 0 && taskComplete == 0{
-                return ("Worker in progress", CustomColor.blueColor)
+                return ("Work in progress", CustomColor.blueColor)
             }
             else if taskComplete == 1 && tenantApproval == 0{
                 return ("Work Done - Waiting for Confirmation", CustomColor.greenColor)

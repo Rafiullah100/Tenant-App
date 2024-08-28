@@ -92,6 +92,9 @@
                                                         <real key="value" value="17.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="assignBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6mD-De-ar2"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -136,7 +139,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="flatNumberLbl" destination="adp-jr-mlS" id="gcB-FC-gY3"/>
+                <outlet property="nameLabel" destination="adp-jr-mlS" id="RjN-4f-jb8"/>
             </connections>
             <point key="canvasLocation" x="154.34782608695653" y="77.678571428571431"/>
         </tableViewCell>

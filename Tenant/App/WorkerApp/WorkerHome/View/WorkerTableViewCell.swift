@@ -50,6 +50,7 @@ class WorkerTableViewCell: UITableViewCell {
             let status = Helper.shared.getComplaintStatus(ownerApproval: complaint?.ownerApproval, companyApproval: complaint?.companyApproval, taskComplete: complaint?.taskComplete, tenantApproval: complaint?.tenantApproval, workerID: ((complaint?.workerID) != nil) ? 1 : 0)
             statusLbl.text = status.0
             colorView.backgroundColor = status.1.color
+            byLbl.text = "\(complaint?.tenant?.name ?? "") - \(complaint?.tenant?.contact ?? "")"
         }
     }
     

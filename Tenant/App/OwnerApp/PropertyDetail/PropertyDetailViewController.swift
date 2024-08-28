@@ -22,6 +22,7 @@ class PropertyDetailViewController: BaseViewController {
     
     @IBOutlet weak var villaTenantMangmtView: UIView!
     var propertyType: PropertyType?
+    var propertyID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,4 +46,7 @@ class PropertyDetailViewController: BaseViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
 
+    @IBAction func companyBtnAction(_ sender: Any) {
+        Switcher.gotoCompanyList(delegate: self, propertyID: propertyID ?? 0)
+    }
 }

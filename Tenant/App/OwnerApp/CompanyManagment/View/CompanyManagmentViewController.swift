@@ -20,7 +20,9 @@ class CompanyManagmentViewController: BaseViewController {
             tableView.register(UINib(nibName: "CompanyCardTableViewCell", bundle: nil), forCellReuseIdentifier: CompanyCardTableViewCell.cellReuseIdentifier())
         }
     }
-    
+    private var viewModel = CompanyViewModel()
+    var propertyID: Int?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
@@ -30,6 +32,12 @@ class CompanyManagmentViewController: BaseViewController {
         searchTextField.placeholder = LocalizationKeys.searchMaintenanceCompany.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
+        
+        viewModel.companiesList.bind { list in
+            guard let _ = list else{return}
+            self.tableView.reloadData()
+        }
+        viewModel.getList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,11 +48,16 @@ class CompanyManagmentViewController: BaseViewController {
 
 extension CompanyManagmentViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.getCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCardTableViewCell.cellReuseIdentifier(), for: indexPath) as! CompanyCardTableViewCell
+        cell.nameLabel.text = viewModel.getName(at: indexPath.row)
+        cell.assign = { [weak self] in
+            guard let id = self?.viewModel.getCompanyID(at: indexPath.row) else { return UITableViewCell() }
+            self?.viewModel.assignToProperty(companyID: id, propertyID: self?.propertyID ?? 0)
+        }
         return cell
     }
     

@@ -1426,7 +1426,7 @@ Cg
                                                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         </state>
                                                                                                         <connections>
-                                                                                                            <segue destination="YuO-Qp-pzU" kind="show" id="Ja1-Do-H1t"/>
+                                                                                                            <action selector="companyBtnAction:" destination="nzb-Fl-Fzg" eventType="touchUpInside" id="rUd-r1-dr0"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                 </subviews>
@@ -4065,10 +4065,10 @@ Cg
                                                                                         </constraints>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIa-Gd-7UY">
-                                                                                        <rect key="frame" x="0.0" y="580" width="343" height="107.66666666666663"/>
+                                                                                        <rect key="frame" x="0.0" y="580" width="343" height="108"/>
                                                                                         <subviews>
                                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="pZS-0q-8HG">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="107.66666666666667"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="108"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos uploaded by Tenant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abn-fw-CTC">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.333333333333332"/>
@@ -4077,10 +4077,10 @@ Cg
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjk-fZ-bzU">
-                                                                                                        <rect key="frame" x="0.0" y="27.333333333333364" width="343" height="80.333333333333314"/>
+                                                                                                        <rect key="frame" x="0.0" y="27.333333333333378" width="343" height="80.666666666666686"/>
                                                                                                         <subviews>
                                                                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mem-e2-vM0">
-                                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="80.333333333333329"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="80.666666666666671"/>
                                                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tay-zo-Vy6">
                                                                                                                     <size key="itemSize" width="128" height="128"/>
@@ -4090,7 +4090,7 @@ Cg
                                                                                                                 </collectionViewFlowLayout>
                                                                                                                 <cells>
                                                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Q3g-gJ-Okj">
-                                                                                                                        <rect key="frame" x="0.0" y="-24" width="128" height="128"/>
+                                                                                                                        <rect key="frame" x="0.0" y="-23.666666666666668" width="128" height="128"/>
                                                                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RWf-yC-p6G">
                                                                                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -4121,10 +4121,10 @@ Cg
                                                                                         </constraints>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IA3-Cs-mWr">
-                                                                                        <rect key="frame" x="0.0" y="702.66666666666663" width="343" height="108"/>
+                                                                                        <rect key="frame" x="0.0" y="703" width="343" height="107.66666666666663"/>
                                                                                         <subviews>
                                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="cVt-2c-Ayv">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="108"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="107.66666666666667"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos uploaded by Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xem-Z9-KMV">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.333333333333332"/>
@@ -4133,10 +4133,10 @@ Cg
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSV-u8-zEa">
-                                                                                                        <rect key="frame" x="0.0" y="27.333333333333378" width="343" height="80.666666666666686"/>
+                                                                                                        <rect key="frame" x="0.0" y="27.333333333333364" width="343" height="80.333333333333314"/>
                                                                                                         <subviews>
                                                                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5xX-Cw-nR1">
-                                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="80.666666666666671"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="80.333333333333329"/>
                                                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2sk-kD-07R">
                                                                                                                     <size key="itemSize" width="128" height="128"/>
@@ -4146,7 +4146,7 @@ Cg
                                                                                                                 </collectionViewFlowLayout>
                                                                                                                 <cells>
                                                                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Iwd-y7-cfS">
-                                                                                                                        <rect key="frame" x="0.0" y="-23.666666666666668" width="128" height="128"/>
+                                                                                                                        <rect key="frame" x="0.0" y="-24" width="128" height="128"/>
                                                                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4Da-gx-1PD">
                                                                                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -4180,7 +4180,7 @@ Cg
                                                                                         <rect key="frame" x="0.0" y="825.66666666666663" width="343" height="60"/>
                                                                                         <subviews>
                                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qkv-r1-v6b">
-                                                                                                <rect key="frame" x="10" y="12.333333333333371" width="323" height="35"/>
+                                                                                                <rect key="frame" x="10" y="12.666666666666742" width="323" height="35"/>
                                                                                                 <subviews>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N78-lc-5ZM">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="35"/>
@@ -5542,7 +5542,7 @@ Cg
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

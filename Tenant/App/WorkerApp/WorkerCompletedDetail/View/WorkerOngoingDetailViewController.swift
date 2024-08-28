@@ -11,6 +11,16 @@ import UIKit
 class WorkerOngoingDetailViewController: BaseViewController  {
     @IBOutlet weak var photoLabel: UILabel!
     
+    @IBOutlet weak var personValueLabel: UILabel!
+    @IBOutlet weak var timeValueLabel: UILabel!
+    @IBOutlet weak var scheduleValueLabel: UILabel!
+    @IBOutlet weak var acceptedValueLabel: UILabel!
+    @IBOutlet weak var postedValueLabel: UILabel!
+    @IBOutlet weak var statusValueLabel: UILabel!
+    @IBOutlet weak var tenantValueLabel: UILabel!
+    @IBOutlet weak var propertyValueLabel: UILabel!
+    @IBOutlet weak var ComplaintTitleLabel: UILabel!
+    @IBOutlet weak var photosView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -28,10 +38,22 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         }
     }
     
+    @IBOutlet weak var uploadedCollectionView: UICollectionView!{
+        didSet{
+            uploadedCollectionView.register(ComplaintCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier())
+            uploadedCollectionView.delegate = self
+            uploadedCollectionView.dataSource = self
+        }
+    }
+    
+    
+    var complaintID: Int?
+    var selectedImages = [UIImage]()
+    private var viewModel = WorkerDetailViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.showsVerticalScrollIndicator = false
-
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postedLabel.text = LocalizationKeys.postedOn.rawValue.localizeString()
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
@@ -43,18 +65,45 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
         type = .tenant
+        hideGalleryView()
+        
+        viewModel.complaintDetail.bind { [unowned self] detail in
+            guard let _ = detail else {return}
+            self.stopAnimation()
+            self.updateUI()
+            self.collectionView.reloadData()
+        }
+        self.animateSpinner()
+        viewModel.getComplaints(complaintID: complaintID ?? 0)
+        
+        viewModel.completion.bind { [unowned self] complete in
+            guard let complete = complete else {return}
+            self.stopAnimation()
+            showAlert(message: complete.message ?? "")
+        }
+    }
+    
+    private func updateUI(){
+        ComplaintTitleLabel.text = viewModel.getTitle()
+        propertyValueLabel.text = viewModel.getProperty()
+        statusValueLabel.text = viewModel.getStatus()
+        postedValueLabel.text = viewModel.getPostedDate()
+        acceptedValueLabel.text = viewModel.getAcceptedDate()
+        tenantValueLabel.text = viewModel.getTenantName()
+//        descriptionLbl.text = viewModel.getDescription()
+        scheduleValueLabel.text = viewModel.getScheduleDate()
+        timeValueLabel.text = viewModel.getScheduleTime()
+        personValueLabel.text = viewModel.getMaintenancePersonContact()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
     }
-    
-    var selectedImages = [UIImage]()
-    
-//    private func hideGalleryView(){
-//        self.galleryView.isHidden = selectedImages.count == 0 ? true : false
-//    }
+        
+    private func hideGalleryView(){
+        self.photosView.isHidden = selectedImages.count == 0 ? true : false
+    }
     
     @IBAction func pickImages(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
@@ -62,27 +111,44 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
     }
+    
+    @IBAction func markCompleteBtnAction(_ sender: Any) {
+        viewModel.markComplete(image: selectedImages, complaintID: complaintID ?? 0)
+    }
 }
 
 extension WorkerOngoingDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectedImages.count
+        if collectionView == uploadedCollectionView {
+            return selectedImages.count 
+        }
+        else{
+            return viewModel.getPhotosCount()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplaintCollectionViewCell.identifier, for: indexPath)as! ComplaintCollectionViewCell
-        cell.imageView.image = selectedImages[indexPath.row]
-        return cell
+        if collectionView == uploadedCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplaintCollectionViewCell.identifier, for: indexPath)as! ComplaintCollectionViewCell
+            cell.imageView.image = selectedImages[indexPath.row]
+            return cell
+        }
+        else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplaintCollectionViewCell.identifier, for: indexPath)as! ComplaintCollectionViewCell
+            cell.configure(with: viewModel.getPhoto(index: indexPath.row))
+            return cell
+        }
     }
 }
 
 extension WorkerOngoingDetailViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
-            selectedImages.append(image)
-            collectionView.reloadData()
+                self.selectedImages.append(image)
+                print(self.selectedImages.count)
+                self.uploadedCollectionView.reloadData()
         }
-//        hideGalleryView()
+        hideGalleryView()
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -90,7 +156,6 @@ extension WorkerOngoingDetailViewController: UIImagePickerControllerDelegate & U
         picker.dismiss(animated: true, completion: nil)
     }
 }
-
 
 extension WorkerOngoingDetailViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

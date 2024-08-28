@@ -9,9 +9,10 @@ import UIKit
 
 class CompanyCardTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var flatNumberLbl: UILabel!
-        
+    var assign: (() -> Void)?
+
     
+    @IBOutlet weak var nameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,4 +24,7 @@ class CompanyCardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func assignBtnAction(_ sender: Any) {
+        assign?()
+    }
 }

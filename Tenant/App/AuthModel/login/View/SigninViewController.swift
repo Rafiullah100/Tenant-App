@@ -29,11 +29,11 @@ class SigninViewController: BaseViewController {
         emailTextField.text = "123456789"
         
         //company
-        emailTextField.text = "3244-3256346"
+//        emailTextField.text = "3244-3256346"
 //                emailTextField.text = "123456789"
         
         //owner
-//        emailTextField.text = "03009911223"
+        emailTextField.text = "03009911223"
         
         //worker
 //        emailTextField.text = "123456789"

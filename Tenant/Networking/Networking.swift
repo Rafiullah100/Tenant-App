@@ -63,6 +63,54 @@ class Networking {
             }
         }
     }
+    
+    func markComplete(route: Route, imageParameter: String, images: [UIImage], parameters: [String: Any], completion: @escaping (Result<ConfirmModel, AppError>) -> Void) {
+        print(parameters, images.count)
+        let urlStr = Route.baseUrl + route.description
+        let headers: HTTPHeaders = [
+            "Content-type": "multipart/form-data",
+            "x-access-token": "\(UserDefaults.standard.token ?? "")"
+        ]
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            // Append parameters
+            for (key, value) in parameters {
+                if let valueData = "\(value)".data(using: .utf8) {
+                    multipartFormData.append(valueData, withName: key)
+                }
+            }
+            
+            // Append each image
+            for (index, image) in images.enumerated() {
+                if let imageData = image.jpegData(compressionQuality: 1.0) {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'_'HH:mm:ss"
+                    let imageName = "\(dateFormatter.string(from: Date()))_\(index).jpg"
+                    multipartFormData.append(imageData, withName: imageParameter, fileName: imageName, mimeType: "image/jpg")
+                }
+            }
+        }, to: urlStr, headers: headers)
+        .response { response in
+            // Print the raw data as a string for debugging
+            if let data = response.data, let rawResponse = String(data: data, encoding: .utf8) {
+                print("Raw response: \(rawResponse)")
+            }
+            
+            switch response.result {
+            case .success:
+                do {
+                    let decodedResponse = try JSONDecoder().decode(ConfirmModel.self, from: response.data ?? Data())
+                    completion(.success(decodedResponse))
+                } catch let decodingError {
+                    print("Decoding error: \(decodingError)")
+                    completion(.failure(AppError.unknownError))
+                }
+            case .failure(let error):
+                print("Request failed with error: \(error)")
+                completion(.failure(AppError.unknownError))
+            }
+        }
+    }
 }
 
 //    func addComplaint(route: Route, imageParameter: String, images: [UIImage], parameters: [String: Any], completion: @escaping (Result<AddTenantModel, AppError>) -> Void) {

@@ -122,7 +122,7 @@ extension PropertyViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let type: PropertyType = indexPath.row % 2 == 0 ? .building : .villa
-        Switcher.gotoPropertyDetail(delegate: self, propertyType: viewModel.getBuildingType(at: indexPath.row))
+        Switcher.gotoPropertyDetail(delegate: self, propertyType: viewModel.getBuildingType(at: indexPath.row), propertyID: viewModel.getPropertyID(at: indexPath.row))
     }
 }
 

@@ -1,4 +1,13 @@
 //
+//  WorkerDetailViewModel.swift
+//  Tenant
+//
+//  Created by MacBook Pro on 8/28/24.
+//
+
+import Foundation
+
+//
 //  TenantComplaintDetailViewModel.swift
 //  Tenant
 //
@@ -6,11 +15,12 @@
 //
 
 import Foundation
+import UIKit
 
-class TenantComplaintDetailViewModel {
+class WorkerDetailViewModel {
     var errorMessage: Observable<String> = Observable("")
     var complaintDetail: Observable<TenantComplaintDetail> = Observable(nil)
-    var confirm: Observable<ConfirmModel> = Observable(nil)
+    var completion: Observable<ConfirmModel> = Observable(nil)
 
     var parameters: [String: Any]?
     
@@ -25,11 +35,11 @@ class TenantComplaintDetailViewModel {
         }
     }
     
-    func confirm(complaintID: Int){
-        _ = URLSession.shared.request(route: .tenantConfirmation, method: .post, parameters: ["id": complaintID], model: ConfirmModel.self) { result in
+    func markComplete(image: [UIImage], complaintID: Int)  {
+        Networking.shared.markComplete(route: .workerCompletion, imageParameter: "images", images: image, parameters: ["id": complaintID]) { result in
             switch result {
-            case .success(let confirm):
-                self.confirm.value = confirm
+            case .success(let completion):
+                self.completion.value = completion
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription
             }
@@ -51,6 +61,21 @@ class TenantComplaintDetailViewModel {
         let city = self.complaintDetail.value?.property?.city
 
         return "\(propertyType ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
+    }
+    
+    func getTenantName() -> String {
+        let name = self.complaintDetail.value?.tenant?.name ?? ""
+        let contact = self.complaintDetail.value?.tenant?.contact ?? ""
+        
+        return "\(name) - \(contact)"
+    }
+    
+    func getAcceptedDate() -> String {
+        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.companyApprovalDatetime ?? "")
+    }
+    
+    func getPhotosCount() -> Int {
+        return self.complaintDetail.value?.complainImages?.count ?? 0
     }
     
     func getTitle() -> String {
@@ -75,23 +100,8 @@ class TenantComplaintDetailViewModel {
         return self.complaintDetail.value?.completionImages ?? []
     }
     
-    func getTenantName() -> String {
-        let name = self.complaintDetail.value?.tenant?.name ?? ""
-        let contact = self.complaintDetail.value?.tenant?.contact ?? ""
-        
-        return "\(name) - \(contact)"
-    }
-    
     func getPostedDate() -> String {
         return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.timestamp ?? "")
-    }
-    
-    func getAcceptedDate() -> String {
-        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.companyApprovalDatetime ?? "")
-    }
-    
-    func getPhotosCount() -> Int {
-        return self.complaintDetail.value?.complainImages?.count ?? 0
     }
     
     func getPhotosForInProgressComplaint() -> [ComplainImage] {
@@ -112,7 +122,11 @@ class TenantComplaintDetailViewModel {
     }
     
     func isTaskCompleted() -> Int {
-        return self.complaintDetail.value?.taskComplete ?? 0
+        return self.complaintDetail.value?.tenantApproval ?? 0
+    }
+    
+    func getCompletedDate() -> String {
+        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.tenantApprovalDatetime ?? "")
     }
     
     func getScheduleDate() -> String {
