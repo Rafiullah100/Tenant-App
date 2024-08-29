@@ -155,17 +155,19 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoPropertyDetail(delegate: UIViewController, propertyType: PropertyType, propertyID: Int){
+    static func gotoPropertyDetail(delegate: UIViewController, propertyDetail: PropertiesRow){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "PropertyDetailViewController") as! PropertyDetailViewController
-        vc.propertyType = propertyType
-        vc.propertyID = propertyID
+//        vc.propertyType = propertyType
+//        vc.propertyID = propertyID
+        vc.propertyDetail = propertyDetail
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoRemoveTenant(delegate: UIViewController){
+    static func gotoRemoveTenant(delegate: UIViewController, flatDetail: FlatRow){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "RemoveTenanatViewController") as! RemoveTenanatViewController
+        vc.flatDetail = flatDetail
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
@@ -179,8 +181,17 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoAddTenant(delegate: UIViewController){
+    static func gotoFlatList(delegate: UIViewController, propertyID: Int){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "FlatManagementViewController") as! FlatManagementViewController
+        vc.propertyID = propertyID
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoAddTenant(delegate: UIViewController, flatID: Int){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddTenanToFlatViewController") as! AddTenanToFlatViewController
+        vc.flatID = flatID
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
@@ -241,8 +252,9 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoAddFlat(delegate: UIViewController){
+    static func gotoAddFlat(delegate: UIViewController, propertyID: Int){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddFlatViewController") as! AddFlatViewController
+        vc.propertyID = propertyID
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)

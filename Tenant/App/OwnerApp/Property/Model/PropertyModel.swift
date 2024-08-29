@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct PropertyModel: Codable {
     let properties: Properties?
 }
@@ -25,6 +26,8 @@ struct PropertiesRow: Codable {
     let district: String?
     let userID, isDeleted, status: Int?
     let timestamp: String?
+    let company: PropertyCompany?
+    let flats: [PropertiesFlat]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -35,6 +38,28 @@ struct PropertiesRow: Codable {
         case locationCode = "location_code"
         case city, district
         case userID = "user_id"
-        case isDeleted, status, timestamp
+        case isDeleted, status, timestamp, company, flats
+    }
+}
+
+// MARK: - Company
+struct PropertyCompany: Codable {
+    let name: String?
+}
+
+// MARK: - Flat
+struct PropertiesFlat: Codable {
+    let id, propertyID: Int?
+    let tenantID: Int?
+    let flatNo: String?
+    let isDeleted: Int?
+    let type, timestamp: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case propertyID = "property_id"
+        case tenantID = "tenant_id"
+        case flatNo = "flat_no"
+        case isDeleted, type, timestamp
     }
 }

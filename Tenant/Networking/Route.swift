@@ -36,6 +36,10 @@ enum Route {
     case workerCompletion
     case companies
     case assignProperty
+    case getFlats
+    case addFlat
+    case tenantList
+    case deleteTenantFromFlat
 
     case logout
     case googleSignup
@@ -74,6 +78,7 @@ enum Route {
     case resendOtp
     case newsDetail
     case opinionDetail
+    case assignTenantToFlat
     
     var description: String {
         switch self {
@@ -204,6 +209,16 @@ enum Route {
             return "api/mobile/company/get_list"
         case .assignProperty:
             return "api/mobile/company/assign_property"
+        case .getFlats:
+            return "api/mobile/owner/get_flats"
+        case .addFlat:
+            return "api/mobile/owner/add_flat"
+        case .tenantList:
+            return "api/mobile/tenant/get_list"
+        case .assignTenantToFlat:
+            return "api/mobile/owner/assign_tenant"
+        case .deleteTenantFromFlat:
+            return "api/mobile/owner/delete_tenant"
         }
     }
 }

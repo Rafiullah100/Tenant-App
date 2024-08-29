@@ -14,6 +14,7 @@ class FlatCardTableViewCell: UITableViewCell {
     @IBOutlet weak var noTenantView: UIView!
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

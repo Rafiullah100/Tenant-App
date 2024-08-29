@@ -78,7 +78,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Tenant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A29-3v-u9k">
                                                 <rect key="frame" x="0.0" y="0.0" width="192.5" height="40"/>
                                                 <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="10"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.79215686269999996" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>

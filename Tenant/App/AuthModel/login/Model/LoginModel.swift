@@ -53,3 +53,9 @@ struct AddPropertyInputModel {
     
     
 }
+
+
+struct AddFlatInputModel {
+    let flatNo: String
+    let propertyID: Int
+}

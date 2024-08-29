@@ -12,8 +12,8 @@ class CompanyViewModel {
     var companiesList: Observable<CompanyModel> = Observable(nil)
     var assign: Observable<AssignPropertyModel> = Observable(nil)
     
-    func getList(){
-        _ = URLSession.shared.request(route: .companies, method: .post, parameters: [:], model: CompanyModel.self) { result in
+    func getList(propertyID: Int){
+        _ = URLSession.shared.request(route: .companies, method: .post, parameters: ["property_id": propertyID], model: CompanyModel.self) { result in
             switch result {
             case .success(let list):
                 self.companiesList.value = list
@@ -24,7 +24,7 @@ class CompanyViewModel {
     }
     
     func getCount() -> Int {
-        self.companiesList.value?.companies?.count ?? 0
+        self.companiesList.value?.companies?.rows?.count ?? 0
     }
     
     func getName(at index: Int) -> String {
@@ -35,8 +35,13 @@ class CompanyViewModel {
         return self.companiesList.value?.companies?.rows?[index].id ?? 0
     }
     
+    func isAssigned(at index: Int) -> Bool{
+        let propertiesCount = self.companiesList.value?.companies?.rows?[index].properties?.count
+        return propertiesCount == 0 ? false : true
+    }
+    
     func assignToProperty(companyID: Int, propertyID: Int){
-        _ = URLSession.shared.request(route: .assignProperty, method: .post, parameters: [:], model: AssignPropertyModel.self) { result in
+        _ = URLSession.shared.request(route: .assignProperty, method: .post, parameters: ["company_id": companyID, "property_id": propertyID], model: AssignPropertyModel.self) { result in
             switch result {
             case .success(let assign):
                 self.assign.value = assign

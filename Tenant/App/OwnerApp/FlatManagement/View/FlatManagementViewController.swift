@@ -20,6 +20,11 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
         }
     }
     
+    let viewModel = FlatViewModel()
+    var propertyID: Int?
+    private var isLoading = true
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         FlatTableView.showsVerticalScrollIndicator = false
@@ -30,6 +35,17 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         
         type = .company
+        
+        viewModel.flatList.bind { flatList in
+            DispatchQueue.main.async {
+                guard let _ = flatList else{return}
+                self.stopAnimation()
+                self.isLoading = false
+                self.FlatTableView.reloadData()
+            }
+        }
+        self.animateSpinner()
+        viewModel.getList(propertyID: propertyID ?? 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,22 +54,26 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
     }
     
     @IBAction func addBtnAction(_ sender: Any) {
-        Switcher.gotoAddFlat(delegate: self)
+        Switcher.gotoAddFlat(delegate: self, propertyID: propertyID ?? 0)
     }
     
-    //TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if isLoading{
+            return 0
+        }
+        if viewModel.getCount() == 0{
+            self.FlatTableView.setEmptyView("No Flat Found!")
+        }
+        else{
+            self.FlatTableView.backgroundView = nil
+        }
+        return viewModel.getCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = FlatTableView.dequeueReusableCell(withIdentifier: FlatCardTableViewCell.cellReuseIdentifier(), for: indexPath) as! FlatCardTableViewCell
-        if indexPath.row % 2 == 0{
-            cell.noTenantView.isHidden = true
-        }
-        else{
-            cell.noTenantView.isHidden = false
-        }
+        cell.flatNumberLbl.text = viewModel.getName(at: indexPath.row)
+        cell.noTenantView.isHidden = viewModel.isAssignedToTenant(at: indexPath.row)
         return cell
     }
     
@@ -62,11 +82,12 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row % 2 == 0{
-            Switcher.gotoRemoveTenant(delegate: self)
+        if viewModel.isAssignedToTenant(at: indexPath.row) == true {
+            guard let flat = viewModel.getFlat(at: indexPath.row) else { return }
+            Switcher.gotoRemoveTenant(delegate: self, flatDetail: flat)
         }
         else{
-            Switcher.gotoAddTenant(delegate: self)
+            Switcher.gotoAddTenant(delegate: self, flatID: viewModel.getFlatID(at: indexPath.row))
         }
     }
 }
