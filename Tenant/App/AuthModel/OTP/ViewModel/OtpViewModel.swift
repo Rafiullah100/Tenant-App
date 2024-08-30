@@ -17,6 +17,7 @@ class OtpViewModel {
         _ = URLSession.shared.request(route: .otp, method: .post, parameters: ["otp": otp, "type": type, "contact": contact], model: OtpModel.self) { result in
             switch result {
             case .success(let otp):
+                print(otp)
                 self.otp.value = otp
                 guard let user = otp.user else { return }
                 self.saveUserData(user: user)

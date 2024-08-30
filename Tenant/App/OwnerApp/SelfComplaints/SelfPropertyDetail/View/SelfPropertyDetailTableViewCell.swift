@@ -16,7 +16,8 @@ class SelfPropertyDetailTableViewCell: UITableViewCell {
 //        homeTypeLbl.text = homeType.type
 //    }
     
-    
+    var selectAsYourHome: (() -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,4 +29,7 @@ class SelfPropertyDetailTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func selectAsYourHome(_ sender: Any) {
+        selectAsYourHome?()
+    }
 }

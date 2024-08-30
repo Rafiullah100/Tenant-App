@@ -30,7 +30,9 @@ class PropertyDetailViewController: BaseViewController {
     var propertyType: PropertyType?
     var propertyID: Int?
     var propertyDetail: PropertiesRow?
-    
+    @IBOutlet weak var assignButton: UIButton!
+    let viewModel = DeleteTenantViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         flatManagmentButton.setTitle(LocalizationKeys.flatManagement.rawValue.localizeString(), for: .normal)
@@ -43,6 +45,14 @@ class PropertyDetailViewController: BaseViewController {
         type = .company
         
         updateUI()
+        
+        viewModel.delete.bind { delete in
+            DispatchQueue.main.async {
+                guard let delete = delete else{return}
+                self.stopAnimation()
+                self.showAlert(message: delete.message ?? "")
+            }
+        }
     }
     
     private func updateUI(){
@@ -61,6 +71,11 @@ class PropertyDetailViewController: BaseViewController {
             tenantView.isHidden = flatsCount == 0 ? true : false
             if flatsCount > 0{
                 tenantView.isHidden = ((propertyDetail?.flats?.first?.tenantID) != nil) ? false : true
+                if tenantView.isHidden == false{
+                    tenantNameLabel.text = propertyDetail?.flats?[0].ownersTenants?.name ?? ""
+                    tenantContactLabel.text = propertyDetail?.flats?[0].ownersTenants?.contact ?? ""
+                    assignButton.isUserInteractionEnabled = false
+                }
             }
         }
     }
@@ -78,6 +93,14 @@ class PropertyDetailViewController: BaseViewController {
         Switcher.gotoCompanyList(delegate: self, propertyID: propertyID ?? 0)
     }
     
+    @IBAction func deleteBtnAction(_ sender: Any) {
+        self.animateSpinner()
+        viewModel.deleteTenant(flatID: propertyDetail?.flats?[0].id ?? 0)
+    }
+    
     @IBAction func assigntenantToVilla(_ sender: Any) {
+        let flatsCount = propertyDetail?.flats?.count ?? 0
+        guard flatsCount > 0 else { return  }
+        Switcher.gotoAddTenant(delegate: self, flatID: propertyDetail?.flats?[0].id ?? 0)
     }
 }

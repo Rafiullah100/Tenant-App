@@ -40,6 +40,7 @@ enum Route {
     case addFlat
     case tenantList
     case deleteTenantFromFlat
+    case getUnassignedFlats
 
     case logout
     case googleSignup
@@ -219,6 +220,8 @@ enum Route {
             return "api/mobile/owner/assign_tenant"
         case .deleteTenantFromFlat:
             return "api/mobile/owner/delete_tenant"
+        case .getUnassignedFlats:
+            return "api/mobile/owner/get_unassigned_flats"
         }
     }
 }

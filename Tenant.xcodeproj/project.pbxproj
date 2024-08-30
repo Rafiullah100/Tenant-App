@@ -16,6 +16,10 @@
 		521B92372C4BC944000F1B82 /* OwnerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B92362C4BC944000F1B82 /* OwnerDetailViewController.swift */; };
 		5223FAFA2C411B6B002D8E09 /* AddPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5223FAF92C411B6A002D8E09 /* AddPropertyViewController.swift */; };
 		5223FAFC2C411EA2002D8E09 /* PropertyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5223FAFB2C411EA2002D8E09 /* PropertyDetailViewController.swift */; };
+		522CBB9B2C8199BF0060F2F1 /* PropertyTenantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CBB9A2C8199BF0060F2F1 /* PropertyTenantsModel.swift */; };
+		522CBB9E2C819F090060F2F1 /* PropertyTenantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CBB9D2C819F090060F2F1 /* PropertyTenantsViewModel.swift */; };
+		522CBBA42C81A43D0060F2F1 /* SelfPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CBBA32C81A43D0060F2F1 /* SelfPropertyViewModel.swift */; };
+		522CBBA82C81B0280060F2F1 /* SelfDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CBBA72C81B0280060F2F1 /* SelfDetailViewModel.swift */; };
 		522F76192C4E4A2B0035B8A4 /* AddWorkerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522F76162C4E4A2A0035B8A4 /* AddWorkerCollectionViewCell.xib */; };
 		522F761A2C4E4A2B0035B8A4 /* AddWorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F76172C4E4A2B0035B8A4 /* AddWorkerViewController.swift */; };
 		522F761B2C4E4A2B0035B8A4 /* AddWorkerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F76182C4E4A2B0035B8A4 /* AddWorkerCollectionViewCell.swift */; };
@@ -202,6 +206,10 @@
 		521B92362C4BC944000F1B82 /* OwnerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerDetailViewController.swift; sourceTree = "<group>"; };
 		5223FAF92C411B6A002D8E09 /* AddPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPropertyViewController.swift; sourceTree = "<group>"; };
 		5223FAFB2C411EA2002D8E09 /* PropertyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailViewController.swift; sourceTree = "<group>"; };
+		522CBB9A2C8199BF0060F2F1 /* PropertyTenantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTenantsModel.swift; sourceTree = "<group>"; };
+		522CBB9D2C819F090060F2F1 /* PropertyTenantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTenantsViewModel.swift; sourceTree = "<group>"; };
+		522CBBA32C81A43D0060F2F1 /* SelfPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfPropertyViewModel.swift; sourceTree = "<group>"; };
+		522CBBA72C81B0280060F2F1 /* SelfDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfDetailViewModel.swift; sourceTree = "<group>"; };
 		522F76162C4E4A2A0035B8A4 /* AddWorkerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddWorkerCollectionViewCell.xib; sourceTree = "<group>"; };
 		522F76172C4E4A2B0035B8A4 /* AddWorkerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWorkerViewController.swift; sourceTree = "<group>"; };
 		522F76182C4E4A2B0035B8A4 /* AddWorkerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWorkerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -502,6 +510,83 @@
 			path = AddTenant;
 			sourceTree = "<group>";
 		};
+		522CBB982C8199970060F2F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				527616402C48F4C9007F7C66 /* TenantsManagementViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		522CBB992C8199A00060F2F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				522CBB9A2C8199BF0060F2F1 /* PropertyTenantsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		522CBB9C2C819EF40060F2F1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				522CBB9D2C819F090060F2F1 /* PropertyTenantsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		522CBB9F2C81A3FD0060F2F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				522FFBBB2C4CE7C70010A2EF /* SelfHomeTableViewCell.swift */,
+				522FFBBD2C4CE7E90010A2EF /* SelfHomeTableViewCell.xib */,
+				522FFBB92C4CE7970010A2EF /* SelfHomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		522CBBA02C81A4080060F2F1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		522CBBA12C81A41C0060F2F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				522FFBC82C4CEDEF0010A2EF /* BothPropertyTableViewCell.swift */,
+				522FFBC72C4CEDEF0010A2EF /* BothPropertyTableViewCell.xib */,
+				522FFBC62C4CEDEF0010A2EF /* BothPropertyViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		522CBBA22C81A4250060F2F1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				522CBBA32C81A43D0060F2F1 /* SelfPropertyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		522CBBA52C81B0060060F2F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				522F761D2C4E78350035B8A4 /* SelfPropertyDetailTableViewCell.swift */,
+				522F761F2C4E78370035B8A4 /* SelfPropertyDetailTableViewCell.xib */,
+				522F761E2C4E78360035B8A4 /* SelfPropertyDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		522CBBA62C81B00E0060F2F1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				522CBBA72C81B0280060F2F1 /* SelfDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		522F76152C4E49F10035B8A4 /* AddWorker */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,9 +600,8 @@
 		522F761C2C4E781B0035B8A4 /* SelfPropertyDetail */ = {
 			isa = PBXGroup;
 			children = (
-				522F761D2C4E78350035B8A4 /* SelfPropertyDetailTableViewCell.swift */,
-				522F761F2C4E78370035B8A4 /* SelfPropertyDetailTableViewCell.xib */,
-				522F761E2C4E78360035B8A4 /* SelfPropertyDetailViewController.swift */,
+				522CBBA62C81B00E0060F2F1 /* ViewModel */,
+				522CBBA52C81B0060060F2F1 /* View */,
 			);
 			path = SelfPropertyDetail;
 			sourceTree = "<group>";
@@ -525,7 +609,9 @@
 		522FFBAF2C4CE12F0010A2EF /* TenantManagement */ = {
 			isa = PBXGroup;
 			children = (
-				527616402C48F4C9007F7C66 /* TenantsManagementViewController.swift */,
+				522CBB9C2C819EF40060F2F1 /* ViewModel */,
+				522CBB992C8199A00060F2F1 /* Model */,
+				522CBB982C8199970060F2F1 /* View */,
 			);
 			path = TenantManagement;
 			sourceTree = "<group>";
@@ -553,9 +639,8 @@
 		522FFBB82C4CE7570010A2EF /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				522FFBBB2C4CE7C70010A2EF /* SelfHomeTableViewCell.swift */,
-				522FFBBD2C4CE7E90010A2EF /* SelfHomeTableViewCell.xib */,
-				522FFBB92C4CE7970010A2EF /* SelfHomeViewController.swift */,
+				522CBBA02C81A4080060F2F1 /* ViewModel */,
+				522CBB9F2C81A3FD0060F2F1 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -563,9 +648,8 @@
 		522FFBBF2C4CECC20010A2EF /* BothProperty */ = {
 			isa = PBXGroup;
 			children = (
-				522FFBC82C4CEDEF0010A2EF /* BothPropertyTableViewCell.swift */,
-				522FFBC72C4CEDEF0010A2EF /* BothPropertyTableViewCell.xib */,
-				522FFBC62C4CEDEF0010A2EF /* BothPropertyViewController.swift */,
+				522CBBA22C81A4250060F2F1 /* ViewModel */,
+				522CBBA12C81A41C0060F2F1 /* View */,
 			);
 			path = BothProperty;
 			sourceTree = "<group>";
@@ -1906,6 +1990,7 @@
 				529E175B2C2E85DD0063B204 /* LocalizationKeys.swift in Sources */,
 				522FFBBC2C4CE7C70010A2EF /* SelfHomeTableViewCell.swift in Sources */,
 				5284FEDE2C74B2B900F8B9CB /* AddBranchModel.swift in Sources */,
+				522CBB9B2C8199BF0060F2F1 /* PropertyTenantsModel.swift in Sources */,
 				526B7E152C7CA55C00D8A335 /* AddPropertyModel.swift in Sources */,
 				52DBCD0A2C16C52C00A7B612 /* Storyboard.swift in Sources */,
 				52FD2BA82C7DB38100B2B914 /* WorkersComplaintModel.swift in Sources */,
@@ -1932,6 +2017,7 @@
 				52DBCCEE2C16C50A00A7B612 /* Observable.swift in Sources */,
 				521B92372C4BC944000F1B82 /* OwnerDetailViewController.swift in Sources */,
 				526B7E172C7CA57500D8A335 /* AddPropertyViewModel.swift in Sources */,
+				522CBBA82C81B0280060F2F1 /* SelfDetailViewModel.swift in Sources */,
 				52AC564B2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift in Sources */,
 				52995C602C37F5EB00AFDA47 /* OwnerTabbarController.swift in Sources */,
 				52DBCCFB2C16C51A00A7B612 /* Route.swift in Sources */,
@@ -1968,6 +2054,7 @@
 				525F5C1F2C3FC63800FE4B89 /* ContactPersonTableViewCell.swift in Sources */,
 				52688B112C32916A001C55A8 /* ComplainDetailCollectionViewCell.swift in Sources */,
 				5276163D2C48EE39007F7C66 /* RemoveTenanatViewController.swift in Sources */,
+				522CBB9E2C819F090060F2F1 /* PropertyTenantsViewModel.swift in Sources */,
 				52DBCCF62C16C51A00A7B612 /* AppError.swift in Sources */,
 				529E176F2C2EBA870063B204 /* ComplaintCollectionViewCell.swift in Sources */,
 				5223FAFC2C411EA2002D8E09 /* PropertyDetailViewController.swift in Sources */,
@@ -2010,6 +2097,7 @@
 				526B7E022C7C4C1A00D8A335 /* OwnerComplaintModel.swift in Sources */,
 				5284FED72C74A80E00F8B9CB /* CompanyComplaintViewModel.swift in Sources */,
 				52DBCCF82C16C51A00A7B612 /* Networking.swift in Sources */,
+				522CBBA42C81A43D0060F2F1 /* SelfPropertyViewModel.swift in Sources */,
 				529E17742C2EC32B0063B204 /* AddTenantViewController.swift in Sources */,
 				525AEAA42C6348360089FB50 /* CompanyPropertiesViewController.swift in Sources */,
 				52DBCD092C16C52C00A7B612 /* Extensions.swift in Sources */,

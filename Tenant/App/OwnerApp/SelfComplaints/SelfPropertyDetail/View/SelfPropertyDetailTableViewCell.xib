@@ -96,12 +96,23 @@
                                                     <constraint firstAttribute="width" constant="150.77000000000001" id="aUr-N1-zOQ"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phf-pn-E3g">
+                                                <rect key="frame" x="0.0" y="0.0" width="211" height="31"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="selectAsYourHome:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QVI-gf-QoF"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.61568627450000002" green="0.69803921570000005" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="AAR-lh-nGS" firstAttribute="centerX" secondItem="sFo-6P-2po" secondAttribute="centerX" id="1z9-gQ-drD"/>
+                                            <constraint firstAttribute="bottom" secondItem="Phf-pn-E3g" secondAttribute="bottom" id="Ckr-83-VBe"/>
                                             <constraint firstAttribute="bottom" secondItem="AAR-lh-nGS" secondAttribute="bottom" id="PPw-YS-y6u"/>
+                                            <constraint firstItem="Phf-pn-E3g" firstAttribute="leading" secondItem="sFo-6P-2po" secondAttribute="leading" id="UEw-C1-KEM"/>
                                             <constraint firstItem="AAR-lh-nGS" firstAttribute="top" secondItem="sFo-6P-2po" secondAttribute="top" id="Zr9-Lc-3cw"/>
+                                            <constraint firstItem="Phf-pn-E3g" firstAttribute="top" secondItem="sFo-6P-2po" secondAttribute="top" id="b5x-DZ-bvQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Phf-pn-E3g" secondAttribute="trailing" id="dqB-et-xoE"/>
                                             <constraint firstAttribute="height" constant="31" id="paO-30-2Mq"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>

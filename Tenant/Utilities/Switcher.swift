@@ -165,6 +165,16 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
+    static func gotoSelfPropertyDetail(delegate: UIViewController, propertyDetail: PropertiesRow){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SelfPropertyDetailViewController") as! SelfPropertyDetailViewController
+//        vc.propertyType = propertyType
+//        vc.propertyID = propertyID
+        vc.propertyDetail = propertyDetail
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     static func gotoRemoveTenant(delegate: UIViewController, flatDetail: FlatRow){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "RemoveTenanatViewController") as! RemoveTenanatViewController
         vc.flatDetail = flatDetail
@@ -245,12 +255,12 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoFlatasHomeVC(delegate: UIViewController){
-        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SelfPropertyDetailViewController") as! SelfPropertyDetailViewController
-        vc.modalPresentationStyle = .fullScreen
-        vc.hidesBottomBarWhenPushed = false
-        delegate.navigationController?.pushViewController(vc, animated: true)
-    }
+//    static func gotoFlatasHomeVC(delegate: UIViewController){
+//        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SelfPropertyDetailViewController") as! SelfPropertyDetailViewController
+//        vc.modalPresentationStyle = .fullScreen
+//        vc.hidesBottomBarWhenPushed = false
+//        delegate.navigationController?.pushViewController(vc, animated: true)
+//    }
     
     static func gotoAddFlat(delegate: UIViewController, propertyID: Int){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddFlatViewController") as! AddFlatViewController

@@ -1,34 +1,30 @@
 //
-//  PropertyModel.swift
+//  PropertyTenantsModel.swift
 //  Tenant
 //
-//  Created by MacBook Pro on 8/26/24.
+//  Created by MacBook Pro on 8/30/24.
 //
 
 import Foundation
 
-
-
-struct PropertyModel: Codable {
-    let properties: Properties?
+struct PropertyTenantsModel: Codable {
+    let tenants: Tenants?
 }
 
-// MARK: - Properties
-struct Properties: Codable {
+// MARK: - Tenants
+struct PropertyTenants: Codable {
     let count: Int?
-    let rows: [PropertiesRow]?
+    let rows: [PropertyTenantsRow]?
 }
 
 // MARK: - Row
-struct PropertiesRow: Codable {
-    let id, ownerID: Int?
-    let companyID: Int?
+struct PropertyTenantsRow: Codable {
+    let id, ownerID, companyID: Int?
     let buildingNo, buildingType, locationCode, city: String?
     let district: String?
     let userID, isDeleted, status: Int?
     let timestamp: String?
-    let company: PropertyCompany?
-    let flats: [AllPropertyFlat]?
+    let flats: [PropertyTenantsFlat]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -39,23 +35,17 @@ struct PropertiesRow: Codable {
         case locationCode = "location_code"
         case city, district
         case userID = "user_id"
-        case isDeleted, status, timestamp, company, flats
+        case isDeleted, status, timestamp, flats
     }
 }
 
-// MARK: - Company
-struct PropertyCompany: Codable {
-    let name: String?
-}
-
 // MARK: - Flat
-struct AllPropertyFlat: Codable {
-    let id, propertyID: Int?
-    let tenantID: Int?
+struct PropertyTenantsFlat: Codable {
+    let id, propertyID, tenantID: Int?
     let flatNo: String?
     let isDeleted: Int?
     let type, timestamp: String?
-    let ownersTenants: AllPropertyOwnersTenants?
+    let ownersTenants: PropertyOwnersTenants?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -68,17 +58,13 @@ struct AllPropertyFlat: Codable {
 }
 
 // MARK: - OwnersTenants
-struct AllPropertyOwnersTenants: Codable {
+struct PropertyOwnersTenants: Codable {
     let id: Int?
-    let uuid, name: String?
-    let email: String?
-    let contact: String?
+    let uuid, name, email, contact: String?
     let profileImage, locationCode, city, district: String?
     let isVerified: Int?
-    let otp: String?
-    let userID: Int?
-    let registeredFrom: String?
-    let type: String?
+    let otp, userID: Int?
+    let registeredFrom, type: String?
     let status, isDeleted: Int?
     let timestamp: String?
 

@@ -24,7 +24,7 @@ class SigninViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /////03046929792
         //tenant
         emailTextField.text = "123456789"
         
@@ -34,7 +34,7 @@ class SigninViewController: BaseViewController {
         
         //owner
         emailTextField.text = "03009911223"
-        
+//        emailTextField.text = "03046929792"
         //worker
 //        emailTextField.text = "123456789"
         

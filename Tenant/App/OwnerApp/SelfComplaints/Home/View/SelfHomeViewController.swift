@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class SelfHomeViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
+class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var historyButton: UIButton!
@@ -20,7 +20,10 @@ class SelfHomeViewController: UIViewController , UITableViewDataSource , UITable
             historyTableView.register(UINib(nibName: "SelfHomeTableViewCell", bundle: nil), forCellReuseIdentifier: SelfHomeTableViewCell.cellReuseIdentifier())
         }
     }
-    
+    var isLoading = true
+    var isRecent = true
+    private var viewModel = TenantComplaintViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTableView.showsVerticalScrollIndicator = false
@@ -28,13 +31,24 @@ class SelfHomeViewController: UIViewController , UITableViewDataSource , UITable
         addressLbl.text = LocalizationKeys.currentAddress.rawValue.localizeString()
         self.historyTableView.rowHeight = UITableView.automaticDimension
         self.historyTableView.estimatedRowHeight = 44.0
+        
+        viewModel.complaintList.bind { [unowned self] list in
+            guard let _ = list else {return}
+            self.isLoading = false
+            self.stopAnimation()
+            self.historyTableView.reloadData()
+        }
+        self.animateSpinner()
+        viewModel.getComplaints()
     }
 
     @IBAction func newBtnAction(_ sender: Any) {
+        isRecent = true
         setupButton(complaintType: .new)
     }
     
     @IBAction func historyBtnAction(_ sender: Any) {
+        isRecent = false
         setupButton(complaintType: .history)
     }
     
@@ -56,22 +70,32 @@ class SelfHomeViewController: UIViewController , UITableViewDataSource , UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if isLoading{
+            return 0
+        }
+        let count = isRecent ? viewModel.getRecentCount() : viewModel.getHistoryCount()
+        if count == 0{
+            self.historyTableView.setEmptyView()
+        }
+        else{
+            self.historyTableView.backgroundView = nil
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = historyTableView.dequeueReusableCell(withIdentifier: SelfHomeTableViewCell.cellReuseIdentifier(), for: indexPath) as! SelfHomeTableViewCell
-        if indexPath.row % 2 == 0{
-            cell.colorView.backgroundColor = CustomColor.greenColor.color
-        }
-        else{
-            cell.colorView.backgroundColor = CustomColor.blueColor.color
-        }
+        cell.complaint = isRecent ? viewModel.getRecentComplaint(index: indexPath.row) : viewModel.getHistoryComplaint(index: indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if viewModel.isTaskCompleted(index: indexPath.row) == 1{
+            Switcher.gotoTenantCompletedDetailScreen(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
+        }
+        else{
+            Switcher.gotoTenantDetailScreen(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
+        }
     }
 }
 

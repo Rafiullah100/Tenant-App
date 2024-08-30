@@ -19,7 +19,9 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
             tableView.register(UINib(nibName: "BothPropertyTableViewCell", bundle: nil), forCellReuseIdentifier: BothPropertyTableViewCell.cellReuseIdentifier())
         }
     }
-    
+    private var viewModel = SelfPropertyViewModel()
+    var propertyType: PropertyType?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
@@ -29,6 +31,29 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 44.0
+        
+        viewModel.propertyList.bind { [weak self] list in
+            guard let _ = list else {return}
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.stopAnimation()
+            }
+        }
+        self.animateSpinner()
+        viewModel.getProperties()
+        
+        viewModel.selectHome.bind { select in
+            guard let select = select else{return}
+            self.stopAnimation()
+            if select.success == true{
+                self.showAlert(message: "Property selected as your home")
+            }
+            else{
+                self.showAlert(message: select.message ?? "")
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,19 +62,25 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.getPropertiesCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BothPropertyTableViewCell.cellReuseIdentifier(), for: indexPath) as! BothPropertyTableViewCell
+        cell.property = viewModel.getProperty(at: indexPath.row)
+        cell.buttonLabel.text = viewModel.isSelectedHome(at: indexPath.row) ? "Your Home" : "Select as your Home"
+        cell.selectAsYourHome = { [weak self] in
+            self?.animateSpinner()
+            self?.viewModel.selectAsYourHome(flatID: self?.viewModel.getFlatID(at: indexPath.row) ?? 0, tenantID: UserDefaults.standard.userID ?? 0)
+        }
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Switcher.gotoFlatasHomeVC(delegate: self)
+        guard viewModel.getBuildingType(at: indexPath.row) == .building else {
+            return
+        }
+        guard let detail = viewModel.getProperty(at: indexPath.row) else { return }
+        Switcher.gotoSelfPropertyDetail(delegate: self, propertyDetail: detail)
     }
 }
