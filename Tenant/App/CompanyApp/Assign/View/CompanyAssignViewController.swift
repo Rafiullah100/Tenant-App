@@ -120,10 +120,17 @@ class CompanyAssignViewController: BaseViewController {
         }
         
         viewModel.assign.bind { [weak self] assign  in
+            guard let assign = assign else{return}
             DispatchQueue.main.async {
                 self?.stopAnimation()
-                if assign?.success == true{
-                    self?.navigationController?.popViewController(animated: true)
+                if assign.success == true{
+                    if let homeVC = self?.navigationController?.viewControllers.filter({ $0 is CompanyHomeViewController }).first {
+                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadCompanyComplaints), object: nil)
+                        self?.navigationController?.popToViewController(homeVC, animated: true)
+                    }
+                }
+                else{
+                    self?.showAlert(message: assign.message ?? "")
                 }
             }
         }

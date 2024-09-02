@@ -189,17 +189,16 @@ extension UIViewController {
     }
 
     
-    func showAlertWithbutttons(title: String = "", message: String) {
+    func showAlertWithbutttons(title: String = "", message: String,     okAction: @escaping () -> Void) {
         let alert = UIAlertController(title: title, message: message,         preferredStyle: UIAlertController.Style.alert)
 
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
-             //Cancel Action
-         }))
-         alert.addAction(UIAlertAction(title: "OK",
-                                       style: UIAlertAction.Style.default,
-                                       handler: {(_: UIAlertAction!) in
-                                         //Sign out action
-         }))
+//        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
+//             //Cancel Action
+//         }))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                // OK action passed from the caller
+                okAction()
+            }))
          self.present(alert, animated: true, completion: nil)
      }
     

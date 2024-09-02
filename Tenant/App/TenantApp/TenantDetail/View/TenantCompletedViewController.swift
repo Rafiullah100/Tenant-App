@@ -67,7 +67,15 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         viewModel.confirm.bind { [unowned self] confirm in
             guard let confirm = confirm else {return}
             self.stopAnimation()
-            showAlert(message: confirm.message ?? "")
+            if confirm.success == true{
+                showAlertWithbutttons(message: confirm.message ?? "") {
+                    NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadTenantComplaints), object: nil)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+            else{
+                showAlert(message: confirm.message ?? "")
+            }
         }
     }
     

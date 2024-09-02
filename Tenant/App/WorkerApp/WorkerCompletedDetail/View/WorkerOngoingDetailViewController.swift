@@ -79,7 +79,15 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         viewModel.completion.bind { [unowned self] complete in
             guard let complete = complete else {return}
             self.stopAnimation()
-            showAlert(message: complete.message ?? "")
+            if complete.success == true{
+                showAlertWithbutttons(message: complete.message ?? "") {
+                    NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadWorkerComplaints), object: nil)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+            else{
+                showAlert(message: complete.message ?? "")
+            }
         }
     }
     
@@ -113,7 +121,13 @@ class WorkerOngoingDetailViewController: BaseViewController  {
     }
     
     @IBAction func markCompleteBtnAction(_ sender: Any) {
-        viewModel.markComplete(image: selectedImages, complaintID: complaintID ?? 0)
+        if self.selectedImages.count > 0{
+            self.animateSpinner()
+            viewModel.markComplete(image: selectedImages, complaintID: complaintID ?? 0)
+        }
+        else {
+            showAlert(message: "please add pcitures of your work and then try agian")
+        }
     }
 }
 

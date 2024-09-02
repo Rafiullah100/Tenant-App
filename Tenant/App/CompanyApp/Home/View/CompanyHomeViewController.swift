@@ -40,7 +40,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         ongoingButton.setTitle(LocalizationKeys.ongoing.rawValue.localizeString(), for: .normal)
         searchTextField.placeholder = LocalizationKeys.search.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
-        
+//        print(UserDefaults.standard.token)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
         
@@ -53,6 +53,11 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
             self.stopAnimation()
             self.tableView.reloadData()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: Notification.Name(Constants.reloadCompanyComplaints), object: nil)
+        loadData()
+    }
+    
+    @objc private func loadData(){
         self.animateSpinner()
         viewModel.getComplaints()
     }

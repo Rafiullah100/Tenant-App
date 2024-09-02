@@ -31,7 +31,16 @@ class CompanyWorkerCollectionViewCell: UICollectionViewCell {
     
     var worker: CompanyWorkerRow? {
         didSet{
-            //
+            titleLbl.text = worker?.name
+            var skills = [String]()
+            
+            worker?.workerSkills?.forEach({ skill in
+                skills.append(skill.skill?.title ?? "")
+            })
+            let skillString = skills.joined(separator: ", ")
+            tradeNameLabel.text = skillString
+            branchNameLbl.text = worker?.branch?.name
+            phNoLbl.text = worker?.contact
         }
     }
 

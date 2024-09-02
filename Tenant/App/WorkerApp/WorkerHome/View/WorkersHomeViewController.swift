@@ -50,6 +50,13 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         }
         self.workerHomeTableView.rowHeight = UITableView.automaticDimension
         self.workerHomeTableView.estimatedRowHeight = 44.0
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: NSNotification.Name(Constants.reloadWorkerComplaints), object: nil)
+
+        loadData()
+    }
+    
+    @objc func loadData(){
         self.animateSpinner()
         viewModel.getComplaints()
     }

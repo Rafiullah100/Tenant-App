@@ -15,14 +15,14 @@ class AddTenantViewModel {
     var parameters: [String: Any]?
     
     func isFormValid(complaint: AddComplaintInputModel) -> ValidationResponse {
-        if complaint.title.isEmpty || complaint.description.isEmpty || complaint.skill.isEmpty || complaint.propertyId.isEmpty{
+        if complaint.title.isEmpty || complaint.description.isEmpty || complaint.skill == 0 || complaint.propertyId == 0{
             return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
         }
         else if complaint.images == 0{
             return ValidationResponse(isValid: false, message: "Please add images and try again!")
         }
         else{
-            parameters = ["title": complaint.title, "description": complaint.description, "property_id": Int(complaint.propertyId) ?? 0, "skill_id": Int(complaint.skill) ?? 0]
+            parameters = ["title": complaint.title, "description": complaint.description, "property_id": complaint.propertyId , "skill_id": complaint.skill]
             return ValidationResponse(isValid: true, message: "")
         }
     }
@@ -66,5 +66,9 @@ class AddTenantViewModel {
     
     func getSkillName(at index: Int) -> String {
         return self.skill.value?.skills?.rows?[index].title ?? ""
+    }
+    
+    func getSkillID(at index: Int) -> Int {
+        return self.skill.value?.skills?.rows?[index].id ?? 0
     }
 }

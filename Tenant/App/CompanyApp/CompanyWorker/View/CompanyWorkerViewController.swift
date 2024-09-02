@@ -125,6 +125,7 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
             return cell
         }else{
             let cell = workerCollectionView.dequeueReusableCell(withReuseIdentifier: CompanyWorkerCollectionViewCell.identifier, for: indexPath)as! CompanyWorkerCollectionViewCell
+            cell.worker = viewModel.getWorker(at: indexPath.row)
             return cell
         }
     }

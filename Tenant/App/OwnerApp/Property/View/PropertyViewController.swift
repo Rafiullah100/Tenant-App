@@ -47,6 +47,8 @@ class PropertyViewController: BaseViewController {
         
         self.animateSpinner()
         networkingCall()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadProperties), name: Notification.Name(Constants.reloadProperties), object: nil)
     }
     
     func networkingCall(){
@@ -74,6 +76,16 @@ class PropertyViewController: BaseViewController {
             self.tableView.reloadData()
             self.updateUI()
         }
+    }
+    
+    @objc private func reloadProperties(){
+        viewModel.propertyList.bind { [weak self] list in
+            guard let _ = list else {return}
+            self?.stopAnimation()
+            self?.tableView.reloadData()
+        }
+        self.animateSpinner()
+        viewModel.getProperties()
     }
     
     private func updateUI(){
@@ -123,12 +135,5 @@ extension PropertyViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detail = viewModel.getProperty(at: indexPath.row) else { return }
         Switcher.gotoPropertyDetail(delegate: self, propertyDetail: detail)
-    }
-}
-
-extension PropertyViewController: AddPropertyDelegate{
-    func propertyAdded() {
-        self.animateSpinner()
-        networkingCall()
     }
 }

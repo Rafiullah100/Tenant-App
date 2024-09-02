@@ -38,6 +38,12 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
             self.stopAnimation()
             self.historyTableView.reloadData()
         }
+        
+        loadComplaints()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadComplaints), name: Notification.Name(Constants.reloadSelfComplaints), object: nil)
+    }
+    
+    @objc private func loadComplaints(){
         self.animateSpinner()
         viewModel.getComplaints()
     }
@@ -66,7 +72,11 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
     }
     
     @IBAction func addBtnAction(_ sender: Any) {
-        Switcher.gotoAddComplaintScreen(delegate: self)
+        guard UserDefaults.standard.propertyIDIfTenant != nil else{
+            showAlert(message: "First select property as home then you can add complaint.")
+            return
+        }
+        Switcher.gotoAddComplaintScreen(delegate: self, addComplaintType: .ownerSelf)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

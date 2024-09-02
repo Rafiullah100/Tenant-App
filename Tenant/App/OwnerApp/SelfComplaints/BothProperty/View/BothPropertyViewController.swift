@@ -22,6 +22,9 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
     private var viewModel = SelfPropertyViewModel()
     var propertyType: PropertyType?
 
+    var selectedHomeIndex: Int?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
@@ -48,6 +51,8 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
             guard let select = select else{return}
             self.stopAnimation()
             if select.success == true{
+                print(self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0))
+                UserDefaults.standard.propertyIDIfTenant = self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0)
                 self.showAlert(message: "Property selected as your home")
             }
             else{
@@ -72,6 +77,7 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
         cell.selectAsYourHome = { [weak self] in
             self?.animateSpinner()
             self?.viewModel.selectAsYourHome(flatID: self?.viewModel.getFlatID(at: indexPath.row) ?? 0, tenantID: UserDefaults.standard.userID ?? 0)
+            self?.selectedHomeIndex = indexPath.row
         }
         return cell
     }

@@ -31,20 +31,27 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         historyLabel.text = LocalizationKeys.recent.rawValue.localizeString()
         historyTableView.showsVerticalScrollIndicator = false
         
+        self.historyTableView.rowHeight = UITableView.automaticDimension
+        self.historyTableView.estimatedRowHeight = 44.0
+        
+        callAPI()
+        NotificationCenter.default.addObserver(self, selector: #selector(callAPI), name: NSNotification.Name(Constants.reloadTenantComplaints), object: nil)
+    }
+    
+    @objc private func callAPI(){
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
             self.isLoading = false
             self.stopAnimation()
             self.historyTableView.reloadData()
         }
-        self.historyTableView.rowHeight = UITableView.automaticDimension
-        self.historyTableView.estimatedRowHeight = 44.0
+        
         self.animateSpinner()
         viewModel.getComplaints()
     }
     
     @IBAction func addBtnAction(_ sender: Any) {
-        Switcher.gotoAddComplaintScreen(delegate: self)
+        Switcher.gotoAddComplaintScreen(delegate: self, addComplaintType: .tenant)
     }
     
     override func viewWillAppear(_ animated: Bool) {

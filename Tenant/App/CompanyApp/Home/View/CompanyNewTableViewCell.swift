@@ -43,6 +43,9 @@ class OwnerHomeTableViewCell: UITableViewCell {
             statusValueLabel.text = status.0
             colorView.backgroundColor = status.1.color
             addressLabel.text = "\(complaint?.tenantName ?? "") - \(complaint?.tenantContact ?? "")"
+            
+            
+                //////oooooowwwwnnnner
         }
     }
 

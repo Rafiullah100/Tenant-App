@@ -25,15 +25,16 @@ class SigninViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         /////03046929792
+        emailTextField.text = "03046929793"
         //tenant
-        emailTextField.text = "123456789"
+//        emailTextField.text = "123456789"
         
         //company
 //        emailTextField.text = "3244-3256346"
 //                emailTextField.text = "123456789"
         
         //owner
-        emailTextField.text = "03009911223"
+//        emailTextField.text = "03009911223"
 //        emailTextField.text = "03046929792"
         //worker
 //        emailTextField.text = "123456789"
@@ -54,7 +55,7 @@ class SigninViewController: BaseViewController {
             guard let login = login else {return}
             self.stopAnimation()
             if login.success == true{
-                Switcher.gotoOtpScreen(delegate: self, userType: userType, contact: emailTextField.text ?? "")
+                Switcher.gotoOtpScreen(delegate: self, userType: userType, contact: emailTextField.text ?? "", otpType: .signin)
             }
             else{
                 showAlert(message: login.message ?? "")

@@ -61,8 +61,16 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         
         viewModel.reject.bind { [unowned self] reject in
             guard let reject = reject else{return}
-                self.stopAnimation()
-            showAlert(message: reject.message ?? "")
+            self.stopAnimation()
+            if reject.success == true{
+                if let homeVC = self.navigationController?.viewControllers.filter({ $0 is CompanyHomeViewController }).first {
+                    NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadCompanyComplaints), object: nil)
+                            self.navigationController?.popToViewController(homeVC, animated: true)
+                    }
+            }
+            else{
+                showAlert(message: reject.message ?? "")
+            }
         }
         
         self.animateSpinner()

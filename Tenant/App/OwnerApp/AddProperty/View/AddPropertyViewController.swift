@@ -73,8 +73,10 @@ class AddPropertyViewController: BaseViewController {
             DispatchQueue.main.async {
                 self.stopAnimation()
                 if add.success == true{
-                    self.delegate?.propertyAdded()
-                    self.navigationController?.popViewController(animated: true)
+                    self.showAlertWithbutttons(message: add.message ?? "") {
+                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
                 else{
                     self.showAlert(message: add.message ?? "")

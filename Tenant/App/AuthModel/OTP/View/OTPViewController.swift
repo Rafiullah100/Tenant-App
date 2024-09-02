@@ -41,24 +41,42 @@ class OTPViewController: BaseViewController {
    
         textField1.becomeFirstResponder()
         
-        viewModel.otp.bind { [unowned self] otp in
-            guard let otp = otp else{return}
-            self.stopAnimation()
-            if otp.success == true{
-                switch Helper.shared.userType() {
-                case .owner:
-                    Switcher.gotoOwnerHome(delegate: self)
-                case .tenant:
-                    Switcher.gotoTenantScreen(delegate: self)
-                case .company:
-                    Switcher.gotoCompanyScreen(delegate: self)
-                case .worker:
-                    Switcher.gotoWorkerScreen(delegate: self)
+        if otpType == .signin{
+            viewModel.loginOtp.bind { [unowned self] otp in
+                guard let otp = otp else{return}
+                self.stopAnimation()
+                if otp.success == true{
+                   gotoHome()
+                }
+                else{
+                    showAlert(message: otp.message ?? "")
                 }
             }
-            else{
-                showAlert(message: otp.message ?? "")
+        }
+        else{
+            viewModel.otp.bind { [unowned self] otp in
+                guard let otp = otp else{return}
+                self.stopAnimation()
+                if otp.success == true{
+                   gotoHome()
+                }
+                else{
+                    showAlert(message: otp.message ?? "")
+                }
             }
+        }
+    }
+    
+    private func gotoHome(){
+        switch Helper.shared.userType() {
+        case .owner:
+            Switcher.gotoOwnerHome(delegate: self)
+        case .tenant:
+            Switcher.gotoTenantScreen(delegate: self)
+        case .company:
+            Switcher.gotoCompanyScreen(delegate: self)
+        case .worker:
+            Switcher.gotoWorkerScreen(delegate: self)
         }
     }
     
@@ -108,7 +126,12 @@ class OTPViewController: BaseViewController {
             showAlert(message: "Please fill all field and try again!")
         }
         else{
-            viewModel.verifyUSer(otp: otp, type: userType.rawValue, contact: contact ?? "")
+            if otpType == .signin{
+                viewModel.loginUSer(otp: otp, type: userType.rawValue, contact: contact ?? "")
+            }
+            else{
+                viewModel.verifyUSer(otp: otp, type: userType.rawValue, contact: contact ?? "")
+            }
         }
     } 
 }

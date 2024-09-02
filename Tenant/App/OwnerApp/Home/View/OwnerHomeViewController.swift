@@ -38,6 +38,8 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
+        print(UserDefaults.standard.token)
+        print(UserDefaults.standard.userID)
 
         searchView.clipsToBounds = true
         newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
@@ -45,15 +47,18 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         searchTextField.placeholder = LocalizationKeys.search.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         
-        
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
+        
+        setupButton(complaintType: .new)
+        
         self.animateSpinner()
         networkingCall()
-        setupButton(complaintType: .new)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadComplaints), name: Notification.Name(Constants.reloadOwnerComplaints), object: nil)
     }
     
     private func networkingCall(){
+
         dispatchGroup = DispatchGroup()
         dispatchGroup?.enter()
         viewModel.getComplaints()
@@ -78,6 +83,17 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
             self.tableView.reloadData()
             self.updateUI()
         }
+    }
+    
+    @objc private func reloadComplaints(){
+        viewModel.complaintList.bind { [weak self] list in
+            guard let _ = list else {return}
+            self?.stopAnimation()
+            self?.tableView.reloadData()
+        }
+        
+        self.animateSpinner()
+        viewModel.getComplaints()
     }
     
     private func updateUI(){

@@ -41,12 +41,13 @@ class CompanyOngoingTableViewCell: UITableViewCell {
     var complaint: CompanyComplaintsRow? {
         didSet{
             titleLbl.text = complaint?.title
-            addressLabel.text = complaint?.tenantDistrict
             postDate.text = Helper.shared.dateFormate(dateString: complaint?.timestamp ?? "")
             let status = Helper.shared.getComplaintStatus(ownerApproval: complaint?.ownerApproval, companyApproval: complaint?.companyApproval, taskComplete: complaint?.taskComplete, tenantApproval: complaint?.tenantApproval, workerID: ((complaint?.workerID) != nil) ? 1 : 0)
             
             statusLbl.text = status.0
             colorView.backgroundColor = status.1.color
+            addressLabel.text = "\(complaint?.tenant?.name ?? "") - \(complaint?.tenant?.contact ?? "")"
+            assignedLbl.text = "\(complaint?.tenant?.name ?? "") - \(complaint?.tenant?.contact ?? "")"
         }
     }
     

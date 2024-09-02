@@ -23,8 +23,8 @@ struct AddComplaintInputModel {
     let title: String
     let description: String
     let images: Int
-    let propertyId: String
-    let skill: String
+    let propertyId: Int
+    let skill: Int
 }
 
 struct AddWorkerInputModel {

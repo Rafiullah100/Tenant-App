@@ -24,7 +24,8 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
     var propertyDetail: PropertiesRow?
     let viewModel = SelfDetailViewModel()
     private var isLoading = true
-    
+    var selectedHomeIndex: Int?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -48,7 +49,9 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
             guard let select = select else{return}
             self.stopAnimation()
             if select.success == true{
-                self.showAlert(message: "Flat selected as your home")
+                print(self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0))
+                UserDefaults.standard.propertyIDIfTenant = self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0)
+                self.showAlert(message: "Property selected as your home")
             }
             else{
                 self.showAlert(message: select.message ?? "")
@@ -79,6 +82,7 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
         cell.selectAsYourHome = { [weak self] in
             self?.animateSpinner()
             self?.viewModel.selectAsYourHome(flatID: self?.viewModel.getFlatID(at: indexPath.row) ?? 0, tenantID: UserDefaults.standard.userID ?? 0)
+            self?.selectedHomeIndex = indexPath.row
         }
         return cell
     }

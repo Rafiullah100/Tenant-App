@@ -90,7 +90,15 @@ class OwnerDetailViewController: BaseViewController {
             guard let approve = approve else {return}
             DispatchQueue.main.async {
                 self?.stopAnimation()
-                self?.showAlert(message: approve.message ?? "")
+                if approve.success == true{
+                    self?.showAlertWithbutttons(message: approve.message ?? "") {
+                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadOwnerComplaints), object: nil)
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                }
+                else{
+                    self?.showAlert(message: approve.message ?? "")
+                }
             }
         }
         

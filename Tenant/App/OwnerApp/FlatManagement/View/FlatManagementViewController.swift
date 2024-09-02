@@ -44,6 +44,11 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
                 self.FlatTableView.reloadData()
             }
         }
+        networkingCall()
+        NotificationCenter.default.addObserver(self, selector: #selector(networkingCall), name: Notification.Name(Constants.reloadFlats), object: nil)
+    }
+    
+    @objc private func networkingCall()  {
         self.animateSpinner()
         viewModel.getList(propertyID: propertyID ?? 0)
     }

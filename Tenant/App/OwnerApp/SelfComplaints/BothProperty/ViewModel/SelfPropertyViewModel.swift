@@ -43,10 +43,10 @@ class SelfPropertyViewModel {
     }
     
     func selectAsYourHome(flatID: Int, tenantID: Int){
-        print(tenantID, UserDefaults.standard.userID, flatID)
         _ = URLSession.shared.request(route: .assignTenantToFlat, method: .post, parameters: ["flat_id": flatID, "tenant_id": tenantID], model: AssignTenantToFlatModel.self) { result in
             switch result {
             case .success(let select):
+                
                 self.selectHome.value = select
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription

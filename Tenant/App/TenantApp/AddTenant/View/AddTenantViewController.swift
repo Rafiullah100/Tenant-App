@@ -30,7 +30,10 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
     var selectedImages = [UIImage]()
     var pickerView = UIPickerView()
     private var viewModel = AddTenantViewModel()
-
+    var skillID: Int?
+    
+    var addType: AddComplaintType?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideGalleryView()
@@ -55,10 +58,6 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
         
         collectionView.showsVerticalScrollIndicator = false
         
-//        titleTextField.text = "My Complaints"
-//        categoryTextField.text = "Plumber"
-//        descriptionTextView.text = "This is my complaint description"
-//        
         viewModel.skill.bind { skill in
             guard let _ = skill else {return}
             self.pickerView.reloadAllComponents()
@@ -68,18 +67,25 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
             guard let add = add else {return}
             self.stopAnimation()
             if add.success == true{
-                self.navigationController?.popViewController(animated: true)
+                self.showAlertWithbutttons(message: add.message ?? "") {
+                    if self.addType == .tenant{
+                        NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadTenantComplaints), object: nil)
+                    }
+                    else{
+                        NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadSelfComplaints), object: nil)
+                    }
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
             else{
                 self.showAlert(message: add.message ?? "")
             }
         }
-        
         viewModel.getSkillcategories()
     }
     
     @IBAction func submitBtnAction(_ sender: Any) {
-        let add = AddComplaintInputModel(title: titleTextField.text ?? "", description: descriptionTextView.text ?? "", images: selectedImages.count, propertyId: "1", skill: "1")
+        let add = AddComplaintInputModel(title: titleTextField.text ?? "", description: descriptionTextView.text ?? "", images: selectedImages.count, propertyId: UserDefaults.standard.propertyIDIfTenant ?? 0, skill: skillID ?? 0)
         let validationResponse = viewModel.isFormValid(complaint: add)
         if validationResponse.isValid {
             self.animateSpinner()
@@ -152,6 +158,7 @@ extension AddTenantViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        skillID = viewModel.getSkillID(at: row)
         categoryTextField.text = viewModel.getSkillName(at: row)
     }
 }

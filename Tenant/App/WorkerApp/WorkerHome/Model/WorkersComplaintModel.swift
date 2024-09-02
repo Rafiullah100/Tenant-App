@@ -67,7 +67,9 @@ struct WorkersTenant: Codable {
     let uuid, name, email, contact: String?
     let profileImage, locationCode, city, district: String?
     let isVerified: Int?
-    let otp, userID: Int?
+    let userID: Int?
+    let otp: String?
+    
     let registeredFrom, type: String?
     let status, isDeleted: Int?
     let timestamp: String?

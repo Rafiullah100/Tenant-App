@@ -17,10 +17,11 @@ class Switcher {
 //        self.window?.makeKeyAndVisible()
 //    }
     
-    static func gotoOtpScreen(delegate: UIViewController, userType: UserType, contact: String){
+    static func gotoOtpScreen(delegate: UIViewController, userType: UserType, contact: String, otpType: OtpType){
         let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
         vc.userType = userType
         vc.contact = contact
+        vc.otpType = otpType
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
@@ -240,8 +241,9 @@ class Switcher {
 //        delegate.navigationController?.pushViewController(vc, animated: true)
 //    }
     
-    static func gotoAddComplaintScreen(delegate: UIViewController){
+    static func gotoAddComplaintScreen(delegate: UIViewController, addComplaintType: AddComplaintType){
         let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddTenantViewController") as! AddTenantViewController
+        vc.addType = addComplaintType
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)

@@ -36,6 +36,17 @@ struct Constants {
         "4PM to 5PM",
         "5PM to 6PM"
     ]
+    
+    
+    static var reloadTenantComplaints = "reloadTenantComplaints"
+    static var reloadOwnerComplaints = "reloadOwnerComplaints"
+    static var reloadProperties = "reloadProperties"
+    static var reloadFlats = "reloadFlats"
+    static var reloadSelfComplaints = "reloadSelfComplaints"
+    static var reloadCompanyComplaints = "reloadCompanyComplaints"
+    static var reloadWorkers = "reloadWorers"
+    static var reloadWorkerComplaints = "reloadWorkerComplaints"
+
 }
 
 enum UserType: String {
@@ -48,6 +59,11 @@ enum UserType: String {
 enum OtpType: String {
     case signin
     case signup
+}
+
+enum AddComplaintType: String {
+    case tenant
+    case ownerSelf
 }
 
 enum PropertyType: String {
