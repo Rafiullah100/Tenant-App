@@ -93,6 +93,7 @@ class PropertyViewController: BaseViewController {
         self.tenantValueLabel.text = "\(viewModel.getTenantCount())"
         self.flatValueLabel.text = "\(viewModel.getFlatCount())"
         self.nameLabel.text = viewModel.getName()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

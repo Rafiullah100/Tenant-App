@@ -3714,6 +3714,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoryCollectionView" destination="LJC-uG-1v8" id="5sx-4s-ons"/>
+                        <outlet property="contactLabel" destination="3jt-QY-E4j" id="SxH-Xd-fA8"/>
+                        <outlet property="nameLabel" destination="GBU-bk-nxU" id="U9J-hx-J9r"/>
                         <outlet property="searchButtonView" destination="ygV-up-OEU" id="yvi-Iq-lei"/>
                         <outlet property="searchView" destination="3SP-9C-azx" id="xAQ-dl-QR2"/>
                         <outlet property="textField" destination="u0m-Ek-R0m" id="jGh-c5-3Cb"/>
@@ -4914,6 +4916,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="contactLabel" destination="fiQ-AD-KEP" id="lc5-OA-SoQ"/>
+                        <outlet property="nameLabel" destination="Bon-rh-OFS" id="YAS-8w-WHg"/>
                         <outlet property="searchTextField" destination="MIs-FO-E81" id="FJh-mN-qoN"/>
                         <outlet property="searchView" destination="Rnc-KJ-dC9" id="KZp-Jx-8P1"/>
                         <outlet property="tableView" destination="He3-cl-wJp" id="6pb-IG-M1I"/>

@@ -8,6 +8,8 @@
 import UIKit
 import Dispatch
 class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var contactLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var searchButtonView: UIView!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var textField: UITextField!
@@ -47,6 +49,9 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         pickerView.delegate = self
         pickerView.dataSource = self
         textField.inputView = pickerView
+        
+        nameLabel.text = UserDefaults.standard.name
+        contactLabel.text = UserDefaults.standard.mobile
         self.animateSpinner()
         networkingCall()
     }
@@ -71,7 +76,9 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
                 
         dispatchGroup?.notify(queue: .main) {
             self.bindWorkerToView()
-            self.getWorker()
+            self.categoryCollectionView.reloadData()
+            self.pickerView.reloadAllComponents()
+//            self.getWorker()
         }
     }
     
@@ -96,8 +103,6 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
             self?.stopAnimation()
             guard let _ = workers else {return}
             self?.workerCollectionView.reloadData()
-            self?.categoryCollectionView.reloadData()
-            self?.pickerView.reloadAllComponents()
         }
     }
     

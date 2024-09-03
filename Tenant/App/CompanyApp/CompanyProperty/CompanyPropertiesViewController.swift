@@ -8,7 +8,9 @@
 import UIKit
 
 class CompanyPropertiesViewController: UIViewController {
-
+    @IBOutlet weak var contactLabel: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var searchView: UIView!
@@ -29,6 +31,9 @@ class CompanyPropertiesViewController: UIViewController {
         titlLabel.text = LocalizationKeys.propertiesAssigned.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        
+        nameLabel.text = UserDefaults.standard.name
+        contactLabel.text = UserDefaults.standard.mobile
     }
 }
 
