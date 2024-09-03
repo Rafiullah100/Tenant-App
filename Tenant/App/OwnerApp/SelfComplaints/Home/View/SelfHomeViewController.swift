@@ -72,7 +72,7 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
     }
     
     @IBAction func addBtnAction(_ sender: Any) {
-        guard UserDefaults.standard.propertyIDIfTenant != nil else{
+        guard UserDefaults.standard.propertyIDIfTenant != nil && UserDefaults.standard.flatIDIfTenant != nil else{
             showAlert(message: "First select property as home then you can add complaint.")
             return
         }

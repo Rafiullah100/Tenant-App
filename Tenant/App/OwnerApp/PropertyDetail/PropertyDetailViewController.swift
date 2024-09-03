@@ -50,7 +50,15 @@ class PropertyDetailViewController: BaseViewController {
             DispatchQueue.main.async {
                 guard let delete = delete else{return}
                 self.stopAnimation()
-                self.showAlert(message: delete.message ?? "")
+                if delete.success == true{
+                    self.showAlertWithbutttons(message: delete.message ?? "") {
+                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+                else{
+                    self.showAlert(message: delete.message ?? "")
+                }
             }
         }
     }

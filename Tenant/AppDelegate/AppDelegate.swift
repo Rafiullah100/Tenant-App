@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)
         
         
-        
         GMSServices.provideAPIKey("AIzaSyBC2Xdb2ato7ULwuGnDjPLXLAvqUZx_1VM")
         let language: AppLanguage = AppLanguage(rawValue: UserDefaults.standard.selectedLanguage ?? "") ?? .english
         UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)

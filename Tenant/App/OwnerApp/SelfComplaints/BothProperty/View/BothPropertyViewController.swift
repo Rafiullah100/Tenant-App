@@ -51,8 +51,8 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
             guard let select = select else{return}
             self.stopAnimation()
             if select.success == true{
-                print(self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0))
-                UserDefaults.standard.propertyIDIfTenant = self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0)
+                UserDefaults.standard.propertyIDIfTenant = self.viewModel.getPropertyID(at: self.selectedHomeIndex ?? 0)
+                UserDefaults.standard.flatIDIfTenant = self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0)
                 self.showAlert(message: "Property selected as your home")
             }
             else{

@@ -83,6 +83,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         statusValueLabel.text = viewModel.getStatus()
         postedValueLabel.text = viewModel.getPostedDate()
         descriptionTextView.text = viewModel.getDescription()
+        tenantValueLabel.text = viewModel.getTenantNameContact()
     }
     
     override func viewWillAppear(_ animated: Bool) {

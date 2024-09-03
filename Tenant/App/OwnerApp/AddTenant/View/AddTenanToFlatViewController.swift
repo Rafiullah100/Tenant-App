@@ -43,7 +43,15 @@ class AddTenanToFlatViewController: BaseViewController {
         viewModel.assign.bind { assign in
             guard let assign = assign else{return}
             self.stopAnimation()
-            self.showAlert(message: assign.message ?? "")
+            if assign.success == true{
+                self.showAlertWithbutttons(message: assign.message ?? "") {
+                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadFlats), object: nil)
+                        self.navigationController?.popViewController(animated: true)
+                }
+            }
+            else{
+                self.showAlert(message: assign.message ?? "")
+            }
         }
     }
     

@@ -38,9 +38,9 @@ class PropertyViewController: BaseViewController {
         tableView.showsVerticalScrollIndicator = false
 
         searchView.clipsToBounds = true
-        flatLabel.text = LocalizationKeys.flats.rawValue.localizeString() + "   25"
+        flatLabel.text = LocalizationKeys.flats.rawValue.localizeString()
         tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
-        propertyLabel.text = LocalizationKeys.properties.rawValue.localizeString() + "   Building"
+        propertyLabel.text = LocalizationKeys.properties.rawValue.localizeString()
         titlLabel.text = LocalizationKeys.myProperties.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left

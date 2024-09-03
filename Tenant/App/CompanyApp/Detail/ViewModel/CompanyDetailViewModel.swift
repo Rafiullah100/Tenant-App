@@ -112,6 +112,12 @@ class CompanyDetailViewModel {
         return self.complaintDetail.value?.property?.company?.contact ?? ""
     }
     
+    func getTenantNameContact() -> String {
+        let name = self.complaintDetail.value?.tenant?.name ?? ""
+        let contact = self.complaintDetail.value?.tenant?.contact ?? ""
+        return "\(name) - \(contact)"
+    }
+    
     func getContacts() -> String? {
         let company = self.complaintDetail.value?.property?.company?.contact ?? ""
         let person = self.complaintDetail.value?.property?.company?.contact ?? ""

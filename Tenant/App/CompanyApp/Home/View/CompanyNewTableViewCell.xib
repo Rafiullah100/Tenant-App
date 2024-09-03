@@ -46,14 +46,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxZ-fC-8bt">
                                         <rect key="frame" x="23" y="0.0" width="346" height="117"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sH3-w7-PP8">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="sH3-w7-PP8">
                                                 <rect key="frame" x="0.0" y="12" width="331" height="93"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2G-2d-gfz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="331" height="45.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="331" height="43.5"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Yd7-yq-wHQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="331" height="45.5"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yd7-yq-wHQ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="331" height="43.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ima-dE-oG7">
                                                                         <rect key="frame" x="0.0" y="0.0" width="331" height="25.5"/>
@@ -86,7 +86,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-jk-6EI">
-                                                                        <rect key="frame" x="0.0" y="27.5" width="331" height="18"/>
+                                                                        <rect key="frame" x="0.0" y="25.5" width="331" height="18"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VYM-Lu-4hU">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="18"/>
@@ -97,7 +97,7 @@
                                                                                             <constraint firstAttribute="width" priority="250" id="3yV-Ks-vOv"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="14"/>
-                                                                                        <color key="textColor" red="0.24313725489999999" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                        <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flat 234, Building 405, District, City " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSW-Sl-Qum">
@@ -115,6 +115,7 @@
                                                                             <constraint firstItem="VYM-Lu-4hU" firstAttribute="leading" secondItem="bKu-jk-6EI" secondAttribute="leading" id="MRb-rk-jyz"/>
                                                                             <constraint firstItem="VYM-Lu-4hU" firstAttribute="top" secondItem="bKu-jk-6EI" secondAttribute="top" id="QHC-QN-Shy"/>
                                                                             <constraint firstAttribute="bottom" secondItem="VYM-Lu-4hU" secondAttribute="bottom" id="lea-kg-ANc"/>
+                                                                            <constraint firstAttribute="height" priority="250" constant="18" id="mFk-pG-K9I"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -129,17 +130,17 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAJ-pg-kLV">
-                                                        <rect key="frame" x="0.0" y="49.5" width="331" height="24"/>
+                                                        <rect key="frame" x="0.0" y="50.5" width="331" height="22.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kIY-vR-oKG">
-                                                                <rect key="frame" x="0.0" y="0.0" width="331" height="24"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="331" height="22.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rB-Oj-ZX5">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="46.5" height="24"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="22.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baX-Eu-kAh">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="46.5" height="24"/>
-                                                                                <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="15"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="22.5"/>
+                                                                                <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                 <color key="textColor" red="0.23137254900000001" green="0.7725490196" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -153,12 +154,12 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52C-ZK-O1J">
-                                                                        <rect key="frame" x="51.5" y="0.0" width="279.5" height="24"/>
+                                                                        <rect key="frame" x="55" y="0.0" width="276" height="22.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Approval is Pending " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLM-3Z-Jhw">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="279.5" height="24"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="276" height="22.5"/>
                                                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="14"/>
-                                                                                <nil key="textColor"/>
+                                                                                <color key="textColor" red="0.24313725489999999" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -182,27 +183,27 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNS-xE-Sjf">
-                                                        <rect key="frame" x="0.0" y="77.5" width="331" height="15.5"/>
+                                                        <rect key="frame" x="0.0" y="80" width="331" height="13"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Pl7-Vp-iiV">
-                                                                <rect key="frame" x="151" y="0.0" width="180" height="15.5"/>
+                                                                <rect key="frame" x="185.5" y="0.0" width="145.5" height="13"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fe-2r-Nlj">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="46.5" height="15.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="33.5" height="13"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" priority="250" constant="49" id="wqN-7B-O1f"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="14"/>
-                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="10"/>
+                                                                        <color key="textColor" red="0.24313725489999999" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="June 25, 2024   12:25 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjI-2B-5AS">
-                                                                        <rect key="frame" x="51.5" y="0.0" width="128.5" height="15.5"/>
+                                                                        <rect key="frame" x="38.5" y="0.0" width="107" height="13"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" priority="250" constant="60" id="D3b-jk-Ctz"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="12"/>
-                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="10"/>
+                                                                        <color key="textColor" red="0.24313725489999999" green="0.2470588235" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>

@@ -121,6 +121,7 @@ struct CompanyComplaintsRow: Codable {
     let timestamp: String?
     let property: CompanyProperty?
     let tenant: CompanyTenant?
+    let worker: AssignWorker?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -141,7 +142,7 @@ struct CompanyComplaintsRow: Codable {
         case workerAssignedDatetime = "worker_assigned_datetime"
         case scheduleDate = "schedule_date"
         case scheduleTime = "schedule_time"
-        case timestamp, property, tenant
+        case timestamp, property, tenant, worker
     }
 }
 
@@ -193,5 +194,27 @@ struct CompanyTenant: Codable {
         case userID = "user_id"
         case registeredFrom = "registered_from"
         case type, status, isDeleted, timestamp
+    }
+}
+
+struct AssignWorker: Codable {
+    let id, branchID: Int?
+    let name: String?
+    let email: String?
+    let isVerified: Int?
+    let contact: String?
+    let photo: String?
+    let registeredFrom: String?
+    let otp: Int?
+    let timestamp: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case branchID = "branch_id"
+        case name, email
+        case isVerified = "is_verified"
+        case contact, photo
+        case registeredFrom = "registered_from"
+        case otp, timestamp
     }
 }

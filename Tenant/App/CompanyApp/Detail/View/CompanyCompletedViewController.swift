@@ -16,6 +16,7 @@ class CompanyCompletedViewController: BaseViewController {
     @IBOutlet weak var tenantValueLabel: UILabel!
     @IBOutlet weak var propertyValueLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var acceptedValueLabel: UILabel!
     
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -32,6 +33,8 @@ class CompanyCompletedViewController: BaseViewController {
             collectionView.dataSource = self
         }
     }
+    
+    
     private var viewModel = CompanyDetailViewModel()
     var complaintID: Int?
 

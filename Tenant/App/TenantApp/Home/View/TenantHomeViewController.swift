@@ -34,6 +34,14 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         self.historyTableView.rowHeight = UITableView.automaticDimension
         self.historyTableView.estimatedRowHeight = 44.0
         
+        viewModel.tenantResidence.bind { [unowned self] residence in
+            guard let _ = residence else {return}
+            self.savePropertiesAndFlat()
+        }
+        viewModel.getTenantResidence()
+        
+        
+        
         callAPI()
         NotificationCenter.default.addObserver(self, selector: #selector(callAPI), name: NSNotification.Name(Constants.reloadTenantComplaints), object: nil)
     }
@@ -50,8 +58,19 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         viewModel.getComplaints()
     }
     
+    private func savePropertiesAndFlat(){
+        print(viewModel.propertyIDIfTenant(), viewModel.flatIDIfTenant())
+        UserDefaults.standard.propertyIDIfTenant = viewModel.propertyIDIfTenant()
+        UserDefaults.standard.flatIDIfTenant = viewModel.flatIDIfTenant()
+    }
+    
     @IBAction func addBtnAction(_ sender: Any) {
-        Switcher.gotoAddComplaintScreen(delegate: self, addComplaintType: .tenant)
+        if UserDefaults.standard.propertyIDIfTenant != nil || UserDefaults.standard.flatIDIfTenant != nil{
+            Switcher.gotoAddComplaintScreen(delegate: self, addComplaintType: .tenant)
+        }
+        else{
+            showAlert(message: "No Properties assigned to this Tenant.")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

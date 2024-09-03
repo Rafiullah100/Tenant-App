@@ -10,6 +10,7 @@ import Foundation
 class TenantComplaintViewModel {
     var errorMessage: Observable<String> = Observable("")
     var complaintList: Observable<TenantComplaintModel> = Observable(nil)
+    var tenantResidence: Observable<TenantResidenceModel> = Observable(nil)
 
     var parameters: [String: Any]?
     
@@ -22,6 +23,25 @@ class TenantComplaintViewModel {
                 self.errorMessage.value = error.localizedDescription
             }
         }
+    }
+    
+    func getTenantResidence(){
+        _ = URLSession.shared.request(route: .getTenantResidence, method: .post, parameters: ["tenant_id": UserDefaults.standard.userID ?? 0], model: TenantResidenceModel.self) { result in
+            switch result {
+            case .success(let residence):
+                self.tenantResidence.value = residence
+            case .failure(let error):
+                self.errorMessage.value = error.localizedDescription
+            }
+        }
+    }
+    
+    func propertyIDIfTenant() -> Int{
+        return self.tenantResidence.value?.flat?.properties?.id ?? 0
+    }
+    
+    func flatIDIfTenant() -> Int{
+        return self.tenantResidence.value?.flat?.id ?? 0
     }
     
     func getRecentID(index: Int) -> Int{

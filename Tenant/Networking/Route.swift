@@ -81,6 +81,7 @@ enum Route {
     case newsDetail
     case opinionDetail
     case assignTenantToFlat
+    case getTenantResidence
     
     var description: String {
         switch self {
@@ -225,6 +226,8 @@ enum Route {
             return "api/mobile/owner/get_unassigned_flats"
         case .verifyLogin:
             return "api/mobile/auth/verify_login"
+        case .getTenantResidence:
+            return "api/mobile/tenant/get_tenant_residential"
         }
     }
 }

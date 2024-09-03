@@ -27,6 +27,10 @@ class SelfPropertyViewModel {
         return self.propertyList.value?.properties?.rows?[index].ownerID ?? 0
     }
     
+    func getPropertyID(at index: Int) -> Int {
+        return self.propertyList.value?.properties?.rows?[index].id ?? 0
+    }
+    
     func getFlatID(at index: Int) -> Int {
         let flatCount =  self.propertyList.value?.properties?.rows?[index].flats?.count ?? 0
         guard flatCount > 0 else { return 0 }

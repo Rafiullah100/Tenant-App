@@ -85,7 +85,7 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
     }
     
     @IBAction func submitBtnAction(_ sender: Any) {
-        let add = AddComplaintInputModel(title: titleTextField.text ?? "", description: descriptionTextView.text ?? "", images: selectedImages.count, propertyId: UserDefaults.standard.propertyIDIfTenant ?? 0, skill: skillID ?? 0)
+        let add = AddComplaintInputModel(title: titleTextField.text ?? "", description: descriptionTextView.text ?? "", images: selectedImages.count,  skill: skillID ?? 0, propertyIdIfTenant: UserDefaults.standard.propertyIDIfTenant ?? 0, flatIdIfTenant: UserDefaults.standard.flatIDIfTenant ?? 0)
         let validationResponse = viewModel.isFormValid(complaint: add)
         if validationResponse.isValid {
             self.animateSpinner()

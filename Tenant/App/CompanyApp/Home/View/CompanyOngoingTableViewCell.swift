@@ -47,7 +47,7 @@ class CompanyOngoingTableViewCell: UITableViewCell {
             statusLbl.text = status.0
             colorView.backgroundColor = status.1.color
             addressLabel.text = "\(complaint?.tenant?.name ?? "") - \(complaint?.tenant?.contact ?? "")"
-            assignedLbl.text = "\(complaint?.tenant?.name ?? "") - \(complaint?.tenant?.contact ?? "")"
+            assignedLbl.text = "\(complaint?.worker?.name ?? "") - \(complaint?.worker?.contact ?? "")"
         }
     }
     

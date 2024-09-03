@@ -23,8 +23,11 @@ struct AddComplaintInputModel {
     let title: String
     let description: String
     let images: Int
-    let propertyId: Int
+//    let propertyId: Int
     let skill: Int
+    
+    let propertyIdIfTenant: Int
+    let flatIdIfTenant: Int
 }
 
 struct AddWorkerInputModel {
@@ -49,8 +52,7 @@ struct AddPropertyInputModel {
     let locationCode: String
     let city: String
     let district: String
-    
-    
+
     
 }
 

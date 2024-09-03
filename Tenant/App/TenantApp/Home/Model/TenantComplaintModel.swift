@@ -60,3 +60,46 @@ struct TenantComplaintsRow: Codable {
         case timestamp
     }
 }
+
+
+struct TenantResidenceModel: Codable {
+    let flat: TenantResidenceFlat?
+}
+
+// MARK: - Flat
+struct TenantResidenceFlat: Codable {
+    let id, propertyID, tenantID: Int?
+    let flatNo: String?
+    let isDeleted: Int?
+    let type, timestamp: String?
+    let properties: TenantResidenceProperties?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case propertyID = "property_id"
+        case tenantID = "tenant_id"
+        case flatNo = "flat_no"
+        case isDeleted, type, timestamp, properties
+    }
+}
+
+// MARK: - Properties
+struct TenantResidenceProperties: Codable {
+    let id, ownerID, companyID: Int?
+    let buildingNo, buildingType, locationCode, city: String?
+    let district: String?
+    let userID, isDeleted, status: Int?
+    let timestamp: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case ownerID = "owner_id"
+        case companyID = "company_id"
+        case buildingNo = "building_no"
+        case buildingType = "building_type"
+        case locationCode = "location_code"
+        case city, district
+        case userID = "user_id"
+        case isDeleted, status, timestamp
+    }
+}
