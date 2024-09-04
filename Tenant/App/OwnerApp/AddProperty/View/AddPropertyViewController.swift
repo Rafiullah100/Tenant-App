@@ -83,6 +83,13 @@ class AddPropertyViewController: BaseViewController {
                 }
             }
         }
+        
+        
+        viewModel.address.bind {  [unowned self] address in
+            guard let _ = address else {return}
+            self.cityTextField.text = self.viewModel.getCity()
+            self.districtTextField.text = self.viewModel.getDistrict()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,6 +105,16 @@ class AddPropertyViewController: BaseViewController {
     @IBAction func buildingBtnAction(_ sender: Any) {
         buildingType = .building
         selectPopertyType(type: .building)
+    }
+    
+    @IBAction func confirmLocationBtnAction(_ sender: Any) {
+        if locationTextField.text == nil {
+            showAlert(message: "Please enter location code and try again.")
+        }
+        else{
+            self.animateSpinner()
+            viewModel.getAddress(locationCode: locationTextField.text ?? "")
+        }
     }
     
     @IBAction func addBtnAction(_ sender: Any) {

@@ -9,6 +9,7 @@ import UIKit
 import Dispatch
 class AddWorkerViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tradeView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
@@ -33,6 +34,10 @@ class AddWorkerViewController: BaseViewController, UICollectionViewDelegate, UIC
     private var viewModel = AddWorkerViewModel()
     var dispatchGroup: DispatchGroup?
     var branchID = 0
+    
+    var image: UIImage?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.showsVerticalScrollIndicator = false
@@ -92,6 +97,13 @@ class AddWorkerViewController: BaseViewController, UICollectionViewDelegate, UIC
             self.collectionView.reloadData()
             self.pickerView.reloadAllComponents()
         }
+    }
+    
+    @IBAction func takePhoto(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     @IBAction func cancelBtnAction(_ sender: Any) {
@@ -181,5 +193,17 @@ extension AddWorkerViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
 }
 
-
+extension AddWorkerViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            self.image = image
+            self.imageView.image = image
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
 

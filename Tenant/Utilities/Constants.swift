@@ -47,6 +47,8 @@ struct Constants {
     static var reloadWorkers = "reloadWorers"
     static var reloadWorkerComplaints = "reloadWorkerComplaints"
 
+    
+    static var apiKey = "-iHEiOd5WEpPmqiHiPEhILlrQ6NHHvl_vOegasyglxI"
 }
 
 enum UserType: String {

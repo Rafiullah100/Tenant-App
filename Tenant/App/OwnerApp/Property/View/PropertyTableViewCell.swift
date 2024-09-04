@@ -34,4 +34,16 @@ class PropertyTableViewCell: UITableViewCell {
             self.label.text = "\(buildingType) \(buildingNo), \(city), \(district)"
         }
     }
+    
+//    var companyProperty: CompanyAssignedRow? {
+//        didSet{
+//            let buildingType = companyProperty?.buildingType?.capitalized ?? ""
+//
+//            let buildingNo = companyProperty?.buildingNo ?? ""
+//            let district = companyProperty?.district ?? ""
+//            let city = companyProperty?.city ?? ""
+//            
+//            self.label.text = "\(buildingType) \(buildingNo), \(city), \(district)"
+//        }
+//    }
 }

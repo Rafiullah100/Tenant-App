@@ -11,6 +11,7 @@ import Foundation
 class AddPropertyViewModel {
     var errorMessage: Observable<String> = Observable("")
     var add: Observable<AddPropertyModel> = Observable(nil)
+    var address: Observable<LocationCodeModel> = Observable(nil)
 
     var parameters: [String: Any]?
     
@@ -33,6 +34,31 @@ class AddPropertyViewModel {
                 self.errorMessage.value = error.localizedDescription
             }
         }
+    }
+    
+    func getAddress(locationCode: String){
+        _ = URLSession.shared.request(route: .getAddress(locationCode), method: .get, parameters: [:], model: LocationCodeModel.self) { result in
+            switch result {
+            case .success(let address):
+                self.address.value = address
+            case .failure(let error):
+                self.errorMessage.value = error.localizedDescription
+            }
+        }
+    }
+    
+    func getDistrict() -> String {
+        return self.address.value?.items?.first?.address?.district ?? ""
+    }
+    
+    func getCity() -> String {
+        return self.address.value?.items?.first?.address?.city ?? ""
+    }
+    
+    func getCoordinates() -> (Double, Double) {
+        let lat = self.address.value?.items?.first?.position?.lat ?? 0
+        let lng = self.address.value?.items?.first?.position?.lng ?? 0
+        return (lat, lng)
     }
     
 //    func saveUserData(userData: SignupUserDataModel) {

@@ -136,6 +136,8 @@
 		5287334F2C8095A100CDF9D1 /* DeteletTenantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287334E2C8095A100CDF9D1 /* DeteletTenantModel.swift */; };
 		528733512C8095AE00CDF9D1 /* DeleteTenantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528733502C8095AE00CDF9D1 /* DeleteTenantViewModel.swift */; };
 		528B18E12C75CD420018E609 /* CompanyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528B18E02C75CD420018E609 /* CompanyProfileViewModel.swift */; };
+		528D05192C882588002AF1BE /* CompanyPropertyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528D05182C882588002AF1BE /* CompanyPropertyModel.swift */; };
+		528D051B2C882779002AF1BE /* CompanyPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528D051A2C882779002AF1BE /* CompanyPropertyViewModel.swift */; };
 		529599F32C69EF19006188B1 /* AddTenantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529599F22C69EF19006188B1 /* AddTenantModel.swift */; };
 		52995C512C37C24600AFDA47 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C502C37C24500AFDA47 /* Auth.storyboard */; };
 		52995C532C37C2AF00AFDA47 /* Tenant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C522C37C2AF00AFDA47 /* Tenant.storyboard */; };
@@ -330,6 +332,8 @@
 		5287334E2C8095A100CDF9D1 /* DeteletTenantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteletTenantModel.swift; sourceTree = "<group>"; };
 		528733502C8095AE00CDF9D1 /* DeleteTenantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTenantViewModel.swift; sourceTree = "<group>"; };
 		528B18E02C75CD420018E609 /* CompanyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProfileViewModel.swift; sourceTree = "<group>"; };
+		528D05182C882588002AF1BE /* CompanyPropertyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPropertyModel.swift; sourceTree = "<group>"; };
+		528D051A2C882779002AF1BE /* CompanyPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPropertyViewModel.swift; sourceTree = "<group>"; };
 		529599F22C69EF19006188B1 /* AddTenantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTenantModel.swift; sourceTree = "<group>"; };
 		52995C502C37C24500AFDA47 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		52995C522C37C2AF00AFDA47 /* Tenant.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tenant.storyboard; sourceTree = "<group>"; };
@@ -859,7 +863,9 @@
 		525AEAA22C63480B0089FB50 /* CompanyProperty */ = {
 			isa = PBXGroup;
 			children = (
-				525AEAA32C6348360089FB50 /* CompanyPropertiesViewController.swift */,
+				528D05162C882539002AF1BE /* Model */,
+				528D05172C882547002AF1BE /* ViewModel */,
+				528D05152C88252E002AF1BE /* View */,
 			);
 			path = CompanyProperty;
 			sourceTree = "<group>";
@@ -1362,6 +1368,30 @@
 				52995C612C38058900AFDA47 /* CompanyProfileViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		528D05152C88252E002AF1BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				525AEAA32C6348360089FB50 /* CompanyPropertiesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		528D05162C882539002AF1BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				528D05182C882588002AF1BE /* CompanyPropertyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		528D05172C882547002AF1BE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				528D051A2C882779002AF1BE /* CompanyPropertyViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		529599F02C69EEFD006188B1 /* View */ = {
@@ -1996,6 +2026,7 @@
 				52FD2BA82C7DB38100B2B914 /* WorkersComplaintModel.swift in Sources */,
 				525F5C222C3FDD6900FE4B89 /* CompanyWorkerViewController.swift in Sources */,
 				52DBCD082C16C52C00A7B612 /* LanguageManager.swift in Sources */,
+				528D05192C882588002AF1BE /* CompanyPropertyModel.swift in Sources */,
 				526B7E042C7C4CB300D8A335 /* OwnerComplaintViewModel.swift in Sources */,
 				52995C5C2C37E54C00AFDA47 /* OwnerHomeViewController.swift in Sources */,
 				52DBCD0C2C16C52C00A7B612 /* UserDefaults+Extension.swift in Sources */,
@@ -2045,6 +2076,7 @@
 				5284FEE82C74BCA400F8B9CB /* CompanyProfileModel.swift in Sources */,
 				524FD36A2C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift in Sources */,
 				526A2D5A2C3D0B7000C716A8 /* CompanyOngoingTableViewCell.swift in Sources */,
+				528D051B2C882779002AF1BE /* CompanyPropertyViewModel.swift in Sources */,
 				528B18E12C75CD420018E609 /* CompanyProfileViewModel.swift in Sources */,
 				52688B142C32C563001C55A8 /* StatusDoneCollectionViewCell.swift in Sources */,
 				52F188AE2C660B1100085EE7 /* LoginViewModel.swift in Sources */,

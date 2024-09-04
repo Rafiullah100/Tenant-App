@@ -41,6 +41,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         searchTextField.placeholder = LocalizationKeys.search.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
 //        print(UserDefaults.standard.token)
+//        print(UserDefaults.standard.userID)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
         

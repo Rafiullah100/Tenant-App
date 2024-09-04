@@ -897,7 +897,7 @@
                                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpV-tB-G4z">
                                                                                                                 <rect key="frame" x="0.0" y="78" width="343" height="40"/>
                                                                                                                 <subviews>
-                                                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJw-gL-8cT">
+                                                                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJw-gL-8cT">
                                                                                                                         <rect key="frame" x="10" y="0.0" width="333" height="40"/>
                                                                                                                         <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15"/>
                                                                                                                         <textInputTraits key="textInputTraits"/>
@@ -926,7 +926,7 @@
                                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-v5-NA4">
                                                                                                                 <rect key="frame" x="0.0" y="127" width="343" height="40"/>
                                                                                                                 <subviews>
-                                                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter District" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TUW-PK-Ira">
+                                                                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter District" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TUW-PK-Ira">
                                                                                                                         <rect key="frame" x="10" y="0.0" width="333" height="40"/>
                                                                                                                         <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15"/>
                                                                                                                         <textInputTraits key="textInputTraits"/>
@@ -1020,6 +1020,9 @@ Cg
                                                                                                                                 <real key="value" value="5"/>
                                                                                                                             </userDefinedRuntimeAttribute>
                                                                                                                         </userDefinedRuntimeAttributes>
+                                                                                                                        <connections>
+                                                                                                                            <action selector="confirmLocationBtnAction:" destination="XRm-ow-42N" eventType="touchUpInside" id="WEx-kU-wcV"/>
+                                                                                                                        </connections>
                                                                                                                     </button>
                                                                                                                 </subviews>
                                                                                                                 <constraints>

@@ -63,8 +63,17 @@ extension URLSession{
                                method: Method,
                                parameters: [String: Any]? = nil) -> URLRequest? {
 
-        let urlString = Route.baseUrl + route.description
-        print(urlString)
+        var urlString: String!
+        switch route {
+            case .getAddress(let code):
+                // Build the URL for the .getAddress case
+            urlString = "https://geocode.search.hereapi.com/v1/geocode?q=\(code)&apiKey=\(Constants.apiKey)"
+            print(urlString)
+            default:
+                // Build the URL for other cases
+                urlString = Route.baseUrl + route.description
+            }
+        print(urlString ?? "")
         guard let url = urlString.asUrl else { return nil }
         var urlRequest = URLRequest(url: url)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")

@@ -38,8 +38,8 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
-        print(UserDefaults.standard.token)
-        print(UserDefaults.standard.userID)
+//        print(UserDefaults.standard.token)
+//        print(UserDefaults.standard.userID)
 
         searchView.clipsToBounds = true
         newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
@@ -216,4 +216,6 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         }
         Switcher.gotoOwnerDetail(delegate: self, complaintType: complaintType, complaintID: complaintID ?? 0)
     }
+
+
 }
