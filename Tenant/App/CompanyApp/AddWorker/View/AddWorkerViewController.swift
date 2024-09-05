@@ -67,7 +67,10 @@ class AddWorkerViewController: BaseViewController, UICollectionViewDelegate, UIC
             guard let worker = worker else {return}
             self.stopAnimation()
             if worker.success == true{
-                self.navigationController?.popViewController(animated: true)
+                self.showAlertWithbutttons(message: worker.message ?? "") {
+                    NotificationCenter.default.post(name: Notification.Name(Constants.reloadWorkers), object: nil)
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
             else{
                 showAlert(message: worker.message ?? "")
@@ -120,7 +123,7 @@ class AddWorkerViewController: BaseViewController, UICollectionViewDelegate, UIC
         let validationResponse = viewModel.isFormValid(worker: worker)
         if validationResponse.isValid {
             self.animateSpinner()
-            self.viewModel.addWorker()
+            self.viewModel.addWorker(image: self.imageView.image ?? UIImage())
         }
         else{
             showAlert(message: validationResponse.message)

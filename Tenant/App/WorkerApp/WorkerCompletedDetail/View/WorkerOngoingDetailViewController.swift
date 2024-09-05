@@ -123,7 +123,7 @@ class WorkerOngoingDetailViewController: BaseViewController  {
     @IBAction func markCompleteBtnAction(_ sender: Any) {
         if self.selectedImages.count > 0{
             self.animateSpinner()
-            viewModel.markComplete(image: selectedImages, complaintID: complaintID ?? 0)
+            viewModel.markComplete(images: selectedImages, complaintID: complaintID ?? 0)
         }
         else {
             showAlert(message: "please add pcitures of your work and then try agian")

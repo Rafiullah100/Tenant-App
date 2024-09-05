@@ -22,12 +22,14 @@ class AddTenanToFlatViewController: BaseViewController {
     private var viewModel = AddTenantToFlatViewModel()
     var flatID: Int?
     var isLoading = true
-    
+    var flatNumber: String?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
 
+        viewControllerTitle = "Flat \(flatNumber ?? "")"
         searchView.clipsToBounds = true
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company

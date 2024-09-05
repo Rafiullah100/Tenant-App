@@ -22,14 +22,17 @@ class CompanyManagmentViewController: BaseViewController {
     }
     private var viewModel = CompanyViewModel()
     var propertyID: Int?
+    var buildingNumer: String?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
 
         searchView.clipsToBounds = true
-        titlLabel.text = LocalizationKeys.maintenanceCompanyManagement.rawValue.localizeString()
-        searchTextField.placeholder = LocalizationKeys.searchMaintenanceCompany.rawValue.localizeString()
+        viewControllerTitle = LocalizationKeys.maintenanceCompanyManagement.rawValue.localizeString()
+        titlLabel.text = buildingNumer ?? ""
+        searchTextField.placeholder =  LocalizationKeys.searchMaintenanceCompany.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
         

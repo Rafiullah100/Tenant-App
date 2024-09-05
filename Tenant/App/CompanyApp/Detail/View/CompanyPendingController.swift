@@ -102,7 +102,8 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func assignBtnAction(_ sender: Any) {
-        Switcher.gotoAssignWorker(delegate: self, complaintID: complaintID ?? 0)
+        guard let complaintDetail = viewModel.getComplaint() else { return }
+        Switcher.gotoAssignWorker(delegate: self, complaint: complaintDetail)
     }
     
     @IBAction func rejectBtnAction(_ sender: Any) {

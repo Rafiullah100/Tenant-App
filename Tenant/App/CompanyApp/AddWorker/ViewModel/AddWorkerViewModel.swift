@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 class AddWorkerViewModel{
     var errorMessage: Observable<String> = Observable("")
     var workerAdded: Observable<AddWorkerModel> = Observable(nil)
@@ -25,8 +25,19 @@ class AddWorkerViewModel{
         }
     }
     
-    func addWorker(){
-        _ = URLSession.shared.request(route: .addWorker, method: .post, parameters: parameters, model: AddWorkerModel.self) { result in
+//    func addWorker(){
+//        _ = URLSession.shared.request(route: .addWorker, method: .post, parameters: parameters, model: AddWorkerModel.self) { result in
+//            switch result {
+//            case .success(let addWorker):
+//                self.workerAdded.value = addWorker
+//            case .failure(let error):
+//                self.errorMessage.value = error.localizedDescription
+//            }
+//        }
+//    }
+    
+    func addWorker(image: UIImage)  {
+        Networking.shared.addWorker(route: .addWorker, imageParameter: "profile_image", images: [image], parameters: parameters ?? [:]) { result in
             switch result {
             case .success(let addWorker):
                 self.workerAdded.value = addWorker

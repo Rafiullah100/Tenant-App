@@ -141,6 +141,7 @@ class OwnerDetailViewController: BaseViewController {
 
         scheduleValueLabel.text = viewModel.getScheduleDate()
         timeValueLabel.text = viewModel.getScheduleTime()
+        tenantValueLabel.text = viewModel.getTenant()
 //        personValueLabel.text = viewModel.g
         tenantCollectionView.reloadData()
         companyCollectionView.reloadData()

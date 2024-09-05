@@ -5,6 +5,7 @@ PODS:
   - GoogleMaps/Base (9.0.0)
   - GoogleMaps/Maps (9.0.0):
     - GoogleMaps/Base
+  - HEREMapsStarter (3.15.2)
   - IQKeyboardManager (6.5.19)
   - SDWebImage (5.19.2):
     - SDWebImage/Core (= 5.19.2)
@@ -17,6 +18,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.2)
   - GoogleMaps
+  - HEREMapsStarter
   - IQKeyboardManager
   - SDWebImage (~> 5.0)
   - SpinKit
@@ -26,6 +28,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - GoogleMaps
+    - HEREMapsStarter
     - IQKeyboardManager
     - SDWebImage
     - SpinKit
@@ -34,11 +37,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   GoogleMaps: 4907d0d42bf8cd58f56743e31f91d23c10682745
+  HEREMapsStarter: 5e4928b272396a0805ae33f4e89be4b28df1657e
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   SDWebImage: dfe95b2466a9823cf9f0c6d01217c06550d7b29a
   SpinKit: 65906a8b534a4e14cbfd3f8b0b6c329131faef4a
   SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
 
-PODFILE CHECKSUM: 2253ef1140c2c070bf33dadfe95073fd67eb7287
+PODFILE CHECKSUM: 5d7da601b35a8403277868deacd69934c9effeac
 
 COCOAPODS: 1.15.2

@@ -10,7 +10,7 @@ import Foundation
 
 class CompanyDetailViewModel {
     var errorMessage: Observable<String> = Observable("")
-    var complaintDetail: Observable<TenantComplaintDetail> = Observable(nil)
+    var complaintDetail: Observable<TenantComplaintDetailModel> = Observable(nil)
     var reject: Observable<RejectModel> = Observable(nil)
 
     
@@ -18,7 +18,7 @@ class CompanyDetailViewModel {
         _ = URLSession.shared.request(route: .getComplaintDetail, method: .post, parameters: ["id": complaintID], model: TenantComplaintDetailModel.self) { result in
             switch result {
             case .success(let details):
-                self.complaintDetail.value = details.complaintDetail
+                self.complaintDetail.value = details
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription
             }
@@ -36,20 +36,24 @@ class CompanyDetailViewModel {
         }
     }
     
+    func getComplaint() -> TenantComplaintDetail? {
+        return self.complaintDetail.value?.complaintDetail
+    }
+    
     func getTitle() -> String {
-        return self.complaintDetail.value?.title?.capitalized ?? ""
+        return self.complaintDetail.value?.complaintDetail?.title?.capitalized ?? ""
     }
     
     func getDescription() -> String {
-        return self.complaintDetail.value?.description ?? ""
+        return self.complaintDetail.value?.complaintDetail?.description ?? ""
     }
     
     func getCompalintID() -> Int {
-        return self.complaintDetail.value?.id ?? 0
+        return self.complaintDetail.value?.complaintDetail?.id ?? 0
     }
     
     func getProperty() -> String? {
-        let type = self.complaintDetail.value?.property?.buildingType
+        let type = self.complaintDetail.value?.complaintDetail?.property?.buildingType
         var propertyType = ""
         
         if type == "builidng" {
@@ -58,69 +62,69 @@ class CompanyDetailViewModel {
         else{
             propertyType = "Villa"
         }
-        let buildingNo = self.complaintDetail.value?.property?.buildingNo
-        let district = self.complaintDetail.value?.property?.district
-        let city = self.complaintDetail.value?.property?.city
+        let buildingNo = self.complaintDetail.value?.complaintDetail?.property?.buildingNo
+        let district = self.complaintDetail.value?.complaintDetail?.property?.district
+        let city = self.complaintDetail.value?.complaintDetail?.property?.city
 
         return "\(propertyType ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
     }
     
     func getStatus() -> String {
-        let status = Helper.shared.getComplaintStatus(ownerApproval: self.complaintDetail.value?.ownerApproval, companyApproval: self.complaintDetail.value?.companyApproval, taskComplete: self.complaintDetail.value?.taskComplete, tenantApproval: self.complaintDetail.value?.tenantApproval, workerID: ((self.complaintDetail.value?.workerID) != nil) ? 1 : 0)
+        let status = Helper.shared.getComplaintStatus(ownerApproval: self.complaintDetail.value?.complaintDetail?.ownerApproval, companyApproval: self.complaintDetail.value?.complaintDetail?.companyApproval, taskComplete: self.complaintDetail.value?.complaintDetail?.taskComplete, tenantApproval: self.complaintDetail.value?.complaintDetail?.tenantApproval, workerID: ((self.complaintDetail.value?.complaintDetail?.workerID) != nil) ? 1 : 0)
         return status.0
     }
     
     func getCompanyUploadedPhotos() -> [ComplainImage] {
-        print(self.complaintDetail.value?.completionImages ?? [])
-        return self.complaintDetail.value?.completionImages ?? []
+        print(self.complaintDetail.value?.complaintDetail?.completionImages ?? [])
+        return self.complaintDetail.value?.complaintDetail?.completionImages ?? []
     }
     
     func getPostedDate() -> String {
-        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.timestamp ?? "")
+        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.complaintDetail?.timestamp ?? "")
     }
     
     func getPhotosForInProgressComplaint() -> [ComplainImage] {
-        return self.complaintDetail.value?.complainImages ?? []
+        return self.complaintDetail.value?.complaintDetail?.complainImages ?? []
     }
     
     func getPhoto(index: Int) -> String {
-        print(self.complaintDetail.value?.complainImages?[index].imageURL ?? "")
-        return self.complaintDetail.value?.complainImages?[index].imageURL ?? ""
+        print(self.complaintDetail.value?.complaintDetail?.complainImages?[index].imageURL ?? "")
+        return self.complaintDetail.value?.complaintDetail?.complainImages?[index].imageURL ?? ""
     }
     
     func getCompanyPhoto(index: Int) -> String {
-        return self.complaintDetail.value?.completionImages?[index].imageURL ?? ""
+        return self.complaintDetail.value?.complaintDetail?.completionImages?[index].imageURL ?? ""
     }
     
     func getWorkerID() -> Int {
-        return self.complaintDetail.value?.workerID ?? 0
+        return self.complaintDetail.value?.complaintDetail?.workerID ?? 0
     }
     
     func isTaskCompleted() -> Int {
-        return self.complaintDetail.value?.taskComplete ?? 0
+        return self.complaintDetail.value?.complaintDetail?.taskComplete ?? 0
     }
     
     func getScheduleDate() -> String {
-        return self.complaintDetail.value?.scheduleDate ?? ""
+        return self.complaintDetail.value?.complaintDetail?.scheduleDate ?? ""
     }
     
     func getScheduleTime() -> String {
-        return self.complaintDetail.value?.scheduleTime ?? ""
+        return self.complaintDetail.value?.complaintDetail?.scheduleTime ?? ""
     }
     
     func getMaintenancePersonContact() -> String {
-        return self.complaintDetail.value?.property?.company?.contact ?? ""
+        return self.complaintDetail.value?.complaintDetail?.property?.company?.contact ?? ""
     }
     
     func getTenantNameContact() -> String {
-        let name = self.complaintDetail.value?.tenant?.name ?? ""
-        let contact = self.complaintDetail.value?.tenant?.contact ?? ""
+        let name = self.complaintDetail.value?.complaintDetail?.tenant?.name ?? ""
+        let contact = self.complaintDetail.value?.complaintDetail?.tenant?.contact ?? ""
         return "\(name) - \(contact)"
     }
     
     func getContacts() -> String? {
-        let company = self.complaintDetail.value?.property?.company?.contact ?? ""
-        let person = self.complaintDetail.value?.property?.company?.contact ?? ""
+        let company = self.complaintDetail.value?.complaintDetail?.property?.company?.contact ?? ""
+        let person = self.complaintDetail.value?.complaintDetail?.property?.company?.contact ?? ""
 
         return company + " | " + person
     }

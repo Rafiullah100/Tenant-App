@@ -24,7 +24,8 @@ class TenantsManagementViewController: BaseViewController, UICollectionViewDeleg
         super.viewDidLoad()
         cardCollectionView.showsVerticalScrollIndicator = false
 
-        titlLabel.text = LocalizationKeys.tenantManagement.rawValue.localizeString()
+        viewControllerTitle = LocalizationKeys.tenantManagement.rawValue.localizeString()
+        titlLabel.text = "building #"
         searchTextField.placeholder = LocalizationKeys.searchTenants.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company

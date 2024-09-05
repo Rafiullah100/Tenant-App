@@ -14,7 +14,8 @@ class AssignViewModel {
     var workers: Observable<CompanyWorkerModel> = Observable(nil)
     var branches: Observable<CompanyProfileModel> = Observable(nil)
     var skill: Observable<SkillModel> = Observable(nil)
-    
+    var timeSlots: Observable<TimeslotsModel> = Observable(nil)
+
     var parameters: [String: Any]?
     
     func isFormValid(assign: AssignInputModel) -> ValidationResponse {
@@ -90,6 +91,17 @@ class AssignViewModel {
         }
     }
     
+    func getTimeSlots(){
+        _ = URLSession.shared.request(route: .timeSlots, method: .post, parameters: [:], model: TimeslotsModel.self) { result in
+            switch result {
+            case .success(let slot):
+                self.timeSlots.value = slot
+            case .failure(let error):
+                self.errorMessage.value = error.localizedDescription
+            }
+        }
+    }
+    
     func getWorkerCount() -> Int{
         return self.workers.value?.workers?.rows?.count ?? 0
     }
@@ -128,5 +140,15 @@ class AssignViewModel {
     
     func getSkill(at index: Int) -> SkillRow? {
         return self.skill.value?.skills?.rows?[index]
+    }
+    
+    func getTimeSlotCount() -> Int {
+        return self.timeSlots.value?.timeslots?.rows?.count ?? 0
+    }
+    
+    func getTimeSlot(at index: Int) -> String {
+        let timeFrom = self.timeSlots.value?.timeslots?.rows?[index].timeFrom ?? ""
+        let timeTo = self.timeSlots.value?.timeslots?.rows?[index].timeTo ?? ""
+        return  "\(timeFrom) to \(timeTo)"
     }
 }

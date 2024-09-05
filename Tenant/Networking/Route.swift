@@ -44,6 +44,7 @@ enum Route {
     case verifyLogin
     case getAssignedProperties
     case getAddress(String)
+    case timeSlots
 
     case logout
     case googleSignup
@@ -234,6 +235,8 @@ enum Route {
             return "api/mobile/company/get_properties"
         case .getAddress(let code):
             return "https://geocode.search.hereapi.com/v1/geocode?q=\(code)&apiKey=\(Constants.apiKey)"
+        case .timeSlots:
+            return "api/mobile/company/time_slots"
         }
     }
 }

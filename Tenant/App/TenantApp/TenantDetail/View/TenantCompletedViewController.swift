@@ -94,6 +94,7 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         else {
             confirmView.isHidden = false
         }
+        collectionViewDone.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

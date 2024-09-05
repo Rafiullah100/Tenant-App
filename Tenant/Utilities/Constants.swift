@@ -44,11 +44,13 @@ struct Constants {
     static var reloadFlats = "reloadFlats"
     static var reloadSelfComplaints = "reloadSelfComplaints"
     static var reloadCompanyComplaints = "reloadCompanyComplaints"
-    static var reloadWorkers = "reloadWorers"
+    static var reloadWorkers = "reloadWorkers"
     static var reloadWorkerComplaints = "reloadWorkerComplaints"
 
     
     static var apiKey = "-iHEiOd5WEpPmqiHiPEhILlrQ6NHHvl_vOegasyglxI"
+    static var hereAppID = "QUPuD4iUj5sO8VJPzUOj"
+    static var  hereAccessKey = "mSfE-R5lgTxRN03P80xWzQ"
 }
 
 enum UserType: String {

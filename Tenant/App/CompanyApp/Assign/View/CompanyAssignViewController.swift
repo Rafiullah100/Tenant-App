@@ -10,6 +10,9 @@ import Dispatch
 
 class CompanyAssignViewController: BaseViewController {
 
+    @IBOutlet weak var titleValueLabel: UILabel!
+    @IBOutlet weak var tenantValueLabel: UILabel!
+    @IBOutlet weak var propertyValueLabel: UILabel!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var timeLabel: UILabel!
@@ -32,7 +35,7 @@ class CompanyAssignViewController: BaseViewController {
     var workerPickerView = UIPickerView()
     var slotPickerView = UIPickerView()
 
-    var complaintID: Int?
+    var complaint: TenantComplaintDetail?
     private var viewModel = AssignViewModel()
     var dispatchGroup: DispatchGroup?
     var workerID: Int?
@@ -55,7 +58,7 @@ class CompanyAssignViewController: BaseViewController {
         propertyLabel.text = LocalizationKeys.property.rawValue.localizeString()
         tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
         titlLabel.text = LocalizationKeys.titlle.rawValue.localizeString()
-        categoryLabel.text = LocalizationKeys.category.rawValue.localizeString()
+        categoryLabel.text = LocalizationKeys.branch.rawValue.localizeString()
         skillLabel.text = LocalizationKeys.skill.rawValue.localizeString()
         workerLabel.text = LocalizationKeys.workers.rawValue.localizeString()
         dateLabel.text = LocalizationKeys.selectDate.rawValue.localizeString()
@@ -83,9 +86,15 @@ class CompanyAssignViewController: BaseViewController {
         timeTextField.inputView = slotPickerView
         
         type = .company
-        
+        updateUI()
         self.animateSpinner()
         networkingCall()
+    }
+    
+    private func updateUI(){
+        propertyValueLabel.text = complaint?.property?.buildingNo
+        self.titleValueLabel.text = complaint?.title
+        self.tenantValueLabel.text = "\(complaint?.tenant?.name ?? "") - \(complaint?.tenant?.contact ?? "")"
     }
     
     private func networkingCall(){
@@ -95,7 +104,8 @@ class CompanyAssignViewController: BaseViewController {
         dispatchGroup?.enter()
         viewModel.getBranches()
         dispatchGroup?.enter()
-        viewModel.getWorkers()
+        viewModel.getTimeSlots()
+
         
         viewModel.branches.bind { [weak self] branches in
             guard let _ = branches else {return}
@@ -107,16 +117,16 @@ class CompanyAssignViewController: BaseViewController {
             self?.dispatchGroup?.leave()
         }
         
-        viewModel.workers.bind { [weak self] workers in
-            guard let _ = workers else {return}
+        viewModel.timeSlots.bind { [weak self] slots in
+            guard let _ = slots else {return}
             self?.dispatchGroup?.leave()
         }
         
         dispatchGroup?.notify(queue: .main) {
             self.stopAnimation()
-            self.workerPickerView.reloadAllComponents()
             self.skillPickerView.reloadAllComponents()
             self.categoryPickerView.reloadAllComponents()
+            self.slotPickerView.reloadAllComponents()
         }
         
         viewModel.assign.bind { [weak self] assign  in
@@ -136,6 +146,22 @@ class CompanyAssignViewController: BaseViewController {
         }
     }
     
+    private func getWorkers(){
+        //empty worker textfield
+        workerTextField.text = ""
+        viewModel.workers.bind { [weak self] workers in
+            guard let _ = workers else {return}
+            self?.workerPickerView.reloadAllComponents()
+        }
+        
+        if branchID != nil && skillID != nil{
+            viewModel.getWorkers(branchID: branchID, skillID: skillID)
+        }
+        else if branchID != nil && skillID == nil{
+            viewModel.getWorkers(branchID: branchID)
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
@@ -146,7 +172,7 @@ class CompanyAssignViewController: BaseViewController {
     }
     
     @IBAction func assignBtnAction(_ sender: Any) {
-        let assign = AssignInputModel(complaintID: complaintID ?? 0, branchID: branchID ?? 0, skillID: skillID ?? 0, workerID: workerID ?? 0, date: date ?? "", time: time ?? "")
+        let assign = AssignInputModel(complaintID: complaint?.id ?? 0, branchID: branchID ?? 0, skillID: skillID ?? 0, workerID: workerID ?? 0, date: date ?? "", time: time ?? "")
         print(assign)
         let validationResponse = viewModel.isFormValid(assign: assign)
         if validationResponse.isValid {
@@ -175,7 +201,7 @@ extension CompanyAssignViewController: UIPickerViewDelegate, UIPickerViewDataSou
             return viewModel.getWorkerCount()
         }
         else {
-            return Constants.timeSlotArray.count
+            return viewModel.getTimeSlotCount()
         }
     }
     
@@ -190,7 +216,7 @@ extension CompanyAssignViewController: UIPickerViewDelegate, UIPickerViewDataSou
             return viewModel.getWorkerName(at: row)
         }
         else {
-            return Constants.timeSlotArray[row]
+            return viewModel.getTimeSlot(at: row)
         }
     }
     
@@ -198,18 +224,20 @@ extension CompanyAssignViewController: UIPickerViewDelegate, UIPickerViewDataSou
         if pickerView == categoryPickerView {
             branchID = viewModel.getBranchID(at: row)
             categoryTextField.text = viewModel.getBranchName(at: row)
+            getWorkers()
         }
         else if pickerView == skillPickerView{
             skillID = viewModel.getSkillID(at: row)
             skillTextField.text = viewModel.getSkillName(at: row)
+            getWorkers()
         }
         else if pickerView == workerPickerView{
             workerID = viewModel.getWorkerID(at: row)
             workerTextField.text = viewModel.getWorkerName(at: row)
         }
         else {
-            time = Constants.timeSlotArray[row]
-            timeTextField.text = Constants.timeSlotArray[row]
+            time = viewModel.getTimeSlot(at: row)
+            timeTextField.text = time
         }
     }
 }

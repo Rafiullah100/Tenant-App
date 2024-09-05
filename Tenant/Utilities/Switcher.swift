@@ -17,11 +17,12 @@ class Switcher {
 //        self.window?.makeKeyAndVisible()
 //    }
     
-    static func gotoOtpScreen(delegate: UIViewController, userType: UserType, contact: String, otpType: OtpType){
+    static func gotoOtpScreen(delegate: UIViewController, userType: UserType, contact: String, otpType: OtpType, otp: String){
         let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
         vc.userType = userType
         vc.contact = contact
         vc.otpType = otpType
+        vc.otp = otp
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
@@ -111,9 +112,9 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoAssignWorker(delegate: UIViewController, complaintID: Int){
+    static func gotoAssignWorker(delegate: UIViewController, complaint: TenantComplaintDetail){
         let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyAssignViewController") as! CompanyAssignViewController
-        vc.complaintID = complaintID
+        vc.complaint = complaint
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
@@ -184,25 +185,28 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoCompanyList(delegate: UIViewController, propertyID: Int){
+    static func gotoCompanyList(delegate: UIViewController, propertyID: Int, buildingNumber: String){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyManagmentViewController") as! CompanyManagmentViewController
         vc.propertyID = propertyID
+        vc.buildingNumer = buildingNumber
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoFlatList(delegate: UIViewController, propertyID: Int){
+    static func gotoFlatList(delegate: UIViewController, propertyID: Int, buildingNumber: String){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "FlatManagementViewController") as! FlatManagementViewController
         vc.propertyID = propertyID
+        vc.buildingNumer = buildingNumber
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoAddTenant(delegate: UIViewController, flatID: Int){
+    static func gotoAddTenant(delegate: UIViewController, flatID: Int, flatNumber: String){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "AddTenanToFlatViewController") as! AddTenanToFlatViewController
         vc.flatID = flatID
+        vc.flatNumber = flatNumber
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)

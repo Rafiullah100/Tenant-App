@@ -94,13 +94,25 @@ class TenantComplaintDetailViewModel {
         return self.complaintDetail.value?.complainImages?.count ?? 0
     }
     
+    func getPhotosForCompletedCount() -> Int {
+        return self.complaintDetail.value?.completionImages?.count ?? 0
+    }
+    
     func getPhotosForInProgressComplaint() -> [ComplainImage] {
         return self.complaintDetail.value?.complainImages ?? []
+    }
+    
+    func getPhotoForCompletedComplaint() -> [ComplainImage] {
+        return self.complaintDetail.value?.completionImages ?? []
     }
     
     func getPhoto(index: Int) -> String {
         print(self.complaintDetail.value?.complainImages?[index].imageURL ?? "")
         return self.complaintDetail.value?.complainImages?[index].imageURL ?? ""
+    }
+    
+    func getPhotoForCompleted(index: Int) -> String {
+        return self.complaintDetail.value?.completionImages?[index].imageURL ?? ""
     }
     
     func getCompanyPhoto(index: Int) -> String {

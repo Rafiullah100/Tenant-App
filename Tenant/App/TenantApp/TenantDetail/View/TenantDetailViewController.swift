@@ -36,6 +36,14 @@ class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, 
     @IBOutlet weak var scheduleLbl: UILabel!
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var personLbl: UILabel!
+    @IBOutlet weak var companyPhotoView: UIView!
+    @IBOutlet weak var companyCollectionView: UICollectionView!{
+        didSet{
+            collectionView.register(ComplainDetailCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplainDetailCollectionViewCell.identifier)
+            collectionView.delegate = self
+            collectionView.dataSource = self
+        }
+    }
     
     private var viewModel = TenantComplaintDetailViewModel()
     var complaintID: Int?
@@ -84,6 +92,11 @@ class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, 
         else {
             scheduleView.isHidden = true
         }
+        
+        print(viewModel.getPhotosForCompletedCount())
+        if viewModel.getPhotosForCompletedCount() == 0 {
+            self.companyPhotoView.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,12 +105,22 @@ class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getPhotosForInProgressComplaint().count
+        if collectionView == companyCollectionView{
+            return viewModel.getPhotosForCompletedCount()
+        }
+        else{
+            return viewModel.getPhotosCount()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplainDetailCollectionViewCell.identifier, for: indexPath)as! ComplainDetailCollectionViewCell
-        cell.configure(with: viewModel.getPhoto(index: indexPath.row))
+        if collectionView == companyCollectionView{
+            cell.configure(with: viewModel.getPhotoForCompleted(index: indexPath.row))
+        }
+        else{
+            cell.configure(with: viewModel.getPhoto(index: indexPath.row))
+        }
         return cell
     }
 }

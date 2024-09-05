@@ -43,7 +43,7 @@ class RegistrationViewController: BaseViewController {
             guard let signup = signup else{return}
             self.stopAnimation()
             if signup.success == true{
-                Switcher.gotoOtpScreen(delegate: self, userType: userType, contact: contactTextField.text ?? "", otpType: .signup)
+                Switcher.gotoOtpScreen(delegate: self, userType: userType, contact: contactTextField.text ?? "", otpType: .signup, otp: signup.user?.otp ?? "")
             }
             else{
                 showAlert(message: signup.message ?? "")

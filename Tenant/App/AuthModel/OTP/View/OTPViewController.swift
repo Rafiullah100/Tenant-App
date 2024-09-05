@@ -14,6 +14,7 @@ class OTPViewController: BaseViewController {
     @IBOutlet weak var receiveLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var topLabel: UILabel!
+    var otp: String?
     var userType: UserType = .tenant
     private var viewModel = OtpViewModel()
     var contact: String?
@@ -38,7 +39,12 @@ class OTPViewController: BaseViewController {
         textfield2.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         textField3.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         textField4.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-   
+        let array = Array(otp ?? "")
+        textField1.text = "\(array[0])"
+        textfield2.text = "\(array[1])"
+        textField3.text = "\(array[2])"
+        textField4.text = "\(array[3])"
+
         textField1.becomeFirstResponder()
         
         if otpType == .signin{
@@ -136,3 +142,13 @@ class OTPViewController: BaseViewController {
     } 
 }
 
+
+extension String {
+    subscript(_ index: Int) -> Character? {
+        guard index >= 0, index < self.count else {
+            return nil
+        }
+
+        return self[self.index(self.startIndex, offsetBy: index)]
+    }
+}

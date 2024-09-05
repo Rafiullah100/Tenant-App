@@ -54,6 +54,8 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         contactLabel.text = UserDefaults.standard.mobile
         self.animateSpinner()
         networkingCall()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getWorker), name: Notification.Name(Constants.reloadWorkers), object: nil)
     }
     
     private func networkingCall(){
@@ -82,19 +84,14 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         }
     }
     
-    private func getWorker(){
-        self.animateSpinner()
-        if branchIndex == nil && skillIndex == nil {
-            viewModel.getWorkers()
-        }
-        else if branchIndex == nil{
-            viewModel.getWorkers(skillID: viewModel.getSkillID(at: skillIndex ?? 0))
-        }
-        else if skillIndex == nil{
-            viewModel.getWorkers(skillID: viewModel.getSkillID(at: skillIndex ?? 0))
-        }
-        else {
+    @objc private func getWorker(){
+        if branchIndex != nil && skillIndex != nil{
+            self.animateSpinner()
             viewModel.getWorkers(branchID: viewModel.getBranchID(at: branchIndex ?? 0), skillID: viewModel.getSkillID(at: skillIndex ?? 0))
+        }
+        else if branchIndex != nil && skillIndex == nil{
+            self.animateSpinner()
+            viewModel.getWorkers(branchID: viewModel.getBranchID(at: branchIndex ?? 0))
         }
     }
     

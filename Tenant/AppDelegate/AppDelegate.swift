@@ -8,6 +8,8 @@
 import UIKit
 import GoogleMaps
 import IQKeyboardManager
+import NMAKit
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -17,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let language: AppLanguage = AppLanguage(rawValue: UserDefaults.standard.selectedLanguage ?? "") ?? .arabic
 //        UserDefaults.standard.isRTL = 1
 //        UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)
-        
-        
+
+        NMAApplicationContext.set(appId: Constants.hereAppID, appCode: Constants.hereAppID)
         GMSServices.provideAPIKey("AIzaSyBC2Xdb2ato7ULwuGnDjPLXLAvqUZx_1VM")
         let language: AppLanguage = AppLanguage(rawValue: UserDefaults.standard.selectedLanguage ?? "") ?? .english
         UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)

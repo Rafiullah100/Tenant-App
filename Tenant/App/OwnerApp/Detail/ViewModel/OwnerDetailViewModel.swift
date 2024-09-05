@@ -139,4 +139,11 @@ class OwnerDetailViewModel {
 
         return company + " | " + person
     }
+    
+    func getTenant() -> String {
+        let name = self.complaintDetail.value?.tenant?.name ?? ""
+        let contact = self.complaintDetail.value?.tenant?.contact ?? ""
+        
+        return "\(name) - \(contact)"
+    }
 }

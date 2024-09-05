@@ -94,11 +94,11 @@ class PropertyDetailViewController: BaseViewController {
     }
 
     @IBAction func flatBtnAction(_ sender: Any) {
-        Switcher.gotoFlatList(delegate: self, propertyID: propertyID ?? 0)
+        Switcher.gotoFlatList(delegate: self, propertyID: propertyID ?? 0, buildingNumber: propertyDetail?.buildingNo ?? "")
     }
     
     @IBAction func companyBtnAction(_ sender: Any) {
-        Switcher.gotoCompanyList(delegate: self, propertyID: propertyID ?? 0)
+        Switcher.gotoCompanyList(delegate: self, propertyID: propertyID ?? 0, buildingNumber: propertyDetail?.buildingNo ?? "")
     }
     
     @IBAction func deleteBtnAction(_ sender: Any) {
@@ -109,6 +109,6 @@ class PropertyDetailViewController: BaseViewController {
     @IBAction func assigntenantToVilla(_ sender: Any) {
         let flatsCount = propertyDetail?.flats?.count ?? 0
         guard flatsCount > 0 else { return  }
-        Switcher.gotoAddTenant(delegate: self, flatID: propertyDetail?.flats?[0].id ?? 0)
+        Switcher.gotoAddTenant(delegate: self, flatID: propertyDetail?.flats?[0].id ?? 0, flatNumber: propertyDetail?.flats?[0].flatNo ?? "")
     }
 }

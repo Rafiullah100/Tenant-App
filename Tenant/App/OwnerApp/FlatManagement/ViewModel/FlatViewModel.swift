@@ -31,6 +31,11 @@ class FlatViewModel {
         return "FLAT \(flatNo)"
     }
     
+    func getFlatNumber(at index: Int) -> String {
+        let flatNo = self.flatList.value?.flats?.rows?[index].flatNo?.uppercased() ?? ""
+        return "FLAT \(flatNo)"
+    }
+    
     func getFlatID(at index: Int) -> Int {
         let flatId = self.flatList.value?.flats?.rows?[index].id ?? 0
         return flatId

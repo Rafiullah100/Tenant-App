@@ -19,7 +19,8 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
             FlatTableView.register(UINib(nibName: "FlatCardTableViewCell", bundle: nil), forCellReuseIdentifier: FlatCardTableViewCell.cellReuseIdentifier())
         }
     }
-    
+    var buildingNumer: String?
+
     let viewModel = FlatViewModel()
     var propertyID: Int?
     private var isLoading = true
@@ -30,7 +31,8 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
         FlatTableView.showsVerticalScrollIndicator = false
 
         searchView.clipsToBounds = true
-        titlLabel.text = LocalizationKeys.flatManagement.rawValue.localizeString()
+        titlLabel.text = buildingNumer ?? ""
+        viewControllerTitle = LocalizationKeys.flatManagement.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchFlatNumber.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         
@@ -92,7 +94,7 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
             Switcher.gotoRemoveTenant(delegate: self, flatDetail: flat)
         }
         else{
-            Switcher.gotoAddTenant(delegate: self, flatID: viewModel.getFlatID(at: indexPath.row))
+            Switcher.gotoAddTenant(delegate: self, flatID: viewModel.getFlatID(at: indexPath.row), flatNumber: viewModel.getFlatNumber(at: indexPath.row))
         }
     }
 }

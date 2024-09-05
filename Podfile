@@ -13,6 +13,8 @@ target 'Tenant' do
   pod 'IQKeyboardManager' #iOS8 and later
   pod 'SpinKit'
   pod 'Alamofire', '~> 5.0.0-rc.2'
+  pod 'HEREMapsStarter'
+#  pod 'HEREMaps'
 end
 
 post_install do |installer|

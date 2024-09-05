@@ -35,8 +35,8 @@ class WorkerDetailViewModel {
         }
     }
     
-    func markComplete(image: [UIImage], complaintID: Int)  {
-        Networking.shared.markComplete(route: .workerCompletion, imageParameter: "images", images: image, parameters: ["id": complaintID]) { result in
+    func markComplete(images: [UIImage], complaintID: Int)  {
+        Networking.shared.markComplete(route: .workerCompletion, imageParameter: "images", images: images, parameters: ["id": complaintID]) { result in
             switch result {
             case .success(let completion):
                 self.completion.value = completion
