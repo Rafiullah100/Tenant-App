@@ -277,9 +277,9 @@ extension UITableView{
         let messageLabel = UILabel()
         
         titleLabel.textColor = .label
-        titleLabel.font = UIFont(name: "Poppins-regular", size: 16)
+        titleLabel.font = UIFont(name: "Outfit-regular", size: 16)
         messageLabel.textColor = .label
-        messageLabel.font = UIFont(name: "Poppins-regular", size: 14)
+        messageLabel.font = UIFont(name: "Outfit-regular", size: 14)
 //        titleLabel.text = message ?? LocalizationKeys.noRecordFound.rawValue.localizeString()
 //        titleLabel.text =
 

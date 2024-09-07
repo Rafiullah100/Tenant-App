@@ -15,6 +15,9 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
             historyTableView.register(UINib(nibName: "TenantTableViewCell", bundle: nil), forCellReuseIdentifier: TenantTableViewCell.cellReuseIdentifier())
         }
     }
+    @IBOutlet weak var buildingValueLabel: UILabel!
+    @IBOutlet weak var flatValueLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var buildingLabel: UILabel!
     @IBOutlet weak var flatLabel: UILabel!
     @IBOutlet weak var historyLabel: UILabel!
@@ -26,8 +29,8 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserDefaults.standard.token ?? "")
-        buildingLabel.text = "\(LocalizationKeys.buildingNo.rawValue.localizeString()):   12ADF"
-        flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString()):   14"
+        buildingLabel.text = "\(LocalizationKeys.buildingNo.rawValue.localizeString())"
+        flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString())"
         historyLabel.text = LocalizationKeys.recent.rawValue.localizeString()
         historyTableView.showsVerticalScrollIndicator = false
         
@@ -37,10 +40,9 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         viewModel.tenantResidence.bind { [unowned self] residence in
             guard let _ = residence else {return}
             self.savePropertiesAndFlat()
+            updateUI()
         }
         viewModel.getTenantResidence()
-        
-        
         
         callAPI()
         NotificationCenter.default.addObserver(self, selector: #selector(callAPI), name: NSNotification.Name(Constants.reloadTenantComplaints), object: nil)
@@ -58,8 +60,13 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         viewModel.getComplaints()
     }
     
+    private func updateUI(){
+        self.buildingValueLabel.text = viewModel.getTenantBuildingNo()
+        self.flatValueLabel.text = viewModel.getTenantFlatNo()
+        nameLabel.text = UserDefaults.standard.name
+    }
+    
     private func savePropertiesAndFlat(){
-        print(viewModel.propertyIDIfTenant(), viewModel.flatIDIfTenant())
         UserDefaults.standard.propertyIDIfTenant = viewModel.propertyIDIfTenant()
         UserDefaults.standard.flatIDIfTenant = viewModel.flatIDIfTenant()
     }
@@ -116,11 +123,11 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if viewModel.isTaskCompleted(index: indexPath.row) == 1{
-            Switcher.gotoTenantCompletedDetailScreen(delegate: self, complaintID: viewModel.getHistoryID(index: indexPath.row))
+        if isRecent == true{
+            Switcher.gotoTenantCompletedDetailScreen(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
         }
         else{
-            Switcher.gotoTenantDetailScreen(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
+            Switcher.gotoTenantCompletedDetailScreen(delegate: self, complaintID: viewModel.getHistoryID(index: indexPath.row))
         }
     }
 }

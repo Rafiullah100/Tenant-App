@@ -11,7 +11,7 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var galleryView: UIView!
-    @IBOutlet weak var descriptionTextView: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var noFileLabel: UILabel!

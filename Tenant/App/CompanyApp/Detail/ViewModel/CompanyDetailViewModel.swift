@@ -36,6 +36,25 @@ class CompanyDetailViewModel {
         }
     }
     
+    func getComplaintPhotoCount() -> Int {
+        return self.complaintDetail.value?.complaintDetail?.complainImages?.count ?? 0
+    }
+    
+    func getWorkerPhotoCount() -> Int {
+        return self.complaintDetail.value?.complaintDetail?.completionImages?.count ?? 0
+    }
+    
+    func getPhoto(index: Int) -> String {
+        print(self.complaintDetail.value?.complaintDetail?.complainImages?[index].imageURL ?? "")
+        return self.complaintDetail.value?.complaintDetail?.complainImages?[index].imageURL ?? ""
+    }
+    
+    func getPhotoForCompleted(index: Int) -> String {
+        print(self.complaintDetail.value?.complaintDetail?.completionImages?[index].imageURL ?? "")
+        return self.complaintDetail.value?.complaintDetail?.completionImages?[index].imageURL ?? ""
+    }
+    
+    
     func getComplaint() -> TenantComplaintDetail? {
         return self.complaintDetail.value?.complaintDetail
     }
@@ -83,18 +102,22 @@ class CompanyDetailViewModel {
         return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.complaintDetail?.timestamp ?? "")
     }
     
+    func getCompanyAcceptedDate() -> String {
+        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.complaintDetail?.companyApprovalDatetime ?? "")
+    }
+    
     func getPhotosForInProgressComplaint() -> [ComplainImage] {
         return self.complaintDetail.value?.complaintDetail?.complainImages ?? []
     }
     
-    func getPhoto(index: Int) -> String {
-        print(self.complaintDetail.value?.complaintDetail?.complainImages?[index].imageURL ?? "")
-        return self.complaintDetail.value?.complaintDetail?.complainImages?[index].imageURL ?? ""
-    }
-    
-    func getCompanyPhoto(index: Int) -> String {
-        return self.complaintDetail.value?.complaintDetail?.completionImages?[index].imageURL ?? ""
-    }
+//    func getPhoto(index: Int) -> String {
+//        print(self.complaintDetail.value?.complaintDetail?.complainImages?[index].imageURL ?? "")
+//        return self.complaintDetail.value?.complaintDetail?.complainImages?[index].imageURL ?? ""
+//    }
+//    
+//    func getCompanyPhoto(index: Int) -> String {
+//        return self.complaintDetail.value?.complaintDetail?.completionImages?[index].imageURL ?? ""
+//    }
     
     func getWorkerID() -> Int {
         return self.complaintDetail.value?.complaintDetail?.workerID ?? 0
@@ -112,6 +135,10 @@ class CompanyDetailViewModel {
         return self.complaintDetail.value?.complaintDetail?.scheduleTime ?? ""
     }
     
+    func getAssignWorker() -> String {
+        return self.complaintDetail.value?.complaintDetail?.worker?.name ?? ""
+    }
+    
     func getMaintenancePersonContact() -> String {
         return self.complaintDetail.value?.complaintDetail?.property?.company?.contact ?? ""
     }
@@ -127,5 +154,25 @@ class CompanyDetailViewModel {
         let person = self.complaintDetail.value?.complaintDetail?.property?.company?.contact ?? ""
 
         return company + " | " + person
+    }
+    
+    func hideAcceptedView() ->  Bool{
+        let workerID = self.complaintDetail.value?.complaintDetail?.workerID ?? 0
+        return workerID == 0 ? true : false
+    }
+    
+    func hideScheduleView() ->  Bool{
+        let workerID = self.complaintDetail.value?.complaintDetail?.workerID ?? 0
+        return workerID == 0 ? true : false
+    }
+    
+    func hideWorkerPhotoView() ->  Bool{
+        let isTaskCompleted = self.complaintDetail.value?.complaintDetail?.taskComplete ?? 0
+        return isTaskCompleted == 0 ? true : false
+    }
+    
+    func hideButtonsView() -> Bool{
+        let workerID = self.complaintDetail.value?.complaintDetail?.workerID ?? 0
+        return workerID == 0 ? false : true
     }
 }

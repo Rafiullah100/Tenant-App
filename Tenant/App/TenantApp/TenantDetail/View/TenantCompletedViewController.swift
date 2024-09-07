@@ -15,7 +15,6 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var complaintTitleLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
-    @IBOutlet weak var photoLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var complaintIdLabel: UILabel!
     
@@ -26,40 +25,52 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     @IBOutlet weak var personLbl: UILabel!
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var scheduleLbl: UILabel!
-    
-    private var viewModel = TenantComplaintDetailViewModel()
-    var complaintID: Int?
-    
-    @IBOutlet weak var collectionViewDone: UICollectionView!{
+    @IBOutlet weak var postLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionLbl: UILabel!
+   
+    @IBOutlet weak var complaintPhtotoView: UIView!
+    @IBOutlet weak var scheduleView: UIView!
+    @IBOutlet weak var companyPhotoView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
-            collectionViewDone.register(StatusDoneCollectionViewCell.nib(), forCellWithReuseIdentifier: StatusDoneCollectionViewCell.identifier)
-            collectionViewDone.delegate = self
-            collectionViewDone.dataSource = self
+            collectionView.register(ComplainDetailCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplainDetailCollectionViewCell.identifier)
+            collectionView.delegate = self
+            collectionView.dataSource = self
         }
     }
+    
+    @IBOutlet weak var companyCollectionView: UICollectionView!{
+        didSet{
+            companyCollectionView.register(ComplainDetailCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplainDetailCollectionViewCell.identifier)
+            companyCollectionView.delegate = self
+            companyCollectionView.dataSource = self
+        }
+    }
+
+    private var viewModel = TenantComplaintDetailViewModel()
+    var complaintID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         complaintIdLabel.text = LocalizationKeys.complaintID.rawValue.localizeString()
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
-        photoLabel.text = LocalizationKeys.photosUploaded.rawValue.localizeString()
+//        photoLabel.text = LocalizationKeys.photosUploaded.rawValue.localizeString()
         confirmButton.setTitle(LocalizationKeys.confirm.rawValue.localizeString(), for: .normal)
         scheduleLabel.text = LocalizationKeys.schedule.rawValue.localizeString()
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
-        
-        collectionViewDone.showsVerticalScrollIndicator = false
+        descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
+        postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
 
         type = .tenant
         viewModel.complaintDetail.bind { [unowned self] detail in
             guard let _ = detail else {return}
             self.stopAnimation()
             self.updateUI()
-            self.collectionViewDone.reloadData()
         }
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
-        
         confirmWork()
     }
     
@@ -83,18 +94,18 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         complaintTitleLabel.text = viewModel.getTitle()
         idLabel.text = "\(viewModel.getCompalintID())"
         statusLbl.text = viewModel.getStatus()
-//        descriptionLbl.text = viewModel.getDescription()
+        descriptionLbl.text = viewModel.getDescription()
         scheduleLbl.text = viewModel.getScheduleDate()
         timeLbl.text = viewModel.getScheduleTime()
         personLbl.text = viewModel.getMaintenancePersonContact()
         phoneLbl.text = viewModel.getContacts()
-        if viewModel.isTaskCompleted() == 0{
-            confirmView.isHidden = true
-        }
-        else {
-            confirmView.isHidden = false
-        }
-        collectionViewDone.reloadData()
+        dateLabel.text = viewModel.getPostedDate()
+        scheduleView.isHidden = viewModel.hideScheduleView()
+        confirmView.isHidden = viewModel.hideConfirmView()
+        complaintPhtotoView.isHidden = viewModel.hideComplaintPhotoView()
+        companyPhotoView.isHidden = viewModel.hideCompanyPhotoView()
+        self.collectionView.reloadData()
+        self.companyCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,12 +114,22 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getCompanyUploadedPhotos().count
+        if collectionView == companyCollectionView{
+            return viewModel.getPhotosForCompletedCount()
+        }
+        else{
+            return viewModel.getPhotosCount()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatusDoneCollectionViewCell.identifier, for: indexPath)as! StatusDoneCollectionViewCell
-        cell.configure(with: viewModel.getCompanyPhoto(index: indexPath.row))
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplainDetailCollectionViewCell.identifier, for: indexPath)as! ComplainDetailCollectionViewCell
+        if collectionView == companyCollectionView{
+            cell.configure(with: viewModel.getPhotoForCompleted(index: indexPath.row))
+        }
+        else{
+            cell.configure(with: viewModel.getPhoto(index: indexPath.row))
+        }
         return cell
     }
  

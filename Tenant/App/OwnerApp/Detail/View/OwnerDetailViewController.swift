@@ -107,41 +107,23 @@ class OwnerDetailViewController: BaseViewController {
     }
     
     private func updateUI(){
-        if ownerComplaint == .new {
-            companyPhotoView.isHidden = true
-            companyAcceptedView.isHidden = true
-            approveView.isHidden = true
-            completedView.isHidden = true
-            scheduleView.isHidden = true
-        }
-        else if ownerComplaint == .rejected{
-            companyPhotoView.isHidden = true
-            buttonsView.isHidden = true
-            companyAcceptedView.isHidden = true
-            completedView.isHidden = true
-            scheduleView.isHidden = true
-        }
-        else if ownerComplaint == .ongoing{
-            companyPhotoView.isHidden = true
-            buttonsView.isHidden = true
-            completedView.isHidden = true
-        }
-        else if ownerComplaint == .completed{
-            buttonsView.isHidden = true
-        }
-        
-        approveLabel.text = viewModel.isRejected() == true ? LocalizationKeys.rejectedOn.rawValue.localizeString() : LocalizationKeys.approvedOn.rawValue.localizeString()
+        completedView.isHidden = viewModel.hideCompletedView()
+        companyAcceptedView.isHidden = viewModel.hideAcceptedView()
+        scheduleView.isHidden = viewModel.hideScheduleView()
+        buttonsView.isHidden = viewModel.hideApproveButtonView()
+        approveView.isHidden = viewModel.hideApproveView()
+        companyPhotoView.isHidden = viewModel.hideCompanyPhotoView()
 
-        
+        approveLabel.text = viewModel.isRejected() == true ? LocalizationKeys.rejectedOn.rawValue.localizeString() : LocalizationKeys.approvedOn.rawValue.localizeString()
         complaintTitleLabel.text = viewModel.getTitle()
         statusValueLabel.text = viewModel.getStatus()
         postedValueLabel.text = viewModel.getPostedDate()
         approvedValueLabel.text = viewModel.getOwnerApprovalDate()
         acceptedValueLabel.text = viewModel.getCompanyAcceptedDate()
-
         scheduleValueLabel.text = viewModel.getScheduleDate()
         timeValueLabel.text = viewModel.getScheduleTime()
         tenantValueLabel.text = viewModel.getTenant()
+        propertyValueLabel.text = viewModel.getProperty()
 //        personValueLabel.text = viewModel.g
         tenantCollectionView.reloadData()
         companyCollectionView.reloadData()

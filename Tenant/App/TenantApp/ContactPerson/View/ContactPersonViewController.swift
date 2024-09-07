@@ -24,8 +24,6 @@ class ContactPersonViewController: BaseViewController {
         }
     }
     private var viewModel = ContactViewModel()
-
-    let contacts = [ContactPerson(name: "Owner Contact", contact: "+233 2471 72 944"), ContactPerson(name: "Maintenance Company Contact", contact: "+233 5921 61 530")]
     
     override func viewDidLoad() {
         super.viewDidLoad()

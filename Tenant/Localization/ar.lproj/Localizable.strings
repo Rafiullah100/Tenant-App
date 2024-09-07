@@ -30,8 +30,8 @@
 "complaintID" = "معرف الشكوى:";
 "status" = "حالة:";
 "posted" = "نشر:";
-"buildingNo" = "لا للبناء";
-"flatNo" = "رقم الشقة";
+"buildingNo" = ":لا للبناء";
+"flatNo" = ":رقم الشقة";
 "history" = "تاريخ";
 
 "newComplaint" = "شكوى جديدة";

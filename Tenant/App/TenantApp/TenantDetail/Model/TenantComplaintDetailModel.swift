@@ -169,6 +169,7 @@ struct TenantComplaintDetail: Codable {
     let property: Property?
     let skill: Skill?
     let tenant: Tenant?
+    let worker: DetailWorker?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -192,7 +193,7 @@ struct TenantComplaintDetail: Codable {
         case timestamp
         case complainImages = "complain_images"
         case completionImages = "completion_images"
-        case property, skill, tenant
+        case property, skill, tenant, worker
     }
 }
 
@@ -273,7 +274,22 @@ struct Skill: Codable {
     }
 }
 
+struct DetailWorker: Codable {
+    let id, branchID: Int?
+    let name: String?
+    let email: String?
+    let isVerified: Int?
+    let contact: String?
+    let photo: String?
 
+    enum CodingKeys: String, CodingKey {
+        case id
+        case branchID = "branch_id"
+        case name, email
+        case isVerified = "is_verified"
+        case contact, photo
+    }
+}
 
 
 

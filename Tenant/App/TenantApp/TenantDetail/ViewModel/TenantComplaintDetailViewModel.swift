@@ -112,6 +112,7 @@ class TenantComplaintDetailViewModel {
     }
     
     func getPhotoForCompleted(index: Int) -> String {
+        print(self.complaintDetail.value?.completionImages?[index].imageURL ?? "")
         return self.complaintDetail.value?.completionImages?[index].imageURL ?? ""
     }
     
@@ -127,6 +128,10 @@ class TenantComplaintDetailViewModel {
         return self.complaintDetail.value?.taskComplete ?? 0
     }
     
+    func isConfirmBYTenant() -> Int{
+        return self.complaintDetail.value?.tenantApproval ?? 0
+    }
+    
     func getScheduleDate() -> String {
         return self.complaintDetail.value?.scheduleDate ?? ""
     }
@@ -140,9 +145,53 @@ class TenantComplaintDetailViewModel {
     }
     
     func getContacts() -> String? {
+        let owner = self.complaintDetail.value?.property?.company?.contact ?? ""
         let company = self.complaintDetail.value?.property?.company?.contact ?? ""
-        let person = self.complaintDetail.value?.property?.company?.contact ?? ""
 
-        return company + " | " + person
+        return owner + " | " +  company
     }
+        
+    func hideScheduleView() -> Bool {
+        let workerID = self.complaintDetail.value?.workerID ?? 0
+        let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
+        let isConfirmBYTenant = self.complaintDetail.value?.tenantApproval ?? 0
+
+        if workerID == 0 && isTaskCompleted == 0 && isConfirmBYTenant == 0{
+            return true
+        }
+        else if workerID != 0 && isTaskCompleted == 1 && isConfirmBYTenant == 1{
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func hideConfirmView() -> Bool {
+        let workerID = self.complaintDetail.value?.workerID ?? 0
+        let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
+        let isConfirmBYTenant = self.complaintDetail.value?.tenantApproval ?? 0
+
+        if workerID == 0 && isTaskCompleted == 0 && isConfirmBYTenant == 0{
+            return true
+        }
+        else if workerID != 0 && isTaskCompleted == 1 && isConfirmBYTenant == 1{
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func hideComplaintPhotoView() -> Bool {
+        let isConfirmBYTenant = self.complaintDetail.value?.tenantApproval ?? 0
+        return isConfirmBYTenant == 1 ? true : false
+    }
+    
+    func hideCompanyPhotoView() -> Bool {
+        let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
+        return isTaskCompleted == 0 ? true : false
+    }
+    
+    
 }

@@ -44,6 +44,14 @@ class TenantComplaintViewModel {
         return self.tenantResidence.value?.flat?.id ?? 0
     }
     
+    func getTenantFlatNo() -> String {
+        return self.tenantResidence.value?.flat?.flatNo ?? ""
+    }
+    
+    func getTenantBuildingNo() -> String {
+        return self.tenantResidence.value?.flat?.properties?.buildingNo ?? ""
+    }
+    
     func getRecentID(index: Int) -> Int{
         return self.complaintList.value?.complaintsRecent?.rows?[index].id ?? 0
     }

@@ -29,8 +29,8 @@
 "complaintID" = "Complaint ID:";
 "status" = "Status:";
 "posted" = "Posted:";
-"buildingNo" = "Building No";
-"flatNo" = "Flat No";
+"buildingNo" = "Building No:";
+"flatNo" = "Flat No:";
 "history" = "History";
 
 "newComplaint" = "New Complaint";

@@ -119,6 +119,23 @@ class OwnerDetailViewModel {
         return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.companyApprovalDatetime ?? "")
     }
     
+    func getProperty() -> String? {
+        let type = self.complaintDetail.value?.property?.buildingType
+        var propertyType = ""
+        
+        if type == "builidng" {
+            propertyType = "Builidng"
+        }
+        else{
+            propertyType = "Villa"
+        }
+        let buildingNo = self.complaintDetail.value?.property?.buildingNo
+        let district = self.complaintDetail.value?.property?.district
+        let city = self.complaintDetail.value?.property?.city
+
+        return "\(propertyType ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
+    }
+    
     func getOwnerApprovalDate() -> String {
 //        return self.complaintDetail.value?.ownerApprovalDatetime ?? ""
         return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.ownerApprovalDatetime ?? "")
@@ -146,4 +163,79 @@ class OwnerDetailViewModel {
         
         return "\(name) - \(contact)"
     }
+    
+    func hideScheduleView() -> Bool {
+        let isApproveOrRejected = self.complaintDetail.value?.ownerApproval ?? 0
+        let workerID = self.complaintDetail.value?.workerID ?? 0
+
+        if isApproveOrRejected == 0{
+            return true
+        }
+        else if isApproveOrRejected == 2{
+            return true
+        }
+        else if workerID == 0{
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func hideApproveButtonView() -> Bool {
+        let isApproveOrRejected = self.complaintDetail.value?.ownerApproval ?? 0
+        if isApproveOrRejected == 1 || isApproveOrRejected == 2{
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func hideComplaintPhotoView() -> Bool {
+        let isConfirmBYTenant = self.complaintDetail.value?.tenantApproval ?? 0
+        return isConfirmBYTenant == 1 ? true : false
+    }
+    
+    func hideCompanyPhotoView() -> Bool {
+        let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
+        return isTaskCompleted == 0 ? true : false
+    }
+    
+    func hideApproveView() -> Bool {
+        let ownerApproval = self.complaintDetail.value?.ownerApproval ?? 0
+        return ownerApproval == 0 ? true : false
+    }
+    
+    func hideAcceptedView() -> Bool {
+        let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
+        return isTaskCompleted == 0 ? true : false
+    }
+    
+    func hideCompletedView() -> Bool {
+        let isApproveOrRejected = self.complaintDetail.value?.ownerApproval ?? 0
+        let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
+        let workerID = self.complaintDetail.value?.workerID ?? 0
+
+        if isApproveOrRejected == 0 || isApproveOrRejected == 2{
+            return true
+        }
+        else if workerID == 0{
+            return true
+        }
+        else if isTaskCompleted  == 0 {
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
 }
+
+
+//companyPhotoView.isHidden = true
+//companyAcceptedView.isHidden = true
+//approveView.isHidden = true
+//completedView.isHidden = true
+//scheduleView.isHidden = true

@@ -14,7 +14,6 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var rejectedButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var ongoingButton: UIButton!
     @IBOutlet weak var newButton: UIButton!
@@ -40,8 +39,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         ongoingButton.setTitle(LocalizationKeys.ongoing.rawValue.localizeString(), for: .normal)
         searchTextField.placeholder = LocalizationKeys.search.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
-//        print(UserDefaults.standard.token)
-//        print(UserDefaults.standard.userID)
+
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
         
@@ -72,6 +70,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         isDone.toggle()
         doneButton.setImage(UIImage(named: isDone ? "tick-green" : "tick-gray"), for: .normal)
         complaintType = .completed
+        setupButton(complaintType: .completed)
     }
     
     @IBAction func profileBtnAction(_ sender: Any) {
@@ -151,13 +150,15 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         }
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if complaintType == .new{
             Switcher.gotoPendingDetail(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
         }
-        else{
-            Switcher.gotoCompletedDetail(delegate: self)
+        else if complaintType == .ongoing{
+            Switcher.gotoPendingDetail(delegate: self, complaintID: viewModel.getOngoingID(index: indexPath.row))
+        }
+        else if complaintType == .completed{
+            Switcher.gotoPendingDetail(delegate: self, complaintID: viewModel.getHistoryID(index: indexPath.row))
         }
     }
 }

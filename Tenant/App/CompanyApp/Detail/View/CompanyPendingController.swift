@@ -9,7 +9,7 @@ import UIKit
 
 class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
 
-    @IBOutlet weak var postedValueLabel: UILabel!
+    
     @IBOutlet weak var descriptionTextView: UILabel!
     @IBOutlet weak var statusValueLabel: UILabel!
     @IBOutlet weak var tenantValueLabel: UILabel!
@@ -22,16 +22,39 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
             collectionView.dataSource = self
         }
     }
+    
+    @IBOutlet weak var workerCollectionView: UICollectionView!{
+        didSet{
+            workerCollectionView.register(ComplainDetailCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplainDetailCollectionViewCell.identifier)
+            workerCollectionView.delegate = self
+            workerCollectionView.dataSource = self
+        }
+    }
+    
+    @IBOutlet weak var buttonsView: UIView!
+    @IBOutlet weak var acceptedView: UIView!
     @IBOutlet weak var complaintIdLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var photoLabel: UILabel!
-    @IBOutlet weak var postLabel: UILabel!
     @IBOutlet weak var rejectButton: UIButton!
     
     @IBOutlet weak var tenantLabel: UILabel!
     @IBOutlet weak var assignButton: UIButton!
+    @IBOutlet weak var postedValueLabel: UILabel!
+    @IBOutlet weak var acceptedValueLabel: UILabel!
+    @IBOutlet weak var acceptedLabel: UILabel!
+    @IBOutlet weak var postedLabel: UILabel!
+    @IBOutlet weak var scheduleView: UIView!
+    
+    @IBOutlet weak var personLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var scheduleLabel: UILabel!
+    @IBOutlet weak var personValueLabel: UILabel!
+    @IBOutlet weak var scheduleValueLabel: UILabel!
+    @IBOutlet weak var dateValueLabel: UILabel!
+    @IBOutlet weak var workerPhotoView: UIView!
+    
     
     var complaintID: Int?
     private var viewModel = CompanyDetailViewModel()
@@ -42,8 +65,12 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         complaintIdLabel.text = LocalizationKeys.property.rawValue.localizeString()
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         photoLabel.text = LocalizationKeys.photos.rawValue.localizeString()
-        postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
         tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
+        postedLabel.text = LocalizationKeys.postedOn.rawValue.localizeString()
+        acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
+        scheduleLabel.text = LocalizationKeys.schedule.rawValue.localizeString()
+        dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
+        personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         collectionView.showsVerticalScrollIndicator = false
 
         assignButton.setTitle(LocalizationKeys.assignToWorker.rawValue.localizeString(), for: .normal)
@@ -55,7 +82,6 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
                 guard let _ = detail else {return}
                 self.stopAnimation()
                 self.updateUI()
-                self.collectionView.reloadData()
             }
         }
         
@@ -82,8 +108,19 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         propertyValueLabel.text = "\(viewModel.getProperty() ?? "")"
         statusValueLabel.text = viewModel.getStatus()
         postedValueLabel.text = viewModel.getPostedDate()
+        acceptedValueLabel.text = viewModel.getCompanyAcceptedDate()
         descriptionTextView.text = viewModel.getDescription()
         tenantValueLabel.text = viewModel.getTenantNameContact()
+        scheduleValueLabel.text = viewModel.getScheduleDate()
+        dateValueLabel.text = viewModel.getScheduleTime()
+        personValueLabel.text = viewModel.getAssignWorker()
+        acceptedView.isHidden = viewModel.hideAcceptedView()
+        scheduleView.isHidden = viewModel.hideScheduleView()
+        workerPhotoView.isHidden = viewModel.hideWorkerPhotoView()
+        buttonsView.isHidden = viewModel.hideButtonsView()
+
+        self.collectionView.reloadData()
+        self.workerCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,12 +129,22 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getPhotosForInProgressComplaint().count
+        if collectionView == workerCollectionView{
+            return viewModel.getWorkerPhotoCount()
+        }
+        else{
+            return viewModel.getComplaintPhotoCount()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplainDetailCollectionViewCell.identifier, for: indexPath)as! ComplainDetailCollectionViewCell
-        cell.configure(with: viewModel.getPhoto(index: indexPath.row))
+        if collectionView == workerCollectionView{
+            cell.configure(with: viewModel.getPhotoForCompleted(index: indexPath.row))
+        }
+        else{
+            cell.configure(with: viewModel.getPhoto(index: indexPath.row))
+        }
         return cell
     }
     
