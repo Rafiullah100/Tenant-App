@@ -101,12 +101,12 @@ class OwnerDetailViewModel {
     
     func getScheduleDate() -> String {
 //        return self.complaintDetail.value?.scheduleDate ?? ""
-        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.scheduleDate ?? "")
+        return self.complaintDetail.value?.scheduleDate ?? ""
     }
     
     func getScheduleTime() -> String {
 //        return self.complaintDetail.value?.scheduleTime ?? ""
-        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.scheduleTime ?? "")
+        return self.complaintDetail.value?.scheduleTime ?? ""
 
     }
     
@@ -231,6 +231,13 @@ class OwnerDetailViewModel {
         }
     }
     
+    func getAssignWorkerContact() -> String {
+        return self.complaintDetail.value?.worker?.contact ?? ""
+    }
+    
+    func getCompletedDate() -> String {
+        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.taskCompleteDatetime ?? "")
+    }
 }
 
 

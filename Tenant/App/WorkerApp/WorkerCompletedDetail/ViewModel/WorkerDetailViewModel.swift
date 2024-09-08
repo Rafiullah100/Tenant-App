@@ -117,6 +117,10 @@ class WorkerDetailViewModel {
         return self.complaintDetail.value?.completionImages?[index].imageURL ?? ""
     }
     
+    func getCompanyPhotoCount() -> Int {
+        return self.complaintDetail.value?.completionImages?.count ?? 0
+    }
+    
     func getWorkerID() -> Int {
         return self.complaintDetail.value?.workerID ?? 0
     }

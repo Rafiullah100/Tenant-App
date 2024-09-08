@@ -29,6 +29,14 @@ class WorkerDetailViewController: BaseViewController {
         }
     }
     
+    @IBOutlet weak var uploadedCollectionView: UICollectionView!{
+        didSet{
+            uploadedCollectionView.register(ComplaintCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier())
+            uploadedCollectionView.delegate = self
+            uploadedCollectionView.dataSource = self
+        }
+    }
+    
     @IBOutlet weak var personValueLabel: UILabel!
     @IBOutlet weak var timeValueLabel: UILabel!
     @IBOutlet weak var scheduleValueLabel: UILabel!
@@ -63,7 +71,6 @@ class WorkerDetailViewController: BaseViewController {
             guard let _ = detail else {return}
             self.stopAnimation()
             self.updateUI()
-            self.collectionView.reloadData()
         }
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
@@ -82,6 +89,9 @@ class WorkerDetailViewController: BaseViewController {
         scheduleValueLabel.text = viewModel.getScheduleDate()
         timeValueLabel.text = viewModel.getScheduleTime()
         personValueLabel.text = viewModel.getMaintenancePersonContact()
+        propertyValueLabel.text = viewModel.getProperty()
+        collectionView.reloadData()
+        uploadedCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,12 +102,22 @@ class WorkerDetailViewController: BaseViewController {
 
 extension WorkerDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getPhotosCount()
+        if collectionView == uploadedCollectionView{
+            return viewModel.getCompanyPhotoCount()
+        }
+        else{
+            return viewModel.getPhotosCount()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier(), for: indexPath)as! ComplaintCollectionViewCell
-        cell.configure(with: viewModel.getPhoto(index: indexPath.row))
+        if collectionView == uploadedCollectionView{
+            cell.configure(with: viewModel.getCompanyPhoto(index: indexPath.row))
+        }
+        else{
+            cell.configure(with: viewModel.getPhoto(index: indexPath.row))
+        }
         return cell
     }
 }

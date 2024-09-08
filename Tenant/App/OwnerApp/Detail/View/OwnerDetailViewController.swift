@@ -75,7 +75,7 @@ class OwnerDetailViewController: BaseViewController {
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         approveLabel.text = LocalizationKeys.approvedOn.rawValue.localizeString()
         companyAcceptedLabel.text = LocalizationKeys.companyAcceptedOn.rawValue.localizeString()
-
+        
         type = .tenant
         
         viewModel.complaintDetail.bind { [weak self] details in
@@ -124,6 +124,8 @@ class OwnerDetailViewController: BaseViewController {
         timeValueLabel.text = viewModel.getScheduleTime()
         tenantValueLabel.text = viewModel.getTenant()
         propertyValueLabel.text = viewModel.getProperty()
+        personValueLabel.text = viewModel.getAssignWorkerContact()
+        completedValueLabel.text = viewModel.getCompletedDate()
 //        personValueLabel.text = viewModel.g
         tenantCollectionView.reloadData()
         companyCollectionView.reloadData()

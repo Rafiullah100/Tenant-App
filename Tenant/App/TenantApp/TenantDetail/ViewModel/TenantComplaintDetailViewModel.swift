@@ -193,5 +193,7 @@ class TenantComplaintDetailViewModel {
         return isTaskCompleted == 0 ? true : false
     }
     
-    
+    func getAssignWorkerContact() -> String {
+        return self.complaintDetail.value?.worker?.contact ?? ""
+    }
 }

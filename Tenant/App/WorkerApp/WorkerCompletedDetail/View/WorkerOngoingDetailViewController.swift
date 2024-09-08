@@ -64,6 +64,8 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
+        propertyValueLabel.text = viewModel.getProperty()
+
         type = .tenant
         hideGalleryView()
         

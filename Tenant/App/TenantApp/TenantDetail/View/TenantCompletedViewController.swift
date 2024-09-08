@@ -104,6 +104,8 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         confirmView.isHidden = viewModel.hideConfirmView()
         complaintPhtotoView.isHidden = viewModel.hideComplaintPhotoView()
         companyPhotoView.isHidden = viewModel.hideCompanyPhotoView()
+        personLbl.text = viewModel.getAssignWorkerContact()
+        
         self.collectionView.reloadData()
         self.companyCollectionView.reloadData()
     }
