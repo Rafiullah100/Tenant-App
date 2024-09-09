@@ -27,7 +27,7 @@ class CompanyPropertiesViewController: BaseViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         tableView.showsVerticalScrollIndicator = false
-
+        searchTextField.delegate = self
         searchView.clipsToBounds = true
         titlLabel.text = LocalizationKeys.propertiesAssigned.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
@@ -41,9 +41,12 @@ class CompanyPropertiesViewController: BaseViewController {
             self?.stopAnimation()
             self?.tableView.reloadData()
         }
-        
+        callAPI()
+    }
+    
+    private func callAPI(){
         self.animateSpinner()
-        viewModel.getProperties()
+        viewModel.getProperties(search: searchTextField.text ?? "")
     }
 }
 
@@ -64,6 +67,16 @@ extension CompanyPropertiesViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Switcher.gotoCompanyPropertyDetail(delegate: self)
+        guard let property = viewModel.getProperty(at: indexPath.row) else { return }
+        Switcher.gotoCompanyPropertyDetail(delegate: self, property: property)
     }
 }
+
+extension CompanyPropertiesViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        callAPI()
+        return true
+    }
+}
+
+

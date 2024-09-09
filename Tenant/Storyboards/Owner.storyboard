@@ -1406,7 +1406,7 @@ Cg
                                                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         </state>
                                                                                                         <connections>
-                                                                                                            <segue destination="bUP-5v-Jad" kind="show" id="Omc-0o-I5K"/>
+                                                                                                            <action selector="tenantMngMentAction:" destination="nzb-Fl-Fzg" eventType="touchUpInside" id="nrQ-ra-jRc"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                 </subviews>
@@ -3527,15 +3527,18 @@ Cg
                     <navigationItem key="navigationItem" id="h9h-nz-2jB"/>
                     <connections>
                         <outlet property="doneButton" destination="2or-dJ-rgO" id="Tyd-Ks-7SN"/>
+                        <outlet property="flatLabel" destination="tUG-p6-19Q" id="Oyq-PE-AEu"/>
                         <outlet property="flatValueLabel" destination="P9L-ld-Lgs" id="zFe-Vp-LT7"/>
                         <outlet property="nameLabel" destination="tYT-F1-BKG" id="t3X-vr-e8a"/>
                         <outlet property="newButton" destination="mQN-9P-lh2" id="av1-J4-BV5"/>
                         <outlet property="ongoingButton" destination="AaR-ad-U1m" id="Dwh-oI-RTb"/>
+                        <outlet property="propertyLabel" destination="JVN-Vv-d03" id="0mu-ZX-dnF"/>
                         <outlet property="propertyValueLabel" destination="lM0-wu-1TZ" id="rwZ-18-ZFe"/>
                         <outlet property="rejectedButton" destination="f71-vV-E6d" id="pNT-ZD-Eu6"/>
                         <outlet property="searchTextField" destination="XMZ-LJ-t5D" id="YY0-x9-BZL"/>
                         <outlet property="searchView" destination="z8Z-bv-zxc" id="BXT-Z3-F4Q"/>
                         <outlet property="tableView" destination="JGl-je-X7T" id="u0F-r9-ZUS"/>
+                        <outlet property="tenantLabel" destination="FtC-tr-q6d" id="ZVG-24-ffZ"/>
                         <outlet property="tenantValueLabel" destination="1Ow-BT-ox3" id="xXh-Ox-oB1"/>
                     </connections>
                 </viewController>

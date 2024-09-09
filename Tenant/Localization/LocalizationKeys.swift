@@ -149,6 +149,14 @@ enum LocalizationKeys: String {
     
     case rejectedOn
 
+    case ApprovalPendingfromOwner
+    case RejectedbyOwner
+    case AcceptancePendingfromMaintenanceCompany
+    case RejectedbyCompany
+    case Notassigntoworker
+    case Workinprogress
+    case WorkDoneWaitingforConfirmation
+    case WorkdoneApproved
 }
 
 

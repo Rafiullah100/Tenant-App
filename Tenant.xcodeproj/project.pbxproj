@@ -613,8 +613,8 @@
 		522FFBAF2C4CE12F0010A2EF /* TenantManagement */ = {
 			isa = PBXGroup;
 			children = (
-				522CBB9C2C819EF40060F2F1 /* ViewModel */,
 				522CBB992C8199A00060F2F1 /* Model */,
+				522CBB9C2C819EF40060F2F1 /* ViewModel */,
 				522CBB982C8199970060F2F1 /* View */,
 			);
 			path = TenantManagement;

@@ -173,6 +173,16 @@ class CompanyDetailViewModel {
     
     func hideButtonsView() -> Bool{
         let workerID = self.complaintDetail.value?.complaintDetail?.workerID ?? 0
-        return workerID == 0 ? false : true
+        let companyApproval = self.complaintDetail.value?.complaintDetail?.companyApproval ?? 0
+
+        if workerID == 0 && companyApproval == 0{
+            return false
+        }
+        else if workerID == 0 && companyApproval == 2{
+            return true
+        }
+        else {
+            return true
+        }
     }
 }

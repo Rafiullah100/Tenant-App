@@ -29,6 +29,7 @@ class CompanyManagmentViewController: BaseViewController {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
 
+        searchTextField.delegate = self
         searchView.clipsToBounds = true
         viewControllerTitle = LocalizationKeys.maintenanceCompanyManagement.rawValue.localizeString()
         titlLabel.text = buildingNumer ?? ""
@@ -41,14 +42,18 @@ class CompanyManagmentViewController: BaseViewController {
             self.stopAnimation()
             self.tableView.reloadData()
         }
-        self.animateSpinner()
-        viewModel.getList(propertyID: propertyID ?? 0)
-        
+        callAPI()
         viewModel.assign.bind { assign in
             guard let assign = assign else{return}
             self.stopAnimation()
             self.showAlert(message: assign.message ?? "")
         }
+    }
+    
+    private func callAPI(){
+        self.animateSpinner()
+        viewModel.getList(propertyID: propertyID ?? 0)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,4 +87,11 @@ extension CompanyManagmentViewController: UITableViewDelegate, UITableViewDataSo
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        Switcher.gotoCompanyDetail(delegate: self)
 //    }
+}
+
+extension CompanyManagmentViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        callAPI()
+        return true
+    }
 }

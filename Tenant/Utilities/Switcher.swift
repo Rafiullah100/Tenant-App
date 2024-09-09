@@ -194,6 +194,15 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
+    static func gotoTenantList(delegate: UIViewController, propertyID: Int, buildingNumber: String){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantsManagementViewController") as! TenantsManagementViewController
+        vc.propertyID = propertyID
+        vc.buildingNumer = buildingNumber
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     static func gotoFlatList(delegate: UIViewController, propertyID: Int, buildingNumber: String){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "FlatManagementViewController") as! FlatManagementViewController
         vc.propertyID = propertyID
@@ -285,8 +294,9 @@ class Switcher {
         delegate.present(vc, animated: true)
     }
     
-    static func gotoCompanyPropertyDetail(delegate: UIViewController){
+    static func gotoCompanyPropertyDetail(delegate: UIViewController, property: PropertiesRow){
         let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyPropertyDetailViewController") as! CompanyPropertyDetailViewController
+        vc.property = property
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)

@@ -22,9 +22,22 @@ class TenantCollectionViewCell: UICollectionViewCell {
         assignedToLabel.text = LocalizationKeys.assignTo.rawValue.localizeString()
 
     }
+    var delete: (() -> Void)?
 
+    @IBAction func btn(_ sender: Any) {
+        delete?()
+    }
     static func nib()->UINib{
         return UINib(nibName: "TenantCollectionViewCell", bundle: nil)
     }
+    
+    var tenants: PropertyTenantsFlat?{
+        didSet{
+            titleLbl.text = tenants?.ownersTenants?.name
+            flatNoLbl.text = "Flat \(tenants?.flatNo ?? "")"
+            phNoLbl.text = tenants?.ownersTenants?.contact ?? ""
+        }
+    }
+    
 }
 

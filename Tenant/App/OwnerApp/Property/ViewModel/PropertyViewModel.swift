@@ -12,8 +12,8 @@ class PropertyViewModel {
     var propertyList: Observable<PropertyModel> = Observable(nil)
     var profile: Observable<OwnerProfileModel> = Observable(nil)
 
-    func getProperties(){
-        _ = URLSession.shared.request(route: .properties, method: .post, parameters: ["owner_id": UserDefaults.standard.userID ?? 0], model: PropertyModel.self) { result in
+    func getProperties(search: String){
+        _ = URLSession.shared.request(route: .properties, method: .post, parameters: ["owner_id": UserDefaults.standard.userID ?? 0, "search": search], model: PropertyModel.self) { result in
             switch result {
             case .success(let list):
                 self.propertyList.value = list

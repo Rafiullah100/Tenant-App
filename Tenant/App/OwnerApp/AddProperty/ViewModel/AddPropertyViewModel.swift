@@ -37,7 +37,7 @@ class AddPropertyViewModel {
     }
     
     func getAddress(locationCode: String){
-        _ = URLSession.shared.request(route: .getAddress(locationCode), method: .get, parameters: [:], model: LocationCodeModel.self) { result in
+        _ = URLSession.shared.request(route: .getAddress(locationCode), method: .get, parameters: ["q": locationCode, "apiKey": Constants.apiKey], model: LocationCodeModel.self) { result in
             switch result {
             case .success(let address):
                 self.address.value = address

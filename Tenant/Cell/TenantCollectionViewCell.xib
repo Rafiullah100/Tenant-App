@@ -241,19 +241,20 @@
                                                 <rect key="frame" x="0.0" y="112.5" width="125" height="5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQg-Z4-cbt">
-                                                        <rect key="frame" x="56.5" y="-5" width="12" height="15"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="15" id="uXt-cR-LuA"/>
-                                                            <constraint firstAttribute="width" constant="12" id="zOB-ma-p90"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="5"/>
                                                         <state key="normal" image="delete"/>
+                                                        <connections>
+                                                            <action selector="btn:" destination="UXe-PZ-Aku" eventType="touchUpInside" id="beY-77-G9W"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="250" constant="30" id="31s-lH-OPD"/>
-                                                    <constraint firstItem="HQg-Z4-cbt" firstAttribute="centerY" secondItem="lPh-zP-Fsh" secondAttribute="centerY" id="OAG-PW-E9C"/>
-                                                    <constraint firstItem="HQg-Z4-cbt" firstAttribute="centerX" secondItem="lPh-zP-Fsh" secondAttribute="centerX" id="zVy-a6-67c"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HQg-Z4-cbt" secondAttribute="trailing" id="38S-NL-IiW"/>
+                                                    <constraint firstItem="HQg-Z4-cbt" firstAttribute="top" secondItem="lPh-zP-Fsh" secondAttribute="top" id="N1y-AI-kb0"/>
+                                                    <constraint firstAttribute="bottom" secondItem="HQg-Z4-cbt" secondAttribute="bottom" id="SWw-dm-VKQ"/>
+                                                    <constraint firstItem="HQg-Z4-cbt" firstAttribute="leading" secondItem="lPh-zP-Fsh" secondAttribute="leading" id="WgM-XG-kLr"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="bottomMaskedCornerRadius">

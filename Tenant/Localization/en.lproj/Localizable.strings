@@ -155,3 +155,12 @@
 "approvedOn" = "Approved On:";
 "companyAcceptedOn" = "Company Accepted on:";
  "rejectedOn" = "Rejected On:";
+
+"ApprovalPendingfromOwner" = "Approval Pending from Owner";
+"RejectedbyOwner" = "Rejected by Owner";
+"AcceptancePendingfromMaintenanceCompany" = "Acceptance Pending from Maintenance Company";
+"RejectedbyCompany" = "Rejected by Company";
+"Notassigntoworker" = "Not assign to worker";
+"Workinprogress" = "Work in progress";
+"WorkDoneWaitingforConfirmation" = "Work Done - Waiting for Confirmation";
+"WorkdoneaApproved" = "Work done, Approved";

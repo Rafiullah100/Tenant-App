@@ -11,8 +11,8 @@ class CompanyPropertyViewModel {
     var errorMessage: Observable<String> = Observable("")
     var propertyList: Observable<PropertyModel> = Observable(nil)
     
-    func getProperties(){
-        _ = URLSession.shared.request(route: .getAssignedProperties, method: .post, parameters: ["company_id": UserDefaults.standard.userID ?? 0], model: PropertyModel.self) { result in
+    func getProperties(search: String){
+        _ = URLSession.shared.request(route: .getAssignedProperties, method: .post, parameters: ["company_id": UserDefaults.standard.userID ?? 0, "search": search], model: PropertyModel.self) { result in
             switch result {
             case .success(let list):
                 self.propertyList.value = list

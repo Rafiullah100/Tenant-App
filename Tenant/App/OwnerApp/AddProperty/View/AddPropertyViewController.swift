@@ -38,12 +38,10 @@ class AddPropertyViewController: BaseViewController {
 
     var delegate: AddPropertyDelegate?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let camera = GMSCameraPosition.camera(withLatitude: 34.0151, longitude: 71.5249, zoom: 6.0)
-        mapView.camera = camera
         
+        locationTextField.text = "RHMA7335"
         titlLabel.text = LocalizationKeys.addNewProperty.rawValue.localizeString()
         propertyTextField.placeholder = LocalizationKeys.enterPropertyTitle.rawValue.localizeString()
         propertyTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
@@ -87,9 +85,25 @@ class AddPropertyViewController: BaseViewController {
         
         viewModel.address.bind {  [unowned self] address in
             guard let _ = address else {return}
+            self.stopAnimation()
             self.cityTextField.text = self.viewModel.getCity()
             self.districtTextField.text = self.viewModel.getDistrict()
+            setupMap()
         }
+        
+        setupMap()
+    }
+    
+    private func setupMap(){
+        let camera = GMSCameraPosition.camera(withLatitude: viewModel.getCoordinates().0, longitude: viewModel.getCoordinates().1, zoom: 14.0)
+        mapView.camera = camera
+        
+//        let marker = GMSMarker()
+//
+//        marker.position = CLLocationCoordinate2D(latitude: viewModel.getCoordinates().0,
+//                                                 longitude: viewModel.getCoordinates().1)
+//        marker.icon = UIImage(named: "pin")
+//        marker.map = mapView
     }
     
     override func viewWillAppear(_ animated: Bool) {

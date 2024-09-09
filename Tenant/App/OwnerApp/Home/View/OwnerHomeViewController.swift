@@ -11,6 +11,10 @@ import Dispatch
 
 class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tenantLabel: UILabel!
+    @IBOutlet weak var propertyLabel: UILabel!
+    @IBOutlet weak var flatLabel: UILabel!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tenantValueLabel: UILabel!
     @IBOutlet weak var propertyValueLabel: UILabel!
@@ -40,10 +44,15 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         tableView.showsVerticalScrollIndicator = false
 //        print(UserDefaults.standard.token)
 //        print(UserDefaults.standard.userID)
-
+        searchTextField.delegate = self
         searchView.clipsToBounds = true
         newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
         ongoingButton.setTitle(LocalizationKeys.ongoing.rawValue.localizeString(), for: .normal)
+        rejectedButton.setTitle(LocalizationKeys.reject.rawValue.localizeString(), for: .normal)
+        flatLabel.text = LocalizationKeys.flats.rawValue.localizeString()
+        tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
+        propertyLabel.text = LocalizationKeys.properties.rawValue.localizeString()
+        
         searchTextField.placeholder = LocalizationKeys.search.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         
@@ -58,10 +67,9 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
     }
     
     private func networkingCall(){
-
         dispatchGroup = DispatchGroup()
         dispatchGroup?.enter()
-        viewModel.getComplaints()
+        viewModel.getComplaints(search: searchTextField.text ?? "")
         dispatchGroup?.enter()
         viewModel.getProfile()
         
@@ -93,7 +101,7 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         }
         
         self.animateSpinner()
-        viewModel.getComplaints()
+        viewModel.getComplaints(search: searchTextField.text ?? "")
     }
     
     private func updateUI(){
@@ -218,4 +226,11 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
     }
 
 
+}
+
+extension OwnerHomeViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        reloadComplaints()
+        return true
+    }
 }

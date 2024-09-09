@@ -30,6 +30,7 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         FlatTableView.showsVerticalScrollIndicator = false
 
+        searchTextField.delegate = self
         searchView.clipsToBounds = true
         titlLabel.text = buildingNumer ?? ""
         viewControllerTitle = LocalizationKeys.flatManagement.rawValue.localizeString()
@@ -52,7 +53,7 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
     
     @objc private func networkingCall()  {
         self.animateSpinner()
-        viewModel.getList(propertyID: propertyID ?? 0)
+        viewModel.getList(propertyID: propertyID ?? 0, search: searchTextField.text ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,5 +97,12 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
         else{
             Switcher.gotoAddTenant(delegate: self, flatID: viewModel.getFlatID(at: indexPath.row), flatNumber: viewModel.getFlatNumber(at: indexPath.row))
         }
+    }
+}
+
+extension FlatManagementViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        networkingCall()
+        return true
     }
 }

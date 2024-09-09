@@ -13,8 +13,8 @@ class CompanyComplaintViewModel {
 
     var parameters: [String: Any]?
     
-    func getComplaints(){
-        _ = URLSession.shared.request(route: .getCompanyComplaints, method: .post, parameters: [:], model: CompanyComplaintsModel.self) { result in
+    func getComplaints(search: String){
+        _ = URLSession.shared.request(route: .getCompanyComplaints, method: .post, parameters: ["search": search], model: CompanyComplaintsModel.self) { result in
             switch result {
             case .success(let list):
                 self.complaintList.value = list

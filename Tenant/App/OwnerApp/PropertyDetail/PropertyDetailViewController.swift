@@ -97,6 +97,9 @@ class PropertyDetailViewController: BaseViewController {
         Switcher.gotoFlatList(delegate: self, propertyID: propertyID ?? 0, buildingNumber: propertyDetail?.buildingNo ?? "")
     }
     
+    @IBAction func tenantMngMentAction(_ sender: Any) {
+        Switcher.gotoTenantList(delegate: self, propertyID: propertyID ?? 0, buildingNumber: propertyDetail?.buildingNo ?? "")
+    }
     @IBAction func companyBtnAction(_ sender: Any) {
         Switcher.gotoCompanyList(delegate: self, propertyID: propertyID ?? 0, buildingNumber: propertyDetail?.buildingNo ?? "")
     }

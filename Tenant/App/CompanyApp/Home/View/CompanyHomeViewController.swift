@@ -58,7 +58,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     
     @objc private func loadData(){
         self.animateSpinner()
-        viewModel.getComplaints()
+        viewModel.getComplaints(search: searchTextField.text ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -160,5 +160,13 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         else if complaintType == .completed{
             Switcher.gotoPendingDetail(delegate: self, complaintID: viewModel.getHistoryID(index: indexPath.row))
         }
+    }
+}
+
+
+extension CompanyHomeViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loadData()
+        return true
     }
 }

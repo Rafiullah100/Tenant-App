@@ -8,7 +8,7 @@
 import Foundation
 
 struct PropertyTenantsModel: Codable {
-    let tenants: Tenants?
+    let tenants: PropertyTenants?
 }
 
 // MARK: - Tenants

@@ -12,8 +12,8 @@ class SelfPropertyViewModel {
     var propertyList: Observable<PropertyModel> = Observable(nil)
     var selectHome: Observable<AssignTenantToFlatModel> = Observable(nil)
 
-    func getProperties(){
-        _ = URLSession.shared.request(route: .properties, method: .post, parameters: ["owner_id": UserDefaults.standard.userID ?? 0], model: PropertyModel.self) { result in
+    func getProperties(search:String){
+        _ = URLSession.shared.request(route: .properties, method: .post, parameters: ["owner_id": UserDefaults.standard.userID ?? 0, "search": search], model: PropertyModel.self) { result in
             switch result {
             case .success(let list):
                 self.propertyList.value = list
@@ -90,7 +90,7 @@ class SelfPropertyViewModel {
 //    }
     
     func isSelectedHome(at index: Int) -> Bool {
-        print(self.propertyList.value?.properties?.rows?[index].flats?[0].id ?? 0, self.propertyList.value?.properties?.rows?[index].flats?[0].tenantID ?? 0)
+//        print(self.propertyList.value?.properties?.rows?[index].flats?[0].id ?? 0, self.propertyList.value?.properties?.rows?[index].flats?[0].tenantID ?? 0)
         let flatCount =  self.propertyList.value?.properties?.rows?[index].flats?.count ?? 0
         guard flatCount > 0 else { return false }
         let tenantID =  self.propertyList.value?.properties?.rows?[index].flats?[0].tenantID ?? 0

@@ -29,6 +29,7 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
 
+        searchTextField.delegate = self
         searchView.clipsToBounds = true
         titlLabel.text = "Select a Property as Your Own Home"
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
@@ -44,8 +45,7 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
                 self?.stopAnimation()
             }
         }
-        self.animateSpinner()
-        viewModel.getProperties()
+       callAPI()
         
         viewModel.selectHome.bind { select in
             guard let select = select else{return}
@@ -59,6 +59,11 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
                 self.showAlert(message: select.message ?? "")
             }
         }
+    }
+    
+    private func callAPI(){
+        self.animateSpinner()
+        viewModel.getProperties(search: searchTextField.text ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,3 +95,11 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
         Switcher.gotoSelfPropertyDetail(delegate: self, propertyDetail: detail)
     }
 }
+
+extension BothPropertyViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        callAPI()
+        return true
+    }
+}
+

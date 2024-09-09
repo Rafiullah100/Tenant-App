@@ -45,6 +45,7 @@ enum Route {
     case getAssignedProperties
     case getAddress(String)
     case timeSlots
+    case getPropertyTenants
 
     case logout
     case googleSignup
@@ -237,6 +238,8 @@ enum Route {
             return "https://geocode.search.hereapi.com/v1/geocode?q=\(code)&apiKey=\(Constants.apiKey)"
         case .timeSlots:
             return "api/mobile/company/time_slots"
+        case .getPropertyTenants:
+            return "api/mobile/tenant/get_list_by_property"
         }
     }
 }

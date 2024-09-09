@@ -167,3 +167,12 @@
     "companyAcceptedOn" = "الشركة مقبولة في:";
 
 "rejectedOn" = "تم الرفض في:";
+
+"ApprovalPendingfromOwner" = "في انتظار موافقة المالك";
+"RejectedbyOwner" = "تم رفضه من قبل المالك";
+"AcceptancePendingfromMaintenanceCompany" = "في انتظار قبول شركة الصيانة";
+"RejectedbyCompany" = "تم رفضه من قبل الشركة";
+"Notassigntoworker" = "لم يتم تعيينه للعامل";
+"Workinprogress" = "العمل قيد التقدم";
+"WorkDoneWaitingforConfirmation" = "تم الانتهاء من العمل - في انتظار التأكيد";
+"WorkdoneaApproved" = "تم الانتهاء من العمل والموافقة عليه";

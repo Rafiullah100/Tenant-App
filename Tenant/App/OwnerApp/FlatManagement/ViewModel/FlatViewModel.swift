@@ -11,8 +11,8 @@ class FlatViewModel {
     var errorMessage: Observable<String> = Observable("")
     var flatList: Observable<FlatModel> = Observable(nil)
     
-    func getList(propertyID: Int){
-        _ = URLSession.shared.request(route: .getFlats, method: .post, parameters: ["property_id": propertyID], model: FlatModel.self) { result in
+    func getList(propertyID: Int, search: String){
+        _ = URLSession.shared.request(route: .getFlats, method: .post, parameters: ["property_id": propertyID, "search": search], model: FlatModel.self) { result in
             switch result {
             case .success(let list):
                 self.flatList.value = list

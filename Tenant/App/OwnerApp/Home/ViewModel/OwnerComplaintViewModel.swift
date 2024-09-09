@@ -13,8 +13,8 @@ class OwnerComplaintViewModel {
     var complaintList: Observable<OwnerComplaintModel> = Observable(nil)
     var profile: Observable<OwnerProfileModel> = Observable(nil)
     
-    func getComplaints(){
-        _ = URLSession.shared.request(route: .ownerComplaints, method: .post, parameters: [:], model: OwnerComplaintModel.self) { result in
+    func getComplaints(search: String){
+        _ = URLSession.shared.request(route: .ownerComplaints, method: .post, parameters: ["search": search], model: OwnerComplaintModel.self) { result in
             switch result {
             case .success(let list):
                 self.complaintList.value = list

@@ -97,25 +97,28 @@ public class Helper{
         tenantApproval: Int?,
         workerID: Int) -> (String, CustomColor) {
             if ownerApproval == 0 {
-                return ("Approval Pending from Owner", CustomColor.redColor)
+                return (LocalizationKeys.ApprovalPendingfromOwner.rawValue.localizeString(), CustomColor.redColor)
             }
             else if ownerApproval == 2{
-                return ("Rejected by Owner", CustomColor.redColor)
+                return (LocalizationKeys.RejectedbyOwner.rawValue.localizeString(), CustomColor.redColor)
             }
             else if ownerApproval == 1 && companyApproval == 0{
-                return ("Acceptance Pending from Maintenance Company", CustomColor.redColor)
+                return (LocalizationKeys.AcceptancePendingfromMaintenanceCompany.rawValue.localizeString(), CustomColor.redColor)
+            }
+            else if ownerApproval == 1 && companyApproval == 2{
+                return (LocalizationKeys.RejectedbyCompany.rawValue.localizeString(), CustomColor.redColor)
             }
             else if ownerApproval == 1 && workerID == 0 && taskComplete == 0{
-                return ("Not assign to worker", CustomColor.redColor)
+                return (LocalizationKeys.Notassigntoworker.rawValue.localizeString(), CustomColor.redColor)
             }
             else if workerID != 0 && taskComplete == 0{
-                return ("Work in progress", CustomColor.blueColor)
+                return (LocalizationKeys.Workinprogress.rawValue.localizeString(), CustomColor.blueColor)
             }
             else if taskComplete == 1 && tenantApproval == 0{
-                return ("Work Done - Waiting for Confirmation", CustomColor.greenColor)
+                return (LocalizationKeys.WorkDoneWaitingforConfirmation.rawValue.localizeString(), CustomColor.greenColor)
             }
             else if tenantApproval == 1{
-                return ("Work done, approved", CustomColor.greenColor)
+                return (LocalizationKeys.WorkdoneApproved.rawValue.localizeString(), CustomColor.greenColor)
             }
             return ("", CustomColor.redColor)
         }

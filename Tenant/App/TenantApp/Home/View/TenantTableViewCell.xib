@@ -134,10 +134,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="21"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjG-wb-wX8">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="21"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVd-7E-9Ec">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="82.5" height="21"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
                                                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                 <color key="textColor" red="0.23137254901960785" green="0.77254901960784317" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -145,7 +145,7 @@
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" priority="250" constant="40" id="Ds8-S8-Fcd"/>
+                                                                            <constraint firstAttribute="width" priority="50" constant="40" id="Ds8-S8-Fcd"/>
                                                                             <constraint firstAttribute="bottom" secondItem="LVd-7E-9Ec" secondAttribute="bottom" id="Fd7-ng-7Ij"/>
                                                                             <constraint firstAttribute="trailing" secondItem="LVd-7E-9Ec" secondAttribute="trailing" id="Z9a-Fk-0GZ"/>
                                                                             <constraint firstItem="LVd-7E-9Ec" firstAttribute="top" secondItem="hjG-wb-wX8" secondAttribute="top" id="dgd-B7-u4l"/>
@@ -153,10 +153,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULo-K5-TBc">
-                                                                        <rect key="frame" x="87.5" y="0.0" width="243.5" height="21"/>
+                                                                        <rect key="frame" x="105" y="0.0" width="226" height="21"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approval Pending from Owner" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsP-LD-zcB">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="243.5" height="21"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="226" height="21"/>
                                                                                 <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15"/>
                                                                                 <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>

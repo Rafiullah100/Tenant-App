@@ -36,7 +36,8 @@ class PropertyViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
-
+        
+        searchTextField.delegate = self
         searchView.clipsToBounds = true
         flatLabel.text = LocalizationKeys.flats.rawValue.localizeString()
         tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
@@ -54,7 +55,7 @@ class PropertyViewController: BaseViewController {
     func networkingCall(){
         dispatchGroup = DispatchGroup()
         dispatchGroup?.enter()
-        viewModel.getProperties()
+        viewModel.getProperties(search: "")
         dispatchGroup?.enter()
         viewModel.getProfile()
         
@@ -85,7 +86,7 @@ class PropertyViewController: BaseViewController {
             self?.tableView.reloadData()
         }
         self.animateSpinner()
-        viewModel.getProperties()
+        viewModel.getProperties(search: searchTextField.text ?? "")
     }
     
     private func updateUI(){
@@ -136,5 +137,12 @@ extension PropertyViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detail = viewModel.getProperty(at: indexPath.row) else { return }
         Switcher.gotoPropertyDetail(delegate: self, propertyDetail: detail)
+    }
+}
+
+extension PropertyViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        reloadProperties()
+        return true
     }
 }

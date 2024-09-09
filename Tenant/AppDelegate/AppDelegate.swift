@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UserDefaults.standard.isRTL = 1
 //        UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)
 
-        NMAApplicationContext.set(appId: Constants.hereAppID, appCode: Constants.hereAppID)
+        NMAApplicationContext.set(appId: Constants.hereAppID, appCode: Constants.apiKey)
         GMSServices.provideAPIKey("AIzaSyBC2Xdb2ato7ULwuGnDjPLXLAvqUZx_1VM")
         let language: AppLanguage = AppLanguage(rawValue: UserDefaults.standard.selectedLanguage ?? "") ?? .english
         UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)
