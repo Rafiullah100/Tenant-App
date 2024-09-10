@@ -126,6 +126,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="flatNumberLbl" destination="adp-jr-mlS" id="gcB-FC-gY3"/>
+                <outlet property="noTenantLabel" destination="A29-3v-u9k" id="SKc-51-0OM"/>
                 <outlet property="noTenantView" destination="VI2-ui-ciV" id="x7e-Q0-uoy"/>
             </connections>
             <point key="canvasLocation" x="154.34782608695653" y="77.678571428571431"/>

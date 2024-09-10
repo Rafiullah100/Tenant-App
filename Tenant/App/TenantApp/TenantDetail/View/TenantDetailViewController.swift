@@ -127,7 +127,7 @@ class TenantDetailViewController: BaseViewController, UICollectionViewDelegate, 
 
 extension TenantDetailViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 76.83, height: 76.83)
+        return CGSize(width: 100, height: 100)
     }
 }
 

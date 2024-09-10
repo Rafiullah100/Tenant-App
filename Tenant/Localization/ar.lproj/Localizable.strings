@@ -175,4 +175,20 @@
 "Notassigntoworker" = "لم يتم تعيينه للعامل";
 "Workinprogress" = "العمل قيد التقدم";
 "WorkDoneWaitingforConfirmation" = "تم الانتهاء من العمل - في انتظار التأكيد";
-"WorkdoneaApproved" = "تم الانتهاء من العمل والموافقة عليه";
+"WorkdoneApproved" = "تم الانتهاء من العمل والموافقة عليه";
+
+"address" = "العنوان:";
+"propertyType" = "نوع العقار:";
+"approve" = "موافقة";
+"photoUploadedByCompany" = "تم تحميل الصورة من قبل الشركة";
+"photoUploadedByTenant" = "تم تحميل الصورة من قبل المستأجر";
+"completedOn" = ":اكتمل في";
+"noTenant" = "لا يوجد مستأجر";
+
+"currentTenant" = "المستأجر الحالي";
+
+"flat" = "شقة";
+
+
+"searchTenantsbyNameorContacts" = "ابحث عن المستأجرين بالاسم أو جهات الاتصال";
+

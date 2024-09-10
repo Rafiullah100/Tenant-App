@@ -11,6 +11,7 @@ class CompanyCardTableViewCell: UITableViewCell {
 
     var assign: (() -> Void)?
 
+    @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var assignButton: UIButton!
     
     @IBOutlet weak var nameLabel: UILabel!

@@ -34,7 +34,7 @@ class CompanyCompletedViewController: BaseViewController {
         }
     }
     
-    
+
     private var viewModel = CompanyDetailViewModel()
     var complaintID: Int?
 

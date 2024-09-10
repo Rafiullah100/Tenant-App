@@ -58,6 +58,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     
     var complaintID: Int?
     private var viewModel = CompanyDetailViewModel()
+    private var isExpanded = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +102,23 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textViewTapped))
+        descriptionTextView.addGestureRecognizer(tapGesture)
+        descriptionTextView.isUserInteractionEnabled = true
+    }
+    
+    @objc func textViewTapped() {
+        if !isExpanded {
+            descriptionTextView.text = viewModel.getDescription()
+        } else {
+            descriptionTextView.text = "Click to view desciption."
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+        isExpanded.toggle()
     }
     
     private func updateUI(){
@@ -109,7 +127,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         statusValueLabel.text = viewModel.getStatus()
         postedValueLabel.text = viewModel.getPostedDate()
         acceptedValueLabel.text = viewModel.getCompanyAcceptedDate()
-        descriptionTextView.text = viewModel.getDescription()
+//        descriptionTextView.text = viewModel.getDescription()
         tenantValueLabel.text = viewModel.getTenantNameContact()
         dateValueLabel.text = viewModel.getScheduleDate()
         scheduleValueLabel.text = viewModel.getScheduleTime()

@@ -9,6 +9,10 @@ import UIKit
 import GoogleMaps
 class CompanyPropertyDetailViewController: BaseViewController {
 
+    @IBOutlet weak var AddressStaticLabel: UILabel!
+    @IBOutlet weak var propertyStaticLabel: UILabel!
+    @IBOutlet weak var ownerStaticLabel: UILabel!
+    @IBOutlet weak var flatStaticLabel: UILabel!
     @IBOutlet weak var flatLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var ownerLabel: UILabel!
@@ -23,15 +27,11 @@ class CompanyPropertyDetailViewController: BaseViewController {
         super.viewDidLoad()
         type = .company
         mapView.layer.cornerRadius = 5.0
-//        let camera = GMSCameraPosition.camera(withLatitude: 34.0151, longitude: 71.5249, zoom: 6.0)
-//        mapView.camera = camera
-//        
-//        propertyTitleLabel.text = property?.buildingNo
-//        addressLabel.text = "\(property?.buildingType?.capitalized ?? "") \(property?.buildingNo ?? ""), \(property?.district ?? ""), \(property?.city ?? "")"
-//        ownerLabel.text = property?.flats?[0].ownersTenants?.name
-//        typeLabel.text = property?.buildingType?.capitalized
-//        flatLabel.text = "\(property?.flats?.count ?? 0)"
-        
+        AddressStaticLabel.text = LocalizationKeys.address.rawValue.localizeString()
+        ownerStaticLabel.text = "\(LocalizationKeys.owner.rawValue.localizeString()):"
+        propertyStaticLabel.text = LocalizationKeys.propertyType.rawValue.localizeString()
+        flatStaticLabel.text = LocalizationKeys.totalFlats.rawValue.localizeString()
+
         viewModel.address.bind {  [unowned self] address in
             guard let _ = address else {return}
             self.stopAnimation()

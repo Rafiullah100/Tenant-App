@@ -163,4 +163,18 @@
 "Notassigntoworker" = "Not assign to worker";
 "Workinprogress" = "Work in progress";
 "WorkDoneWaitingforConfirmation" = "Work Done - Waiting for Confirmation";
-"WorkdoneaApproved" = "Work done, Approved";
+"WorkdoneApproved" = "Work done, Approved";
+
+"address" = "Address:";
+"propertyType" = "Property Type:";
+ "approve"  = "Approve";
+
+"photoUploadedByCompany" = "Photo uploaded by Company";
+"photoUploadedByTenant" = "Photo uploaded by Tenant";
+ "completedOn" = "completed on:";
+"noTenant" = "No Tenant";
+"currentTenant" = "Current Tenant";
+
+"flat" = "Flat";
+
+"searchTenantsbyNameorContacts" = "Search Tenants by name or contacts";

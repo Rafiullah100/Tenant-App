@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class CompanyManagmentViewController: BaseViewController {
 
     
@@ -23,12 +23,10 @@ class CompanyManagmentViewController: BaseViewController {
     private var viewModel = CompanyViewModel()
     var propertyID: Int?
     var buildingNumer: String?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
-
         searchTextField.delegate = self
         searchView.clipsToBounds = true
         viewControllerTitle = LocalizationKeys.maintenanceCompanyManagement.rawValue.localizeString()
@@ -36,7 +34,6 @@ class CompanyManagmentViewController: BaseViewController {
         searchTextField.placeholder =  LocalizationKeys.searchMaintenanceCompany.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
-        
         viewModel.companiesList.bind { list in
             guard let _ = list else{return}
             self.stopAnimation()
@@ -71,6 +68,7 @@ extension CompanyManagmentViewController: UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCardTableViewCell.cellReuseIdentifier(), for: indexPath) as! CompanyCardTableViewCell
         cell.nameLabel.text = viewModel.getName(at: indexPath.row)
         cell.assignButton.setTitle(viewModel.isAssigned(at: indexPath.row) == true ? "Assigned" : "Not Assigned", for: .normal)
+        cell.iconView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getIcon(at: indexPath.row)), placeholderImage: UIImage(named: "placeholder"))
         cell.assign = { [weak self] in
             if let companyID = self?.viewModel.getCompanyID(at: indexPath.row) {
                 self?.animateSpinner()
@@ -83,10 +81,7 @@ extension CompanyManagmentViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        Switcher.gotoCompanyDetail(delegate: self)
-//    }
+
 }
 
 extension CompanyManagmentViewController: UITextFieldDelegate{

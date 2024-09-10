@@ -9,6 +9,7 @@ import UIKit
 
 class RemoveTenanatViewController: BaseViewController {
 
+    @IBOutlet weak var currentLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var contactLabel: UILabel!
@@ -21,6 +22,8 @@ class RemoveTenanatViewController: BaseViewController {
         super.viewDidLoad()
         deleteButton.setTitle(LocalizationKeys.deleteTenant.rawValue.localizeString(), for: .normal)
         contactLabel.text = LocalizationKeys.contact.rawValue.localizeString()
+        currentLabel.text = LocalizationKeys.currentTenant.rawValue.localizeString()
+
         type = .company
         updateUI()
         
@@ -43,7 +46,7 @@ class RemoveTenanatViewController: BaseViewController {
     }
     
     private func updateUI(){
-        viewControllerTitle = "FLAT \(flatDetail?.flatNo ?? "")"
+        viewControllerTitle = "\(LocalizationKeys.flat.rawValue.localizeString()) \(flatDetail?.flatNo ?? "")"
         nameLabel.text = flatDetail?.ownersTenants?.name
         contactValueLabel.text = flatDetail?.ownersTenants?.contact
     }

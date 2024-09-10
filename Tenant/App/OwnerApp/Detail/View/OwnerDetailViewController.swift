@@ -11,6 +11,11 @@ class OwnerDetailViewController: BaseViewController {
     @IBOutlet weak var postedValueLabel: UILabel!
     @IBOutlet weak var timeValueLabel: UILabel!
     
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var companyPhotoLabel: UILabel!
+    @IBOutlet weak var completedLabel: UILabel!
+    @IBOutlet weak var rejectButton: UIButton!
+    @IBOutlet weak var approveButton: UIButton!
     @IBOutlet weak var scheduleView: UIView!
     @IBOutlet weak var completedView: UIView!
     @IBOutlet weak var companyAcceptedView: UIView!
@@ -50,7 +55,8 @@ class OwnerDetailViewController: BaseViewController {
     
     private var viewModel = OwnerDetailViewModel()
     var complaintID: Int?
-    
+    private var isExpanded = false
+
     @IBOutlet weak var companyAcceptedLabel: UILabel!
     @IBOutlet weak var tenantCollectionView: UICollectionView!{
         didSet{
@@ -75,7 +81,12 @@ class OwnerDetailViewController: BaseViewController {
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         approveLabel.text = LocalizationKeys.approvedOn.rawValue.localizeString()
         companyAcceptedLabel.text = LocalizationKeys.companyAcceptedOn.rawValue.localizeString()
-        
+        approveButton.setTitle(LocalizationKeys.approve.rawValue.localizeString(), for: .normal)
+        rejectButton.setTitle(LocalizationKeys.reject.rawValue.localizeString(), for: .normal)
+        photoLabel.text = LocalizationKeys.photoUploadedByTenant.rawValue.localizeString()
+        companyPhotoLabel.text = LocalizationKeys.photoUploadedByCompany.rawValue.localizeString()
+        completedLabel.text = LocalizationKeys.completedOn.rawValue.localizeString()
+
         type = .tenant
         
         viewModel.complaintDetail.bind { [weak self] details in
@@ -104,7 +115,25 @@ class OwnerDetailViewController: BaseViewController {
         
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textViewTapped))
+        textView.addGestureRecognizer(tapGesture)
+        textView.isUserInteractionEnabled = true
     }
+    
+    @objc func textViewTapped() {
+            if isExpanded {
+                textView.text = viewModel.getDescription()
+            } else {
+                textView.text = "Click to view desciption."
+            }
+            
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
+            isExpanded.toggle()
+        }
+
     
     private func updateUI(){
         completedView.isHidden = viewModel.hideCompletedView()
@@ -126,15 +155,14 @@ class OwnerDetailViewController: BaseViewController {
         propertyValueLabel.text = viewModel.getProperty()
         personValueLabel.text = viewModel.getAssignWorkerContact()
         completedValueLabel.text = viewModel.getCompletedDate()
-//        personValueLabel.text = viewModel.g
         tenantCollectionView.reloadData()
         companyCollectionView.reloadData()
-        
     }
     
     @IBAction func rejectBtnAction(_ sender: Any) {
         changeStatus(status: .reject)
     }
+    
     @IBAction func approveBtnAction(_ sender: Any) {
         changeStatus(status: .approve)
     }
@@ -148,7 +176,6 @@ class OwnerDetailViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
-
 }
 
 extension OwnerDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -176,6 +203,6 @@ extension OwnerDetailViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension OwnerDetailViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 76.83, height: 76.83)
+        return CGSize(width: 100, height: 100)
     }
 }

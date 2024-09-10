@@ -40,7 +40,6 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         categoryCollectionView.showsVerticalScrollIndicator = false
         workerCollectionView.showsVerticalScrollIndicator = false
 
-        self.navigationController?.navigationBar.isHidden = true
         searchView.clipsToBounds = true
         searchButtonView.clipsToBounds = true
         textField.textAlignment = Helper.shared.isRTL() ? .right : .left
@@ -56,6 +55,11 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         networkingCall()
         
         NotificationCenter.default.addObserver(self, selector: #selector(getWorker), name: Notification.Name(Constants.reloadWorkers), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func networkingCall(){
@@ -140,7 +144,8 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
             self.getWorker()
         }
         else{
-            Switcher.gotoWorkerListScreen(delegate: self)
+//            Switcher.gotoWorkerListScreen(delegate: self)
+            
         }
     }
 }

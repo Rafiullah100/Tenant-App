@@ -29,11 +29,11 @@ class AddTenanToFlatViewController: BaseViewController {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
 
-        viewControllerTitle = "Flat \(flatNumber ?? "")"
+        viewControllerTitle = "\(LocalizationKeys.flat.rawValue.localizeString()) \(flatNumber ?? "")"
         searchView.clipsToBounds = true
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
-        tableView.setEmptyView("Search Tenants by name or contacts")
+        tableView.setEmptyView(LocalizationKeys.searchTenantsbyNameorContacts.rawValue.localizeString())
         viewModel.tenantList.bind { list in
             guard let _ = list else{return}
             self.isLoading = false
@@ -80,7 +80,7 @@ extension AddTenanToFlatViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCardTableViewCell.cellReuseIdentifier(), for: indexPath) as! CompanyCardTableViewCell
-        cell.nameLabel.text = viewModel.getName(at: indexPath.row)
+        cell.nameLabel.text = "\(LocalizationKeys.flat.rawValue.localizeString()) \(viewModel.getName(at: indexPath.row))"
         
         cell.assign = { [weak self] in
             if let tenantID = self?.viewModel.getTenantID(at: indexPath.row) {

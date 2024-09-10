@@ -27,7 +27,6 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTableView.showsVerticalScrollIndicator = false
-        self.navigationController?.navigationBar.isHidden = true
         addressLbl.text = LocalizationKeys.currentAddress.rawValue.localizeString()
         self.historyTableView.rowHeight = UITableView.automaticDimension
         self.historyTableView.estimatedRowHeight = 44.0
@@ -41,6 +40,11 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
         
         loadComplaints()
         NotificationCenter.default.addObserver(self, selector: #selector(loadComplaints), name: Notification.Name(Constants.reloadSelfComplaints), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     @objc private func loadComplaints(){

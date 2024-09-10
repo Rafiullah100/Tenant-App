@@ -9,6 +9,7 @@ import UIKit
 
 class FlatCardTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var noTenantLabel: UILabel!
     @IBOutlet weak var flatNumberLbl: UILabel!
     
     @IBOutlet weak var noTenantView: UIView!
@@ -17,6 +18,7 @@ class FlatCardTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        noTenantLabel.text = LocalizationKeys.noTenant.rawValue.localizeString()
         // Initialization code
     }
 

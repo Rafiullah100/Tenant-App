@@ -31,6 +31,10 @@ class CompanyViewModel {
         return self.companiesList.value?.companies?.rows?[index].name?.capitalized ?? ""
     }
     
+    func getIcon(at index: Int) -> String {
+        return self.companiesList.value?.companies?.rows?[index].logo ?? ""
+    }
+    
     func getCompanyID(at index: Int) -> Int {
         return self.companiesList.value?.companies?.rows?[index].id ?? 0
     }

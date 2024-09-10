@@ -157,6 +157,17 @@ enum LocalizationKeys: String {
     case Workinprogress
     case WorkDoneWaitingforConfirmation
     case WorkdoneApproved
+    case address
+    case propertyType
+    case approve
+    case photoUploadedByCompany
+    case photoUploadedByTenant
+    case completedOn
+    
+    case noTenant
+    case currentTenant
+    case flat
+    case searchTenantsbyNameorContacts
 }
 
 

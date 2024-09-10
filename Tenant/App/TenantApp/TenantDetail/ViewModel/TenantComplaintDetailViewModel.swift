@@ -178,6 +178,12 @@ class TenantComplaintDetailViewModel {
         else if workerID != 0 && isTaskCompleted == 1 && isConfirmBYTenant == 1{
             return true
         }
+        else if isTaskCompleted != 1{
+            return true
+        }
+        else if isConfirmBYTenant != 1{
+            return true
+        }
         else {
             return false
         }
