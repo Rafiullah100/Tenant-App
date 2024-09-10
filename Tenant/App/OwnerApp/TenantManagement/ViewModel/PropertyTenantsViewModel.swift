@@ -13,7 +13,14 @@ class PropertyTenantsViewModel {
     var delete: Observable<DeleteTenantModel> = Observable(nil)
 
     func getList(propertyID: Int, search: String){
-        _ = URLSession.shared.request(route: .getPropertyTenants, method: .post, parameters: ["property_id": propertyID, "search": search], model: PropertyTenantsModel.self) { result in
+        var params: [String : Any]?
+        if search.isEmpty{
+            params = ["property_id": propertyID]
+        }
+        else{
+            params = ["property_id": propertyID, "search": search]
+        }
+        _ = URLSession.shared.request(route: .getPropertyTenants, method: .post, parameters: params, model: PropertyTenantsModel.self) { result in
             switch result {
             case .success(let list):
                 self.tenantList.value = list

@@ -31,6 +31,7 @@ class AddTenanToFlatViewController: BaseViewController {
 
         viewControllerTitle = "\(LocalizationKeys.flat.rawValue.localizeString()) \(flatNumber ?? "")"
         searchView.clipsToBounds = true
+        titlLabel.text = "Add Tenant to Flat \(flatNumber ?? "")"
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
         tableView.setEmptyView(LocalizationKeys.searchTenantsbyNameorContacts.rawValue.localizeString())
@@ -55,6 +56,13 @@ class AddTenanToFlatViewController: BaseViewController {
                 self.showAlert(message: assign.message ?? "")
             }
         }
+        
+        networkingCall()
+    }
+    
+    private func networkingCall(){
+        self.animateSpinner()
+        viewModel.getList(search: searchTextField.text ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,15 +88,13 @@ extension AddTenanToFlatViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCardTableViewCell.cellReuseIdentifier(), for: indexPath) as! CompanyCardTableViewCell
-        cell.nameLabel.text = "\(LocalizationKeys.flat.rawValue.localizeString()) \(viewModel.getName(at: indexPath.row))"
-        
+        cell.nameLabel.text = viewModel.getName(at: indexPath.row)
         cell.assign = { [weak self] in
             if let tenantID = self?.viewModel.getTenantID(at: indexPath.row) {
                 self?.animateSpinner()
                 self?.viewModel.assignToTenant(flatID: self?.flatID ?? 0, tenantID:tenantID)
             }
         }
-        
         return cell
     }
     
@@ -105,8 +111,7 @@ extension AddTenanToFlatViewController: UITableViewDelegate, UITableViewDataSour
 extension AddTenanToFlatViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
-        self.animateSpinner()
-        viewModel.getList(search: textField.text ?? "")
+        networkingCall()
             return true
         }
 }

@@ -109,6 +109,8 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         self.tenantValueLabel.text = "\(viewModel.getTenantCount())"
         self.flatValueLabel.text = "\(viewModel.getFlatCount())"
         self.nameLabel.text = viewModel.getName()
+        UserDefaults.standard.currentHome = viewModel.getAddress()
+        print(viewModel.getAddress())
     }
     
     override func viewWillAppear(_ animated: Bool) {

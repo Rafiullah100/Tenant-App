@@ -10,6 +10,8 @@ import UIKit
 
 
 class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
+    @IBOutlet weak var addressValueLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var historyButton: UIButton!
@@ -30,7 +32,8 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
         addressLbl.text = LocalizationKeys.currentAddress.rawValue.localizeString()
         self.historyTableView.rowHeight = UITableView.automaticDimension
         self.historyTableView.estimatedRowHeight = 44.0
-        
+        self.nameLabel.text = UserDefaults.standard.name
+        self.addressValueLabel.text = UserDefaults.standard.currentHome
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
             self.isLoading = false

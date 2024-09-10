@@ -30,6 +30,7 @@ extension UserDefaults{
         case userType
         case propertyIDIfTenant
         case flatIDIfTenant
+        case currentHome
     }
     
     var selectedLanguage: String?  {
@@ -200,6 +201,15 @@ extension UserDefaults{
         }
         set {
             set(newValue, forKey: userdefaultsKey.flatIDIfTenant.rawValue)
+        }
+    }
+    
+    var currentHome: String?  {
+        get {
+            value(forKey: userdefaultsKey.currentHome.rawValue) as? String
+        }
+        set {
+            set(newValue, forKey: userdefaultsKey.currentHome.rawValue)
         }
     }
 }
