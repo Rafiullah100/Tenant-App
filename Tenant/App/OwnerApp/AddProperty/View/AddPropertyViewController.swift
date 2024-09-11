@@ -13,8 +13,9 @@ protocol AddPropertyDelegate {
     func propertyAdded()
 }
 
-class AddPropertyViewController: BaseViewController {
+class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var noOfFileLabel: UILabel!
     @IBOutlet weak var villaImageView: UIImageView!
     @IBOutlet weak var buildingImageView: UIImageView!
     @IBOutlet weak var cancelButton: UIButton!
@@ -35,9 +36,17 @@ class AddPropertyViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     var buildingType: PropertyType?
     private var viewModel = AddPropertyViewModel()
-
+    @IBOutlet weak var galleryView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!{
+        didSet{
+            collectionView.register(ComplaintCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplaintCollectionViewCell.identifier)
+            collectionView.delegate = self
+            collectionView.dataSource = self
+        }
+    }
     var delegate: AddPropertyDelegate?
-    
+    var selectedImages = [UIImage]()
+    var pickerView = UIPickerView()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,7 +91,6 @@ class AddPropertyViewController: BaseViewController {
             }
         }
         
-        
         viewModel.address.bind {  [unowned self] address in
             guard let _ = address else {return}
             self.stopAnimation()
@@ -98,12 +106,16 @@ class AddPropertyViewController: BaseViewController {
         let camera = GMSCameraPosition.camera(withLatitude: viewModel.getCoordinates().0, longitude: viewModel.getCoordinates().1, zoom: 14.0)
         mapView.camera = camera
         
-//        let marker = GMSMarker()
-//
-//        marker.position = CLLocationCoordinate2D(latitude: viewModel.getCoordinates().0,
-//                                                 longitude: viewModel.getCoordinates().1)
-//        marker.icon = UIImage(named: "pin")
-//        marker.map = mapView
+        let marker = GMSMarker()
+
+        marker.position = CLLocationCoordinate2D(latitude: viewModel.getCoordinates().0,
+                                                 longitude: viewModel.getCoordinates().1)
+        marker.icon = UIImage(named: "pin")
+        marker.map = mapView
+    }
+    
+    private func hideGalleryView(){
+        self.galleryView.isHidden = selectedImages.count == 0 ? true : false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,12 +143,19 @@ class AddPropertyViewController: BaseViewController {
         }
     }
     
+    @IBAction func pickImages(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
     @IBAction func addBtnAction(_ sender: Any) {
-        let property = AddPropertyInputModel(name: propertyTextField.text ?? "", buildingType: buildingType?.rawValue ?? "", locationCode: locationTextField.text ?? "", city: cityTextField.text ?? "", district: districtTextField.text ?? "")
+        let property = AddPropertyInputModel(name: propertyTextField.text ?? "", buildingType: buildingType?.rawValue ?? "", locationCode: locationTextField.text ?? "", city: cityTextField.text ?? "", district: districtTextField.text ?? "", images: selectedImages.count)
         let validationResponse = viewModel.isFormValid(property: property)
         if validationResponse.isValid {
             self.animateSpinner()
-            self.viewModel.addProperty()
+            self.viewModel.addProperty(image: selectedImages)
         }
         else{
             showAlert(message: validationResponse.message)
@@ -152,5 +171,37 @@ class AddPropertyViewController: BaseViewController {
             buildingImageView.image = UIImage(named: "circle-empty")
             villaImageView.image = UIImage(named: "circle-fill")
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return selectedImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplaintCollectionViewCell.identifier, for: indexPath)as! ComplaintCollectionViewCell
+        cell.imageView.image = selectedImages[indexPath.row]
+        return cell
+    }
+}
+
+extension AddPropertyViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 80, height: 80)
+    }
+}
+
+extension AddPropertyViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            selectedImages.append(image)
+            collectionView.reloadData()
+            self.noOfFileLabel.text = "\(selectedImages.count) Files selected"
+        }
+        hideGalleryView()
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }

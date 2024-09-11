@@ -311,7 +311,7 @@
                 <outlet property="phNoLbl" destination="3dD-9V-Utf" id="cTe-wr-Gtw"/>
                 <outlet property="titleLbl" destination="MIB-uz-hG9" id="8Tw-ED-PGd"/>
             </connections>
-            <point key="canvasLocation" x="377" y="52"/>
+            <point key="canvasLocation" x="376.81159420289856" y="51.5625"/>
         </collectionViewCell>
     </objects>
     <resources>

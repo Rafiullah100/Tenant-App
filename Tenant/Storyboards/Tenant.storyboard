@@ -2307,6 +2307,7 @@
                         <outlet property="fileButton" destination="pIi-Ff-30n" id="CJU-rl-a8u"/>
                         <outlet property="galleryView" destination="i4d-Um-WbV" id="cUG-ey-FvE"/>
                         <outlet property="noFileLabel" destination="LMQ-p9-CdS" id="dxs-oD-pSS"/>
+                        <outlet property="noOfFileLabel" destination="LMQ-p9-CdS" id="Fsl-sr-kwP"/>
                         <outlet property="sizeLabel" destination="OKS-Sd-qIb" id="ymv-xJ-5Qg"/>
                         <outlet property="submitButton" destination="HMT-rC-hO7" id="cz5-Gq-dz0"/>
                         <outlet property="titleTextField" destination="qEu-f2-Ed9" id="bu2-bA-i8r"/>

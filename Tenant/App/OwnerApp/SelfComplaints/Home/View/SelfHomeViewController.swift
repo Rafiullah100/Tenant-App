@@ -12,7 +12,6 @@ import UIKit
 class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
     @IBOutlet weak var addressValueLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var historyTableView: UITableView!{
@@ -29,7 +28,6 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTableView.showsVerticalScrollIndicator = false
-        addressLbl.text = LocalizationKeys.currentAddress.rawValue.localizeString()
         self.historyTableView.rowHeight = UITableView.automaticDimension
         self.historyTableView.estimatedRowHeight = 44.0
         self.nameLabel.text = UserDefaults.standard.name
@@ -55,6 +53,13 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
         viewModel.getComplaints()
     }
 
+    @IBAction func homeBtnAction(_ sender: Any) {
+        guard UserDefaults.standard.propertyIDIfTenant == 0 && UserDefaults.standard.flatIDIfTenant == 0 || UserDefaults.standard.propertyIDIfTenant == nil && UserDefaults.standard.flatIDIfTenant == nil else{
+            return
+        }
+        Switcher.gotoSelfList(delegate: self)
+    }
+    
     @IBAction func newBtnAction(_ sender: Any) {
         isRecent = true
         setupButton(complaintType: .new)

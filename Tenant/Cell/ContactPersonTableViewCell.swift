@@ -27,7 +27,7 @@ class ContactPersonTableViewCell: UITableViewCell {
         didSet{
             self.contactLabel.text = contact?.contact
             self.nameLabel.text = contact?.title
-            imgView.sd_setImage(with: URL(string: Route.baseUrl + (contact?.image ?? "")), placeholderImage: UIImage(named: "placeholder"))
+            imgView.sd_setImage(with: URL(string: Route.baseUrl + (contact?.image ?? "")), placeholderImage: UIImage(named: "User"))
         }
     }
 }

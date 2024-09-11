@@ -18,6 +18,7 @@ class CompanyProfileViewController: BaseViewController {
 
     @IBOutlet weak var numberLabel: UILabel!
   
+    @IBOutlet weak var locationCodeTextField: UITextField!
     var pickerView = UIPickerView()
     private var viewModel = CompanyProfileViewModel()
 
@@ -43,21 +44,29 @@ class CompanyProfileViewController: BaseViewController {
         }
         self.animateSpinner()
         viewModel.getProfile(companyID: UserDefaults.standard.userID ?? 0)
+        
+        viewModel.address.bind {  [unowned self] address in
+            guard let address = address else {return}
+            self.stopAnimation()
+            setupMap(lat: viewModel.getCoordinatesFromCode().0, lng: viewModel.getCoordinatesFromCode().1)
+        }
+    }
+    
+    private func setupMap(lat: Double, lng: Double){
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 14.0)
+        mapView.camera = camera
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: lat,
+                                                 longitude: lng)
+        marker.icon = UIImage(named: "pin")
+        marker.map = mapView
     }
     
     private func updateUI(){
         nameTextField.text = viewModel.getName()
         contactTextField.text = viewModel.getContact()
-        imageView.sd_setImage(with: URL(string: Route.baseUrl + (viewModel.getProfileImage())), placeholderImage: UIImage(named: "placeholder"))
+        imageView.sd_setImage(with: URL(string: Route.baseUrl + (viewModel.getProfileImage())), placeholderImage: UIImage(named: "PlaceholderImage"))
         branches = viewModel.getBranchesList()
-        Helper.shared.getCoordinates(for: "1 Infinite Loop, CA, USA") { coordinate in
-            guard let coordinate = coordinate else{
-                self.showAlert(message: "Incorrect location")
-                return
-            }
-            let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: 6.0)
-            self.mapView.camera = camera
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,11 +74,24 @@ class CompanyProfileViewController: BaseViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
+    @IBAction func confirmBtnAction(_ sender: Any) {
+        if locationCodeTextField.text == nil {
+            showAlert(message: "Please enter location code and try again.")
+        }
+        else{
+            self.animateSpinner()
+            viewModel.getAddress(locationCode: locationCodeTextField.text ?? "")
+        }
+    }
+    
     @IBAction func takePhotoBtn(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func saveBtnAction(_ sender: Any) {
     }
 }
 

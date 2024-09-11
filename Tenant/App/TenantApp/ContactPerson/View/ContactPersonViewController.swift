@@ -24,7 +24,8 @@ class ContactPersonViewController: BaseViewController {
         }
     }
     private var viewModel = ContactViewModel()
-    
+    var isLoading = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         contactLabel.text = LocalizationKeys.contactPerson.rawValue.localizeString()
@@ -32,6 +33,7 @@ class ContactPersonViewController: BaseViewController {
         
         viewModel.contactList.bind { [unowned self] list in
             guard let _ = list else {return}
+            self.isLoading = false
             self.stopAnimation()
             self.tableView.reloadData()
         }
@@ -47,6 +49,15 @@ class ContactPersonViewController: BaseViewController {
 extension ContactPersonViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isLoading{
+            return 0
+        }
+        if viewModel.getContactCount() == 0{
+            self.tableView.setEmptyView("No contacts found!")
+        }
+        else{
+            self.tableView.backgroundView = nil
+        }
         return viewModel.getContactCount()
     }
     

@@ -10,8 +10,9 @@ import SDWebImage
 class CompanyManagmentViewController: BaseViewController {
 
     
+    @IBOutlet weak var propertyValueLabel: UILabel!
+    @IBOutlet weak var propertyLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -22,7 +23,7 @@ class CompanyManagmentViewController: BaseViewController {
     }
     private var viewModel = CompanyViewModel()
     var propertyID: Int?
-    var buildingNumer: String?
+    var property: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class CompanyManagmentViewController: BaseViewController {
         searchTextField.delegate = self
         searchView.clipsToBounds = true
         viewControllerTitle = LocalizationKeys.maintenanceCompanyManagement.rawValue.localizeString()
-        titlLabel.text = buildingNumer ?? ""
+        propertyValueLabel.text = property ?? ""
         searchTextField.placeholder =  LocalizationKeys.searchMaintenanceCompany.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
@@ -67,8 +68,8 @@ extension CompanyManagmentViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCardTableViewCell.cellReuseIdentifier(), for: indexPath) as! CompanyCardTableViewCell
         cell.nameLabel.text = viewModel.getName(at: indexPath.row)
-        cell.assignButton.setTitle(viewModel.isAssigned(at: indexPath.row) == true ? "Assigned" : "Not Assigned", for: .normal)
-        cell.iconView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getIcon(at: indexPath.row)), placeholderImage: UIImage(named: "placeholder"))
+        cell.assignButton.setTitle(viewModel.isAssigned(at: indexPath.row) == true ? "Assigned" : " Assign", for: .normal)
+        cell.iconView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getIcon(at: indexPath.row)), placeholderImage: UIImage(named: "PlaceholderImage"))
         cell.assign = { [weak self] in
             if let companyID = self?.viewModel.getCompanyID(at: indexPath.row) {
                 self?.animateSpinner()

@@ -46,8 +46,17 @@ class CompanyPropertyDetailViewController: BaseViewController {
     private func setupMap(){
         let camera = GMSCameraPosition.camera(withLatitude: viewModel.getCoordinates().0, longitude: viewModel.getCoordinates().1, zoom: 14.0)
         mapView.camera = camera
-        propertyTitleLabel.text = property?.buildingNo
-        addressLabel.text = "\(property?.buildingType?.capitalized ?? "") \(property?.buildingNo ?? ""), \(property?.district ?? ""), \(property?.city ?? "")"
+        
+        let marker = GMSMarker()
+        
+        marker.position = CLLocationCoordinate2D(latitude: viewModel.getCoordinates().0,
+                                                 longitude: viewModel.getCoordinates().1)
+        marker.icon = UIImage(named: "pin")
+        marker.map = mapView
+        
+        
+        propertyTitleLabel.text = "\(property?.buildingType?.capitalized ?? "") \(property?.buildingNo ?? ""), \(property?.district ?? ""), \(property?.city ?? "")"
+        addressLabel.text = "\(property?.district ?? ""), \(property?.city ?? "")"
         ownerLabel.text = property?.flats?[0].ownersTenants?.name
         typeLabel.text = property?.buildingType?.capitalized
         flatLabel.text = "\(property?.flats?.count ?? 0)"

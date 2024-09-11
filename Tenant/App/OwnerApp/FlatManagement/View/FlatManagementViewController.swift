@@ -9,8 +9,10 @@ import UIKit
 
 class FlatManagementViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     //
+    @IBOutlet weak var propertyValueLabel: UILabel!
+    @IBOutlet weak var propertyLabel: UILabel!
+    
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var FlatTableView: UITableView!{
         didSet{
@@ -19,7 +21,7 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
             FlatTableView.register(UINib(nibName: "FlatCardTableViewCell", bundle: nil), forCellReuseIdentifier: FlatCardTableViewCell.cellReuseIdentifier())
         }
     }
-    var buildingNumer: String?
+    var property: String?
 
     let viewModel = FlatViewModel()
     var propertyID: Int?
@@ -32,7 +34,7 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
 
         searchTextField.delegate = self
         searchView.clipsToBounds = true
-        titlLabel.text = buildingNumer ?? ""
+        propertyValueLabel.text = property ?? ""
         viewControllerTitle = LocalizationKeys.flatManagement.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchFlatNumber.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left

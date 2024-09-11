@@ -45,11 +45,11 @@ class TenantComplaintViewModel {
     }
     
     func getTenantFlatNo() -> String {
-        return self.tenantResidence.value?.flat?.flatNo ?? ""
+        return self.tenantResidence.value?.flat?.flatNo ?? "##"
     }
     
     func getTenantBuildingNo() -> String {
-        return self.tenantResidence.value?.flat?.properties?.buildingNo ?? ""
+        return self.tenantResidence.value?.flat?.properties?.buildingNo ?? "##"
     }
     
     func getRecentID(index: Int) -> Int{
@@ -80,6 +80,10 @@ class TenantComplaintViewModel {
     
     func isTaskCompleted(index: Int) -> Int {
         return self.complaintList.value?.complaintsRecent?.rows?[index].taskComplete ?? 0
+    }
+    
+    func isConfirmed(index: Int) -> Int {
+        return self.complaintList.value?.complaintsRecent?.rows?[index].tenantApproval ?? 0
     }
     
     //for history

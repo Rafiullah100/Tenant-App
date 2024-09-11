@@ -25,7 +25,6 @@ class CompanyPropertiesViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
         tableView.showsVerticalScrollIndicator = false
         searchTextField.delegate = self
         searchView.clipsToBounds = true
@@ -42,6 +41,11 @@ class CompanyPropertiesViewController: BaseViewController {
             self?.tableView.reloadData()
         }
         callAPI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func callAPI(){
@@ -63,7 +67,7 @@ extension CompanyPropertiesViewController: UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 70
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

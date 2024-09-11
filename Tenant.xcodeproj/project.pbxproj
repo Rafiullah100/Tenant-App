@@ -93,6 +93,8 @@
 		527616412C48F4C9007F7C66 /* TenantsManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527616402C48F4C9007F7C66 /* TenantsManagementViewController.swift */; };
 		527616442C48F51A007F7C66 /* TenantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527616422C48F519007F7C66 /* TenantCollectionViewCell.xib */; };
 		527616452C48F51A007F7C66 /* TenantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527616432C48F51A007F7C66 /* TenantCollectionViewCell.swift */; };
+		527626652C92019200DB9FF3 /* CompanyWorkerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527626632C92019200DB9FF3 /* CompanyWorkerTableViewCell.swift */; };
+		527626662C92019200DB9FF3 /* CompanyWorkerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527626642C92019200DB9FF3 /* CompanyWorkerTableViewCell.xib */; };
 		5279F8982C2967BF003B28A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5279F89A2C2967BF003B28A9 /* Localizable.strings */; };
 		5279F8B32C2968EA003B28A9 /* ABeeZee-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5279F89F2C2968E9003B28A9 /* ABeeZee-Italic.ttf */; };
 		5279F8B42C2968EA003B28A9 /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5279F8A02C2968E9003B28A9 /* ABeeZee-Regular.ttf */; };
@@ -162,6 +164,8 @@
 		52B1DA6E2C69F3B4001EE096 /* AddTenantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B1DA6D2C69F3B4001EE096 /* AddTenantViewModel.swift */; };
 		52B1DA722C6A02AB001EE096 /* TenantComplaintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B1DA712C6A02AB001EE096 /* TenantComplaintModel.swift */; };
 		52B1DA752C6A0307001EE096 /* TenantComplaintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B1DA742C6A0307001EE096 /* TenantComplaintViewModel.swift */; };
+		52C4A12C2C9163A600F7AB53 /* TenantMngmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4A12A2C9163A600F7AB53 /* TenantMngmentTableViewCell.swift */; };
+		52C4A12D2C9163A600F7AB53 /* TenantMngmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C4A12B2C9163A600F7AB53 /* TenantMngmentTableViewCell.xib */; };
 		52CCB2782C65EEB900A57B59 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CCB2772C65EEB900A57B59 /* SignupViewModel.swift */; };
 		52CCB27A2C65EEEE00A57B59 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CCB2792C65EEEE00A57B59 /* SignupModel.swift */; };
 		52CD7AE12C78779200DCCAE8 /* AssignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD7AE02C78779200DCCAE8 /* AssignModel.swift */; };
@@ -286,6 +290,8 @@
 		527616402C48F4C9007F7C66 /* TenantsManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenantsManagementViewController.swift; sourceTree = "<group>"; };
 		527616422C48F519007F7C66 /* TenantCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TenantCollectionViewCell.xib; sourceTree = "<group>"; };
 		527616432C48F51A007F7C66 /* TenantCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenantCollectionViewCell.swift; sourceTree = "<group>"; };
+		527626632C92019200DB9FF3 /* CompanyWorkerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyWorkerTableViewCell.swift; sourceTree = "<group>"; };
+		527626642C92019200DB9FF3 /* CompanyWorkerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyWorkerTableViewCell.xib; sourceTree = "<group>"; };
 		5279F8962C296625003B28A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		5279F8972C296625003B28A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5279F8992C2967BF003B28A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -358,6 +364,8 @@
 		52B1DA6D2C69F3B4001EE096 /* AddTenantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTenantViewModel.swift; sourceTree = "<group>"; };
 		52B1DA712C6A02AB001EE096 /* TenantComplaintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantComplaintModel.swift; sourceTree = "<group>"; };
 		52B1DA742C6A0307001EE096 /* TenantComplaintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantComplaintViewModel.swift; sourceTree = "<group>"; };
+		52C4A12A2C9163A600F7AB53 /* TenantMngmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantMngmentTableViewCell.swift; sourceTree = "<group>"; };
+		52C4A12B2C9163A600F7AB53 /* TenantMngmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TenantMngmentTableViewCell.xib; sourceTree = "<group>"; };
 		52CCB2772C65EEB900A57B59 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		52CCB2792C65EEEE00A57B59 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		52CD7AE02C78779200DCCAE8 /* AssignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignModel.swift; sourceTree = "<group>"; };
@@ -517,6 +525,8 @@
 		522CBB982C8199970060F2F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				52C4A12A2C9163A600F7AB53 /* TenantMngmentTableViewCell.swift */,
+				52C4A12B2C9163A600F7AB53 /* TenantMngmentTableViewCell.xib */,
 				527616402C48F4C9007F7C66 /* TenantsManagementViewController.swift */,
 			);
 			path = View;
@@ -832,6 +842,8 @@
 				525F5C242C3FDD7C00FE4B89 /* CompanyWorkerCollectionViewCell.swift */,
 				525F5C232C3FDD7B00FE4B89 /* CompanyWorkerCollectionViewCell.xib */,
 				525F5C212C3FDD6900FE4B89 /* CompanyWorkerViewController.swift */,
+				527626632C92019200DB9FF3 /* CompanyWorkerTableViewCell.swift */,
+				527626642C92019200DB9FF3 /* CompanyWorkerTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1894,6 +1906,7 @@
 				5279F8BD2C2968EA003B28A9 /* Inter-SemiBold.ttf in Resources */,
 				52688B102C32916A001C55A8 /* ComplainDetailCollectionViewCell.xib in Resources */,
 				5279F8BF2C2968EA003B28A9 /* Manrope-SemiBold.ttf in Resources */,
+				52C4A12D2C9163A600F7AB53 /* TenantMngmentTableViewCell.xib in Resources */,
 				522FFBB62C4CE1D20010A2EF /* CompanyCardTableViewCell.xib in Resources */,
 				5279F8B62C2968EA003B28A9 /* Inter-Light.ttf in Resources */,
 				5279F8BB2C2968EA003B28A9 /* Inter-ExtraLight.ttf in Resources */,
@@ -1902,6 +1915,7 @@
 				52DBCCE12C16C3B700A7B612 /* Assets.xcassets in Resources */,
 				5279F8CC2C297F72003B28A9 /* Outfit-Regular.ttf in Resources */,
 				5279F8B42C2968EA003B28A9 /* ABeeZee-Regular.ttf in Resources */,
+				527626662C92019200DB9FF3 /* CompanyWorkerTableViewCell.xib in Resources */,
 				5279F8C22C2968EA003B28A9 /* Manrope-ExtraLight.ttf in Resources */,
 				5279F8C42C2968EA003B28A9 /* Manrope-Bold.ttf in Resources */,
 				5279F8C02C2968EA003B28A9 /* Manrope-ExtraBold.ttf in Resources */,
@@ -2016,6 +2030,7 @@
 				526A2D552C3BC99D00C716A8 /* CompanyPendingController.swift in Sources */,
 				528733432C804BE600CDF9D1 /* AddFlatModel.swift in Sources */,
 				529E17712C2EBA870063B204 /* TenantTableViewCell.swift in Sources */,
+				527626652C92019200DB9FF3 /* CompanyWorkerTableViewCell.swift in Sources */,
 				522F761B2C4E4A2B0035B8A4 /* AddWorkerCollectionViewCell.swift in Sources */,
 				529E175B2C2E85DD0063B204 /* LocalizationKeys.swift in Sources */,
 				522FFBBC2C4CE7C70010A2EF /* SelfHomeTableViewCell.swift in Sources */,
@@ -2082,6 +2097,7 @@
 				52F188AE2C660B1100085EE7 /* LoginViewModel.swift in Sources */,
 				527FB0C42C36BAE000504E3D /* OwnerHomeTableViewCell.swift in Sources */,
 				52F188B42C661BE900085EE7 /* OtpViewModel.swift in Sources */,
+				52C4A12C2C9163A600F7AB53 /* TenantMngmentTableViewCell.swift in Sources */,
 				521B922E2C4BC378000F1B82 /* CompanyTabbarController.swift in Sources */,
 				525F5C1F2C3FC63800FE4B89 /* ContactPersonTableViewCell.swift in Sources */,
 				52688B112C32916A001C55A8 /* ComplainDetailCollectionViewCell.swift in Sources */,

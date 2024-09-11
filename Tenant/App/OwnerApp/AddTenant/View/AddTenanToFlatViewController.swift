@@ -29,9 +29,9 @@ class AddTenanToFlatViewController: BaseViewController {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
 
-        viewControllerTitle = "\(LocalizationKeys.flat.rawValue.localizeString()) \(flatNumber ?? "")"
+//        viewControllerTitle = "\(LocalizationKeys.flat.rawValue.localizeString()) \(flatNumber ?? "")"
         searchView.clipsToBounds = true
-        titlLabel.text = "Add Tenant to Flat \(flatNumber ?? "")"
+        titlLabel.text = "Add Tenant to \(flatNumber ?? "")"
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
         tableView.setEmptyView(LocalizationKeys.searchTenantsbyNameorContacts.rawValue.localizeString())
@@ -89,6 +89,7 @@ extension AddTenanToFlatViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCardTableViewCell.cellReuseIdentifier(), for: indexPath) as! CompanyCardTableViewCell
         cell.nameLabel.text = viewModel.getName(at: indexPath.row)
+        cell.iconView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getLogo(at: indexPath.row)), placeholderImage: UIImage(named: "PlaceholderImage"))
         cell.assign = { [weak self] in
             if let tenantID = self?.viewModel.getTenantID(at: indexPath.row) {
                 self?.animateSpinner()

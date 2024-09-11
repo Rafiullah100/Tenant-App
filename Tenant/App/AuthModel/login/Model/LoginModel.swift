@@ -52,6 +52,7 @@ struct AddPropertyInputModel {
     let locationCode: String
     let city: String
     let district: String
+    let images: Int
 
     
 }

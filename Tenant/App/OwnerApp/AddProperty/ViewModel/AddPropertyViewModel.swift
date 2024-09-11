@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class AddPropertyViewModel {
@@ -19,14 +20,28 @@ class AddPropertyViewModel {
         if property.name.isEmpty || property.buildingType.isEmpty || property.city.isEmpty || property.district.isEmpty || property.locationCode.isEmpty{
             return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
         }
+        else if property.images == 0{
+            return ValidationResponse(isValid: false, message: "Please add images and try again!")
+        }
         else{
             parameters = ["building_no": property.name, "building_type": property.buildingType, "location_code": property.locationCode, "city": property.city, "district": property.district]
             return ValidationResponse(isValid: true, message: "")
         }
     }
     
-    func addProperty(){
-        _ = URLSession.shared.request(route: .addProperty, method: .post, parameters: parameters, model: AddPropertyModel.self) { result in
+//    func addProperty(){
+//        _ = URLSession.shared.request(route: .addProperty, method: .post, parameters: parameters, model: AddPropertyModel.self) { result in
+//            switch result {
+//            case .success(let add):
+//                self.add.value = add
+//            case .failure(let error):
+//                self.errorMessage.value = error.localizedDescription
+//            }
+//        }
+//    }
+    
+    func addProperty(image: [UIImage])  {
+        Networking.shared.addProperty(route: .addProperty, imageParameter: "images", images: image, parameters: parameters ?? [:]) { result in
             switch result {
             case .success(let add):
                 self.add.value = add
@@ -46,6 +61,7 @@ class AddPropertyViewModel {
             }
         }
     }
+    
     
     func getDistrict() -> String {
         return self.address.value?.items?.first?.address?.district ?? ""

@@ -181,9 +181,6 @@ class TenantComplaintDetailViewModel {
         else if isTaskCompleted != 1{
             return true
         }
-        else if isConfirmBYTenant != 1{
-            return true
-        }
         else {
             return false
         }

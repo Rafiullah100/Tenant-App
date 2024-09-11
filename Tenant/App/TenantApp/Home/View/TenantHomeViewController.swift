@@ -72,11 +72,11 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     }
     
     @IBAction func addBtnAction(_ sender: Any) {
-        if UserDefaults.standard.propertyIDIfTenant != nil || UserDefaults.standard.flatIDIfTenant != nil{
+        if UserDefaults.standard.propertyIDIfTenant != 0 || UserDefaults.standard.flatIDIfTenant != 0{
             Switcher.gotoAddComplaintScreen(delegate: self, addComplaintType: .tenant)
         }
         else{
-            showAlert(message: "No Properties assigned to this Tenant.")
+            showAlert(message: "You can't add complaint becuase no property is assigned to you.")
         }
     }
     

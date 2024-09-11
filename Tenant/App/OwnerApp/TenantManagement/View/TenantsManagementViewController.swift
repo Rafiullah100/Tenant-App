@@ -7,20 +7,29 @@
 
 import UIKit
 
-class TenantsManagementViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class TenantsManagementViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var searchView: UIView!
-    @IBOutlet weak var cardCollectionView: UICollectionView!{
+//    @IBOutlet weak var cardCollectionView: UICollectionView!{
+//        didSet{
+//            cardCollectionView.register(TenantCollectionViewCell.nib(), forCellWithReuseIdentifier: TenantCollectionViewCell.cellReuseIdentifier())
+//            cardCollectionView.delegate = self
+//            cardCollectionView.dataSource = self
+//        }
+//    }
+    @IBOutlet weak var propertyValueLabel: UILabel!
+    @IBOutlet weak var propertyLabel: UILabel!
+    
+    
+    @IBOutlet weak var tableView: UITableView!{
         didSet{
-            cardCollectionView.register(TenantCollectionViewCell.nib(), forCellWithReuseIdentifier: TenantCollectionViewCell.cellReuseIdentifier())
-            cardCollectionView.delegate = self
-            cardCollectionView.dataSource = self
+            tableView.register(UINib(nibName: "TenantMngmentTableViewCell", bundle: nil), forCellReuseIdentifier: TenantMngmentTableViewCell.cellReuseIdentifier())
+            tableView.delegate = self
+            tableView.dataSource = self
         }
     }
-    
-    var buildingNumer: String?
+    var property: String?
 
     let viewModel = PropertyTenantsViewModel()
     var propertyID: Int?
@@ -28,22 +37,24 @@ class TenantsManagementViewController: BaseViewController, UICollectionViewDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cardCollectionView.showsVerticalScrollIndicator = false
 
         searchTextField.delegate = self
         viewControllerTitle = LocalizationKeys.tenantManagement.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchTenants.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
+        propertyValueLabel.text = property ?? ""
+
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 44.0
         
-        titlLabel.text = buildingNumer ?? ""
         
         viewModel.tenantList.bind { tenantList in
             DispatchQueue.main.async {
                 guard let _ = tenantList else{return}
                 self.stopAnimation()
                 self.isLoading = false
-                self.cardCollectionView.reloadData()
+                self.tableView.reloadData()
             }
         }
         
@@ -79,22 +90,23 @@ class TenantsManagementViewController: BaseViewController, UICollectionViewDeleg
         searchView.layer.masksToBounds = true
         searchView.clipsToBounds = true
     }
+
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isLoading{
             return 0
         }
         if viewModel.getCount() == 0{
-            self.cardCollectionView.setEmptyView("No Tenants Found!")
+            self.tableView.setEmptyView("No Tenants Found!")
         }
         else{
-            self.cardCollectionView.backgroundView = nil
+            self.tableView.backgroundView = nil
         }
         return viewModel.getCount()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = cardCollectionView.dequeueReusableCell(withReuseIdentifier: TenantCollectionViewCell.cellReuseIdentifier(), for: indexPath)as! TenantCollectionViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TenantMngmentTableViewCell.cellReuseIdentifier(), for: indexPath) as! TenantMngmentTableViewCell
         cell.tenants = viewModel.getTenant(at: indexPath.row)
         cell.delete = {
             self.animateSpinner()
@@ -102,19 +114,9 @@ class TenantsManagementViewController: BaseViewController, UICollectionViewDeleg
         }
         return cell
     }
+    
+
 }
-
-extension TenantsManagementViewController:UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellsAcross: CGFloat = 2
-        let spaceBetweenCells: CGFloat = 10
-        let width = (collectionView.bounds.width - (cellsAcross - 1) * spaceBetweenCells) / cellsAcross
-        return CGSize(width: width, height: 150)
-    }
-}
-
-
-
 
 extension TenantsManagementViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

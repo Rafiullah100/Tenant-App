@@ -31,7 +31,7 @@ class CompanyWorkerCollectionViewCell: UICollectionViewCell {
     
     var worker: CompanyWorkerRow? {
         didSet{
-            imgView.sd_setImage(with: URL(string: Route.baseUrl + (worker?.photo ?? "")), placeholderImage: UIImage(named: "placeholder"))
+            imgView.sd_setImage(with: URL(string: Route.baseUrl + (worker?.photo ?? "")), placeholderImage: UIImage(named: "User"))
 
             titleLbl.text = worker?.name
             var skills = [String]()

@@ -9,6 +9,8 @@ import UIKit
 
 class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var noOfFileLabel: UILabel!
+
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -57,7 +59,8 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
         viewControllerTitle = LocalizationKeys.newComplaint.rawValue.localizeString()
         
         collectionView.showsVerticalScrollIndicator = false
-        
+        hideGalleryView()
+
         viewModel.skill.bind { skill in
             guard let _ = skill else {return}
             self.pickerView.reloadAllComponents()
@@ -134,6 +137,7 @@ extension AddTenantViewController: UIImagePickerControllerDelegate & UINavigatio
         if let image = info[.originalImage] as? UIImage {
             selectedImages.append(image)
             collectionView.reloadData()
+            self.noOfFileLabel.text = "\(selectedImages.count) Files selected"
         }
         hideGalleryView()
         picker.dismiss(animated: true, completion: nil)

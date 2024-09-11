@@ -14,6 +14,7 @@ class RemoveTenanatViewController: BaseViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var contactLabel: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var contactValueLabel: UILabel!
     var flatDetail: FlatRow?
     let viewModel = DeleteTenantViewModel()

@@ -23,7 +23,8 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
     var propertyType: PropertyType?
 
     var selectedHomeIndex: Int?
-    
+    private var isLoading = true
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
         viewModel.propertyList.bind { [weak self] list in
             guard let _ = list else {return}
             DispatchQueue.main.async {
+                self?.isLoading = false
                 self?.tableView.reloadData()
                 self?.stopAnimation()
             }
@@ -72,6 +74,16 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isLoading{
+            return 0
+        }
+        
+        if viewModel.getPropertiesCount() == 0{
+            self.tableView.setEmptyView("No Property to Show")
+        }
+        else{
+            self.tableView.backgroundView = nil
+        }
         return viewModel.getPropertiesCount()
     }
     
@@ -80,9 +92,11 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
         cell.property = viewModel.getProperty(at: indexPath.row)
         cell.buttonLabel.text = viewModel.isSelectedHome(at: indexPath.row) ? "Your Home" : "Select as your Home"
         cell.selectAsYourHome = { [weak self] in
-            self?.animateSpinner()
-            self?.viewModel.selectAsYourHome(flatID: self?.viewModel.getFlatID(at: indexPath.row) ?? 0, tenantID: UserDefaults.standard.userID ?? 0)
-            self?.selectedHomeIndex = indexPath.row
+//            if self?.viewModel.getProprtyTenatID(at: indexPath.row) == 0 {
+                self?.animateSpinner()
+                self?.viewModel.selectAsYourHome(flatID: self?.viewModel.getFlatID(at: indexPath.row) ?? 0, tenantID: UserDefaults.standard.userID ?? 0)
+                self?.selectedHomeIndex = indexPath.row
+//            }
         }
         return cell
     }

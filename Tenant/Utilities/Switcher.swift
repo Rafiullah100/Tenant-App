@@ -185,28 +185,35 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoCompanyList(delegate: UIViewController, propertyID: Int, buildingNumber: String){
+    static func gotoCompanyList(delegate: UIViewController, propertyID: Int, property: String){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyManagmentViewController") as! CompanyManagmentViewController
         vc.propertyID = propertyID
-        vc.buildingNumer = buildingNumber
+        vc.property = property
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoTenantList(delegate: UIViewController, propertyID: Int, buildingNumber: String){
+    static func gotoTenantList(delegate: UIViewController, propertyID: Int, property: String){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantsManagementViewController") as! TenantsManagementViewController
         vc.propertyID = propertyID
-        vc.buildingNumer = buildingNumber
+        vc.property = property
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoFlatList(delegate: UIViewController, propertyID: Int, buildingNumber: String){
+    static func gotoSelfList(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "BothPropertyViewController") as! BothPropertyViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoFlatList(delegate: UIViewController, propertyID: Int, property: String){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "FlatManagementViewController") as! FlatManagementViewController
         vc.propertyID = propertyID
-        vc.buildingNumer = buildingNumber
+        vc.property = property
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false
         delegate.navigationController?.pushViewController(vc, animated: true)

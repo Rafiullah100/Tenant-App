@@ -23,6 +23,10 @@ class SelfPropertyViewModel {
         }
     }
     
+    func getProprtyTenatID(at index: Int) -> Int {
+        return self.propertyList.value?.properties?.rows?[index].flats?[0].ownersTenants?.id ?? 0
+    }
+    
     func getOwnerID(at index: Int) -> Int {
         return self.propertyList.value?.properties?.rows?[index].ownerID ?? 0
     }
@@ -45,6 +49,7 @@ class SelfPropertyViewModel {
         guard let property = self.propertyList.value?.properties?.rows?[index] else { return nil }
         return property
     }
+    
     
     func selectAsYourHome(flatID: Int, tenantID: Int){
         _ = URLSession.shared.request(route: .assignTenantToFlat, method: .post, parameters: ["flat_id": flatID, "tenant_id": tenantID], model: AssignTenantToFlatModel.self) { result in

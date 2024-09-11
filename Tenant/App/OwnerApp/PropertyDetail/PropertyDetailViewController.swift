@@ -94,14 +94,14 @@ class PropertyDetailViewController: BaseViewController {
     }
 
     @IBAction func flatBtnAction(_ sender: Any) {
-        Switcher.gotoFlatList(delegate: self, propertyID: propertyID ?? 0, buildingNumber: propertyDetail?.buildingNo ?? "")
+        Switcher.gotoFlatList(delegate: self, propertyID: propertyID ?? 0, property: nameLabel.text ?? "")
     }
     
     @IBAction func tenantMngMentAction(_ sender: Any) {
-        Switcher.gotoTenantList(delegate: self, propertyID: propertyID ?? 0, buildingNumber: propertyDetail?.buildingNo ?? "")
+        Switcher.gotoTenantList(delegate: self, propertyID: propertyID ?? 0, property: nameLabel.text ?? "")
     }
     @IBAction func companyBtnAction(_ sender: Any) {
-        Switcher.gotoCompanyList(delegate: self, propertyID: propertyID ?? 0, buildingNumber: propertyDetail?.buildingNo ?? "")
+        Switcher.gotoCompanyList(delegate: self, propertyID: propertyID ?? 0, property: nameLabel.text ?? "")
     }
     
     @IBAction func deleteBtnAction(_ sender: Any) {

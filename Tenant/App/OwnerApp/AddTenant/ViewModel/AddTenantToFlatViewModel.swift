@@ -31,6 +31,10 @@ class AddTenantToFlatViewModel {
         return self.tenantList.value?.tenants?.rows?[index].name?.capitalized ?? ""
     }
     
+    func getLogo(at index: Int) -> String {
+        return self.tenantList.value?.tenants?.rows?[index].profileImage ?? ""
+    }
+    
     func getTenantID(at index: Int) -> Int {
         return self.tenantList.value?.tenants?.rows?[index].id ?? 0
     }

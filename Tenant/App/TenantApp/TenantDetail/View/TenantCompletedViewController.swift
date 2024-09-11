@@ -81,6 +81,7 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
             if confirm.success == true{
                 showAlertWithbutttons(message: confirm.message ?? "") {
                     NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadTenantComplaints), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadSelfComplaints), object: nil)
                     self.navigationController?.popViewController(animated: true)
                 }
             }
