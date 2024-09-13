@@ -63,7 +63,7 @@ class TenantsManagementViewController: BaseViewController, UITableViewDelegate, 
             if delete.success == true{
                 DispatchQueue.main.async {
                     self.stopAnimation()
-                    self.showAlert(message: delete.message ?? "")
+                    ToastManager.shared.showToast(message: delete.message ?? "")
                     self.networkingCall()
                 }
             }

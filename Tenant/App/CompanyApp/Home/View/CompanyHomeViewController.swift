@@ -13,10 +13,11 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var contactLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var ongoingButton: UIButton!
     @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var historyButton: UIButton!
+    
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -38,6 +39,8 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         searchView.clipsToBounds = true
         newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
         ongoingButton.setTitle(LocalizationKeys.ongoing.rawValue.localizeString(), for: .normal)
+        historyButton.setTitle(LocalizationKeys.history.rawValue.localizeString(), for: .normal)
+
         searchTextField.placeholder = LocalizationKeys.search.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
 
@@ -59,8 +62,6 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         tableView.refreshControl = refreshControl
     }
     
-    
-    
     @objc private func loadData(){
         self.animateSpinner()
         viewModel.getComplaints(search: searchTextField.text ?? "")
@@ -74,15 +75,13 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         profileImageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
     }
     
-    @IBAction func doneBtnAction(_ sender: Any) {
-        isDone.toggle()
-        doneButton.setImage(UIImage(named: isDone ? "tick-green" : "tick-gray"), for: .normal)
-        complaintType = .completed
-        setupButton(complaintType: .completed)
-    }
-    
     @IBAction func profileBtnAction(_ sender: Any) {
         Switcher.gotoCompanyProfile(delegate: self)
+    }
+    
+    @IBAction func historyBtnAction(_ sender: Any) {
+        complaintType = .completed
+        setupButton(complaintType: .completed)
     }
     
     @IBAction func ongoingBtnAction(_ sender: Any) {
@@ -99,13 +98,14 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         tableView.reloadData()
         newButton.backgroundColor = CustomColor.grayColor.color
         ongoingButton.backgroundColor = CustomColor.grayColor.color
+        historyButton.backgroundColor = CustomColor.grayColor.color
         switch complaintType {
         case .new:
             newButton.backgroundColor = CustomColor.appColor.color
         case .ongoing:
             ongoingButton.backgroundColor = CustomColor.appColor.color
         case .completed:
-            print("")
+            historyButton.backgroundColor = CustomColor.appColor.color
         }
     }
     

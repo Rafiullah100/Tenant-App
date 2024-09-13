@@ -141,6 +141,7 @@
 		528D05192C882588002AF1BE /* CompanyPropertyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528D05182C882588002AF1BE /* CompanyPropertyModel.swift */; };
 		528D051B2C882779002AF1BE /* CompanyPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528D051A2C882779002AF1BE /* CompanyPropertyViewModel.swift */; };
 		529599F32C69EF19006188B1 /* AddTenantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529599F22C69EF19006188B1 /* AddTenantModel.swift */; };
+		52983D9E2C94C98D00798F00 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52983D9D2C94C98D00798F00 /* ToastManager.swift */; };
 		52995C512C37C24600AFDA47 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C502C37C24500AFDA47 /* Auth.storyboard */; };
 		52995C532C37C2AF00AFDA47 /* Tenant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C522C37C2AF00AFDA47 /* Tenant.storyboard */; };
 		52995C552C37C2E600AFDA47 /* Company.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52995C542C37C2E600AFDA47 /* Company.storyboard */; };
@@ -341,6 +342,7 @@
 		528D05182C882588002AF1BE /* CompanyPropertyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPropertyModel.swift; sourceTree = "<group>"; };
 		528D051A2C882779002AF1BE /* CompanyPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPropertyViewModel.swift; sourceTree = "<group>"; };
 		529599F22C69EF19006188B1 /* AddTenantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTenantModel.swift; sourceTree = "<group>"; };
+		52983D9D2C94C98D00798F00 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		52995C502C37C24500AFDA47 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		52995C522C37C2AF00AFDA47 /* Tenant.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tenant.storyboard; sourceTree = "<group>"; };
 		52995C542C37C2E600AFDA47 /* Company.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Company.storyboard; sourceTree = "<group>"; };
@@ -1664,6 +1666,7 @@
 				52DBCD032C16C52C00A7B612 /* UserDefaults+Extension.swift */,
 				52DBCD042C16C52C00A7B612 /* Helper.swift */,
 				52DBCD052C16C52C00A7B612 /* Color.swift */,
+				52983D9D2C94C98D00798F00 /* ToastManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -2109,6 +2112,7 @@
 				529599F32C69EF19006188B1 /* AddTenantModel.swift in Sources */,
 				529E17762C2EC35F0063B204 /* TenantHomeViewController.swift in Sources */,
 				5223FAFA2C411B6B002D8E09 /* AddPropertyViewController.swift in Sources */,
+				52983D9E2C94C98D00798F00 /* ToastManager.swift in Sources */,
 				529E17632C2E8EEA0063B204 /* RegistrationViewController.swift in Sources */,
 				524FD36C2C6B41BC0023F5DF /* TenantComplaintDetailModel.swift in Sources */,
 				52583D7A2C7735E30023EBDE /* CompanyWorkerViewModel.swift in Sources */,

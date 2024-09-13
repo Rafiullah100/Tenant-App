@@ -46,10 +46,9 @@ class CompanyManagmentViewController: BaseViewController {
             self.stopAnimation()
             if assign.success == true{
                 DispatchQueue.main.async {
-                    self.showAlertWithbutttons(message: assign.message ?? "") {
-                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
-                        Switcher.gotoOwnerProperty(delegate: self)
-                    }
+                    ToastManager.shared.showToast(message: assign.message ?? "")
+                    NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
+                    Switcher.gotoOwnerProperty(delegate: self)
                     self.callAPI()
                 }
             }

@@ -104,3 +104,8 @@ enum OwnerApprovalType: String{
     case approve = "approved"
     case reject = "rejected"
 }
+
+enum TenantComplaintType {
+    case recent
+    case history
+}

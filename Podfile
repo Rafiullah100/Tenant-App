@@ -14,6 +14,8 @@ target 'Tenant' do
   pod 'SpinKit'
   pod 'Alamofire', '~> 5.0.0-rc.2'
   pod 'HEREMapsStarter'
+  pod 'Toast-Swift', '~> 5.0.1'
+
 #  pod 'HEREMaps'
 end
 

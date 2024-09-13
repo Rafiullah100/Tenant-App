@@ -21,10 +21,9 @@ class AddFlatViewController: BaseViewController {
             DispatchQueue.main.async {
                 self.stopAnimation()
                 if add.success == true{
-                    self.showAlertWithbutttons(message: add.message ?? "") {
-                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadFlats), object: nil)
-                        self.dismiss(animated: true)
-                    }
+                    ToastManager.shared.showToast(message: add.message ?? "")
+                    NotificationCenter.default.post(name: Notification.Name(Constants.reloadFlats), object: nil)
+                    self.dismiss(animated: true)
                 }
                 else{
                     self.showAlert(message: add.message ?? "")

@@ -12,13 +12,13 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var chooseLabel: UILabel!
     @IBOutlet weak var signupLabel: UILabel!
-    @IBOutlet weak var workerButton: UIButton!
-    @IBOutlet weak var companyButton: UIButton!
-    @IBOutlet weak var tenantButton: UIButton!
-    @IBOutlet weak var ownerButton: UIButton!
+
     
-    @IBOutlet var btnsView: [UIView]!
+    @IBOutlet weak var textField: UITextField!
      var userType: UserType?
+    var pickerView = UIPickerView()
+    let userArray = [LocalizationKeys.owner.rawValue.localizeString(), LocalizationKeys.tenantWithoutColon.rawValue.localizeString(), LocalizationKeys.company.rawValue.localizeString(),
+                    LocalizationKeys.workers.rawValue.localizeString()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,46 +26,14 @@ class SignupViewController: UIViewController {
         signupLabel.text = LocalizationKeys.signup.rawValue.localizeString()
         chooseLabel.text = LocalizationKeys.chooseOne.rawValue.localizeString()
         continueButton.setTitle(LocalizationKeys.continuee.rawValue.localizeString(), for: .normal)
-        
-        ownerButton.setTitle(LocalizationKeys.owner.rawValue.localizeString(), for: .normal)
-        tenantButton.setTitle(LocalizationKeys.tenantWithoutColon.rawValue.localizeString(), for: .normal)
-        companyButton.setTitle(LocalizationKeys.company.rawValue.localizeString(), for: .normal)
-        workerButton.setTitle(LocalizationKeys.workers.rawValue.localizeString(), for: .normal)
+        textField.inputView = pickerView
+        pickerView.delegate = self
+        pickerView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-    }
-    
-    @IBAction func ownerBtnAction(_ sender: Any) {
-//        Switcher.gotoOwnerHome(delegate: self)
-        selectButton(index: 0)
-        userType = .owner
-    }
-    
-    @IBAction func tenantBtnAction(_ sender: Any) {
-//        Switcher.gotoTenantScreen(delegate: self)
-        selectButton(index: 1)
-        userType = .tenant
-    }
-    
-    @IBAction func maintenanceBtnAction(_ sender: Any) {
-//        Switcher.gotoCompanyScreen(delegate: self)
-        selectButton(index: 2)
-        userType = .company
-    }
-    
-    @IBAction func workerBtnAction(_ sender: Any) {
-//        Switcher.gotoWorkerScreen(delegate: self)
-        selectButton(index: 3)
-        userType = .worker
-    }
-    
-    private func selectButton(index: Int){
-        for i in 0..<btnsView.count{
-            btnsView[i].backgroundColor = index == i ? CustomColor.buttonSelectedColor.color : CustomColor.buttonUnselectedColor.color
-        }
     }
     
     @IBAction func continueBtnAction(_ sender: Any) {
@@ -74,5 +42,36 @@ class SignupViewController: UIViewController {
             return
         }
         Switcher.gotoSigninScreen(delegate: self, userType: userType)
+    }
+}
+
+extension SignupViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return userArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return userArray[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        textField.text = userArray[row]
+        if row == 0 {
+            userType = .owner
+        }
+        else if row == 1 {
+            userType = .tenant
+        }
+        else if row == 3 {
+            userType = .company
+        }
+        else if row == 4 {
+            userType = .worker
+        }
+
     }
 }

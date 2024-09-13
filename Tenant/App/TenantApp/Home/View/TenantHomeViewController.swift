@@ -20,20 +20,26 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var buildingLabel: UILabel!
     @IBOutlet weak var flatLabel: UILabel!
-    @IBOutlet weak var historyLabel: UILabel!
+    
+    @IBOutlet weak var recentButton: UIButton!
     @IBOutlet weak var historyButton: UIButton!
+    
     var isLoading = true
     var isRecent = true
     private var viewModel = TenantComplaintViewModel()
     
     let refreshControl = UIRefreshControl()
+    private var complaintType: TenantComplaintType = .recent
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserDefaults.standard.token ?? "")
         buildingLabel.text = "\(LocalizationKeys.buildingNo.rawValue.localizeString())"
         flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString())"
-        historyLabel.text = LocalizationKeys.recent.rawValue.localizeString()
+        
+        recentButton.setTitle(LocalizationKeys.recent.rawValue.localizeString(), for: .normal)
+        historyButton.setTitle(LocalizationKeys.history.rawValue.localizeString(), for: .normal)
+
         historyTableView.showsVerticalScrollIndicator = false
         
         self.historyTableView.rowHeight = UITableView.automaticDimension
@@ -72,6 +78,30 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         nameLabel.text = UserDefaults.standard.name
     }
     
+    @IBAction func recentBtnAction(_ sender: Any) {
+        complaintType = .recent
+        setupButton(complaintType: .recent)
+    }
+    
+    @IBAction func historyBtnActgion(_ sender: Any) {
+        complaintType = .history
+        setupButton(complaintType: .history)
+    }
+    
+    private func setupButton(complaintType: TenantComplaintType = .recent){
+        historyTableView.reloadData()
+        recentButton.backgroundColor = CustomColor.grayColor.color
+        historyButton.backgroundColor = CustomColor.grayColor.color
+        switch complaintType {
+        case .recent:
+            recentButton.backgroundColor = CustomColor.appColor.color
+        case .history:
+            historyButton.backgroundColor = CustomColor.appColor.color
+        }
+    }
+    
+    
+    
     private func savePropertiesAndFlat(){
         UserDefaults.standard.propertyIDIfTenant = viewModel.propertyIDIfTenant()
         UserDefaults.standard.flatIDIfTenant = viewModel.flatIDIfTenant()
@@ -91,19 +121,6 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         navigationController?.navigationBar.isHidden = true
     }
     
-    @IBAction func historyBtnAction(_ sender: Any) {
-        isRecent.toggle()
-        self.historyTableView.reloadData()
-        if isRecent {
-            historyButton.setImage(UIImage(named: "recent"), for: .normal)
-            historyLabel.text = LocalizationKeys.recent.rawValue.localizeString()
-        }
-        else{
-            historyButton.setImage(UIImage(named: "refresh"), for: .normal)
-            historyLabel.text = LocalizationKeys.history.rawValue.localizeString()
-        }
-    }
-    
     @IBAction func contactButtonAction(_ sender: Any) {
         Switcher.gotoContactList(delegate: self)
     }
@@ -112,7 +129,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         if isLoading{
             return 0
         }
-        let count = isRecent ? viewModel.getRecentCount() : viewModel.getHistoryCount()
+        let count = complaintType == .recent ? viewModel.getRecentCount() : viewModel.getHistoryCount()
         if count == 0{
             self.historyTableView.setEmptyView()
         }
@@ -124,12 +141,12 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = historyTableView.dequeueReusableCell(withIdentifier: TenantTableViewCell.cellReuseIdentifier(), for: indexPath) as! TenantTableViewCell
-        cell.complaint = isRecent ? viewModel.getRecentComplaint(index: indexPath.row) : viewModel.getHistoryComplaint(index: indexPath.row)
+        cell.complaint = complaintType == .recent ? viewModel.getRecentComplaint(index: indexPath.row) : viewModel.getHistoryComplaint(index: indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isRecent == true{
+        if complaintType == .recent{
             Switcher.gotoTenantCompletedDetailScreen(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
         }
         else{

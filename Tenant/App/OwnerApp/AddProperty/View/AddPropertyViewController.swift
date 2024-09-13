@@ -7,7 +7,7 @@
 
 import UIKit
 import GoogleMaps
-
+import Toast_Swift
 
 protocol AddPropertyDelegate {
     func propertyAdded()
@@ -80,10 +80,9 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
             DispatchQueue.main.async {
                 self.stopAnimation()
                 if add.success == true{
-                    self.showAlertWithbutttons(message: add.message ?? "") {
-                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
-                        self.navigationController?.popViewController(animated: true)
-                    }
+                    ToastManager.shared.showToast(message: add.message ?? "")
+                    NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
+                    self.navigationController?.popViewController(animated: true)
                 }
                 else{
                     self.showAlert(message: add.message ?? "")

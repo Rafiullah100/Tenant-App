@@ -19,11 +19,13 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tenantValueLabel: UILabel!
     @IBOutlet weak var propertyValueLabel: UILabel!
     @IBOutlet weak var flatValueLabel: UILabel!
-    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var rejectedButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var ongoingButton: UIButton!
     @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var historyButton: UIButton!
+    
+    
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -122,9 +124,7 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    @IBAction func doneBtnAction(_ sender: Any) {
-        isDone.toggle()
-        doneButton.setImage(UIImage(named: isDone ? "tick-green" : "tick-gray"), for: .normal)
+    @IBAction func historyBtnAction(_ sender: Any) {
         setupButton(complaintType: .completed)
     }
     
@@ -144,7 +144,8 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         newButton.backgroundColor = CustomColor.grayColor.color
         ongoingButton.backgroundColor = CustomColor.grayColor.color
         rejectedButton.backgroundColor = CustomColor.grayColor.color
-        
+        historyButton.backgroundColor = CustomColor.grayColor.color
+
         switch complaintType {
         case .new:
             self.complaintType = .new
@@ -156,6 +157,7 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
             self.complaintType = .rejected
             rejectedButton.backgroundColor = CustomColor.appColor.color
         case .completed:
+            historyButton.backgroundColor = CustomColor.appColor.color
             self.complaintType = .completed
         }
         tableView.reloadData()
@@ -230,8 +232,6 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         }
         Switcher.gotoOwnerDetail(delegate: self, complaintType: complaintType, complaintID: complaintID ?? 0)
     }
-
-
 }
 
 extension OwnerHomeViewController: UITextFieldDelegate{
