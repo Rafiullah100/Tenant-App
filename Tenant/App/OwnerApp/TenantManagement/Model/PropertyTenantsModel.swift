@@ -14,7 +14,7 @@ struct PropertyTenantsModel: Codable {
 // MARK: - Tenants
 struct PropertyTenants: Codable {
     let count: Int?
-    let rows: [PropertyTenantsRow]?
+    var rows: [PropertyTenantsRow]?
 }
 
 // MARK: - Row

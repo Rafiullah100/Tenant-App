@@ -21,10 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IhE-JT-DDY">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <rect key="frame" x="-7.5" y="-7.5" width="95" height="95"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="24b-wV-kSv"/>
-                                    <constraint firstAttribute="width" constant="80" id="3Wb-f2-FZV"/>
+                                    <constraint firstAttribute="height" constant="95" id="24b-wV-kSv"/>
+                                    <constraint firstAttribute="width" constant="95" id="3Wb-f2-FZV"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -51,7 +51,7 @@
             <connections>
                 <outlet property="imageView" destination="IhE-JT-DDY" id="k51-JA-4KM"/>
             </connections>
-            <point key="canvasLocation" x="-23.913043478260871" y="75.334821428571431"/>
+            <point key="canvasLocation" x="-24.637681159420293" y="75"/>
         </collectionViewCell>
     </objects>
     <resources>

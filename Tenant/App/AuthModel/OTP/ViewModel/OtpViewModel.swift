@@ -38,6 +38,7 @@ class OtpViewModel {
         UserDefaults.standard.uuid = user.uuid
         UserDefaults.standard.propertyIDIfTenant = user.propertyIDIfTenant
         UserDefaults.standard.flatIDIfTenant = user.flatIdIfTenant
+        UserDefaults.standard.profileImage = user.profileImage
     }
     
     func loginUSer(otp: String, type: String, contact: String){
@@ -63,5 +64,6 @@ class OtpViewModel {
         UserDefaults.standard.isLogin = true
         UserDefaults.standard.propertyIDIfTenant = user.propertyIDIfTenant
         UserDefaults.standard.flatIDIfTenant = user.flatIdIfTenant
+        UserDefaults.standard.profileImage = user.profileImage
     }
 }

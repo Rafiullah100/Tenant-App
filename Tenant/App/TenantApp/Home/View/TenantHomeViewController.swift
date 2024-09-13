@@ -25,6 +25,8 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     var isLoading = true
     var isRecent = true
     private var viewModel = TenantComplaintViewModel()
+    
+    let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +48,15 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         
         callAPI()
         NotificationCenter.default.addObserver(self, selector: #selector(callAPI), name: NSNotification.Name(Constants.reloadTenantComplaints), object: nil)
+        
+        refreshControl.addTarget(self, action: #selector(callAPI), for: .valueChanged)
+        historyTableView.refreshControl = refreshControl
     }
     
     @objc private func callAPI(){
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
+            self.historyTableView.refreshControl?.endRefreshing()
             self.isLoading = false
             self.stopAnimation()
             self.historyTableView.reloadData()

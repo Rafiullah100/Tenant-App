@@ -23,12 +23,14 @@ struct OtpUser: Codable {
     let flatIdIfTenant: Int?
     
     let token: String?
+    let profileImage: String?
 
     enum CodingKeys: String, CodingKey {
         case id, uuid, name, contact, verified, type
         case propertyIDIfTenant = "propertyId_if_tenant"
         case flatIdIfTenant = "flatId_if_tenant"
         case token
+        case profileImage = "profile_image"
     }
 }
 

@@ -238,6 +238,16 @@ class OwnerDetailViewModel {
     func getCompletedDate() -> String {
         return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.taskCompleteDatetime ?? "")
     }
+    
+    func showMore() -> Bool {
+        let isApproveOrRejected = self.complaintDetail.value?.ownerApproval ?? 0
+        if isApproveOrRejected == 0 || isApproveOrRejected == 2 {
+            return true
+        }
+        else{
+            return false
+        }
+    }
 }
 
 

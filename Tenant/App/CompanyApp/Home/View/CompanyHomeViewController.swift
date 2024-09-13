@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 
 class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -31,6 +31,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     private var isDone = false
     private var complaintType: CompanyComplaintType = .new
     var isLoading = true
+    let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,17 +45,21 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         self.tableView.estimatedRowHeight = 44.0
         
         tableView.showsVerticalScrollIndicator = false
-        nameLabel.text = UserDefaults.standard.name
-        contactLabel.text = UserDefaults.standard.mobile
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
             self.isLoading = false
             self.stopAnimation()
+            self.tableView.refreshControl?.endRefreshing()
             self.tableView.reloadData()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: Notification.Name(Constants.reloadCompanyComplaints), object: nil)
         loadData()
+        
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
+    
+    
     
     @objc private func loadData(){
         self.animateSpinner()
@@ -64,6 +69,9 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        nameLabel.text = UserDefaults.standard.name
+        contactLabel.text = UserDefaults.standard.mobile
+        profileImageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
     }
     
     @IBAction func doneBtnAction(_ sender: Any) {

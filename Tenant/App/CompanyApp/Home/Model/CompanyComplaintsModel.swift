@@ -179,7 +179,8 @@ struct CompanyTenant: Codable {
     let uuid, name, email, contact: String?
     let profileImage, locationCode, city, district: String?
     let isVerified: Int?
-    let otp, userID: Int?
+    let otp: String?
+       let userID: Int?
     let registeredFrom, type: String?
     let status, isDeleted: Int?
     let timestamp: String?
@@ -205,7 +206,7 @@ struct AssignWorker: Codable {
     let contact: String?
     let photo: String?
     let registeredFrom: String?
-    let otp: Int?
+    let otp: String?
     let timestamp: String?
 
     enum CodingKeys: String, CodingKey {

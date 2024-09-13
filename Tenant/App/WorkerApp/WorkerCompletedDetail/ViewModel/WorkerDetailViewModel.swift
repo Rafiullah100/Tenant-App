@@ -142,7 +142,9 @@ class WorkerDetailViewModel {
     }
     
     func getMaintenancePersonContact() -> String {
-        return self.complaintDetail.value?.property?.company?.contact ?? ""
+        let name = self.complaintDetail.value?.worker?.name
+        let contact = self.complaintDetail.value?.worker?.contact
+        return "\(name ?? "") (\(contact ?? ""))"
     }
     
     func getContacts() -> String? {
@@ -150,5 +152,9 @@ class WorkerDetailViewModel {
         let person = self.complaintDetail.value?.property?.company?.contact ?? ""
 
         return company + " | " + person
+    }
+    
+    func hideCompletedView() -> Bool {
+        return self.complaintDetail.value?.taskComplete == 1 ? true : false
     }
 }

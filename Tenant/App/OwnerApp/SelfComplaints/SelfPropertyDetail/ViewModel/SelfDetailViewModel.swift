@@ -51,6 +51,11 @@ class SelfDetailViewModel {
         self.flatList.value?.flats?.rows?[index].ownersTenants?.id ?? 0
     }
     
+    func getAssignedCompanyID(at index: Int) -> Int {
+//        self.flatList.value?.flats?.rows?[index].ownersTenants?.companyId ?? 0
+        return 0
+    }
+    
 //    func getCompanyID(at index: Int) -> Int {
 //        return self.companiesList.value?.companies?.rows?[index].id ?? 0
 //    }
@@ -65,6 +70,12 @@ class SelfDetailViewModel {
                 self.errorMessage.value = error.localizedDescription
             }
         }
+    }
+    
+    func isSelectedHome(at index: Int) -> String {
+        let tenantID =  self.flatList.value?.flats?.rows?[index].tenantID
+        
+        return tenantID == UserDefaults.standard.userID ? "Your Home" : "Select as your Home"
     }
 }
   

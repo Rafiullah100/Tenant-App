@@ -91,4 +91,11 @@ class TenantComplaintViewModel {
 //        return self.complaintList.value?.complaintsRecent?.rows?[index].taskComplete ?? 0
 //    }
     
+    
+    func isHomeButtonHide() -> Bool {
+                guard UserDefaults.standard.propertyIDIfTenant == 0 && UserDefaults.standard.flatIDIfTenant == 0 || UserDefaults.standard.propertyIDIfTenant == nil && UserDefaults.standard.flatIDIfTenant == nil else{
+                    return true
+                }
+        return false
+    }
 }

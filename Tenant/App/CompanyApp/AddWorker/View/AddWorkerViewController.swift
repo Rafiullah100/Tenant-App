@@ -137,17 +137,17 @@ class AddWorkerViewController: BaseViewController, UICollectionViewDelegate, UIC
    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        updateCollectionViewHeight()
+//        updateCollectionViewHeight()
     }
     
-    func updateCollectionViewHeight() {
-        collectionViewHeight.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
-        tradeView.frame = CGRect(origin: CGPoint(x: collectionView.frame.origin.x, y: collectionView.frame.origin.y), size: CGSize(width: collectionView.frame.size.width, height: collectionViewHeight.constant))
-    }
+//    func updateCollectionViewHeight() {
+//        collectionViewHeight.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
+//        tradeView.frame = CGRect(origin: CGPoint(x: collectionView.frame.origin.x, y: collectionView.frame.origin.y), size: CGSize(width: collectionView.frame.size.width, height: collectionViewHeight.constant))
+//    }
     
     func reloadData() {
         collectionView.reloadData()
-        updateCollectionViewHeight()
+//        updateCollectionViewHeight()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -173,7 +173,7 @@ class AddWorkerViewController: BaseViewController, UICollectionViewDelegate, UIC
 
 extension AddWorkerViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 105, height: 37)
+            return CGSize(width: 105, height: 50)
     }
 }
 

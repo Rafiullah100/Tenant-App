@@ -26,11 +26,10 @@ class TenantMngmentTableViewCell: UITableViewCell {
     static func nib()->UINib{
         return UINib(nibName: "TenantCollectionViewCell", bundle: nil)
     }
-    
     var tenants: PropertyTenantsFlat?{
         didSet{
             imgView.sd_setImage(with: URL(string: Route.baseUrl + (tenants?.ownersTenants?.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
-            titleLbl.text = tenants?.ownersTenants?.name
+            titleLbl.text = tenants?.ownersTenants?.name?.capitalized
             flatNoLbl.text = "Flat \(tenants?.flatNo ?? "")"
             phNoLbl.text = tenants?.ownersTenants?.contact ?? ""
         }

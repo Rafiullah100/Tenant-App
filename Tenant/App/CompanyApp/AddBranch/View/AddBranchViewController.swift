@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import GoogleMaps
 class AddBranchViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -19,7 +19,9 @@ class AddBranchViewController: BaseViewController {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var branchLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
-    
+    @IBOutlet weak var mapLabel: UILabel!
+    @IBOutlet weak var mapView: GMSMapView!
+
     var branchesList = [CompanyBranch]()
     
     override func viewDidLoad() {
@@ -31,7 +33,7 @@ class AddBranchViewController: BaseViewController {
             guard let branch = branch else {return}
             self.stopAnimation()
             if branch.success == true{
-                branchesList.append(CompanyBranch(id: 0, companyID: 0, name: nameTextField.text, contact: contactTextField.text, locationCode: "", district: "", city: "", timestamp: ""))
+                branchesList.append(CompanyBranch(id: 0, companyID: 0, name: nameTextField.text, contact: contactTextField.text, locationCode: addressTextField.text, district: viewModel.getDistrict(), city: viewModel.getCity(), timestamp: ""))
                 self.nameTextField.text = ""
                 self.contactTextField.text = ""
                 self.addressTextField.text = ""
@@ -41,13 +43,28 @@ class AddBranchViewController: BaseViewController {
                 showAlert(message: branch.message ?? "")
             }
         }
+        
+        viewModel.address.bind {  [unowned self] address in
+            guard let _ = address else {return}
+            self.stopAnimation()
+            setupMap(lat: viewModel.getCoordinatesFromCode().0, lng: viewModel.getCoordinatesFromCode().1)
+        }
     }
     
     private var viewModel = AddBranchViewModel()
     var companyID: Int?
     
+    @IBAction func confirmBtnAction(_ sender: Any) {
+        if addressTextField.text == nil {
+            showAlert(message: "Please enter location code and try again.")
+        }
+        else{
+            self.animateSpinner()
+            viewModel.getAddress(locationCode: addressTextField.text ?? "")
+        }
+    }
     @IBAction func addBtnAction(_ sender: Any) {
-        let branch = AddBranchInputModel(companyID: UserDefaults.standard.userID ?? 0, name: nameTextField.text ?? "", address: addressTextField.text ?? "", mobile: contactTextField.text ?? "")
+        let branch = AddBranchInputModel(companyID: UserDefaults.standard.userID ?? 0, name: nameTextField.text ?? "", locationCode: addressTextField.text ?? "", mobile: contactTextField.text ?? "", district: viewModel.getDistrict(), city: viewModel.getCity())
         let validationResponse = viewModel.isFormValid(branch: branch)
         if validationResponse.isValid {
             self.animateSpinner()
@@ -56,6 +73,16 @@ class AddBranchViewController: BaseViewController {
         else{
             showAlert(message: validationResponse.message)
         }
+    }
+    
+    private func setupMap(lat: Double, lng: Double){
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 14.0)
+        mapView.camera = camera
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: lat,
+                                                 longitude: lng)
+        marker.icon = UIImage(named: "pin")
+        marker.map = mapView
     }
 }
 

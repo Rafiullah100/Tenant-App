@@ -53,3 +53,22 @@ struct CompanyBranch: Codable {
         case district, city, timestamp
     }
 }
+
+
+struct CompanyEditProfileModel: Codable {
+    let data: CompanyEditProfile?
+    let success: Bool?
+    let message: String?
+}
+
+// MARK: - DataClass
+struct CompanyEditProfile: Codable {
+    let name, contact, locationCode, district: String?
+    let city, logo: String?
+
+    enum CodingKeys: String, CodingKey {
+        case name, contact
+        case locationCode = "location_code"
+        case district, city, logo
+    }
+}

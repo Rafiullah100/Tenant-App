@@ -127,8 +127,8 @@ class OwnerComplaintViewModel {
             propertyType = "Villa"
         }
         let buildingNo = self.profile.value?.ownerProfile?.flats?[0].properties?.buildingNo
-        let district = self.profile.value?.ownerProfile?.district
-        let city = self.profile.value?.ownerProfile?.city
+        let district = self.profile.value?.ownerProfile?.flats?[0].properties?.district
+        let city = self.profile.value?.ownerProfile?.flats?[0].properties?.city
 
         return "\(propertyType ) \(buildingNo ?? "#"), \(district ?? "#"), \(city ?? "#")"
     }

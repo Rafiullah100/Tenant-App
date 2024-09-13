@@ -144,7 +144,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btn" destination="Phf-pn-E3g" id="Xvj-rb-Pzd"/>
                 <outlet property="homeTypeLbl" destination="YMJ-BV-KMd" id="Sde-q9-nWm"/>
+                <outlet property="label" destination="OWj-PL-Bx2" id="PsN-ae-S7h"/>
             </connections>
             <point key="canvasLocation" x="-12.318840579710146" y="51.5625"/>
         </tableViewCell>

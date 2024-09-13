@@ -11,6 +11,8 @@ import UIKit
 class WorkerOngoingDetailViewController: BaseViewController  {
     @IBOutlet weak var photoLabel: UILabel!
     
+    @IBOutlet weak var completedView: UIView!
+    @IBOutlet weak var noOfFileLabel: UILabel!
     @IBOutlet weak var personValueLabel: UILabel!
     @IBOutlet weak var timeValueLabel: UILabel!
     @IBOutlet weak var scheduleValueLabel: UILabel!
@@ -104,6 +106,7 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         scheduleValueLabel.text = viewModel.getScheduleDate()
         timeValueLabel.text = viewModel.getScheduleTime()
         personValueLabel.text = viewModel.getMaintenancePersonContact()
+//        completedView.isHidden = viewModel.hideCompletedView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -162,6 +165,7 @@ extension WorkerOngoingDetailViewController: UIImagePickerControllerDelegate & U
         if let image = info[.originalImage] as? UIImage {
                 self.selectedImages.append(image)
                 print(self.selectedImages.count)
+            self.noOfFileLabel.text = "\(self.selectedImages.count) Files selected"
                 self.uploadedCollectionView.reloadData()
         }
         hideGalleryView()

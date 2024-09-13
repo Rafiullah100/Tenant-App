@@ -79,6 +79,7 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SelfPropertyDetailTableViewCell.cellReuseIdentifier(), for: indexPath) as! SelfPropertyDetailTableViewCell
         cell.homeTypeLbl.text = viewModel.getName(at: indexPath.row)
+        cell.label.text = viewModel.isSelectedHome(at: indexPath.row)
         cell.selectAsYourHome = { [weak self] in
             self?.animateSpinner()
             self?.viewModel.selectAsYourHome(flatID: self?.viewModel.getFlatID(at: indexPath.row) ?? 0, tenantID: UserDefaults.standard.userID ?? 0)

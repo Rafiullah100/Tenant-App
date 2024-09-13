@@ -42,14 +42,14 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
         titleTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         descriptionTextView.textAlignment = Helper.shared.isRTL() ? .right : .left
         enterTitleLabel.text = LocalizationKeys.title.rawValue.localizeString()
-        categoryLabel.text = LocalizationKeys.branch.rawValue.localizeString()
+        categoryLabel.text = LocalizationKeys.category.rawValue.localizeString()
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
         sizeLabel.text = LocalizationKeys.imageSize.rawValue.localizeString()
         noFileLabel.text = LocalizationKeys.noFileChoose.rawValue.localizeString()
         fileButton.setTitle(LocalizationKeys.chooseFile.rawValue.localizeString(), for: .normal)
         submitButton.setTitle(LocalizationKeys.submitComplaint.rawValue.localizeString(), for: .normal)
         categoryTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
-        categoryTextField.placeholder = LocalizationKeys.selectBranch.rawValue.localizeString()
+        categoryTextField.placeholder = LocalizationKeys.selectCategory.rawValue.localizeString()
         
         pickerView.delegate = self
         pickerView.dataSource = self

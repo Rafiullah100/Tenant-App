@@ -1856,8 +1856,10 @@
                         <outlet property="acceptedLabel" destination="3wR-BC-AvV" id="047-N7-BJ5"/>
                         <outlet property="acceptedValueLabel" destination="kvz-Nh-F0G" id="c0g-ev-4X7"/>
                         <outlet property="collectionView" destination="rxG-EF-SFE" id="mME-El-asi"/>
+                        <outlet property="completedView" destination="B5s-Bf-iM4" id="X2a-ja-qQ9"/>
                         <outlet property="dateLabel" destination="LRN-hV-KqK" id="UUU-bw-Wf2"/>
                         <outlet property="descriptionLabel" destination="IsW-RR-9k6" id="cUj-5m-EaY"/>
+                        <outlet property="noOfFileLabel" destination="4V8-AT-rWV" id="zK5-UB-Mm1"/>
                         <outlet property="personLabel" destination="Btb-QM-ZmX" id="VVI-V3-j3t"/>
                         <outlet property="personValueLabel" destination="vwK-lK-V7f" id="6H5-78-aFl"/>
                         <outlet property="photoLabel" destination="CMZ-2F-08d" id="Jln-fb-gQk"/>

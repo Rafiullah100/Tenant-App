@@ -49,6 +49,7 @@ class AddTenanToFlatViewController: BaseViewController {
             if assign.success == true{
                 self.showAlertWithbutttons(message: assign.message ?? "") {
                         NotificationCenter.default.post(name: Notification.Name(Constants.reloadFlats), object: nil)
+                    NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
                         self.navigationController?.popViewController(animated: true)
                 }
             }

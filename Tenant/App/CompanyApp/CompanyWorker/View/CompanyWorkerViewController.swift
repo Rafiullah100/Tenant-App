@@ -7,7 +7,10 @@
 
 import UIKit
 import Dispatch
+import SDWebImage
 class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var profileImageView: UIImageView!
+
     @IBOutlet weak var contactLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var searchButtonView: UIView!
@@ -63,6 +66,10 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
+        nameLabel.text = UserDefaults.standard.name
+        contactLabel.text = UserDefaults.standard.mobile
+        profileImageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
     }
     
     private func networkingCall(){
@@ -122,7 +129,6 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
                 cell.titleLbl.textColor = CustomColor.categoryGrayColor.color
             }
             return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -130,6 +136,10 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         collectionView.reloadData()
         skillIndex = indexPath.row
         self.getWorker()
+    }
+    
+    @IBAction func profileBtnAction(_ sender: Any) {
+        Switcher.gotoCompanyProfile(delegate: self)
     }
 }
 

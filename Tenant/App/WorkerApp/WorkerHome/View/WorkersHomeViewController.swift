@@ -124,11 +124,22 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var comlaintId = 0
+        var istaskCompletedFromWorkerSide = false
         if complaintType == .new{
-            Switcher.gotoWorkerOngoingDetailScreen(delegate: self, complaintID: viewModel.getRecentComplaintID(at: indexPath.row))
+            comlaintId = viewModel.getRecentComplaintID(at: indexPath.row)
+            istaskCompletedFromWorkerSide = viewModel.isRecentTaskCompleted(at: indexPath.row)
         }
-        else {
-            Switcher.gotoWorkerComplaintDetailScreen(delegate: self, complaintID: viewModel.getCompletedComplaintID(at: indexPath.row))
+        else{
+            comlaintId = viewModel.getCompletedComplaintID(at: indexPath.row)
+            istaskCompletedFromWorkerSide = viewModel.isHistoryTaskCompleted(at: indexPath.row)
+        }
+        
+        if istaskCompletedFromWorkerSide {
+            Switcher.gotoWorkerComplaintDetailScreen(delegate: self, complaintID: comlaintId)
+        }
+        else{
+            Switcher.gotoWorkerOngoingDetailScreen(delegate: self, complaintID: comlaintId)
         }
     }
 }

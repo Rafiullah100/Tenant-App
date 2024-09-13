@@ -84,6 +84,12 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
+    static func gotoOwnerProperty(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "PropertyViewController") as! PropertyViewController
+        vc.modalPresentationStyle = .fullScreen
+        delegate.navigationController?.pushViewController(vc, animated: false)
+    }
+    
     static func gotoCompanyProfile(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "ProfileHomeViewController") as! ProfileHomeViewController
         vc.modalPresentationStyle = .fullScreen

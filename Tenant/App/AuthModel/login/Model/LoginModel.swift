@@ -19,6 +19,14 @@ struct LoginInputModel {
 }
 
 
+struct CompanyUpdateProfileInputModel {
+    let name: String
+    let locationCode: String
+    let city: String
+    let district: String
+}
+
+
 struct AddComplaintInputModel {
     let title: String
     let description: String

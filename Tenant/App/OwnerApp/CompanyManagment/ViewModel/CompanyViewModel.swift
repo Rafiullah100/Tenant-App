@@ -39,9 +39,9 @@ class CompanyViewModel {
         return self.companiesList.value?.companies?.rows?[index].id ?? 0
     }
     
-    func isAssigned(at index: Int) -> Bool{
+    func isAssigned(at index: Int) -> String{
         let propertiesCount = self.companiesList.value?.companies?.rows?[index].properties?.count
-        return propertiesCount == 0 ? false : true
+       return propertiesCount == 1 ? "Assigned" : " Assign"
     }
     
     func assignToProperty(companyID: Int, propertyID: Int){

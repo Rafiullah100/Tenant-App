@@ -73,10 +73,12 @@ class CompanyWorkerViewModel{
     }
     
     func getBranchName(at index: Int) -> String{
+        guard self.branches.value?.companyProfile?.branches?.count ?? 0 > 0 else { return "" }
         return self.branches.value?.companyProfile?.branches?[index].name ?? ""
     }
     
     func getBranchID(at index: Int) -> Int{
+        guard self.branches.value?.companyProfile?.branches?.count ?? 0 > 0 else { return 0 }
         return self.branches.value?.companyProfile?.branches?[index].id ?? 0
     }
     

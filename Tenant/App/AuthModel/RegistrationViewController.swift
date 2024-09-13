@@ -56,6 +56,10 @@ class RegistrationViewController: BaseViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    @IBAction func gotoSignBtnAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func registerBtnAction(_ sender: Any) {
         let signup = SignupInputModel(userType: userType.rawValue, email: emailTextField.text ?? "", mobile: contactTextField.text ?? "", name: nameTextField.text ?? "")
         let validationResponse = viewModel.isFormValid(user: signup)

@@ -8,9 +8,11 @@
 import UIKit
 
 class OwnerDetailViewController: BaseViewController {
+    @IBOutlet weak var showMore: UIButton!
     @IBOutlet weak var postedValueLabel: UILabel!
     @IBOutlet weak var timeValueLabel: UILabel!
     
+    @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var companyPhotoLabel: UILabel!
     @IBOutlet weak var completedLabel: UILabel!
@@ -116,23 +118,23 @@ class OwnerDetailViewController: BaseViewController {
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textViewTapped))
-        textView.addGestureRecognizer(tapGesture)
-        textView.isUserInteractionEnabled = true
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textViewTapped))
+//        textView.addGestureRecognizer(tapGesture)
+//        textView.isUserInteractionEnabled = true
     }
     
-    @objc func textViewTapped() {
-            if isExpanded {
-                textView.text = viewModel.getDescription()
-            } else {
-                textView.text = "Click to view desciption."
-            }
-            
-            UIView.animate(withDuration: 0.3) {
-                self.view.layoutIfNeeded()
-            }
-            isExpanded.toggle()
-        }
+//    @objc func textViewTapped() {
+//            if isExpanded {
+//                textView.text = viewModel.getDescription()
+//            } else {
+//                textView.text = "Click to view desciption."
+//            }
+//            
+//            UIView.animate(withDuration: 0.3) {
+//                self.view.layoutIfNeeded()
+//            }
+//            isExpanded.toggle()
+//        }
 
     
     private func updateUI(){
@@ -155,6 +157,14 @@ class OwnerDetailViewController: BaseViewController {
         propertyValueLabel.text = viewModel.getProperty()
         personValueLabel.text = viewModel.getAssignWorkerContact()
         completedValueLabel.text = viewModel.getCompletedDate()
+        textView.text = viewModel.getDescription()
+        textView.isHidden = false
+        print(viewModel.getDescription())
+        showMore.isHidden = viewModel.showMore()
+        tenantPhotoView.isHidden = !viewModel.showMore()
+        descriptionView.isHidden = !viewModel.showMore()
+        descriptionLabel.isHidden = !viewModel.showMore()
+
         tenantCollectionView.reloadData()
         companyCollectionView.reloadData()
     }
@@ -175,6 +185,11 @@ class OwnerDetailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+    }
+    @IBAction func showMoreButtonAction(_ sender: Any) {
+        tenantPhotoView.isHidden = !tenantPhotoView.isHidden
+        descriptionView.isHidden = !descriptionView.isHidden
+        descriptionLabel.isHidden = !descriptionLabel.isHidden
     }
 }
 

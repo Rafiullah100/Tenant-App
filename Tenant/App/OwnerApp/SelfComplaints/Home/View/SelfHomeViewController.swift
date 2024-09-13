@@ -10,6 +10,7 @@ import UIKit
 
 
 class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
+    @IBOutlet weak var homeButtonView: UIView!
     @IBOutlet weak var addressValueLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var newButton: UIButton!
@@ -32,6 +33,7 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
         self.historyTableView.estimatedRowHeight = 44.0
         self.nameLabel.text = UserDefaults.standard.name
         self.addressValueLabel.text = UserDefaults.standard.currentHome
+        self.homeButtonView.isHidden = viewModel.isHomeButtonHide()
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
             self.isLoading = false
@@ -54,9 +56,9 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
     }
 
     @IBAction func homeBtnAction(_ sender: Any) {
-        guard UserDefaults.standard.propertyIDIfTenant == 0 && UserDefaults.standard.flatIDIfTenant == 0 || UserDefaults.standard.propertyIDIfTenant == nil && UserDefaults.standard.flatIDIfTenant == nil else{
-            return
-        }
+//        guard UserDefaults.standard.propertyIDIfTenant == 0 && UserDefaults.standard.flatIDIfTenant == 0 || UserDefaults.standard.propertyIDIfTenant == nil && UserDefaults.standard.flatIDIfTenant == nil else{
+//            return
+//        }
         Switcher.gotoSelfList(delegate: self)
     }
     

@@ -38,6 +38,7 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
     private var viewModel = OwnerComplaintViewModel()
     private var isLoading = true
     var dispatchGroup: DispatchGroup?
+    let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +65,12 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         self.animateSpinner()
         networkingCall()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadComplaints), name: Notification.Name(Constants.reloadOwnerComplaints), object: nil)
+        
+        refreshControl.addTarget(self, action: #selector(reloadComplaints), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
-    private func networkingCall(){
+    @objc private func networkingCall(){
         dispatchGroup = DispatchGroup()
         dispatchGroup?.enter()
         viewModel.getComplaints(search: searchTextField.text ?? "")
@@ -96,6 +100,7 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
     @objc private func reloadComplaints(){
         viewModel.complaintList.bind { [weak self] list in
             guard let _ = list else {return}
+            self?.tableView.refreshControl?.endRefreshing()
             self?.stopAnimation()
             self?.tableView.reloadData()
         }
@@ -110,7 +115,6 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         self.flatValueLabel.text = "\(viewModel.getFlatCount())"
         self.nameLabel.text = viewModel.getName()
         UserDefaults.standard.currentHome = viewModel.getAddress()
-        print(viewModel.getAddress())
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -9,6 +9,8 @@ import UIKit
 
 class TenantCompletedViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var confirmView: UIView!
     @IBOutlet weak var phoneLbl: UILabel!
     @IBOutlet weak var statusLbl: UILabel!
@@ -106,7 +108,10 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         complaintPhtotoView.isHidden = viewModel.hideComplaintPhotoView()
         companyPhotoView.isHidden = viewModel.hideCompanyPhotoView()
         personLbl.text = viewModel.getAssignWorkerContact()
-        
+        moreButton.isHidden = viewModel.showMore()
+        complaintPhtotoView.isHidden = !viewModel.showMore()
+        descriptionView.isHidden = !viewModel.showMore()
+
         self.collectionView.reloadData()
         self.companyCollectionView.reloadData()
     }
@@ -136,6 +141,11 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         return cell
     }
  
+    @IBAction func showMoreBtnAction(_ sender: Any) {
+        complaintPhtotoView.isHidden = !complaintPhtotoView.isHidden
+        descriptionView.isHidden = !descriptionView.isHidden
+    }
+    
     @IBAction func confirmBtnAction(_ sender: Any) {
         self.animateSpinner()
         viewModel.confirm(complaintID: complaintID ?? 0)

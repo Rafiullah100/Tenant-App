@@ -199,4 +199,18 @@ class TenantComplaintDetailViewModel {
     func getAssignWorkerContact() -> String {
         return self.complaintDetail.value?.worker?.contact ?? ""
     }
+    
+    func showMore() -> Bool {
+        let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
+        let isConfirmBYTenant = self.complaintDetail.value?.tenantApproval ?? 0
+        if isTaskCompleted == 1 && isConfirmBYTenant == 0{
+            return false
+        }
+        if isTaskCompleted == 1 && isConfirmBYTenant == 1{
+            return false
+        }
+        else{
+            return true
+        }
+    }
 }

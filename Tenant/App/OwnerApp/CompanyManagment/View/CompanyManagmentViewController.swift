@@ -44,14 +44,24 @@ class CompanyManagmentViewController: BaseViewController {
         viewModel.assign.bind { assign in
             guard let assign = assign else{return}
             self.stopAnimation()
-            self.showAlert(message: assign.message ?? "")
+            if assign.success == true{
+                DispatchQueue.main.async {
+                    self.showAlertWithbutttons(message: assign.message ?? "") {
+                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
+                        Switcher.gotoOwnerProperty(delegate: self)
+                    }
+                    self.callAPI()
+                }
+            }
+            else{
+                self.showAlert(message: assign.message ?? "")
+            }
         }
     }
     
     private func callAPI(){
         self.animateSpinner()
         viewModel.getList(propertyID: propertyID ?? 0)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +78,7 @@ extension CompanyManagmentViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCardTableViewCell.cellReuseIdentifier(), for: indexPath) as! CompanyCardTableViewCell
         cell.nameLabel.text = viewModel.getName(at: indexPath.row)
-        cell.assignButton.setTitle(viewModel.isAssigned(at: indexPath.row) == true ? "Assigned" : " Assign", for: .normal)
+        cell.assignButton.setTitle(viewModel.isAssigned(at: indexPath.row), for: .normal)
         cell.iconView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getIcon(at: indexPath.row)), placeholderImage: UIImage(named: "PlaceholderImage"))
         cell.assign = { [weak self] in
             if let companyID = self?.viewModel.getCompanyID(at: indexPath.row) {

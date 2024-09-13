@@ -46,10 +46,24 @@ class CompanyProfileViewController: BaseViewController {
         viewModel.getProfile(companyID: UserDefaults.standard.userID ?? 0)
         
         viewModel.address.bind {  [unowned self] address in
-            guard let address = address else {return}
+            guard let _ = address else {return}
             self.stopAnimation()
             setupMap(lat: viewModel.getCoordinatesFromCode().0, lng: viewModel.getCoordinatesFromCode().1)
         }
+        
+        viewModel.editProfile.bind {  [unowned self] edit in
+            guard let edit = edit else {return}
+            self.stopAnimation()
+            if edit.success == true{
+                saveValue()
+            }
+            self.showAlert(message: edit.message ?? "")
+        }
+    }
+    
+    private func saveValue(){
+        UserDefaults.standard.name = viewModel.getUpdatedName()
+        UserDefaults.standard.profileImage = viewModel.getUpdatedProfileImage()
     }
     
     private func setupMap(lat: Double, lng: Double){
@@ -65,8 +79,10 @@ class CompanyProfileViewController: BaseViewController {
     private func updateUI(){
         nameTextField.text = viewModel.getName()
         contactTextField.text = viewModel.getContact()
+        locationCodeTextField.text = viewModel.getLocationCode()
         imageView.sd_setImage(with: URL(string: Route.baseUrl + (viewModel.getProfileImage())), placeholderImage: UIImage(named: "PlaceholderImage"))
         branches = viewModel.getBranchesList()
+        viewModel.getAddress(locationCode: viewModel.getLocationCode())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +108,15 @@ class CompanyProfileViewController: BaseViewController {
     }
     
     @IBAction func saveBtnAction(_ sender: Any) {
+        let profile = CompanyUpdateProfileInputModel(name: nameTextField.text ?? "", locationCode: locationCodeTextField.text ?? "", city: viewModel.getCity(), district: viewModel.getDistrict())
+        let validationResponse = viewModel.isFormValid(profile: profile)
+        if validationResponse.isValid {
+            self.animateSpinner()
+            self.viewModel.updateProfile(image: imageView.image ?? UIImage())
+        }
+        else{
+            showAlert(message: validationResponse.message)
+        }
     }
 }
 

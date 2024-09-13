@@ -57,7 +57,6 @@ enum Route {
     case trendingOpinion
     case trendingNews
     case getProfile
-    case updateProfile
     case doArchive
     case archiveNews
     case updatePassword
@@ -86,6 +85,7 @@ enum Route {
     case opinionDetail
     case assignTenantToFlat
     case getTenantResidence
+    case updateProfile
     
     var description: String {
         switch self {
@@ -119,8 +119,6 @@ enum Route {
             return "api/mobile/opinions/trending"
         case .getProfile:
             return "api/mobile/users/profile"
-        case .updateProfile:
-            return "api/mobile/users/update-profile"
         case .doArchive:
             return "api/mobile/archive/add-remove"
         case .archiveNews:
@@ -240,6 +238,8 @@ enum Route {
             return "api/mobile/company/time_slots"
         case .getPropertyTenants:
             return "api/mobile/tenant/get_list_by_property"
+        case .updateProfile:
+            return "api/mobile/company/update_profile"
         }
     }
 }

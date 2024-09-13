@@ -20,19 +20,26 @@ public class Helper{
     static let shared = Helper()
     
     func dateFormate(dateString: String) -> String {
-        let inputDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let inputDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let outputDateFormat = "MMM d, yyyy, h:mm a"
         let dateFormatter = DateFormatter()
+
         dateFormatter.dateFormat = inputDateFormat
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.locale = Locale(identifier: "en_PK")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0) // Parse the input as UTC time
+
         if let inputDate = dateFormatter.date(from: dateString) {
+            
             dateFormatter.dateFormat = outputDateFormat
+            dateFormatter.timeZone = TimeZone.current
             let outputDateString = dateFormatter.string(from: inputDate)
+            
             print(outputDateString)
             return outputDateString
         } else {
             return ""
         }
+
     }
     
     func convertDateToString(date: Date) -> String {
@@ -48,10 +55,10 @@ public class Helper{
     func convertTo24HourFormat(time12: String) -> String? {
         print(time12)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "ha" // Format for 12-hour time with AM/PM
-        
+        dateFormatter.dateFormat = "hh:mm:ss"
+
         if let date = dateFormatter.date(from: time12) {
-            dateFormatter.dateFormat = "HH:mm" // Format for 24-hour time with minutes
+            dateFormatter.dateFormat = "HH:mm:ss" // Format for 24-hour time with minutes
             return dateFormatter.string(from: date)
         } else {
             return nil // Return nil if the input is invalid

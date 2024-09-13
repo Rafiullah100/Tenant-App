@@ -26,7 +26,6 @@ class AssignViewModel {
             guard let time12 = assign.time.components(separatedBy: " ").first else {
                 return ValidationResponse(isValid: false, message: "Error")}
             let time24 = Helper.shared.convertTo24HourFormat(time12: time12)
-            
             parameters = ["branch_id": assign.branchID, "skill_id": assign.skillID, "worker_id": assign.workerID, "complaint_id": assign.complaintID, "schedule_date": assign.date + " " + (time24 ?? "")]
             print(parameters ?? [:])
             return ValidationResponse(isValid: true, message: "")

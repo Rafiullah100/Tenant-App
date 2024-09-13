@@ -10,9 +10,11 @@ import UIKit
 class SelfPropertyDetailTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var homeTypeLbl: UILabel!
     
-//    public func homeInfo(homeType: homeType )  {
+    @IBOutlet weak var label: UILabel!
+    //    public func homeInfo(homeType: homeType )  {
 //        homeTypeLbl.text = homeType.type
 //    }
     

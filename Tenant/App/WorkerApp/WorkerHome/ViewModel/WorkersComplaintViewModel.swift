@@ -50,4 +50,11 @@ class WorkersComplaintViewModel {
         return complaint
     }
     
+    func isHistoryTaskCompleted(at index: Int) -> Bool {
+        return self.complaintList.value?.complaintsHistory?.rows?[index].taskComplete == 1 ? true : false
+    }
+    
+    func isRecentTaskCompleted(at index: Int) -> Bool {
+        return self.complaintList.value?.complaintsRecent?.rows?[index].taskComplete == 1 ? true : false
+    }
 }

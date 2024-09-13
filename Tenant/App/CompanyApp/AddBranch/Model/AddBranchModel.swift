@@ -15,6 +15,8 @@ struct AddBranchModel: Codable {
 struct AddBranchInputModel {
     let companyID: Int
     let name: String
-    let address: String
+    let locationCode: String
     let mobile: String
+    let district: String
+    let city: String
 }

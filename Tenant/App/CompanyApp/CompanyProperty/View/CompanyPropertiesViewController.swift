@@ -6,10 +6,11 @@
 //
 
 import UIKit
-
+import SDWebImage
 class CompanyPropertiesViewController: BaseViewController {
     @IBOutlet weak var contactLabel: UILabel!
-    
+    @IBOutlet weak var profileImageView: UIImageView!
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var titlLabel: UILabel!
@@ -22,6 +23,7 @@ class CompanyPropertiesViewController: BaseViewController {
         }
     }
     private var viewModel = CompanyPropertyViewModel()
+    private var isLoading = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +34,9 @@ class CompanyPropertiesViewController: BaseViewController {
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         
-        nameLabel.text = UserDefaults.standard.name
-        contactLabel.text = UserDefaults.standard.mobile
-        
         viewModel.propertyList.bind { [weak self] list in
             guard let _ = list else {return}
+            self?.isLoading = false
             self?.stopAnimation()
             self?.tableView.reloadData()
         }
@@ -46,17 +46,35 @@ class CompanyPropertiesViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
+        nameLabel.text = UserDefaults.standard.name
+        contactLabel.text = UserDefaults.standard.mobile
+        profileImageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
     }
     
     private func callAPI(){
         self.animateSpinner()
         viewModel.getProperties(search: searchTextField.text ?? "")
     }
+    
+    @IBAction func profileBtnAction(_ sender: Any) {
+        Switcher.gotoCompanyProfile(delegate: self)
+    }
 }
 
 extension CompanyPropertiesViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isLoading{
+            return 0
+        }
+        
+        if viewModel.getPropertiesCount() == 0{
+            self.tableView.setEmptyView("No Property assigned yet.")
+        }
+        else{
+            self.tableView.backgroundView = nil
+        }
         return viewModel.getPropertiesCount()
     }
     

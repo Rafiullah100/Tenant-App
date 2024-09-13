@@ -6,18 +6,44 @@
 //
 
 import Foundation
+import UIKit
 
 class CompanyProfileViewModel {
     var errorMessage: Observable<String> = Observable("")
     var profile: Observable<CompanyProfileModel> = Observable(nil)
     var address: Observable<LocationCodeModel> = Observable(nil)
+    var editProfile: Observable<CompanyEditProfileModel> = Observable(nil)
 
+    var parameters: [String: Any]?
+    func isFormValid(profile: CompanyUpdateProfileInputModel) -> ValidationResponse {
+        if profile.name.isEmpty || profile.locationCode.isEmpty {
+            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
+        }
+        else if profile.district.isEmpty || profile.city.isEmpty{
+            return ValidationResponse(isValid: false, message: "First confirm location then try!")
+        }
+        else{
+            parameters = ["name": profile.name, "location_code": profile.locationCode, "district": profile.locationCode, "city": profile.city]
+            return ValidationResponse(isValid: true, message: "")
+        }
+    }
     
     func getProfile(companyID: Int){
         _ = URLSession.shared.request(route: .getCompanyProfile, method: .post, parameters: ["id": companyID], model: CompanyProfileModel.self) { result in
             switch result {
             case .success(let profile):
                 self.profile.value = profile
+            case .failure(let error):
+                self.errorMessage.value = error.localizedDescription
+            }
+        }
+    }
+    
+    func updateProfile(image: UIImage)  {
+        Networking.shared.updateCompanyProfile(route: .updateProfile, imageParameter: "logo", images: [image], parameters: parameters ?? [:]) { result in
+            switch result {
+            case .success(let edit):
+                self.editProfile.value = edit
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription
             }
@@ -62,10 +88,19 @@ class CompanyProfileViewModel {
     }
     
     func getLocationCode() -> String {
+        print(self.profile.value?.companyProfile?.locationCode ?? "")
         return self.profile.value?.companyProfile?.locationCode ?? ""
     }
     
     func getBranchesList() -> [CompanyBranch] {
         return self.profile.value?.companyProfile?.branches ?? []
+    }
+    
+    func getUpdatedName() -> String {
+        return self.editProfile.value?.data?.name ?? ""
+    }
+    
+    func getUpdatedProfileImage() -> String {
+        return self.editProfile.value?.data?.logo ?? ""
     }
 }
