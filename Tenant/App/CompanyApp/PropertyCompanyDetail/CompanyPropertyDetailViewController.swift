@@ -54,18 +54,20 @@ class CompanyPropertyDetailViewController: BaseViewController {
         marker.icon = UIImage(named: "pin")
         marker.map = mapView
         
-        
         propertyTitleLabel.text = "\(property?.buildingType?.capitalized ?? "") \(property?.buildingNo ?? ""), \(property?.district ?? ""), \(property?.city ?? "")"
         addressLabel.text = "\(property?.district ?? ""), \(property?.city ?? "")"
-        ownerLabel.text = property?.flats?[0].ownersTenants?.name
         typeLabel.text = property?.buildingType?.capitalized
         flatLabel.text = "\(property?.flats?.count ?? 0)"
+        if property?.flats?.count ?? 0 > 0 {
+            ownerLabel.text = property?.flats?[0].ownersTenants?.name
+        }
+        else{
+            ownerLabel.text = ""
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
-
-
 }

@@ -57,7 +57,7 @@ class CompanyProfileViewController: BaseViewController {
             if edit.success == true{
                 saveValue()
             }
-            self.showAlert(message: edit.message ?? "")
+            ToastManager.shared.showToast(message: edit.message ?? "")
         }
     }
     

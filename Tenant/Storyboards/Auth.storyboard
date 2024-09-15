@@ -1549,7 +1549,7 @@
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose one to continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-fK-8An">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="349" height="50"/>
-                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="24"/>
+                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="20"/>
                                                                                                 <nil key="textColor"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
@@ -1604,7 +1604,7 @@
                                                                                                 </subviews>
                                                                                             </stackView>
                                                                                         </subviews>
-                                                                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="40" id="EC6-lK-UrB"/>
                                                                                             <constraint firstItem="DIE-jH-8MC" firstAttribute="leading" secondItem="Z10-yl-ilQ" secondAttribute="leading" constant="10" id="TB0-1I-Ksv"/>
@@ -1613,11 +1613,9 @@
                                                                                             <constraint firstAttribute="trailing" secondItem="DIE-jH-8MC" secondAttribute="trailing" constant="10" id="wP8-y4-0DX"/>
                                                                                         </constraints>
                                                                                         <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="addNormalShadow" value="YES"/>
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
                                                                                                 <real key="value" value="5"/>
-                                                                                            </userDefinedRuntimeAttribute>
-                                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                                                <color key="value" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
@@ -1671,6 +1669,9 @@
                                                                             <constraint firstItem="IFx-93-DBJ" firstAttribute="leading" secondItem="Aj5-oX-O7G" secondAttribute="leading" constant="22" id="YcP-Cw-XmX"/>
                                                                             <constraint firstAttribute="trailing" secondItem="IFx-93-DBJ" secondAttribute="trailing" constant="22" id="gZy-I3-pPX"/>
                                                                         </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="addNormalShadow" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                 </subviews>
                                                                 <constraints>
@@ -1720,6 +1721,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Rav-CC-oEV"/>
                     <connections>
+                        <outlet property="buttonBgView" destination="Z10-yl-ilQ" id="q1P-Nx-hkn"/>
                         <outlet property="chooseLabel" destination="IfR-fK-8An" id="Xzf-hu-7pR"/>
                         <outlet property="continueButton" destination="12x-YM-RrF" id="h0I-oi-9pU"/>
                         <outlet property="curveImageView" destination="q5F-MX-HhM" id="HIf-E2-0DM"/>
@@ -2309,7 +2311,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uks-rV-Elo">
                                                                         <rect key="frame" x="0.0" y="53" width="343" height="60"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We’ve sent an SMS with an activation code to your phone number ending with *****290. Enter the Code below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lm9-PP-i0T">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We’ve sent an SMS with an activation code to your phone number ending with . Enter the Code below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lm9-PP-i0T">
                                                                                 <rect key="frame" x="7" y="0.0" width="329" height="60"/>
                                                                                 <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                 <nil key="textColor"/>
@@ -3595,6 +3597,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

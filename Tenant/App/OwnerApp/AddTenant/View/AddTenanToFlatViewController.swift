@@ -42,19 +42,18 @@ class AddTenanToFlatViewController: BaseViewController {
             self.tableView.reloadData()
         }
         searchTextField.delegate = self
-
+        
         viewModel.assign.bind { assign in
             guard let assign = assign else{return}
             self.stopAnimation()
             if assign.success == true{
-                self.showAlertWithbutttons(message: assign.message ?? "") {
-                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadFlats), object: nil)
-                    NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
-                        self.navigationController?.popViewController(animated: true)
-                }
+                ToastManager.shared.showToast(message: assign.message ?? "")
+                NotificationCenter.default.post(name: Notification.Name(Constants.reloadFlats), object: nil)
+                NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
+                self.navigationController?.popViewController(animated: true)
             }
             else{
-                self.showAlert(message: assign.message ?? "")
+                ToastManager.shared.showToast(message: assign.message ?? "")
             }
         }
         

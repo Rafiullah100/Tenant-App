@@ -28,7 +28,6 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Gmv-1H-Nm0" firstAttribute="centerX" secondItem="MGy-9R-2lV" secondAttribute="centerX" id="KWv-P2-SdX"/>
                             <constraint firstItem="Gmv-1H-Nm0" firstAttribute="centerY" secondItem="MGy-9R-2lV" secondAttribute="centerY" id="WyL-AZ-3HZ"/>
@@ -58,9 +57,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

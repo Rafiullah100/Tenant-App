@@ -46,6 +46,8 @@ struct Constants {
     static var reloadCompanyComplaints = "reloadCompanyComplaints"
     static var reloadWorkers = "reloadWorkers"
     static var reloadWorkerComplaints = "reloadWorkerComplaints"
+    static var reloadBranches = "reloadBranches"
+    static var reloadOwnerProfile = "reloadOwnerProfile"
 
     
     static var apiKey = "-iHEiOd5WEpPmqiHiPEhILlrQ6NHHvl_vOegasyglxI"

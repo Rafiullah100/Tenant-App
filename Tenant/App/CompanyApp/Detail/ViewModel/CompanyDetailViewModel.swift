@@ -72,20 +72,13 @@ class CompanyDetailViewModel {
     }
     
     func getProperty() -> String? {
-        let type = self.complaintDetail.value?.complaintDetail?.property?.buildingType
-        var propertyType = ""
-        
-        if type == "builidng" {
-            propertyType = "Builidng"
-        }
-        else{
-            propertyType = "Villa"
-        }
+        let type = self.complaintDetail.value?.complaintDetail?.property?.buildingType?.capitalized
+       
         let buildingNo = self.complaintDetail.value?.complaintDetail?.property?.buildingNo
         let district = self.complaintDetail.value?.complaintDetail?.property?.district
         let city = self.complaintDetail.value?.complaintDetail?.property?.city
 
-        return "\(propertyType ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
+        return "\(type ?? "" ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
     }
     
     func getStatus() -> String {
@@ -136,7 +129,9 @@ class CompanyDetailViewModel {
     }
     
     func getAssignWorkerContact() -> String {
-        return self.complaintDetail.value?.complaintDetail?.worker?.contact ?? ""
+        let name = self.complaintDetail.value?.complaintDetail?.worker?.name ?? ""
+        let contact = self.complaintDetail.value?.complaintDetail?.worker?.contact ?? ""
+        return "\(name)(\(contact))"
     }
     
     func getMaintenancePersonContact() -> String {
@@ -161,6 +156,11 @@ class CompanyDetailViewModel {
         return workerID == 0 ? true : false
     }
     
+    func hideButtonsView() ->  Bool{
+        let companyApproval = self.complaintDetail.value?.complaintDetail?.companyApproval ?? 0
+        return companyApproval == 0 ? false : true
+    }
+    
     func hideScheduleView() ->  Bool{
         let workerID = self.complaintDetail.value?.complaintDetail?.workerID ?? 0
         return workerID == 0 ? true : false
@@ -171,18 +171,18 @@ class CompanyDetailViewModel {
         return isTaskCompleted == 0 ? true : false
     }
     
-    func hideButtonsView() -> Bool{
+    func showMore() -> Bool{
         let workerID = self.complaintDetail.value?.complaintDetail?.workerID ?? 0
         let companyApproval = self.complaintDetail.value?.complaintDetail?.companyApproval ?? 0
 
         if workerID == 0 && companyApproval == 0{
-            return false
+            return true
         }
         else if workerID == 0 && companyApproval == 2{
             return true
         }
         else {
-            return true
+            return false
         }
     }
 }

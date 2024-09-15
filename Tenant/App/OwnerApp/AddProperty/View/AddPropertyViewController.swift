@@ -85,7 +85,7 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
                     self.navigationController?.popViewController(animated: true)
                 }
                 else{
-                    self.showAlert(message: add.message ?? "")
+                    ToastManager.shared.showToast(message: add.message ?? "")
                 }
             }
         }

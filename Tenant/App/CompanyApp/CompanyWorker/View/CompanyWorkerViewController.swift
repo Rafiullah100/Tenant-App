@@ -59,14 +59,15 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         contactLabel.text = UserDefaults.standard.mobile
         self.animateSpinner()
         networkingCall()
+        NotificationCenter.default.addObserver(self, selector: #selector(getWorker), name: Notification.Name(Constants.reloadWorkers), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(getWorker), name: Notification.Name(Constants.reloadWorkers), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadBranches), name: Notification.Name(Constants.reloadBranches), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        
         nameLabel.text = UserDefaults.standard.name
         contactLabel.text = UserDefaults.standard.mobile
         profileImageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
@@ -79,7 +80,6 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         dispatchGroup?.enter()
         viewModel.getBranches()
         
-        
         viewModel.branches.bind { [weak self] branches in
             guard let _ = branches else {return}
             self?.dispatchGroup?.leave()
@@ -91,7 +91,6 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         }
                 
         dispatchGroup?.notify(queue: .main) {
-            self.bindWorkerToView()
             self.categoryCollectionView.reloadData()
             self.pickerView.reloadAllComponents()
             self.getWorker()
@@ -99,36 +98,42 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
     }
     
     @objc private func getWorker(){
-        viewModel.getWorkers(branchID: viewModel.getBranchID(at: branchIndex), skillID: viewModel.getSkillID(at: skillIndex))
-        textField.text = viewModel.getBranchName(at: 0)
-    }
-    
-    func bindWorkerToView(){
         viewModel.workers.bind { [weak self] workers in
             self?.stopAnimation()
             guard let _ = workers else {return}
             self?.isLoading = false
             self?.tableView.reloadData()
         }
+        
+        viewModel.getWorkers(branchID: viewModel.getBranchID(at: branchIndex), skillID: viewModel.getSkillID(at: skillIndex))
+        textField.text = viewModel.getBranchName(at: 0)
+    }
+    
+    //reload branches when branch is added in company profile
+    
+    @objc func reloadBranches(){
+        viewModel.branches.bind { [weak self] branches in
+            guard let _ = branches else {return}
+            self?.pickerView.reloadAllComponents()
+        }
+        viewModel.getBranches()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return viewModel.getSkillCount()
-       
+        return viewModel.getSkillCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-            let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: CompanyWorkerCategoryCollectionViewCell.identifier, for: indexPath) as! CompanyWorkerCategoryCollectionViewCell
-            cell.skill = viewModel.getSkill(at: indexPath.row)
-            if row == indexPath{
-                cell.servicesBgView.backgroundColor = .black
-                cell.titleLbl.textColor = .black
-            }else{
-                cell.servicesBgView.backgroundColor = .white
-                cell.titleLbl.textColor = CustomColor.categoryGrayColor.color
-            }
-            return cell
+        let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: CompanyWorkerCategoryCollectionViewCell.identifier, for: indexPath) as! CompanyWorkerCategoryCollectionViewCell
+        cell.skill = viewModel.getSkill(at: indexPath.row)
+        if row == indexPath{
+            cell.servicesBgView.backgroundColor = .black
+            cell.titleLbl.textColor = .black
+        }else{
+            cell.servicesBgView.backgroundColor = .white
+            cell.titleLbl.textColor = CustomColor.categoryGrayColor.color
+        }
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

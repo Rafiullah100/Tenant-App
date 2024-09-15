@@ -26,7 +26,7 @@ class AddFlatViewController: BaseViewController {
                     self.dismiss(animated: true)
                 }
                 else{
-                    self.showAlert(message: add.message ?? "")
+                    ToastManager.shared.showToast(message: add.message ?? "")
                 }
             }
         }

@@ -34,6 +34,7 @@ class AddBranchViewController: BaseViewController {
             self.stopAnimation()
             if branch.success == true{
                 branchesList.append(CompanyBranch(id: 0, companyID: 0, name: nameTextField.text, contact: contactTextField.text, locationCode: addressTextField.text, district: viewModel.getDistrict(), city: viewModel.getCity(), timestamp: ""))
+                NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadBranches), object: nil)
                 self.nameTextField.text = ""
                 self.contactTextField.text = ""
                 self.addressTextField.text = ""

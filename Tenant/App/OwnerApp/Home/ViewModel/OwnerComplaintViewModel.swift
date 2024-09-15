@@ -117,20 +117,12 @@ class OwnerComplaintViewModel {
     
     func getAddress() -> String? {
         guard self.profile.value?.ownerProfile?.flats?.count ?? 0 > 0  else { return "No current home selected" }
-        let type = self.profile.value?.ownerProfile?.flats?[0].properties?.buildingType
-        var propertyType = ""
-        
-        if type == "builidng" {
-            propertyType = "Builidng"
-        }
-        else{
-            propertyType = "Villa"
-        }
+        let type = self.profile.value?.ownerProfile?.flats?[0].properties?.buildingType?.capitalized
+    
         let buildingNo = self.profile.value?.ownerProfile?.flats?[0].properties?.buildingNo
         let district = self.profile.value?.ownerProfile?.flats?[0].properties?.district
         let city = self.profile.value?.ownerProfile?.flats?[0].properties?.city
 
-        return "\(propertyType ) \(buildingNo ?? "#"), \(district ?? "#"), \(city ?? "#")"
+        return "\(type ?? "" ) \(buildingNo ?? "#"), \(district ?? "#"), \(city ?? "#")"
     }
-    
 }

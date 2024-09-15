@@ -37,20 +37,13 @@ class TenantComplaintDetailViewModel {
     }
     
     func getProperty() -> String? {
-        let type = self.complaintDetail.value?.property?.buildingType
-        var propertyType = ""
+        let type = self.complaintDetail.value?.property?.buildingType?.capitalized
         
-        if type == "builidng" {
-            propertyType = "Builidng"
-        }
-        else{
-            propertyType = "Villa"
-        }
         let buildingNo = self.complaintDetail.value?.property?.buildingNo
         let district = self.complaintDetail.value?.property?.district
         let city = self.complaintDetail.value?.property?.city
 
-        return "\(propertyType ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
+        return "\(type ?? "" ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
     }
     
     func getTitle() -> String {
@@ -201,12 +194,16 @@ class TenantComplaintDetailViewModel {
     }
     
     func showMore() -> Bool {
+        let workerID = self.complaintDetail.value?.workerID ?? 0
         let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
         let isConfirmBYTenant = self.complaintDetail.value?.tenantApproval ?? 0
         if isTaskCompleted == 1 && isConfirmBYTenant == 0{
             return false
         }
-        if isTaskCompleted == 1 && isConfirmBYTenant == 1{
+        else if isTaskCompleted == 1 && isConfirmBYTenant == 1{
+            return false
+        }
+        else if workerID == 1{
             return false
         }
         else{

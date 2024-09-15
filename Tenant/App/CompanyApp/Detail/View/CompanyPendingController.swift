@@ -55,6 +55,8 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var dateValueLabel: UILabel!
     @IBOutlet weak var workerPhotoView: UIView!
     
+    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var viewMoreButtonView: UIView!
     
     var complaintID: Int?
     private var viewModel = CompanyDetailViewModel()
@@ -102,23 +104,6 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textViewTapped))
-        descriptionTextView.addGestureRecognizer(tapGesture)
-        descriptionTextView.isUserInteractionEnabled = true
-    }
-    
-    @objc func textViewTapped() {
-        if !isExpanded {
-            descriptionTextView.text = viewModel.getDescription()
-        } else {
-            descriptionTextView.text = "Click to view desciption."
-        }
-        
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-        isExpanded.toggle()
     }
     
     private func updateUI(){
@@ -127,13 +112,15 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         statusValueLabel.text = viewModel.getStatus()
         postedValueLabel.text = viewModel.getPostedDate()
         acceptedValueLabel.text = viewModel.getCompanyAcceptedDate()
-//        descriptionTextView.text = viewModel.getDescription()
+        descriptionTextView.text = viewModel.getDescription()
         tenantValueLabel.text = viewModel.getTenantNameContact()
         dateValueLabel.text = viewModel.getScheduleDate()
         scheduleValueLabel.text = viewModel.getScheduleTime()
         personValueLabel.text = viewModel.getAssignWorkerContact()
         acceptedView.isHidden = viewModel.hideAcceptedView()
         scheduleView.isHidden = viewModel.hideScheduleView()
+        viewMoreButtonView.isHidden = viewModel.showMore()
+        descriptionView.isHidden = !viewModel.showMore()
         workerPhotoView.isHidden = viewModel.hideWorkerPhotoView()
         buttonsView.isHidden = viewModel.hideButtonsView()
 
@@ -174,6 +161,11 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     @IBAction func rejectBtnAction(_ sender: Any) {
         self.animateSpinner()
         viewModel.reject(complaintID: complaintID ?? 0)
+    }
+    
+    @IBAction func showMoreBtnAction(_ sender: Any) {
+        viewMoreButtonView.isHidden = !viewMoreButtonView.isHidden
+        descriptionView.isHidden = !descriptionView.isHidden
     }
 }
 

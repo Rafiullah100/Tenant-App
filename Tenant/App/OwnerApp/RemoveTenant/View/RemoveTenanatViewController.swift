@@ -32,15 +32,13 @@ class RemoveTenanatViewController: BaseViewController {
             DispatchQueue.main.async {
                 guard let delete = delete else{return}
                 self.stopAnimation()
-                
                 if delete.success == true{
-                    self.showAlertWithbutttons(message: delete.message ?? "") {
-                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadFlats), object: nil)
-                        self.navigationController?.popViewController(animated: true)
-                    }
+                    ToastManager.shared.showToast(message: delete.message ?? "")
+                    NotificationCenter.default.post(name: Notification.Name(Constants.reloadFlats), object: nil)
+                    self.navigationController?.popViewController(animated: true)
                 }
                 else{
-                    self.showAlert(message: delete.message ?? "")
+                    ToastManager.shared.showToast(message: delete.message ?? "")
                 }
             }
         }

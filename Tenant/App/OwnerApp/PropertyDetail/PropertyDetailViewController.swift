@@ -51,13 +51,12 @@ class PropertyDetailViewController: BaseViewController {
                 guard let delete = delete else{return}
                 self.stopAnimation()
                 if delete.success == true{
-                    self.showAlertWithbutttons(message: delete.message ?? "") {
-                        NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
-                        self.navigationController?.popViewController(animated: true)
-                    }
+                    NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
+                    ToastManager.shared.showToast(message: delete.message ?? "")
+                    self.navigationController?.popViewController(animated: true)
                 }
                 else{
-                    self.showAlert(message: delete.message ?? "")
+                    ToastManager.shared.showToast(message: delete.message ?? "")
                 }
             }
         }

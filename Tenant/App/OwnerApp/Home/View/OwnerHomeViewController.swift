@@ -67,7 +67,8 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         self.animateSpinner()
         networkingCall()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadComplaints), name: Notification.Name(Constants.reloadOwnerComplaints), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadProfile), name: Notification.Name(Constants.reloadOwnerProfile), object: nil)
+
         refreshControl.addTarget(self, action: #selector(reloadComplaints), for: .valueChanged)
         tableView.refreshControl = refreshControl
     }
@@ -109,6 +110,14 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         
         self.animateSpinner()
         viewModel.getComplaints(search: searchTextField.text ?? "")
+    }
+    
+    @objc func reloadProfile(){
+        viewModel.profile.bind { [weak self] profile in
+            guard let _ = profile else {return}
+            self?.updateUI()
+        }
+        viewModel.getProfile()
     }
     
     private func updateUI(){

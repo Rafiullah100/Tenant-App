@@ -70,18 +70,17 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
             guard let add = add else {return}
             self.stopAnimation()
             if add.success == true{
-                self.showAlertWithbutttons(message: add.message ?? "") {
-                    if self.addType == .tenant{
-                        NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadTenantComplaints), object: nil)
-                    }
-                    else{
-                        NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadSelfComplaints), object: nil)
-                    }
-                    self.navigationController?.popViewController(animated: true)
+                if self.addType == .tenant{
+                    NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadTenantComplaints), object: nil)
                 }
+                else{
+                    NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadSelfComplaints), object: nil)
+                }
+                ToastManager.shared.showToast(message: add.message ?? "")
+                self.navigationController?.popViewController(animated: true)
             }
             else{
-                self.showAlert(message: add.message ?? "")
+                ToastManager.shared.showToast(message: add.message ?? "")
             }
         }
         viewModel.getSkillcategories()
@@ -128,7 +127,7 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
 
 extension AddTenantViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80)
+        return CGSize(width: collectionView.frame.height, height: collectionView.frame.height)
     }
 }
 

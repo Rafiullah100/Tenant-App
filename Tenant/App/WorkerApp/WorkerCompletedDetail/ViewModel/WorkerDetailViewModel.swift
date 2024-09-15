@@ -47,20 +47,13 @@ class WorkerDetailViewModel {
     }
     
     func getProperty() -> String? {
-        let type = self.complaintDetail.value?.property?.buildingType
-        var propertyType = ""
+        let type = self.complaintDetail.value?.property?.buildingType?.capitalized
         
-        if type == "builidng" {
-            propertyType = "Builidng"
-        }
-        else{
-            propertyType = "Villa"
-        }
         let buildingNo = self.complaintDetail.value?.property?.buildingNo
         let district = self.complaintDetail.value?.property?.district
         let city = self.complaintDetail.value?.property?.city
 
-        return "\(propertyType ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
+        return "\(type ?? "" ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
     }
     
     func getTenantName() -> String {

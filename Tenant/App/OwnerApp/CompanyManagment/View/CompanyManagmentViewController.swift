@@ -53,7 +53,7 @@ class CompanyManagmentViewController: BaseViewController {
                 }
             }
             else{
-                self.showAlert(message: assign.message ?? "")
+                ToastManager.shared.showToast(message: assign.message ?? "")
             }
         }
     }

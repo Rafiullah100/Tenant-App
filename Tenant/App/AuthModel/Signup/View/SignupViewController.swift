@@ -14,6 +14,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var signupLabel: UILabel!
 
     
+    @IBOutlet weak var buttonBgView: UIView!
     @IBOutlet weak var textField: UITextField!
      var userType: UserType?
     var pickerView = UIPickerView()
@@ -34,6 +35,7 @@ class SignupViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        buttonBgView.clipsToBounds = true
     }
     
     @IBAction func continueBtnAction(_ sender: Any) {
@@ -66,10 +68,10 @@ extension SignupViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         else if row == 1 {
             userType = .tenant
         }
-        else if row == 3 {
+        else if row == 2 {
             userType = .company
         }
-        else if row == 4 {
+        else if row == 3 {
             userType = .worker
         }
 

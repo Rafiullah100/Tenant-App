@@ -68,7 +68,7 @@ class TenantsManagementViewController: BaseViewController, UITableViewDelegate, 
                 }
             }
             else{
-                self.showAlert(message: delete.message ?? "")
+                ToastManager.shared.showToast(message: delete.message ?? "")
             }
         }
         

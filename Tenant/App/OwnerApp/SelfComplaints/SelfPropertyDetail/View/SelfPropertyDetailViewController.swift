@@ -51,10 +51,11 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
             if select.success == true{
                 UserDefaults.standard.flatIDIfTenant = self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0)
                 UserDefaults.standard.propertyIDIfTenant = self.propertyDetail?.id
-                self.showAlert(message: "Property selected as your home")
+                NotificationCenter.default.post(name: Notification.Name(Constants.reloadOwnerProfile), object: nil)
+                ToastManager.shared.showToast(message: "Property selected as your home")
             }
             else{
-                self.showAlert(message: select.message ?? "")
+                ToastManager.shared.showToast(message: select.message ?? "")
             }
         }
     }

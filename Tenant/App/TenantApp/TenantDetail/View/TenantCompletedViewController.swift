@@ -9,8 +9,7 @@ import UIKit
 
 class TenantCompletedViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var descriptionView: UIView!
-    @IBOutlet weak var moreButton: UIButton!
+
     @IBOutlet weak var confirmView: UIView!
     @IBOutlet weak var phoneLbl: UILabel!
     @IBOutlet weak var statusLbl: UILabel!
@@ -31,7 +30,7 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
    
-    @IBOutlet weak var complaintPhtotoView: UIView!
+ 
     @IBOutlet weak var scheduleView: UIView!
     @IBOutlet weak var companyPhotoView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!{
@@ -49,6 +48,9 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
             companyCollectionView.dataSource = self
         }
     }
+    
+    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var viewMoreButtonView: UIView!
 
     private var viewModel = TenantComplaintDetailViewModel()
     var complaintID: Int?
@@ -105,13 +107,11 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         dateLabel.text = viewModel.getPostedDate()
         scheduleView.isHidden = viewModel.hideScheduleView()
         confirmView.isHidden = viewModel.hideConfirmView()
-        complaintPhtotoView.isHidden = viewModel.hideComplaintPhotoView()
         companyPhotoView.isHidden = viewModel.hideCompanyPhotoView()
         personLbl.text = viewModel.getAssignWorkerContact()
-        moreButton.isHidden = viewModel.showMore()
-        complaintPhtotoView.isHidden = !viewModel.showMore()
+        viewMoreButtonView.isHidden = viewModel.showMore()
         descriptionView.isHidden = !viewModel.showMore()
-
+        
         self.collectionView.reloadData()
         self.companyCollectionView.reloadData()
     }
@@ -142,7 +142,7 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     }
  
     @IBAction func showMoreBtnAction(_ sender: Any) {
-        complaintPhtotoView.isHidden = !complaintPhtotoView.isHidden
+        viewMoreButtonView.isHidden = !viewMoreButtonView.isHidden
         descriptionView.isHidden = !descriptionView.isHidden
     }
     
