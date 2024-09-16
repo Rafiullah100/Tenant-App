@@ -48,6 +48,10 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         }
     }
     
+    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var viewMoreButtonView: UIView!
+    
+    @IBOutlet weak var descriptionValueLabel: UILabel!
     
     var complaintID: Int?
     var selectedImages = [UIImage]()
@@ -84,7 +88,7 @@ class WorkerOngoingDetailViewController: BaseViewController  {
             guard let complete = complete else {return}
             self.stopAnimation()
             if complete.success == true{
-                showAlertWithbutttons(message: complete.message ?? "") {
+                showAlertWithbuttton(message: complete.message ?? "") {
                     NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadWorkerComplaints), object: nil)
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -102,7 +106,7 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         postedValueLabel.text = viewModel.getPostedDate()
         acceptedValueLabel.text = viewModel.getAcceptedDate()
         tenantValueLabel.text = viewModel.getTenantName()
-//        descriptionLbl.text = viewModel.getDescription()
+        descriptionValueLabel.text = viewModel.getDescription()
         scheduleValueLabel.text = viewModel.getScheduleDate()
         timeValueLabel.text = viewModel.getScheduleTime()
         personValueLabel.text = viewModel.getMaintenancePersonContact()
@@ -134,6 +138,11 @@ class WorkerOngoingDetailViewController: BaseViewController  {
             showAlert(message: "please add pcitures of your work and then try agian")
         }
     }
+    
+    @IBAction func showMoreBtnAction(_ sender: Any) {
+        viewMoreButtonView.isHidden = !viewMoreButtonView.isHidden
+        descriptionView.isHidden = !descriptionView.isHidden
+    }
 }
 
 extension WorkerOngoingDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -156,6 +165,15 @@ extension WorkerOngoingDetailViewController: UICollectionViewDelegate, UICollect
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplaintCollectionViewCell.identifier, for: indexPath)as! ComplaintCollectionViewCell
             cell.configure(with: viewModel.getPhoto(index: indexPath.row))
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if  collectionView == uploadedCollectionView{
+            Switcher.gotoPhotoViewer(delegate: self, addComplaintPhoto: selectedImages)
+        }
+        else{
+            Switcher.gotoPhotoViewer(delegate: self, photos: viewModel.getAllPhoto())
         }
     }
 }

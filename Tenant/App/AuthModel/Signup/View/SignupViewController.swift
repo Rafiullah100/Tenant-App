@@ -43,7 +43,7 @@ class SignupViewController: UIViewController {
             print("select user first")
             return
         }
-        Switcher.gotoSigninScreen(delegate: self, userType: userType)
+        Switcher.gotoSigninScreen(delegate: self)
     }
 }
 

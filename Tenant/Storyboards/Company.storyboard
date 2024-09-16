@@ -1388,19 +1388,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="749"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS4-jl-OKg">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="749.00000000000023"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="749"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhG-U6-BfQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="1431.6666666666667"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="1432.3333333333333"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="b5F-o6-eQh">
-                                                                <rect key="frame" x="0.0" y="25" width="343" height="1406.6666666666667"/>
+                                                                <rect key="frame" x="0.0" y="25" width="343" height="1407.3333333333333"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQd-Gz-cFf">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="1336.6666666666667"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="1337.3333333333333"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Rdo-WH-lPZ">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="1336.6666666666667"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="1337.3333333333333"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mo-jK-9M4">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="502.66666666666669"/>
@@ -1823,10 +1823,10 @@
                                                                                         </constraints>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOS-uu-mZc">
-                                                                                        <rect key="frame" x="0.0" y="955.33333333333337" width="343" height="381.33333333333337"/>
+                                                                                        <rect key="frame" x="0.0" y="955.33333333333326" width="343" height="382"/>
                                                                                         <subviews>
                                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WrD-Rt-YtF">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="381.33333333333331"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="382"/>
                                                                                                 <subviews>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lgt-Ub-OSV">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20"/>
@@ -1850,10 +1850,10 @@
                                                                                                         </constraints>
                                                                                                     </view>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32d-yH-2sx">
-                                                                                                        <rect key="frame" x="0.0" y="20" width="343" height="361.33333333333331"/>
+                                                                                                        <rect key="frame" x="0.0" y="20" width="343" height="362"/>
                                                                                                         <subviews>
                                                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sTT-4n-KTr">
-                                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="361.33333333333331"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="362"/>
                                                                                                                 <subviews>
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHA-bg-1Zt">
                                                                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
@@ -1874,10 +1874,10 @@
                                                                                                                         </constraints>
                                                                                                                     </view>
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DR9-cb-bRt">
-                                                                                                                        <rect key="frame" x="0.0" y="28.999999999999986" width="343" height="219.66666666666663"/>
+                                                                                                                        <rect key="frame" x="0.0" y="29.000000000000014" width="343" height="220.33333333333337"/>
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click to view desciption." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5i-kW-PvM">
-                                                                                                                                <rect key="frame" x="5" y="0.0" width="338" height="209.66666666666666"/>
+                                                                                                                                <rect key="frame" x="5" y="0.0" width="338" height="210.33333333333334"/>
                                                                                                                                 <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="13"/>
                                                                                                                                 <nil key="textColor"/>
                                                                                                                                 <nil key="highlightedColor"/>
@@ -1897,7 +1897,7 @@
                                                                                                                         </userDefinedRuntimeAttributes>
                                                                                                                     </view>
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8L-Wr-Dy1">
-                                                                                                                        <rect key="frame" x="0.0" y="253.66666666666671" width="343" height="107.66666666666666"/>
+                                                                                                                        <rect key="frame" x="0.0" y="254.33333333333346" width="343" height="107.66666666666666"/>
                                                                                                                         <subviews>
                                                                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="MAd-yD-mal">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="107.66666666666667"/>
@@ -1983,7 +1983,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfD-lH-Vho">
-                                                                        <rect key="frame" x="0.0" y="1366.6666666666667" width="343" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="1367.3333333333333" width="343" height="40"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0B4-kv-aQa">
                                                                                 <rect key="frame" x="10" y="0.0" width="323" height="35"/>

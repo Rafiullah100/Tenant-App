@@ -50,6 +50,12 @@ class SelfPropertyViewModel {
         return property
     }
     
+    func isCompanyAssigned(at index: Int) -> Bool {
+        let companyID = self.propertyList.value?.properties?.rows?[index].companyID ?? 0
+        print(companyID)
+        return companyID == 0 ? false : true
+    }
+    
     
     func selectAsYourHome(flatID: Int, tenantID: Int){
         _ = URLSession.shared.request(route: .assignTenantToFlat, method: .post, parameters: ["flat_id": flatID, "tenant_id": tenantID], model: AssignTenantToFlatModel.self) { result in

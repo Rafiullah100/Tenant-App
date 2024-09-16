@@ -74,6 +74,16 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isLoading{
+            return 0
+        }
+        
+        if viewModel.getCount() == 0{
+            self.tableView.setEmptyView("No Property to Show")
+        }
+        else{
+            self.tableView.backgroundView = nil
+        }
         return viewModel.getCount()
     }
     
@@ -82,9 +92,14 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
         cell.homeTypeLbl.text = viewModel.getName(at: indexPath.row)
         cell.label.text = viewModel.isSelectedHome(at: indexPath.row)
         cell.selectAsYourHome = { [weak self] in
-            self?.animateSpinner()
-            self?.viewModel.selectAsYourHome(flatID: self?.viewModel.getFlatID(at: indexPath.row) ?? 0, tenantID: UserDefaults.standard.userID ?? 0)
-            self?.selectedHomeIndex = indexPath.row
+            if self?.viewModel.isCompanyAssigned(at: indexPath.row) == true{
+                self?.animateSpinner()
+                self?.viewModel.selectAsYourHome(flatID: self?.viewModel.getFlatID(at: indexPath.row) ?? 0, tenantID: UserDefaults.standard.userID ?? 0)
+                self?.selectedHomeIndex = indexPath.row
+            }
+            else{
+                ToastManager.shared.showToast(message: "You can't select this as your home becuase this property isn't assigned to company yet!")
+            }
         }
         return cell
     }

@@ -48,6 +48,11 @@ class WorkerDetailViewController: BaseViewController {
     @IBOutlet weak var ComplaintTitleLabel: UILabel!
     
     @IBOutlet weak var completedValueLabel: UILabel!
+    
+    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var viewMoreButtonView: UIView!
+    @IBOutlet weak var descriptionValueLabel: UILabel!
+
     var complaintID: Int?
     private var viewModel = WorkerDetailViewModel()
 
@@ -85,7 +90,7 @@ class WorkerDetailViewController: BaseViewController {
         acceptedValueLabel.text = viewModel.getAcceptedDate()
         tenantValueLabel.text = viewModel.getTenantName()
         completedValueLabel.text = viewModel.isTaskCompleted() == 1 ? viewModel.getCompletedDate() : "Waiting for confirmation"
-//        descriptionLbl.text = viewModel.getDescription()
+        descriptionValueLabel.text = viewModel.getDescription()
         scheduleValueLabel.text = viewModel.getScheduleDate()
         timeValueLabel.text = viewModel.getScheduleTime()
         personValueLabel.text = viewModel.getMaintenancePersonContact()
@@ -97,6 +102,11 @@ class WorkerDetailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
+    }
+    
+    @IBAction func showMoreBtnAction(_ sender: Any) {
+        viewMoreButtonView.isHidden = !viewMoreButtonView.isHidden
+        descriptionView.isHidden = !descriptionView.isHidden
     }
 }
 
@@ -119,6 +129,10 @@ extension WorkerDetailViewController: UICollectionViewDelegate, UICollectionView
             cell.configure(with: viewModel.getPhoto(index: indexPath.row))
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == uploadedCollectionView ? viewModel.getAllWorkerPhoto() : viewModel.getAllPhoto())
     }
 }
 

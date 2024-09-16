@@ -14,7 +14,7 @@ class LoginViewModel {
     var parameters: [String: Any]?
     
     func isFormValid(user: LoginInputModel) -> ValidationResponse {
-        if user.name.isEmpty || user.number.isEmpty{
+        if user.name.isEmpty || user.number.isEmpty || user.userType.isEmpty{
             return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
         }
         else{

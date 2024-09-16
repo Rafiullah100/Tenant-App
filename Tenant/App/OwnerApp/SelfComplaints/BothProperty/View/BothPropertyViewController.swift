@@ -93,11 +93,14 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
         cell.property = viewModel.getProperty(at: indexPath.row)
         cell.buttonLabel.text = viewModel.isSelectedHome(at: indexPath.row) ? "Your Home" : "Select as your Home"
         cell.selectAsYourHome = { [weak self] in
-//            if self?.viewModel.getProprtyTenatID(at: indexPath.row) == 0 {
+            if self?.viewModel.isCompanyAssigned(at: indexPath.row) == true {
                 self?.animateSpinner()
                 self?.viewModel.selectAsYourHome(flatID: self?.viewModel.getFlatID(at: indexPath.row) ?? 0, tenantID: UserDefaults.standard.userID ?? 0)
                 self?.selectedHomeIndex = indexPath.row
-//            }
+            }
+            else{
+                ToastManager.shared.showToast(message: "You can't select this as your home becuase this property isn't assigned to company yet!")
+            }
         }
         return cell
     }

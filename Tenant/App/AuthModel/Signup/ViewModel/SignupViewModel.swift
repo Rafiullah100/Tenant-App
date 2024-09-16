@@ -14,11 +14,12 @@ class SignupViewModel {
     var parameters: [String: Any]?
     
     func isFormValid(user: SignupInputModel) -> ValidationResponse {
-        if user.name.isEmpty || user.mobile.isEmpty {
+        if user.name.isEmpty || user.mobile.isEmpty || user.userType.isEmpty{
             return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
         }
         else{
             parameters = ["name": user.name, "email": user.email, "contact": user.mobile, "type": user.userType]
+            print(parameters)
             return ValidationResponse(isValid: true, message: "")
         }
     }

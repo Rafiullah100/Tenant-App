@@ -123,6 +123,10 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
         cell.imageView.image = selectedImages[indexPath.row]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Switcher.gotoPhotoViewer(delegate: self, addComplaintPhoto: selectedImages)
+    }
 }
 
 extension AddTenantViewController: UICollectionViewDelegateFlowLayout{

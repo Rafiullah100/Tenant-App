@@ -83,6 +83,10 @@
 		526B7E102C7C93F700D8A335 /* PropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B7E0F2C7C93F700D8A335 /* PropertyViewModel.swift */; };
 		526B7E152C7CA55C00D8A335 /* AddPropertyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B7E142C7CA55C00D8A335 /* AddPropertyModel.swift */; };
 		526B7E172C7CA57500D8A335 /* AddPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B7E162C7CA57500D8A335 /* AddPropertyViewModel.swift */; };
+		526FFA4A2C9817F500876061 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526FFA492C9817F500876061 /* Popup.storyboard */; };
+		526FFA4E2C98188B00876061 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FFA4D2C98188B00876061 /* PhotoViewerViewController.swift */; };
+		526FFA512C9818AF00876061 /* PhotoViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FFA4F2C9818AF00876061 /* PhotoViewerCollectionViewCell.swift */; };
+		526FFA552C98518100876061 /* UnAssignedFlatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FFA542C98518100876061 /* UnAssignedFlatModel.swift */; };
 		5275F7AD2C76013900A7D463 /* AddWorkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275F7AC2C76013900A7D463 /* AddWorkerModel.swift */; };
 		5275F7AF2C76017500A7D463 /* AddWorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5275F7AE2C76017500A7D463 /* AddWorkerViewModel.swift */; };
 		527616372C48E860007F7C66 /* FlatManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527616362C48E860007F7C66 /* FlatManagementViewController.swift */; };
@@ -281,6 +285,10 @@
 		526B7E0F2C7C93F700D8A335 /* PropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyViewModel.swift; sourceTree = "<group>"; };
 		526B7E142C7CA55C00D8A335 /* AddPropertyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPropertyModel.swift; sourceTree = "<group>"; };
 		526B7E162C7CA57500D8A335 /* AddPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPropertyViewModel.swift; sourceTree = "<group>"; };
+		526FFA492C9817F500876061 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		526FFA4D2C98188B00876061 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		526FFA4F2C9818AF00876061 /* PhotoViewerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerCollectionViewCell.swift; sourceTree = "<group>"; };
+		526FFA542C98518100876061 /* UnAssignedFlatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnAssignedFlatModel.swift; sourceTree = "<group>"; };
 		5275F7AC2C76013900A7D463 /* AddWorkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkerModel.swift; sourceTree = "<group>"; };
 		5275F7AE2C76017500A7D463 /* AddWorkerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkerViewModel.swift; sourceTree = "<group>"; };
 		527616362C48E860007F7C66 /* FlatManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatManagementViewController.swift; sourceTree = "<group>"; };
@@ -616,6 +624,7 @@
 		522F761C2C4E781B0035B8A4 /* SelfPropertyDetail */ = {
 			isa = PBXGroup;
 			children = (
+				526FFA532C98516500876061 /* Model */,
 				522CBBA62C81B00E0060F2F1 /* ViewModel */,
 				522CBBA52C81B0060060F2F1 /* View */,
 			);
@@ -1062,6 +1071,31 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		526FFA4B2C98182600876061 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				526FFA4C2C98184400876061 /* PhotoViewer */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		526FFA4C2C98184400876061 /* PhotoViewer */ = {
+			isa = PBXGroup;
+			children = (
+				526FFA4F2C9818AF00876061 /* PhotoViewerCollectionViewCell.swift */,
+				526FFA4D2C98188B00876061 /* PhotoViewerViewController.swift */,
+			);
+			path = PhotoViewer;
+			sourceTree = "<group>";
+		};
+		526FFA532C98516500876061 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				526FFA542C98518100876061 /* UnAssignedFlatModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5275F7A92C76010D00A7D463 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1469,7 +1503,6 @@
 			children = (
 				52F188A72C660A8A00085EE7 /* login */,
 				52CCB2732C65EDC800A57B59 /* Signup */,
-				529E17622C2E8EEA0063B204 /* RegistrationViewController.swift */,
 				52F188AF2C661BBB00085EE7 /* OTP */,
 			);
 			path = AuthModel;
@@ -1549,6 +1582,7 @@
 		52CCB2742C65EDDB00A57B59 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				529E17622C2E8EEA0063B204 /* RegistrationViewController.swift */,
 				529E17602C2E8D480063B204 /* SignupViewController.swift */,
 			);
 			path = View;
@@ -1680,6 +1714,7 @@
 				52995C592C37C73100AFDA47 /* CompanyApp */,
 				525B37792C3E86440087CB5C /* WorkerApp */,
 				52633D762C40F7B80029C954 /* OwnerApp */,
+				526FFA4B2C98182600876061 /* Popup */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -1693,6 +1728,7 @@
 				52995C542C37C2E600AFDA47 /* Company.storyboard */,
 				525B37772C3E86300087CB5C /* Worker.storyboard */,
 				52633D742C40F7360029C954 /* Owner.storyboard */,
+				526FFA492C9817F500876061 /* Popup.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1940,6 +1976,7 @@
 				525B37782C3E86300087CB5C /* Worker.storyboard in Resources */,
 				5279F8BE2C2968EA003B28A9 /* Manrope-Medium.ttf in Resources */,
 				5279F8BC2C2968EA003B28A9 /* Inter-Black.ttf in Resources */,
+				526FFA4A2C9817F500876061 /* Popup.storyboard in Resources */,
 				5279F8CB2C297F72003B28A9 /* Outfit-Medium.ttf in Resources */,
 				529E17702C2EBA870063B204 /* TenantTableViewCell.xib in Resources */,
 				529E17722C2EBA870063B204 /* ComplaintCollectionViewCell.xib in Resources */,
@@ -2040,6 +2077,7 @@
 				5284FEDE2C74B2B900F8B9CB /* AddBranchModel.swift in Sources */,
 				522CBB9B2C8199BF0060F2F1 /* PropertyTenantsModel.swift in Sources */,
 				526B7E152C7CA55C00D8A335 /* AddPropertyModel.swift in Sources */,
+				526FFA4E2C98188B00876061 /* PhotoViewerViewController.swift in Sources */,
 				52DBCD0A2C16C52C00A7B612 /* Storyboard.swift in Sources */,
 				52FD2BA82C7DB38100B2B914 /* WorkersComplaintModel.swift in Sources */,
 				525F5C222C3FDD6900FE4B89 /* CompanyWorkerViewController.swift in Sources */,
@@ -2048,6 +2086,7 @@
 				526B7E042C7C4CB300D8A335 /* OwnerComplaintViewModel.swift in Sources */,
 				52995C5C2C37E54C00AFDA47 /* OwnerHomeViewController.swift in Sources */,
 				52DBCD0C2C16C52C00A7B612 /* UserDefaults+Extension.swift in Sources */,
+				526FFA552C98518100876061 /* UnAssignedFlatModel.swift in Sources */,
 				52F188AC2C660AFD00085EE7 /* LoginModel.swift in Sources */,
 				52EA8D112C7EFEB70049CE99 /* WorkerDetailViewModel.swift in Sources */,
 				52B1DA752C6A0307001EE096 /* TenantComplaintViewModel.swift in Sources */,
@@ -2071,6 +2110,7 @@
 				52995C602C37F5EB00AFDA47 /* OwnerTabbarController.swift in Sources */,
 				52DBCCFB2C16C51A00A7B612 /* Route.swift in Sources */,
 				5287334A2C80885F00CDF9D1 /* AddTenantToFlatModel.swift in Sources */,
+				526FFA512C9818AF00876061 /* PhotoViewerCollectionViewCell.swift in Sources */,
 				525F5C1C2C3FC34400FE4B89 /* ContactPersonViewController.swift in Sources */,
 				528345232C623F5B00800160 /* AddBranchViewController.swift in Sources */,
 				52DBCD0E2C16C52C00A7B612 /* Color.swift in Sources */,

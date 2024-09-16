@@ -181,6 +181,10 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
         cell.imageView.image = selectedImages[indexPath.row]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Switcher.gotoPhotoViewer(delegate: self, addComplaintPhoto: selectedImages)
+    }
 }
 
 extension AddPropertyViewController: UICollectionViewDelegateFlowLayout{

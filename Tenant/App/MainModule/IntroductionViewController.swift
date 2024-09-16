@@ -28,6 +28,6 @@ class IntroductionViewController: UIViewController {
     }
     
     @IBAction func nextBtnAction(_ sender: Any) {
-        Switcher.gotoSignupScreen(delegate: self)
+        Switcher.gotoSigninScreen(delegate: self)
     }
 }

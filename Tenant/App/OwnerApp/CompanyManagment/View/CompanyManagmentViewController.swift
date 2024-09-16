@@ -80,10 +80,12 @@ extension CompanyManagmentViewController: UITableViewDelegate, UITableViewDataSo
         cell.assignButton.setTitle(viewModel.isAssigned(at: indexPath.row), for: .normal)
         cell.iconView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getIcon(at: indexPath.row)), placeholderImage: UIImage(named: "PlaceholderImage"))
         cell.assign = { [weak self] in
-            if let companyID = self?.viewModel.getCompanyID(at: indexPath.row) {
-                self?.animateSpinner()
-                self?.viewModel.assignToProperty(companyID: companyID, propertyID: self?.propertyID ?? 0)
-            }
+            self?.showAlertWithbutttons(message: "Are you sure you want to assign this company.", okAction: {
+                if let companyID = self?.viewModel.getCompanyID(at: indexPath.row) {
+                    self?.animateSpinner()
+                    self?.viewModel.assignToProperty(companyID: companyID, propertyID: self?.propertyID ?? 0)
+                }
+            })
         }
         return cell
     }

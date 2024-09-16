@@ -9,11 +9,11 @@ import Foundation
 
 class SelfDetailViewModel {
     var errorMessage: Observable<String> = Observable("")
-    var flatList: Observable<FlatModel> = Observable(nil)
+    var flatList: Observable<UnAssignedFlatModel> = Observable(nil)
     var selectHome: Observable<AssignTenantToFlatModel> = Observable(nil)
 
     func getList(propertyID: Int){
-        _ = URLSession.shared.request(route: .getUnassignedFlats, method: .post, parameters: ["property_id": propertyID], model: FlatModel.self) { result in
+        _ = URLSession.shared.request(route: .getUnassignedFlats, method: .post, parameters: ["property_id": propertyID], model: UnAssignedFlatModel.self) { result in
             switch result {
             case .success(let list):
                 self.flatList.value = list
@@ -42,14 +42,14 @@ class SelfDetailViewModel {
         return tenantID == 0 ? false : true
     }
     
-    func getFlat(at index: Int) -> FlatRow? {
+    func getFlat(at index: Int) -> UnAssignedRow? {
         guard let flat = self.flatList.value?.flats?.rows?[index] else { return nil }
         return flat
     }
     
-    func getOwnerID(at index: Int) -> Int {
-        self.flatList.value?.flats?.rows?[index].ownersTenants?.id ?? 0
-    }
+//    func getOwnerID(at index: Int) -> Int {
+//        self.flatList.value?.flats?.rows?[index].ownersTenants?.id ?? 0
+//    }
     
     func getAssignedCompanyID(at index: Int) -> Int {
 //        self.flatList.value?.flats?.rows?[index].ownersTenants?.companyId ?? 0
@@ -76,6 +76,12 @@ class SelfDetailViewModel {
         let tenantID =  self.flatList.value?.flats?.rows?[index].tenantID
         
         return tenantID == UserDefaults.standard.userID ? "Your Home" : "Select as your Home"
+    }
+    
+    func isCompanyAssigned(at index: Int) -> Bool {
+        let companyID = self.flatList.value?.flats?.rows?[index].properties?.companyID ?? 0
+        print(companyID)
+        return companyID == 0 ? false : true
     }
 }
   

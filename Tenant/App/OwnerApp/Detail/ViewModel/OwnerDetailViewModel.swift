@@ -91,6 +91,14 @@ class OwnerDetailViewModel {
         return self.complaintDetail.value?.completionImages?[index].imageURL ?? ""
     }
     
+    func getTenantAllPhoto() -> [ComplainImage] {
+        return self.complaintDetail.value?.complainImages ?? []
+    }
+    
+    func getCompanyAllPhoto() -> [ComplainImage] {
+        return self.complaintDetail.value?.completionImages ?? []
+    }
+    
     func getWorkerID() -> Int {
         return self.complaintDetail.value?.workerID ?? 0
     }

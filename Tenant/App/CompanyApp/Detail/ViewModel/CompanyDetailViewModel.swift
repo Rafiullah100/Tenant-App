@@ -54,6 +54,13 @@ class CompanyDetailViewModel {
         return self.complaintDetail.value?.complaintDetail?.completionImages?[index].imageURL ?? ""
     }
     
+    func getAllWorkerPhoto() -> [ComplainImage] {
+        return self.complaintDetail.value?.complaintDetail?.completionImages ?? []
+    }
+    
+    func getAllTenantPhoto() -> [ComplainImage] {
+        return self.complaintDetail.value?.complaintDetail?.complainImages ?? []
+    }
     
     func getComplaint() -> TenantComplaintDetail? {
         return self.complaintDetail.value?.complaintDetail

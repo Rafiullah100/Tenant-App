@@ -104,7 +104,7 @@ class OwnerDetailViewController: BaseViewController {
             DispatchQueue.main.async {
                 self?.stopAnimation()
                 if approve.success == true{
-                    self?.showAlertWithbutttons(message: approve.message ?? "") {
+                    self?.showAlertWithbuttton(message: approve.message ?? "") {
                         NotificationCenter.default.post(name: Notification.Name(Constants.reloadOwnerComplaints), object: nil)
                         self?.navigationController?.popViewController(animated: true)
                     }
@@ -212,6 +212,10 @@ extension OwnerDetailViewController: UICollectionViewDelegate, UICollectionViewD
             cell.configure(with: viewModel.getCompanyPhoto(index: indexPath.row))
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == tenantCollectionView ? viewModel.getTenantAllPhoto() : viewModel.getCompanyAllPhoto())
     }
 }
 

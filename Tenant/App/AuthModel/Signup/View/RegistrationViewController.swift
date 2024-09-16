@@ -10,6 +10,7 @@ import SpinKit
 class RegistrationViewController: BaseViewController {
 
    
+    @IBOutlet weak var userTypeTextField: UITextField!
     @IBOutlet weak var curveImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var contactTextField: UITextField!
@@ -23,7 +24,12 @@ class RegistrationViewController: BaseViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var registrationLabel: UILabel!
     private var viewModel = SignupViewModel()
-    var userType: UserType = .tenant
+    
+    var userType: UserType?
+   var pickerView = UIPickerView()
+   let userArray = [LocalizationKeys.owner.rawValue.localizeString(), LocalizationKeys.tenantWithoutColon.rawValue.localizeString(), LocalizationKeys.company.rawValue.localizeString(),
+                   LocalizationKeys.workers.rawValue.localizeString()]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         curveImageView.image = UIImage(named: Helper.shared.isRTL() ? "bg-ar" : "bg")
@@ -39,11 +45,15 @@ class RegistrationViewController: BaseViewController {
         signinLabel.setTitle(LocalizationKeys.signin.rawValue.localizeString(), for: .normal)
         submitButton.setTitle(LocalizationKeys.submit.rawValue.localizeString(), for: .normal)
         
+        userTypeTextField.inputView = pickerView
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
         viewModel.signup.bind { [unowned self] signup in
             guard let signup = signup else{return}
             self.stopAnimation()
             if signup.success == true{
-                Switcher.gotoOtpScreen(delegate: self, userType: userType, contact: contactTextField.text ?? "", otpType: .signup, otp: signup.user?.otp ?? "")
+                Switcher.gotoOtpScreen(delegate: self, userType: userType ?? .tenant, contact: contactTextField.text ?? "", otpType: .signup, otp: signup.user?.otp ?? "")
             }
             else{
                 showAlert(message: signup.message ?? "")
@@ -61,7 +71,7 @@ class RegistrationViewController: BaseViewController {
     }
     
     @IBAction func registerBtnAction(_ sender: Any) {
-        let signup = SignupInputModel(userType: userType.rawValue, email: emailTextField.text ?? "", mobile: contactTextField.text ?? "", name: nameTextField.text ?? "")
+        let signup = SignupInputModel(userType: userType?.rawValue ?? "", email: emailTextField.text ?? "", mobile: contactTextField.text ?? "", name: nameTextField.text ?? "")
         let validationResponse = viewModel.isFormValid(user: signup)
         if validationResponse.isValid {
             self.animateSpinner()
@@ -74,3 +84,33 @@ class RegistrationViewController: BaseViewController {
 }
 
 
+extension RegistrationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return userArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return userArray[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        userTypeTextField.text = userArray[row]
+        if row == 0 {
+            userType = .owner
+        }
+        else if row == 1 {
+            userType = .tenant
+        }
+        else if row == 2 {
+            userType = .company
+        }
+        else if row == 3 {
+            userType = .worker
+        }
+
+    }
+}

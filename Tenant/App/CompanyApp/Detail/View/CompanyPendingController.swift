@@ -153,6 +153,11 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == workerCollectionView ? viewModel.getAllWorkerPhoto() : viewModel.getAllTenantPhoto())
+    }
+
+    
     @IBAction func assignBtnAction(_ sender: Any) {
         guard let complaintDetail = viewModel.getComplaint() else { return }
         Switcher.gotoAssignWorker(delegate: self, complaint: complaintDetail)

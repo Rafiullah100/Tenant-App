@@ -106,6 +106,14 @@ class WorkerDetailViewModel {
         return self.complaintDetail.value?.complainImages?[index].imageURL ?? ""
     }
     
+    func getAllPhoto() -> [ComplainImage] {
+        return self.complaintDetail.value?.complainImages ?? []
+    }
+    
+    func getAllWorkerPhoto() -> [ComplainImage] {
+        return self.complaintDetail.value?.completionImages ?? []
+    }
+    
     func getCompanyPhoto(index: Int) -> String {
         return self.complaintDetail.value?.completionImages?[index].imageURL ?? ""
     }

@@ -32,7 +32,7 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
         self.historyTableView.rowHeight = UITableView.automaticDimension
         self.historyTableView.estimatedRowHeight = 44.0
         self.nameLabel.text = UserDefaults.standard.name
-        self.homeButtonView.isHidden = viewModel.isHomeButtonHide()
+//        self.homeButtonView.isHidden = viewModel.isHomeButtonHide()
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
             self.isLoading = false

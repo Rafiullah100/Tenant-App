@@ -27,9 +27,8 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoSigninScreen(delegate: UIViewController, userType: UserType){
+    static func gotoSigninScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
-        vc.userType = userType
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
@@ -40,9 +39,8 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoRegisterScreen(delegate: UIViewController, userType: UserType){
+    static func gotoRegisterScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
-        vc.userType = userType
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
@@ -326,6 +324,14 @@ class Switcher {
     
     static func gotoCompanyDetail(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "CompanyDetailViewController") as! CompanyDetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func gotoPhotoViewer(delegate: UIViewController, photos: [ComplainImage]? = nil, addComplaintPhoto: [UIImage]? = nil){
+        let vc = UIStoryboard(name: Storyboard.popup.rawValue, bundle: nil).instantiateViewController(withIdentifier: "PhotoViewerViewController") as! PhotoViewerViewController
+        vc.photos = photos
+        vc.addComplaintPhoto = addComplaintPhoto
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: true)
     }

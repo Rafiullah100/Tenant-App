@@ -108,11 +108,14 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     }
     
     @IBAction func addBtnAction(_ sender: Any) {
-        if UserDefaults.standard.propertyIDIfTenant != 0 || UserDefaults.standard.flatIDIfTenant != 0{
+        if viewModel.isPropertyAssigned() && viewModel.isCompanyAssigned(){
             Switcher.gotoAddComplaintScreen(delegate: self, addComplaintType: .tenant)
         }
-        else{
+        else if viewModel.isPropertyAssigned() == false{
             showAlert(message: "You can't add complaint becuase no property is assigned to you.")
+        }
+        else if viewModel.isCompanyAssigned() == false {
+            showAlert(message: "No company assign to this property, please contact with your prperty owner.")
         }
     }
     

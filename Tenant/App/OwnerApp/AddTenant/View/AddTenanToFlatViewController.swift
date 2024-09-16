@@ -91,10 +91,12 @@ extension AddTenanToFlatViewController: UITableViewDelegate, UITableViewDataSour
         cell.nameLabel.text = viewModel.getName(at: indexPath.row)
         cell.iconView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getLogo(at: indexPath.row)), placeholderImage: UIImage(named: "PlaceholderImage"))
         cell.assign = { [weak self] in
-            if let tenantID = self?.viewModel.getTenantID(at: indexPath.row) {
-                self?.animateSpinner()
-                self?.viewModel.assignToTenant(flatID: self?.flatID ?? 0, tenantID:tenantID)
-            }
+            self?.showAlertWithbutttons(message: "Are you sure you want to assign this tenant.", okAction: {
+                if let tenantID = self?.viewModel.getTenantID(at: indexPath.row) {
+                    self?.animateSpinner()
+                    self?.viewModel.assignToTenant(flatID: self?.flatID ?? 0, tenantID:tenantID)
+                }
+            })
         }
         return cell
     }

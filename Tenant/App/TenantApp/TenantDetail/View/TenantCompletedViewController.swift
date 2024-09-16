@@ -83,7 +83,7 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
             guard let confirm = confirm else {return}
             self.stopAnimation()
             if confirm.success == true{
-                showAlertWithbutttons(message: confirm.message ?? "") {
+                showAlertWithbuttton(message: confirm.message ?? "") {
                     NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadTenantComplaints), object: nil)
                     NotificationCenter.default.post(name: NSNotification.Name(Constants.reloadSelfComplaints), object: nil)
                     self.navigationController?.popViewController(animated: true)
@@ -139,6 +139,10 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
             cell.configure(with: viewModel.getPhoto(index: indexPath.row))
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == companyCollectionView ? viewModel.getAllCompletedPhoto() : viewModel.getAllComplaintPhoto())
     }
  
     @IBAction func showMoreBtnAction(_ sender: Any) {

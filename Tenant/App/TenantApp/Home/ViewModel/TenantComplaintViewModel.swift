@@ -44,6 +44,21 @@ class TenantComplaintViewModel {
         return self.tenantResidence.value?.flat?.id ?? 0
     }
     
+    func isPropertyAssigned() -> Bool{
+        let propertyID = self.tenantResidence.value?.flat?.properties?.id ?? 0
+        let flatID = self.tenantResidence.value?.flat?.id ?? 0
+        if propertyID == 0 || flatID == 0{
+            return false
+        }
+        else{
+            return true
+        }
+    }
+    
+    func isCompanyAssigned() -> Bool{
+        return self.tenantResidence.value?.flat?.properties?.companyID ?? 0 == 0 ? false : true
+    }
+    
     func getTenantFlatNo() -> String {
         return self.tenantResidence.value?.flat?.flatNo ?? "##"
     }

@@ -109,6 +109,14 @@ class TenantComplaintDetailViewModel {
         return self.complaintDetail.value?.completionImages?[index].imageURL ?? ""
     }
     
+    func getAllComplaintPhoto() -> [ComplainImage] {
+        return self.complaintDetail.value?.complainImages ?? []
+    }
+    
+    func getAllCompletedPhoto() -> [ComplainImage] {
+        return self.complaintDetail.value?.completionImages ?? []
+    }
+    
     func getCompanyPhoto(index: Int) -> String {
         return self.complaintDetail.value?.completionImages?[index].imageURL ?? ""
     }
