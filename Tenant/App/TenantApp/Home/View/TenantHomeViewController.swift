@@ -115,7 +115,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
             showAlert(message: "You can't add complaint becuase no property is assigned to you.")
         }
         else if viewModel.isCompanyAssigned() == false {
-            showAlert(message: "No company assign to this property, please contact with your prperty owner.")
+            showAlert(message: "No company assign to this property, please contact with your property owner.")
         }
     }
     

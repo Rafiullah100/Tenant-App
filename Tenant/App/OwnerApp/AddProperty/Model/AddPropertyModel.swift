@@ -77,6 +77,8 @@ struct Address: Codable {
     let label, countryCode, countryName, stateCode: String?
     let state, county, city, district: String?
     let postalCode: String?
+    let houseNumber: String?
+    
 }
 
 // MARK: - MapView

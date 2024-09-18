@@ -7,47 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DD2C4855-B6DE-4DD5-9384-997CF75944FD"
+            uuid = "D8635482-107B-490F-96C2-ACD4DCCEA139"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Tenant/App/AuthModel/Signup/ViewModel/SignupViewModel.swift"
+            filePath = "Tenant/App/TenantApp/TenantDetail/ViewModel/TenantComplaintDetailViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "isFormValid(user:)"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "getPhotosCount()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "DD2C4855-B6DE-4DD5-9384-997CF75944FD - d514420756d8b1db"
+                  uuid = "D8635482-107B-490F-96C2-ACD4DCCEA139 - d9aedaf2b0a5b5d8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Tenant.SignupViewModel.isFormValid(user: Tenant.SignupInputModel) -&gt; Tenant.ValidationResponse"
+                  symbolName = "Tenant.TenantComplaintDetailViewModel.getPhotosCount() -&gt; Swift.Int"
                   moduleName = "Tenant"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookpro/Documents/Tenant/Tenant/App/AuthModel/Signup/ViewModel/SignupViewModel.swift"
+                  urlString = "file:///Users/macbookpro/Documents/Tenant/Tenant/App/TenantApp/TenantDetail/ViewModel/TenantComplaintDetailViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "995">
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "33">
                </Location>
                <Location
-                  uuid = "DD2C4855-B6DE-4DD5-9384-997CF75944FD - d514420756d8b1db"
+                  uuid = "D8635482-107B-490F-96C2-ACD4DCCEA139 - d9aedaf2b0a5b5d8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Tenant.SignupViewModel.isFormValid(user: Tenant.SignupInputModel) -&gt; Tenant.ValidationResponse"
+                  symbolName = "Tenant.TenantComplaintDetailViewModel.getPhotosCount() -&gt; Swift.Int"
                   moduleName = "Tenant"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookpro/Documents/Tenant/Tenant/App/AuthModel/Signup/ViewModel/SignupViewModel.swift"
+                  urlString = "file:///Users/macbookpro/Documents/Tenant/Tenant/App/TenantApp/TenantDetail/ViewModel/TenantComplaintDetailViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "1034">
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "75">
                </Location>
             </Locations>
          </BreakpointContent>

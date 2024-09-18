@@ -25,14 +25,14 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
     var isLoading = true
     var isRecent = true
     private var viewModel = TenantComplaintViewModel()
-
+    var complaintType: SelfComplaintType?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTableView.showsVerticalScrollIndicator = false
         self.historyTableView.rowHeight = UITableView.automaticDimension
         self.historyTableView.estimatedRowHeight = 44.0
         self.nameLabel.text = UserDefaults.standard.name
-//        self.homeButtonView.isHidden = viewModel.isHomeButtonHide()
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
             self.isLoading = false
@@ -48,6 +48,7 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         self.addressValueLabel.text = UserDefaults.standard.currentHome
+        self.homeButtonView.isHidden = viewModel.isHomeButtonHide()
     }
     
     @objc private func loadComplaints(){
@@ -64,11 +65,13 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
     
     @IBAction func newBtnAction(_ sender: Any) {
         isRecent = true
+        complaintType = .new
         setupButton(complaintType: .new)
     }
     
     @IBAction func historyBtnAction(_ sender: Any) {
         isRecent = false
+        complaintType = .history
         setupButton(complaintType: .history)
     }
     
@@ -114,11 +117,13 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if viewModel.isTaskCompleted(index: indexPath.row) == 1{
+        if complaintType == .new{
             Switcher.gotoTenantCompletedDetailScreen(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
+            print(viewModel.getRecentID(index: indexPath.row))
         }
         else{
-            Switcher.gotoTenantDetailScreen(delegate: self, complaintID: viewModel.getRecentID(index: indexPath.row))
+            Switcher.gotoTenantCompletedDetailScreen(delegate: self, complaintID: viewModel.getHistoryID(index: indexPath.row))
+            print(viewModel.getHistoryID(index: indexPath.row))
         }
     }
 }

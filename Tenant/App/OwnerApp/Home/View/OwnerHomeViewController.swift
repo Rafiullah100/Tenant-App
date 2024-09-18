@@ -45,8 +45,8 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
-//        print(UserDefaults.standard.token)
-//        print(UserDefaults.standard.userID)
+        print(UserDefaults.standard.token ?? "")
+        print(UserDefaults.standard.userID ?? "")
         searchTextField.delegate = self
         searchView.clipsToBounds = true
         newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
@@ -125,12 +125,21 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         self.tenantValueLabel.text = "\(viewModel.getTenantCount())"
         self.flatValueLabel.text = "\(viewModel.getFlatCount())"
         self.nameLabel.text = viewModel.getName()
+        
+        UserDefaults.standard.ownerTotolProperties = viewModel.getPropertiesCount()
+        UserDefaults.standard.ownerTotolTenants = viewModel.getTenantCount()
+        UserDefaults.standard.ownerTotolFlats = viewModel.getFlatCount()
         UserDefaults.standard.currentHome = viewModel.getAddress()
+        print(viewModel.getAddress())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
+        self.propertyValueLabel.text = "\(UserDefaults.standard.ownerTotolProperties ?? 0)"
+        self.tenantValueLabel.text = "\(UserDefaults.standard.ownerTotolTenants ?? 0)"
+        self.flatValueLabel.text = "\(UserDefaults.standard.ownerTotolFlats ?? 0)"
     }
     
     @IBAction func historyBtnAction(_ sender: Any) {

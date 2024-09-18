@@ -138,7 +138,7 @@ class CompanyDetailViewModel {
     func getAssignWorkerContact() -> String {
         let name = self.complaintDetail.value?.complaintDetail?.worker?.name ?? ""
         let contact = self.complaintDetail.value?.complaintDetail?.worker?.contact ?? ""
-        return "\(name)(\(contact))"
+        return "\(name) (\(contact))"
     }
     
     func getMaintenancePersonContact() -> String {

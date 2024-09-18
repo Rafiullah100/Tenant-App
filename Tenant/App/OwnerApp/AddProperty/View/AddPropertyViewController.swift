@@ -20,7 +20,6 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
     @IBOutlet weak var buildingImageView: UIImageView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var mapLabel: UILabel!
     @IBOutlet weak var districtTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
@@ -47,6 +46,9 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
     var delegate: AddPropertyDelegate?
     var selectedImages = [UIImage]()
     var pickerView = UIPickerView()
+    
+    var buildingNumber: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +65,6 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
         districtTextField.placeholder = LocalizationKeys.enterDistrict.rawValue.localizeString()
         districtTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         mapLabel.text = LocalizationKeys.googleMapLocation.rawValue.localizeString()
-        confirmButton.setTitle(LocalizationKeys.confirmLocation.rawValue.localizeString(), for: .normal)
         addButton.setTitle(LocalizationKeys.addProperty.rawValue.localizeString(), for: .normal)
         cancelButton.setTitle(LocalizationKeys.cancel.rawValue.localizeString(), for: .normal)
         propertyLabel.text = LocalizationKeys.propertyTitle.rawValue.localizeString()
@@ -80,8 +81,13 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
             DispatchQueue.main.async {
                 self.stopAnimation()
                 if add.success == true{
+                    if self.buildingType == .villa {
+                        UserDefaults.standard.ownerTotolFlats = (UserDefaults.standard.ownerTotolFlats ?? 0) + 1
+                    }
+                    UserDefaults.standard.ownerTotolProperties = (UserDefaults.standard.ownerTotolProperties ?? 0) + 1
                     ToastManager.shared.showToast(message: add.message ?? "")
                     NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
+                    NotificationCenter.default.post(name: Notification.Name(Constants.reloadOwnerProfile), object: nil)
                     self.navigationController?.popViewController(animated: true)
                 }
                 else{
@@ -95,6 +101,7 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
             self.stopAnimation()
             self.cityTextField.text = self.viewModel.getCity()
             self.districtTextField.text = self.viewModel.getDistrict()
+            self.buildingNumber = self.viewModel.getBuildingNo()
             setupMap()
         }
         
@@ -104,9 +111,7 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
     private func setupMap(){
         let camera = GMSCameraPosition.camera(withLatitude: viewModel.getCoordinates().0, longitude: viewModel.getCoordinates().1, zoom: 14.0)
         mapView.camera = camera
-        
         let marker = GMSMarker()
-
         marker.position = CLLocationCoordinate2D(latitude: viewModel.getCoordinates().0,
                                                  longitude: viewModel.getCoordinates().1)
         marker.icon = UIImage(named: "pin")
@@ -132,8 +137,8 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
         selectPopertyType(type: .building)
     }
     
-    @IBAction func confirmLocationBtnAction(_ sender: Any) {
-        if locationTextField.text == nil {
+    @IBAction func retrieveLocationBtnAction(_ sender: Any) {
+        if locationTextField.text == "" {
             showAlert(message: "Please enter location code and try again.")
         }
         else{
@@ -150,7 +155,7 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
     }
     
     @IBAction func addBtnAction(_ sender: Any) {
-        let property = AddPropertyInputModel(name: propertyTextField.text ?? "", buildingType: buildingType?.rawValue ?? "", locationCode: locationTextField.text ?? "", city: cityTextField.text ?? "", district: districtTextField.text ?? "", images: selectedImages.count)
+        let property = AddPropertyInputModel(name: propertyTextField.text ?? "", buildingType: buildingType?.rawValue ?? "", locationCode: locationTextField.text ?? "", buildingNo: buildingNumber ?? "", city: cityTextField.text ?? "", district: districtTextField.text ?? "", images: selectedImages.count)
         let validationResponse = viewModel.isFormValid(property: property)
         if validationResponse.isValid {
             self.animateSpinner()

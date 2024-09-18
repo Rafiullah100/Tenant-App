@@ -36,6 +36,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UserDefaults.standard.token)
         searchView.clipsToBounds = true
         newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
         ongoingButton.setTitle(LocalizationKeys.ongoing.rawValue.localizeString(), for: .normal)

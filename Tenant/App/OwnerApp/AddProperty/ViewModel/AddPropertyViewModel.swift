@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+//98765432112
 
 class AddPropertyViewModel {
     var errorMessage: Observable<String> = Observable("")
@@ -17,7 +17,7 @@ class AddPropertyViewModel {
     var parameters: [String: Any]?
     
     func isFormValid(property: AddPropertyInputModel) -> ValidationResponse {
-        if property.name.isEmpty || property.buildingType.isEmpty || property.locationCode.isEmpty{
+        if property.name.isEmpty || property.buildingType.isEmpty || property.locationCode.isEmpty || property.buildingNo.isEmpty{
             return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
         }
         else if property.city.isEmpty || property.district.isEmpty {
@@ -27,7 +27,7 @@ class AddPropertyViewModel {
             return ValidationResponse(isValid: false, message: "Please add images and try again!")
         }
         else{
-            parameters = ["building_no": property.name, "building_type": property.buildingType, "location_code": property.locationCode, "city": property.city, "district": property.district]
+            parameters = ["building_no": property.buildingNo, "building_type": property.buildingType, "location_code": property.locationCode, "city": property.city, "district": property.district]
             return ValidationResponse(isValid: true, message: "")
         }
     }
@@ -68,6 +68,10 @@ class AddPropertyViewModel {
     
     func getDistrict() -> String {
         return self.address.value?.items?.first?.address?.district ?? ""
+    }
+    
+    func getBuildingNo() -> String {
+        return self.address.value?.items?.first?.address?.houseNumber ?? ""
     }
     
     func getCity() -> String {

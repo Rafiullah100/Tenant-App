@@ -51,6 +51,7 @@ class PropertyDetailViewController: BaseViewController {
                 guard let delete = delete else{return}
                 self.stopAnimation()
                 if delete.success == true{
+                    UserDefaults.standard.ownerTotolTenants = (UserDefaults.standard.ownerTotolTenants ?? 1) - 1
                     NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)
                     ToastManager.shared.showToast(message: delete.message ?? "")
                     self.navigationController?.popViewController(animated: true)
@@ -71,7 +72,7 @@ class PropertyDetailViewController: BaseViewController {
         villaTenantMangmtView.isHidden = propertyType == .villa ? false : true
         companyNameValueLabel.text = propertyDetail?.company?.name ?? "Not assigned to Company"
         flatValueLabel.text = "\(propertyDetail?.flats?.count ?? 0)"
-        
+
         nameLabel.text = "\(propertyDetail?.buildingType?.capitalized ?? "") \(propertyDetail?.buildingNo ?? ""), \(propertyDetail?.district ?? ""), \(propertyDetail?.city ?? "")"
         if propertyType == .villa {
             let flatsCount = propertyDetail?.flats?.count ?? 0

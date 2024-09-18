@@ -20,7 +20,7 @@ class TenantsManagementViewController: BaseViewController, UITableViewDelegate, 
 //    }
     @IBOutlet weak var propertyValueLabel: UILabel!
     @IBOutlet weak var propertyLabel: UILabel!
-    
+    private var deletedIndex: Int?
     
     @IBOutlet weak var tableView: UITableView!{
         didSet{
@@ -63,7 +63,10 @@ class TenantsManagementViewController: BaseViewController, UITableViewDelegate, 
             if delete.success == true{
                 DispatchQueue.main.async {
                     self.stopAnimation()
+                    UserDefaults.standard.ownerTotolTenants = (UserDefaults.standard.ownerTotolTenants ?? 1) - 1
                     ToastManager.shared.showToast(message: delete.message ?? "")
+                    //check if tenant is owner himself
+                    self.checkTenant()
                     self.networkingCall()
                 }
             }
@@ -73,6 +76,14 @@ class TenantsManagementViewController: BaseViewController, UITableViewDelegate, 
         }
         
         networkingCall()
+    }
+    
+    private func checkTenant(){
+        //if tenant is owner himself then remove self preferneces
+        if UserDefaults.standard.userID == viewModel.getTenantID(at: deletedIndex ?? 0){
+            UserDefaults.standard.propertyIDIfTenant = 0
+            UserDefaults.standard.flatIDIfTenant = 0
+        }
     }
     
     @objc private func networkingCall()  {
@@ -110,6 +121,7 @@ class TenantsManagementViewController: BaseViewController, UITableViewDelegate, 
         cell.tenants = viewModel.getTenant(at: indexPath.row)
         cell.delete = {
             self.animateSpinner()
+            self.deletedIndex = indexPath.row
             self.viewModel.deleteTenant(flatID: self.viewModel.getFlatID(at: indexPath.row))
         }
         return cell

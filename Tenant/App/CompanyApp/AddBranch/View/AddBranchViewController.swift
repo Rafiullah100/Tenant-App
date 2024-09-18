@@ -55,8 +55,8 @@ class AddBranchViewController: BaseViewController {
     private var viewModel = AddBranchViewModel()
     var companyID: Int?
     
-    @IBAction func confirmBtnAction(_ sender: Any) {
-        if addressTextField.text == nil {
+    @IBAction func retrieveLocationBtnAction(_ sender: Any) {
+        if addressTextField.text == "" {
             showAlert(message: "Please enter location code and try again.")
         }
         else{
@@ -64,6 +64,7 @@ class AddBranchViewController: BaseViewController {
             viewModel.getAddress(locationCode: addressTextField.text ?? "")
         }
     }
+
     @IBAction func addBtnAction(_ sender: Any) {
         let branch = AddBranchInputModel(companyID: UserDefaults.standard.userID ?? 0, name: nameTextField.text ?? "", locationCode: addressTextField.text ?? "", mobile: contactTextField.text ?? "", district: viewModel.getDistrict(), city: viewModel.getCity())
         let validationResponse = viewModel.isFormValid(branch: branch)

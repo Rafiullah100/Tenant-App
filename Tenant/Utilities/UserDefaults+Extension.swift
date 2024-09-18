@@ -31,6 +31,10 @@ extension UserDefaults{
         case propertyIDIfTenant
         case flatIDIfTenant
         case currentHome
+        case ownerTotolProperties
+        case ownerTotolTenants
+        case ownerTotolFlats
+
     }
     
     var selectedLanguage: String?  {
@@ -210,6 +214,33 @@ extension UserDefaults{
         }
         set {
             set(newValue, forKey: userdefaultsKey.currentHome.rawValue)
+        }
+    }
+    
+    var ownerTotolProperties: Int?  {
+        get {
+            value(forKey: userdefaultsKey.ownerTotolProperties.rawValue) as? Int
+        }
+        set {
+            set(newValue, forKey: userdefaultsKey.ownerTotolProperties.rawValue)
+        }
+    }
+    
+    var ownerTotolFlats: Int?  {
+        get {
+            value(forKey: userdefaultsKey.ownerTotolFlats.rawValue) as? Int
+        }
+        set {
+            set(newValue, forKey: userdefaultsKey.ownerTotolFlats.rawValue)
+        }
+    }
+    
+    var ownerTotolTenants: Int?  {
+        get {
+            value(forKey: userdefaultsKey.ownerTotolTenants.rawValue) as? Int
+        }
+        set {
+            set(newValue, forKey: userdefaultsKey.ownerTotolTenants.rawValue)
         }
     }
 }

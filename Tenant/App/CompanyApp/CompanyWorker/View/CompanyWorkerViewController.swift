@@ -105,7 +105,9 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
             self?.tableView.reloadData()
         }
         
-        viewModel.getWorkers(branchID: viewModel.getBranchID(at: branchIndex), skillID: viewModel.getSkillID(at: skillIndex))
+        if viewModel.getBranchID(at: branchIndex) != 0{
+            viewModel.getWorkers(branchID: viewModel.getBranchID(at: branchIndex), skillID: viewModel.getSkillID(at: skillIndex))
+        }
         textField.text = viewModel.getBranchName(at: 0)
     }
     

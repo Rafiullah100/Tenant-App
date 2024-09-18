@@ -27,6 +27,7 @@ class CompanyWorkerViewModel{
         else {
             parameters = ["branch_id": branchID ?? 0, "skill_id": skillID ?? 0]
         }
+        print(parameters)
         
         _ = URLSession.shared.request(route: .getWorker, method: .post, parameters: parameters, model: CompanyWorkerModel.self) { result in
             switch result {

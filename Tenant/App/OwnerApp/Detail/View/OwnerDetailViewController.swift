@@ -12,8 +12,7 @@ class OwnerDetailViewController: BaseViewController {
     @IBOutlet weak var postedValueLabel: UILabel!
     @IBOutlet weak var timeValueLabel: UILabel!
     
-    @IBOutlet weak var descriptionView: UIView!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView: UILabel!
     @IBOutlet weak var companyPhotoLabel: UILabel!
     @IBOutlet weak var completedLabel: UILabel!
     @IBOutlet weak var rejectButton: UIButton!
@@ -37,7 +36,6 @@ class OwnerDetailViewController: BaseViewController {
     @IBOutlet weak var approveLabel: UILabel!
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var companyPhotoView: UIView!
-    @IBOutlet weak var tenantPhotoView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -67,11 +65,15 @@ class OwnerDetailViewController: BaseViewController {
             tenantCollectionView.dataSource = self
         }
     }
+    
+    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var viewMoreButtonView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         companyCollectionView.showsVerticalScrollIndicator = false
         tenantCollectionView.showsVerticalScrollIndicator = false
-
+        
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postedLabel.text = LocalizationKeys.postedOn.rawValue.localizeString()
         descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
@@ -88,7 +90,7 @@ class OwnerDetailViewController: BaseViewController {
         photoLabel.text = LocalizationKeys.photoUploadedByTenant.rawValue.localizeString()
         companyPhotoLabel.text = LocalizationKeys.photoUploadedByCompany.rawValue.localizeString()
         completedLabel.text = LocalizationKeys.completedOn.rawValue.localizeString()
-
+        
         type = .tenant
         
         viewModel.complaintDetail.bind { [weak self] details in
@@ -117,24 +119,7 @@ class OwnerDetailViewController: BaseViewController {
         
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
-        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(textViewTapped))
-//        textView.addGestureRecognizer(tapGesture)
-//        textView.isUserInteractionEnabled = true
     }
-    
-//    @objc func textViewTapped() {
-//            if isExpanded {
-//                textView.text = viewModel.getDescription()
-//            } else {
-//                textView.text = "Click to view desciption."
-//            }
-//            
-//            UIView.animate(withDuration: 0.3) {
-//                self.view.layoutIfNeeded()
-//            }
-//            isExpanded.toggle()
-//        }
 
     
     private func updateUI(){
@@ -159,12 +144,10 @@ class OwnerDetailViewController: BaseViewController {
         completedValueLabel.text = viewModel.getCompletedDate()
         textView.text = viewModel.getDescription()
         textView.isHidden = false
-        print(viewModel.getDescription())
-        showMore.isHidden = viewModel.showMore()
-        tenantPhotoView.isHidden = !viewModel.showMore()
-        descriptionView.isHidden = !viewModel.showMore()
-        descriptionLabel.isHidden = !viewModel.showMore()
 
+        showMore.isHidden = viewModel.showMore()
+        descriptionView.isHidden = !viewModel.showMore()
+        
         tenantCollectionView.reloadData()
         companyCollectionView.reloadData()
     }
@@ -186,30 +169,30 @@ class OwnerDetailViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
-    @IBAction func showMoreButtonAction(_ sender: Any) {
-        tenantPhotoView.isHidden = !tenantPhotoView.isHidden
+   
+    @IBAction func showMoreBtnAction(_ sender: Any) {
+        viewMoreButtonView.isHidden = !viewMoreButtonView.isHidden
         descriptionView.isHidden = !descriptionView.isHidden
-        descriptionLabel.isHidden = !descriptionLabel.isHidden
     }
 }
 
 extension OwnerDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == tenantCollectionView {
-            return viewModel.getTenantPhotoCount()
+        if collectionView == companyCollectionView {
+            return viewModel.getCompanyPhotoCount()
         }
         else{
-            return viewModel.getCompanyPhotoCount()
+            return viewModel.getTenantPhotoCount()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier(), for: indexPath)as! ComplaintCollectionViewCell
-        if collectionView == tenantCollectionView {
-            cell.configure(with: viewModel.getTenantPhoto(index: indexPath.row))
+        if collectionView == companyCollectionView {
+            cell.configure(with: viewModel.getCompanyPhoto(index: indexPath.row))
         }
         else{
-            cell.configure(with: viewModel.getCompanyPhoto(index: indexPath.row))
+            cell.configure(with: viewModel.getTenantPhoto(index: indexPath.row))
         }
         return cell
     }

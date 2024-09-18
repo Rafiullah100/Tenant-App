@@ -10,6 +10,7 @@ import UIKit
 class TenantCompletedViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
 
+    @IBOutlet weak var companyContactView: UIView!
     @IBOutlet weak var confirmView: UIView!
     @IBOutlet weak var phoneLbl: UILabel!
     @IBOutlet weak var statusLbl: UILabel!
@@ -109,6 +110,7 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         confirmView.isHidden = viewModel.hideConfirmView()
         companyPhotoView.isHidden = viewModel.hideCompanyPhotoView()
         personLbl.text = viewModel.getAssignWorkerContact()
+        companyContactView.isHidden = viewModel.hideCompanyContactView()
         viewMoreButtonView.isHidden = viewModel.showMore()
         descriptionView.isHidden = !viewModel.showMore()
         

@@ -19,7 +19,6 @@ class SignupViewModel {
         }
         else{
             parameters = ["name": user.name, "email": user.email, "contact": user.mobile, "type": user.userType]
-            print(parameters)
             return ValidationResponse(isValid: true, message: "")
         }
     }

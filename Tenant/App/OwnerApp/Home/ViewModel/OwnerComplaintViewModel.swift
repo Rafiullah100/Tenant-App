@@ -120,9 +120,10 @@ class OwnerComplaintViewModel {
         let type = self.profile.value?.ownerProfile?.flats?[0].properties?.buildingType?.capitalized
     
         let buildingNo = self.profile.value?.ownerProfile?.flats?[0].properties?.buildingNo
+        let flatNo = self.profile.value?.ownerProfile?.flats?[0].flatNo
         let district = self.profile.value?.ownerProfile?.flats?[0].properties?.district
         let city = self.profile.value?.ownerProfile?.flats?[0].properties?.city
 
-        return "\(type ?? "" ) \(buildingNo ?? "#"), \(district ?? "#"), \(city ?? "#")"
+        return "\(type ?? "" ) \(buildingNo ?? "#"), \( "Flat \(flatNo ?? "")" ), \(district ?? "#"), \(city ?? "#")"
     }
 }

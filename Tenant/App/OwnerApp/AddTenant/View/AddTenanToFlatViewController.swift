@@ -47,6 +47,7 @@ class AddTenanToFlatViewController: BaseViewController {
             guard let assign = assign else{return}
             self.stopAnimation()
             if assign.success == true{
+                UserDefaults.standard.ownerTotolTenants = (UserDefaults.standard.ownerTotolTenants ?? 0) + 1
                 ToastManager.shared.showToast(message: assign.message ?? "")
                 NotificationCenter.default.post(name: Notification.Name(Constants.reloadFlats), object: nil)
                 NotificationCenter.default.post(name: Notification.Name(Constants.reloadProperties), object: nil)

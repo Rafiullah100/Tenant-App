@@ -90,8 +90,8 @@ class CompanyProfileViewController: BaseViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
-    @IBAction func confirmBtnAction(_ sender: Any) {
-        if locationCodeTextField.text == nil {
+    @IBAction func retrieveLocationBtnAction(_ sender: Any) {
+        if locationCodeTextField.text == "" {
             showAlert(message: "Please enter location code and try again.")
         }
         else{

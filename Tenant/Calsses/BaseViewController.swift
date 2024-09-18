@@ -24,8 +24,6 @@ class BaseViewController: UIViewController {
             switch type {
             case .otpBack, .tenant, .company:
                 addCenterLabel()
-            default:
-                break
             }
         }
     }

@@ -21,6 +21,7 @@ class AddFlatViewController: BaseViewController {
             DispatchQueue.main.async {
                 self.stopAnimation()
                 if add.success == true{
+                    UserDefaults.standard.ownerTotolFlats = (UserDefaults.standard.ownerTotolFlats ?? 1) + 1
                     ToastManager.shared.showToast(message: add.message ?? "")
                     NotificationCenter.default.post(name: Notification.Name(Constants.reloadFlats), object: nil)
                     self.dismiss(animated: true)

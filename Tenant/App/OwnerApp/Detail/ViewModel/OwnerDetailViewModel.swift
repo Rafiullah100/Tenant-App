@@ -75,6 +75,7 @@ class OwnerDetailViewModel {
     }
     
     func getTenantPhotoCount() -> Int {
+        print(self.complaintDetail.value?.complainImages?.count ?? 0)
         return self.complaintDetail.value?.complainImages?.count ?? 0
     }
     
@@ -209,8 +210,13 @@ class OwnerDetailViewModel {
     }
     
     func hideAcceptedView() -> Bool {
-        let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
-        return isTaskCompleted == 0 ? true : false
+        let companyApproval = self.complaintDetail.value?.companyApproval ?? 0
+        if companyApproval == 0 || companyApproval == 2{
+            return true
+        }
+        else{
+            return false
+        }
     }
     
     func hideCompletedView() -> Bool {
@@ -233,19 +239,22 @@ class OwnerDetailViewModel {
     }
     
     func getAssignWorkerContact() -> String {
-        return self.complaintDetail.value?.worker?.contact ?? ""
+        let name = self.complaintDetail.value?.property?.company?.name ?? ""
+        let contact = self.complaintDetail.value?.property?.company?.contact ?? ""
+        return "\(name) (\(contact))"   
     }
     
     func getCompletedDate() -> String {
         return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.taskCompleteDatetime ?? "")
     }
     
-    func showMore() -> Bool {
-        let isApproveOrRejected = self.complaintDetail.value?.ownerApproval ?? 0
-        if isApproveOrRejected == 0 || isApproveOrRejected == 2 {
+    func showMore() -> Bool{
+        let ownerApproval = self.complaintDetail.value?.ownerApproval ?? 0
+        let companyApproval = self.complaintDetail.value?.companyApproval ?? 0
+        if ownerApproval == 0 || ownerApproval == 2 || companyApproval == 0 || companyApproval == 2{
             return true
         }
-        else{
+        else {
             return false
         }
     }

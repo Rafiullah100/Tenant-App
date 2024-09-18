@@ -84,6 +84,7 @@ class TenantComplaintDetailViewModel {
     }
     
     func getPhotosCount() -> Int {
+        print(self.complaintDetail.value?.complainImages?.count ?? 0)
         return self.complaintDetail.value?.complainImages?.count ?? 0
     }
     
@@ -146,10 +147,8 @@ class TenantComplaintDetailViewModel {
     }
     
     func getContacts() -> String? {
-        let owner = self.complaintDetail.value?.property?.company?.contact ?? ""
-        let company = self.complaintDetail.value?.property?.company?.contact ?? ""
-
-        return owner + " | " +  company
+        let contact = self.complaintDetail.value?.property?.company?.contact ?? ""
+        return contact
     }
         
     func hideScheduleView() -> Bool {
@@ -187,6 +186,11 @@ class TenantComplaintDetailViewModel {
         }
     }
     
+    func hideCompanyContactView() -> Bool {
+        let isTaskCompleted = self.complaintDetail.value?.companyApproval ?? 0
+        return isTaskCompleted == 1 ? false : true
+    }
+    
     func hideComplaintPhotoView() -> Bool {
         let isConfirmBYTenant = self.complaintDetail.value?.tenantApproval ?? 0
         return isConfirmBYTenant == 1 ? true : false
@@ -198,7 +202,9 @@ class TenantComplaintDetailViewModel {
     }
     
     func getAssignWorkerContact() -> String {
-        return self.complaintDetail.value?.worker?.contact ?? ""
+       let contact = self.complaintDetail.value?.worker?.contact ?? ""
+        let name = self.complaintDetail.value?.worker?.name ?? ""
+        return "\(name) (\(contact))"
     }
     
     func showMore() -> Bool {

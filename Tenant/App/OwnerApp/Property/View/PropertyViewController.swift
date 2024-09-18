@@ -55,7 +55,7 @@ class PropertyViewController: BaseViewController {
     func networkingCall(){
         dispatchGroup = DispatchGroup()
         dispatchGroup?.enter()
-        viewModel.getProperties(search: "")
+        viewModel.getProperties(search: searchTextField.text ?? "")
         dispatchGroup?.enter()
         viewModel.getProfile()
         
@@ -90,15 +90,16 @@ class PropertyViewController: BaseViewController {
     }
     
     private func updateUI(){
-        self.propertyValueLabel.text = "\(viewModel.getTotalProperty())"
-        self.tenantValueLabel.text = "\(viewModel.getTenantCount())"
-        self.flatValueLabel.text = "\(viewModel.getFlatCount())"
         self.nameLabel.text = viewModel.getName()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
+        self.propertyValueLabel.text = "\(UserDefaults.standard.ownerTotolProperties ?? 0)"
+        self.tenantValueLabel.text = "\(UserDefaults.standard.ownerTotolTenants ?? 0)"
+        self.flatValueLabel.text = "\(UserDefaults.standard.ownerTotolFlats ?? 0)"
     }
     
     @IBAction func addBtnAction(_ sender: Any) {
