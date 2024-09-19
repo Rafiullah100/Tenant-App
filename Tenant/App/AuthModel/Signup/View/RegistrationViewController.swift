@@ -67,7 +67,7 @@ class RegistrationViewController: BaseViewController {
     }
     
     @IBAction func gotoSignBtnAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        Switcher.gotoSigninScreen(delegate: self)
     }
     
     @IBAction func registerBtnAction(_ sender: Any) {
@@ -111,6 +111,5 @@ extension RegistrationViewController: UIPickerViewDelegate, UIPickerViewDataSour
         else if row == 3 {
             userType = .worker
         }
-
     }
 }

@@ -61,12 +61,17 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zb-cg-aL7">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="54.666666666666664"/>
                                                                                         <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="4ud-9I-qgx">
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="4ud-9I-qgx">
                                                                                                 <rect key="frame" x="-0.66666666666666785" y="-0.66666666666665719" width="56" height="56"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="56.100000000000001" id="7mw-oq-o76"/>
                                                                                                     <constraint firstAttribute="width" constant="56.100000000000001" id="WDB-Sq-o3a"/>
                                                                                                 </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                                                                                                        <real key="value" value="28"/>
+                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </imageView>
                                                                                         </subviews>
                                                                                         <constraints>
@@ -357,6 +362,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="completedButton" destination="sT4-MJ-g8l" id="Vnf-AG-bwf"/>
+                        <outlet property="imageView" destination="4ud-9I-qgx" id="rA7-8A-eSD"/>
                         <outlet property="mobileLabel" destination="t3F-Ng-zfZ" id="L9C-sL-FMX"/>
                         <outlet property="nameLabel" destination="VwC-1O-afQ" id="kUm-c4-rtl"/>
                         <outlet property="newButton" destination="IFx-1B-IMK" id="oHt-Gq-JE2"/>

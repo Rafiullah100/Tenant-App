@@ -28,6 +28,7 @@ class IntroductionViewController: UIViewController {
     }
     
     @IBAction func nextBtnAction(_ sender: Any) {
-        Switcher.gotoSigninScreen(delegate: self)
+        UserDefaults.standard.isLaunchedFirstTime = false
+        Switcher.gotoRegisterScreen(delegate: self)
     }
 }

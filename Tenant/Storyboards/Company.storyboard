@@ -319,12 +319,17 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oQ-Rk-beF">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="54.666666666666664"/>
                                                                                                         <subviews>
-                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="eyM-7T-38B">
+                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="eyM-7T-38B">
                                                                                                                 <rect key="frame" x="-0.66666666666666785" y="-0.66666666666665719" width="56" height="56"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstAttribute="height" constant="56.100000000000001" id="V50-Jm-hWl"/>
                                                                                                                     <constraint firstAttribute="width" constant="56.100000000000001" id="c2g-Gh-88I"/>
                                                                                                                 </constraints>
+                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                                                                                                                        <real key="value" value="28"/>
+                                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                                </userDefinedRuntimeAttributes>
                                                                                                             </imageView>
                                                                                                         </subviews>
                                                                                                         <constraints>
@@ -3687,12 +3692,17 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0S-ba-Z5C">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="54.666666666666664"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="MRt-6k-A2g">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="MRt-6k-A2g">
                                                                                         <rect key="frame" x="-0.66666666666666785" y="-0.66666666666665719" width="56" height="56"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="56.100000000000001" id="W2n-yK-pG1"/>
                                                                                             <constraint firstAttribute="height" constant="56.100000000000001" id="hul-jw-SEN"/>
                                                                                         </constraints>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                                                                                                <real key="value" value="28"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                        </userDefinedRuntimeAttributes>
                                                                                     </imageView>
                                                                                 </subviews>
                                                                                 <constraints>
@@ -5103,7 +5113,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xmq-uZ-0tt">
                                                                 <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="54.666666666666664"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="KGZ-UG-5ta">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="KGZ-UG-5ta">
                                                                         <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="54.666666666666664"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
@@ -5119,6 +5129,11 @@
                                                                     <constraint firstAttribute="width" constant="54.57" id="Rq3-td-tpf"/>
                                                                     <constraint firstAttribute="bottom" secondItem="KGZ-UG-5ta" secondAttribute="bottom" id="cra-Pa-eJK"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                                                                        <real key="value" value="27"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOi-Fs-3N0">
                                                                 <rect key="frame" x="63.666666666666671" y="0.0" width="193.66666666666663" height="54.666666666666664"/>

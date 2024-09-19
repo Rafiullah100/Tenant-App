@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 struct workDetails{
     let title:String?
@@ -29,6 +30,7 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var completedButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var mobileLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     private var viewModel = WorkersComplaintViewModel()
     var isLoading = true
     private var complaintType: WorkerComplaintType = .new
@@ -64,6 +66,7 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        imageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
     }
     
     @IBAction func newBtnAction(_ sender: Any) {

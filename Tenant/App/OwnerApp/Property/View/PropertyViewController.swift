@@ -96,7 +96,6 @@ class PropertyViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        
         self.propertyValueLabel.text = "\(UserDefaults.standard.ownerTotolProperties ?? 0)"
         self.tenantValueLabel.text = "\(UserDefaults.standard.ownerTotolTenants ?? 0)"
         self.flatValueLabel.text = "\(UserDefaults.standard.ownerTotolFlats ?? 0)"

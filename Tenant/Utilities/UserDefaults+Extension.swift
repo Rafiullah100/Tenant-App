@@ -34,7 +34,7 @@ extension UserDefaults{
         case ownerTotolProperties
         case ownerTotolTenants
         case ownerTotolFlats
-
+        case isLaunchedFirstTime
     }
     
     var selectedLanguage: String?  {
@@ -241,6 +241,15 @@ extension UserDefaults{
         }
         set {
             set(newValue, forKey: userdefaultsKey.ownerTotolTenants.rawValue)
+        }
+    }
+    
+    var isLaunchedFirstTime: Bool?  {
+        get {
+            value(forKey: userdefaultsKey.isLaunchedFirstTime.rawValue) as? Bool
+        }
+        set {
+            set(newValue, forKey: userdefaultsKey.isLaunchedFirstTime.rawValue)
         }
     }
 }

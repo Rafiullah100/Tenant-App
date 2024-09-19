@@ -130,7 +130,6 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         UserDefaults.standard.ownerTotolTenants = viewModel.getTenantCount()
         UserDefaults.standard.ownerTotolFlats = viewModel.getFlatCount()
         UserDefaults.standard.currentHome = viewModel.getAddress()
-        print(viewModel.getAddress())
     }
     
     override func viewWillAppear(_ animated: Bool) {

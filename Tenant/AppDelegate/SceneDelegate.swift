@@ -38,10 +38,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.makeKeyAndVisible()
         }
         else{
-            let vc = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil).instantiateViewController(withIdentifier: "IntroductionViewController") as! IntroductionViewController
-            let nav = UINavigationController(rootViewController: vc)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
+            
+            if UserDefaults.standard.isLaunchedFirstTime == nil || UserDefaults.standard.isLaunchedFirstTime == true {
+                let vc = UIStoryboard(name: Storyboard.main.rawValue, bundle: nil).instantiateViewController(withIdentifier: "IntroductionViewController") as! IntroductionViewController
+                let nav = UINavigationController(rootViewController: vc)
+                window?.rootViewController = nav
+                window?.makeKeyAndVisible()
+            }
+            else{
+                let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
+                let nav = UINavigationController(rootViewController: vc)
+                window?.rootViewController = nav
+                window?.makeKeyAndVisible()
+            }
         }
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.

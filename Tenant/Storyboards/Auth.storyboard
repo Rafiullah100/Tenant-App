@@ -1929,10 +1929,10 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="511"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-ot-0sv">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="501"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="473"/>
                                                                                         <subviews>
-                                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="8JN-LB-wp4">
-                                                                                                <rect key="frame" x="22" y="0.0" width="349" height="501"/>
+                                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="8JN-LB-wp4">
+                                                                                                <rect key="frame" x="22" y="0.0" width="349" height="473"/>
                                                                                                 <subviews>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWJ-1y-hov">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="349" height="348"/>
@@ -2258,7 +2258,7 @@
                                                                                                         </constraints>
                                                                                                     </view>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYr-Fk-HHU">
-                                                                                                        <rect key="frame" x="0.0" y="416" width="349" height="85"/>
+                                                                                                        <rect key="frame" x="0.0" y="388" width="349" height="85"/>
                                                                                                         <subviews>
                                                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fVi-2x-o4n">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="349" height="85"/>

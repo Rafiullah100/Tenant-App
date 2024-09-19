@@ -132,6 +132,7 @@ class OTPViewController: BaseViewController {
             showAlert(message: "Please fill all field and try again!")
         }
         else{
+            self.animateSpinner()
             if otpType == .signin{
                 viewModel.loginUSer(otp: otp, type: userType.rawValue, contact: contact ?? "")
             }
