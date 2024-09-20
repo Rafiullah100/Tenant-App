@@ -27,7 +27,7 @@ class AddPropertyViewModel {
             return ValidationResponse(isValid: false, message: "Please add images and try again!")
         }
         else{
-            parameters = ["building_no": property.buildingNo, "building_type": property.buildingType, "location_code": property.locationCode, "city": property.city, "district": property.district]
+            parameters = ["title": property.name, "building_no": property.buildingNo, "building_type": property.buildingType, "location_code": property.locationCode, "city": property.city, "district": property.district]
             return ValidationResponse(isValid: true, message: "")
         }
     }

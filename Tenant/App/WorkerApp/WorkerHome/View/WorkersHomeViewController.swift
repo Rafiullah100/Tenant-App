@@ -38,7 +38,7 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         workerHomeTableView.showsVerticalScrollIndicator = false
-        newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
+        newButton.setTitle(LocalizationKeys.current.rawValue.localizeString(), for: .normal)
         completedButton.setTitle(LocalizationKeys.completed.rawValue.localizeString(), for: .normal)
         
         nameLabel.text = UserDefaults.standard.name

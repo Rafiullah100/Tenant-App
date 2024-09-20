@@ -53,7 +53,7 @@
             <connections>
                 <outlet property="imageView" destination="Gmv-1H-Nm0" id="Dt0-OK-w4m"/>
             </connections>
-            <point key="canvasLocation" x="-23.913043478260871" y="75.334821428571431"/>
+            <point key="canvasLocation" x="-24.637681159420293" y="75"/>
         </collectionViewCell>
     </objects>
     <resources>

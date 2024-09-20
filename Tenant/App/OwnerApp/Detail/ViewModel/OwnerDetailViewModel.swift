@@ -245,6 +245,7 @@ class OwnerDetailViewModel {
     }
     
     func getCompletedDate() -> String {
+        print(self.complaintDetail.value?.taskCompleteDatetime ?? "")
         return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.taskCompleteDatetime ?? "")
     }
     

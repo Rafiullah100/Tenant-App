@@ -178,6 +178,10 @@ class CompanyDetailViewModel {
         return isTaskCompleted == 0 ? true : false
     }
     
+    func getCompletedDate() -> String {
+        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.complaintDetail?.taskCompleteDatetime ?? "")
+    }
+    
     func showMore() -> Bool{
         let workerID = self.complaintDetail.value?.complaintDetail?.workerID ?? 0
         let companyApproval = self.complaintDetail.value?.complaintDetail?.companyApproval ?? 0
@@ -191,5 +195,18 @@ class CompanyDetailViewModel {
         else {
             return false
         }
+    }
+    
+    func hideCompletedView() -> Bool {
+        let isTaskCompleted = self.complaintDetail.value?.complaintDetail?.taskComplete ?? 0
+
+        if isTaskCompleted == 1{
+            return false
+        }
+        else{
+            return true
+        }
+        
+        
     }
 }

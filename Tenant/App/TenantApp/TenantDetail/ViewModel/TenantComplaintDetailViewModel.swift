@@ -153,13 +153,8 @@ class TenantComplaintDetailViewModel {
         
     func hideScheduleView() -> Bool {
         let workerID = self.complaintDetail.value?.workerID ?? 0
-        let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
-        let isConfirmBYTenant = self.complaintDetail.value?.tenantApproval ?? 0
 
-        if workerID == 0 && isTaskCompleted == 0 && isConfirmBYTenant == 0{
-            return true
-        }
-        else if workerID != 0 && isTaskCompleted == 1 && isConfirmBYTenant == 1{
+        if workerID == 0{
             return true
         }
         else {

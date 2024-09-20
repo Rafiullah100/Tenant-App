@@ -328,9 +328,10 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoPhotoViewer(delegate: UIViewController, photos: [ComplainImage]? = nil, addComplaintPhoto: [UIImage]? = nil){
+    static func gotoPhotoViewer(delegate: UIViewController, photos: [ComplainImage]? = nil, addComplaintPhoto: [UIImage]? = nil, position: IndexPath){
         let vc = UIStoryboard(name: Storyboard.popup.rawValue, bundle: nil).instantiateViewController(withIdentifier: "PhotoViewerViewController") as! PhotoViewerViewController
         vc.photos = photos
+        vc.position = position
         vc.addComplaintPhoto = addComplaintPhoto
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: true)

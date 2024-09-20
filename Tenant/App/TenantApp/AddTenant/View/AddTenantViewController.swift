@@ -125,7 +125,7 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Switcher.gotoPhotoViewer(delegate: self, addComplaintPhoto: selectedImages)
+        Switcher.gotoPhotoViewer(delegate: self, addComplaintPhoto: selectedImages, position: indexPath)
     }
 }
 

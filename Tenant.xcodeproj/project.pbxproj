@@ -2371,6 +2371,7 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tenant/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Rabt;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -2407,6 +2408,7 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tenant/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Rabt;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

@@ -24,6 +24,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     @IBOutlet weak var recentButton: UIButton!
     @IBOutlet weak var historyButton: UIButton!
     
+    @IBOutlet weak var propertyView: UIView!
     var isLoading = true
     var isRecent = true
     private var viewModel = TenantComplaintViewModel()
@@ -37,8 +38,8 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         buildingLabel.text = "\(LocalizationKeys.buildingNo.rawValue.localizeString())"
         flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString())"
         
-        recentButton.setTitle(LocalizationKeys.recent.rawValue.localizeString(), for: .normal)
-        historyButton.setTitle(LocalizationKeys.history.rawValue.localizeString(), for: .normal)
+        recentButton.setTitle(LocalizationKeys.current.rawValue.localizeString(), for: .normal)
+        historyButton.setTitle(LocalizationKeys.completed.rawValue.localizeString(), for: .normal)
 
         historyTableView.showsVerticalScrollIndicator = false
         
@@ -76,6 +77,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         self.buildingValueLabel.text = viewModel.getTenantBuildingNo()
         self.flatValueLabel.text = viewModel.getTenantFlatNo()
         nameLabel.text = UserDefaults.standard.name
+        propertyView.isHidden = !viewModel.isPropertyAssigned()
     }
     
     @IBAction func recentBtnAction(_ sender: Any) {
@@ -99,9 +101,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
             historyButton.backgroundColor = CustomColor.appColor.color
         }
     }
-    
-    
-    
+        
     private func savePropertiesAndFlat(){
         UserDefaults.standard.propertyIDIfTenant = viewModel.propertyIDIfTenant()
         UserDefaults.standard.flatIDIfTenant = viewModel.flatIDIfTenant()
@@ -112,10 +112,10 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
             Switcher.gotoAddComplaintScreen(delegate: self, addComplaintType: .tenant)
         }
         else if viewModel.isPropertyAssigned() == false{
-            showAlert(message: "You can't add complaint becuase no property is assigned to you.")
+            showAlert(message: "No property is assigned to you!, Please contact with your owner")
         }
         else if viewModel.isCompanyAssigned() == false {
-            showAlert(message: "No company assign to this property, please contact with your property owner.")
+            showAlert(message: "No company is assigned to your property!, Please contact with your owner")
         }
     }
     

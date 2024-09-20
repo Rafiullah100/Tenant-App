@@ -144,7 +144,7 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == companyCollectionView ? viewModel.getAllCompletedPhoto() : viewModel.getAllComplaintPhoto())
+        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == companyCollectionView ? viewModel.getAllCompletedPhoto() : viewModel.getAllComplaintPhoto(), position: indexPath)
     }
  
     @IBAction func showMoreBtnAction(_ sender: Any) {

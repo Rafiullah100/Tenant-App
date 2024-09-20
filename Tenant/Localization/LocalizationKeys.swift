@@ -168,6 +168,7 @@ enum LocalizationKeys: String {
     case currentTenant
     case flat
     case searchTenantsbyNameorContacts
+    case rejected
 }
 
 

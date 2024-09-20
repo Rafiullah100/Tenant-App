@@ -18,12 +18,20 @@ class PhotoViewerViewController: BaseViewController {
     
     var photos: [ComplainImage]?
     var addComplaintPhoto: [UIImage]?
-
+    var position: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         type = .company
         collectionView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            guard let position = self.position else { return }
+            self.collectionView.scrollToItem(at: position, at: [.left], animated: false)
+        }
     }
 }
 

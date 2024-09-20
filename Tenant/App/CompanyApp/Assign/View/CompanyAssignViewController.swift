@@ -93,7 +93,7 @@ class CompanyAssignViewController: BaseViewController {
     
     private func updateUI(){
         self.titleValueLabel.text = complaint?.title?.capitalized
-        propertyValueLabel.text = complaint?.property?.buildingNo
+        propertyValueLabel.text = "\(complaint?.property?.buildingNo ?? ""), \(complaint?.property?.district ?? ""), \(complaint?.property?.city ?? "")"
         self.tenantValueLabel.text = "\(complaint?.tenant?.name ?? "") - \(complaint?.tenant?.contact ?? "")"
     }
     

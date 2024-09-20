@@ -46,7 +46,7 @@ class OwnerDetailViewController: BaseViewController {
     @IBOutlet weak var propertyLabel: UILabel!
     @IBOutlet weak var companyCollectionView: UICollectionView!{
         didSet{
-            companyCollectionView.register(ComplaintCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier())
+            companyCollectionView.register(ComplainDetailCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplainDetailCollectionViewCell.cellReuseIdentifier())
             companyCollectionView.delegate = self
             companyCollectionView.dataSource = self
         }
@@ -60,7 +60,7 @@ class OwnerDetailViewController: BaseViewController {
     @IBOutlet weak var companyAcceptedLabel: UILabel!
     @IBOutlet weak var tenantCollectionView: UICollectionView!{
         didSet{
-            tenantCollectionView.register(ComplaintCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier())
+            tenantCollectionView.register(ComplainDetailCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplainDetailCollectionViewCell.cellReuseIdentifier())
             tenantCollectionView.delegate = self
             tenantCollectionView.dataSource = self
         }
@@ -187,7 +187,7 @@ extension OwnerDetailViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier(), for: indexPath)as! ComplaintCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComplainDetailCollectionViewCell.cellReuseIdentifier(), for: indexPath)as! ComplainDetailCollectionViewCell
         if collectionView == companyCollectionView {
             cell.configure(with: viewModel.getCompanyPhoto(index: indexPath.row))
         }
@@ -198,13 +198,12 @@ extension OwnerDetailViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == tenantCollectionView ? viewModel.getTenantAllPhoto() : viewModel.getCompanyAllPhoto())
+        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == tenantCollectionView ? viewModel.getTenantAllPhoto() : viewModel.getCompanyAllPhoto(), position: indexPath)
     }
 }
 
-
 extension OwnerDetailViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: 80, height: 80)
     }
 }

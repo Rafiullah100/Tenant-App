@@ -132,12 +132,12 @@ extension WorkerDetailViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == uploadedCollectionView ? viewModel.getAllWorkerPhoto() : viewModel.getAllPhoto())
+        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == uploadedCollectionView ? viewModel.getAllWorkerPhoto() : viewModel.getAllPhoto(), position: indexPath)
     }
 }
 
 extension WorkerDetailViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 76.83, height: 76.83)
+        return CGSize(width: 80, height: 80)
     }
 }

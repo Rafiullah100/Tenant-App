@@ -170,10 +170,10 @@ extension WorkerOngoingDetailViewController: UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if  collectionView == uploadedCollectionView{
-            Switcher.gotoPhotoViewer(delegate: self, addComplaintPhoto: selectedImages)
+            Switcher.gotoPhotoViewer(delegate: self, addComplaintPhoto: selectedImages, position: indexPath)
         }
         else{
-            Switcher.gotoPhotoViewer(delegate: self, photos: viewModel.getAllPhoto())
+            Switcher.gotoPhotoViewer(delegate: self, photos: viewModel.getAllPhoto(), position: indexPath)
         }
     }
 }
@@ -197,6 +197,6 @@ extension WorkerOngoingDetailViewController: UIImagePickerControllerDelegate & U
 
 extension WorkerOngoingDetailViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 76.83, height: 76.83)
+        return CGSize(width: 80, height: 80)
     }
 }

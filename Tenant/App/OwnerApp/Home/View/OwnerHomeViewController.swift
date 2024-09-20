@@ -49,9 +49,11 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         print(UserDefaults.standard.userID ?? "")
         searchTextField.delegate = self
         searchView.clipsToBounds = true
-        newButton.setTitle(LocalizationKeys.new.rawValue.localizeString(), for: .normal)
+        newButton.setTitle(LocalizationKeys.current.rawValue.localizeString(), for: .normal)
         ongoingButton.setTitle(LocalizationKeys.ongoing.rawValue.localizeString(), for: .normal)
-        rejectedButton.setTitle(LocalizationKeys.reject.rawValue.localizeString(), for: .normal)
+        rejectedButton.setTitle(LocalizationKeys.rejected.rawValue.localizeString(), for: .normal)
+        historyButton.setTitle(LocalizationKeys.completed.rawValue.localizeString(), for: .normal)
+
         flatLabel.text = LocalizationKeys.flats.rawValue.localizeString()
         tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
         propertyLabel.text = LocalizationKeys.properties.rawValue.localizeString()

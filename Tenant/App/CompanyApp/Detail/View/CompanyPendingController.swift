@@ -58,6 +58,11 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var viewMoreButtonView: UIView!
     
+    @IBOutlet weak var completedValueLabel: UILabel!
+    @IBOutlet weak var completedLabel: UILabel!
+    @IBOutlet weak var completedView: UIView!
+
+    
     var complaintID: Int?
     private var viewModel = CompanyDetailViewModel()
     private var isExpanded = false
@@ -75,6 +80,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         collectionView.showsVerticalScrollIndicator = false
+        completedLabel.text = LocalizationKeys.completedOn.rawValue.localizeString()
 
         assignButton.setTitle(LocalizationKeys.assignToWorker.rawValue.localizeString(), for: .normal)
         rejectButton.setTitle(LocalizationKeys.reject.rawValue.localizeString(), for: .normal)
@@ -107,6 +113,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     }
     
     private func updateUI(){
+        completedView.isHidden = viewModel.hideCompletedView()
         complaintTitleLabel.text = viewModel.getTitle()
         propertyValueLabel.text = "\(viewModel.getProperty() ?? "")"
         statusValueLabel.text = viewModel.getStatus()
@@ -123,6 +130,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         descriptionView.isHidden = !viewModel.showMore()
         workerPhotoView.isHidden = viewModel.hideWorkerPhotoView()
         buttonsView.isHidden = viewModel.hideButtonsView()
+        completedValueLabel.text = viewModel.getCompletedDate()
 
         self.collectionView.reloadData()
         self.workerCollectionView.reloadData()
@@ -154,7 +162,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == workerCollectionView ? viewModel.getAllWorkerPhoto() : viewModel.getAllTenantPhoto())
+        Switcher.gotoPhotoViewer(delegate: self, photos: collectionView == workerCollectionView ? viewModel.getAllWorkerPhoto() : viewModel.getAllTenantPhoto(), position: indexPath)
     }
 
     
@@ -176,7 +184,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
 
 extension CompanyPendingController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 76.83, height: 76.83)
+        return CGSize(width: 80, height: 80)
     }
 }
 

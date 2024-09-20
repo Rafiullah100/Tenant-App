@@ -109,6 +109,7 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
     }
     
     private func setupMap(){
+        mapView.clear()
         let camera = GMSCameraPosition.camera(withLatitude: viewModel.getCoordinates().0, longitude: viewModel.getCoordinates().1, zoom: 14.0)
         mapView.camera = camera
         let marker = GMSMarker()
@@ -188,7 +189,7 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Switcher.gotoPhotoViewer(delegate: self, addComplaintPhoto: selectedImages)
+        Switcher.gotoPhotoViewer(delegate: self, addComplaintPhoto: selectedImages, position: indexPath)
     }
 }
 

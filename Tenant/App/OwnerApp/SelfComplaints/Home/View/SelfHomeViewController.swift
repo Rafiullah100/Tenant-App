@@ -25,7 +25,7 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
     var isLoading = true
     var isRecent = true
     private var viewModel = TenantComplaintViewModel()
-    var complaintType: SelfComplaintType?
+    var complaintType: SelfComplaintType = .new
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +33,10 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
         self.historyTableView.rowHeight = UITableView.automaticDimension
         self.historyTableView.estimatedRowHeight = 44.0
         self.nameLabel.text = UserDefaults.standard.name
+        
+        newButton.setTitle(LocalizationKeys.current.rawValue.localizeString(), for: .normal)
+        historyButton.setTitle(LocalizationKeys.completed.rawValue.localizeString(), for: .normal)
+
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
             self.isLoading = false
