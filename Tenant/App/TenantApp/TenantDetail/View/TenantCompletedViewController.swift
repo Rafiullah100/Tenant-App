@@ -8,8 +8,6 @@
 import UIKit
 
 class TenantCompletedViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-
     @IBOutlet weak var companyContactView: UIView!
     @IBOutlet weak var confirmView: UIView!
     @IBOutlet weak var phoneLbl: UILabel!
@@ -20,6 +18,7 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var complaintIdLabel: UILabel!
     
+    @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var scheduleLabel: UILabel!
@@ -30,8 +29,9 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     @IBOutlet weak var postLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
-   
  
+    @IBOutlet weak var workerPhotoLabel: UILabel!
+    @IBOutlet weak var photosLabel: UILabel!
     @IBOutlet weak var scheduleView: UIView!
     @IBOutlet weak var companyPhotoView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!{
@@ -60,12 +60,14 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         super.viewDidLoad()
         complaintIdLabel.text = LocalizationKeys.complaintID.rawValue.localizeString()
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
-//        photoLabel.text = LocalizationKeys.photosUploaded.rawValue.localizeString()
+        photosLabel.text = LocalizationKeys.complaintPhoto.rawValue.localizeString()
+        workerPhotoLabel.text = LocalizationKeys.workerCompletionPicture.rawValue.localizeString()
+
         confirmButton.setTitle(LocalizationKeys.confirm.rawValue.localizeString(), for: .normal)
         scheduleLabel.text = LocalizationKeys.schedule.rawValue.localizeString()
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
-        descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
+        descriptionLabel.text = LocalizationKeys.complaintDescription.rawValue.localizeString()
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
 
         type = .tenant
@@ -148,7 +150,12 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     }
  
     @IBAction func showMoreBtnAction(_ sender: Any) {
-        viewMoreButtonView.isHidden = !viewMoreButtonView.isHidden
+        if descriptionView.isHidden{
+            moreButton.setTitle("Click to hide description", for: .normal)
+        }
+        else{
+            moreButton.setTitle("Click to view description", for: .normal)
+        }
         descriptionView.isHidden = !descriptionView.isHidden
     }
     

@@ -23,7 +23,6 @@ class AddBranchViewController: BaseViewController {
     @IBOutlet weak var mapView: GMSMapView!
 
     var branchesList = [CompanyBranch]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
@@ -95,6 +94,7 @@ extension AddBranchViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyProfileTableViewCell.cellReuseIdentifier(), for: indexPath) as! CompanyProfileTableViewCell
+        cell.indexPath = indexPath
         cell.branch = branchesList[indexPath.row]
         return cell
     }

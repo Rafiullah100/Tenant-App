@@ -7,7 +7,6 @@
 
 import UIKit
 import GoogleMaps
-import Toast_Swift
 
 protocol AddPropertyDelegate {
     func propertyAdded()
@@ -52,7 +51,7 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationTextField.text = "RHMA7335"
+//        locationTextField.text = "RHMA7335"
         titlLabel.text = LocalizationKeys.addNewProperty.rawValue.localizeString()
         propertyTextField.placeholder = LocalizationKeys.enterPropertyTitle.rawValue.localizeString()
         propertyTextField.textAlignment = Helper.shared.isRTL() ? .right : .left

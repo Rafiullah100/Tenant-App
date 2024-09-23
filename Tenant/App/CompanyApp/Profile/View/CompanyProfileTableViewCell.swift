@@ -14,6 +14,7 @@ class CompanyProfileTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    var indexPath: IndexPath?
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -23,11 +24,11 @@ class CompanyProfileTableViewCell: UITableViewCell {
     
     var branch: CompanyBranch?{
         didSet{
-            var name = branch?.name ?? ""
-            var district = branch?.district ?? ""
-            var city = branch?.city ?? ""
-            var contact = branch?.contact ?? ""
-            branchlabel.text = "\(name), \(district), \(city), \(contact)"
+            let name = branch?.name?.capitalized ?? ""
+            let district = branch?.district?.capitalized ?? ""
+            let city = branch?.city?.capitalized ?? ""
+            let contact = branch?.contact ?? ""
+            branchlabel.text = "\((indexPath?.row ?? 0) + 1). \(name), \(district), \(city), \(contact)"
         }
     }
 }

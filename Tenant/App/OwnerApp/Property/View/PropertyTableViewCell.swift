@@ -9,7 +9,9 @@ import UIKit
 
 class PropertyTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +33,8 @@ class PropertyTableViewCell: UITableViewCell {
             let district = property?.district ?? ""
             let city = property?.city ?? ""
             
-            self.label.text = "\(buildingType) \(buildingNo), \(city), \(district)"
+            self.addressLabel.text = "\(buildingType) \(buildingNo), \(city), \(district)"
+            self.titleLabel.text = property?.title
         }
     }
     

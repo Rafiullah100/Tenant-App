@@ -11,6 +11,7 @@ import UIKit
 class WorkerOngoingDetailViewController: BaseViewController  {
     @IBOutlet weak var photoLabel: UILabel!
     
+    @IBOutlet weak var workerPhotoLabel: UILabel!
     @IBOutlet weak var completedView: UIView!
     @IBOutlet weak var noOfFileLabel: UILabel!
     @IBOutlet weak var personValueLabel: UILabel!
@@ -40,6 +41,7 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         }
     }
     
+    @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var uploadedCollectionView: UICollectionView!{
         didSet{
             uploadedCollectionView.register(ComplaintCollectionViewCell.nib(), forCellWithReuseIdentifier: ComplaintCollectionViewCell.cellReuseIdentifier())
@@ -62,7 +64,7 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         collectionView.showsVerticalScrollIndicator = false
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postedLabel.text = LocalizationKeys.postedOn.rawValue.localizeString()
-        descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
+        descriptionLabel.text = LocalizationKeys.complaintDescription.rawValue.localizeString()
         photoLabel.text = LocalizationKeys.complaintPhoto.rawValue.localizeString()
         propertyLabel.text = LocalizationKeys.property.rawValue.localizeString()
         tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
@@ -70,6 +72,7 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
+        workerPhotoLabel.text = LocalizationKeys.workerCompletionPicture.rawValue.localizeString()
         propertyValueLabel.text = viewModel.getProperty()
 
         type = .tenant
@@ -140,7 +143,12 @@ class WorkerOngoingDetailViewController: BaseViewController  {
     }
     
     @IBAction func showMoreBtnAction(_ sender: Any) {
-        viewMoreButtonView.isHidden = !viewMoreButtonView.isHidden
+        if descriptionView.isHidden{
+            moreButton.setTitle("Click to hide description", for: .normal)
+        }
+        else{
+            moreButton.setTitle("Click to view description", for: .normal)
+        }
         descriptionView.isHidden = !descriptionView.isHidden
     }
 }

@@ -9,7 +9,8 @@ import UIKit
 import GoogleMaps
 import IQKeyboardManager
 import NMAKit
-
+import Photos
+import PhotosUI
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let language: AppLanguage = AppLanguage(rawValue: UserDefaults.standard.selectedLanguage ?? "") ?? .arabic
 //        UserDefaults.standard.isRTL = 1
 //        UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)
+        requestPhotoLibraryPermission()
 
         NMAApplicationContext.set(appId: Constants.hereAppID, appCode: Constants.apiKey)
         GMSServices.provideAPIKey("AIzaSyBC2Xdb2ato7ULwuGnDjPLXLAvqUZx_1VM")
@@ -43,6 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func requestPhotoLibraryPermission() {
+        PHPhotoLibrary.requestAuthorization { _ in
+            
+        }
+    }
 
 }
 

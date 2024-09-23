@@ -12,6 +12,7 @@ class OwnerDetailViewController: BaseViewController {
     @IBOutlet weak var postedValueLabel: UILabel!
     @IBOutlet weak var timeValueLabel: UILabel!
     
+    @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var textView: UILabel!
     @IBOutlet weak var companyPhotoLabel: UILabel!
     @IBOutlet weak var completedLabel: UILabel!
@@ -76,7 +77,7 @@ class OwnerDetailViewController: BaseViewController {
         
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postedLabel.text = LocalizationKeys.postedOn.rawValue.localizeString()
-        descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
+        descriptionLabel.text = LocalizationKeys.complaintDescription.rawValue.localizeString()
         photoLabel.text = LocalizationKeys.complaintPhoto.rawValue.localizeString()
         propertyLabel.text = LocalizationKeys.property.rawValue.localizeString()
         tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
@@ -87,8 +88,7 @@ class OwnerDetailViewController: BaseViewController {
         companyAcceptedLabel.text = LocalizationKeys.companyAcceptedOn.rawValue.localizeString()
         approveButton.setTitle(LocalizationKeys.approve.rawValue.localizeString(), for: .normal)
         rejectButton.setTitle(LocalizationKeys.reject.rawValue.localizeString(), for: .normal)
-        photoLabel.text = LocalizationKeys.photoUploadedByTenant.rawValue.localizeString()
-        companyPhotoLabel.text = LocalizationKeys.photoUploadedByCompany.rawValue.localizeString()
+        companyPhotoLabel.text = LocalizationKeys.workerCompletionPicture.rawValue.localizeString()
         completedLabel.text = LocalizationKeys.completedOn.rawValue.localizeString()
         
         type = .tenant
@@ -171,7 +171,12 @@ class OwnerDetailViewController: BaseViewController {
     }
    
     @IBAction func showMoreBtnAction(_ sender: Any) {
-        viewMoreButtonView.isHidden = !viewMoreButtonView.isHidden
+        if descriptionView.isHidden{
+            moreButton.setTitle("Click to hide description", for: .normal)
+        }
+        else{
+            moreButton.setTitle("Click to view description", for: .normal)
+        }
         descriptionView.isHidden = !descriptionView.isHidden
     }
 }

@@ -34,7 +34,7 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
     private var viewModel = CompanyWorkerViewModel()
     var row: IndexPath = IndexPath(row: 0, section: 0)
     var pickerView = UIPickerView()
-    var branchIndex = 0
+    var branchIndex: Int?
     var skillIndex = 0
     var dispatchGroup: DispatchGroup?
     private var isLoading = true
@@ -93,22 +93,28 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
         dispatchGroup?.notify(queue: .main) {
             self.categoryCollectionView.reloadData()
             self.pickerView.reloadAllComponents()
-            self.getWorker()
+            self.stopAnimation()
+//            self.getWorker()
         }
     }
     
     @objc private func getWorker(){
+        guard let branchIndex = branchIndex else { return }
+        DispatchQueue.main.async {
+            self.animateSpinner()
+        }
         viewModel.workers.bind { [weak self] workers in
             self?.stopAnimation()
             guard let _ = workers else {return}
+            self?.stopAnimation()
             self?.isLoading = false
             self?.tableView.reloadData()
         }
         
-        if viewModel.getBranchID(at: branchIndex) != 0{
+        if viewModel.getBranchID(at: branchIndex ) != 0{
             viewModel.getWorkers(branchID: viewModel.getBranchID(at: branchIndex), skillID: viewModel.getSkillID(at: skillIndex))
         }
-        textField.text = viewModel.getBranchName(at: 0)
+//        textField.text = viewModel.getBranchName(at: 0)
     }
     
     //reload branches when branch is added in company profile
@@ -175,7 +181,7 @@ extension CompanyWorkerViewController: UITableViewDelegate, UITableViewDataSourc
 extension CompanyWorkerViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == categoryCollectionView {
-            return CGSize(width: 65, height: 75)
+            return CGSize(width: 75, height: 75)
         }
         else{
             let cellsAcross: CGFloat = 2

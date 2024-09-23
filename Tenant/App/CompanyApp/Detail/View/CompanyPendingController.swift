@@ -10,6 +10,8 @@ import UIKit
 class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
 
     
+    @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var workerPhotoLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UILabel!
     @IBOutlet weak var statusValueLabel: UILabel!
     @IBOutlet weak var tenantValueLabel: UILabel!
@@ -69,10 +71,10 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionLabel.text = LocalizationKeys.description.rawValue.localizeString()
+        descriptionLabel.text = LocalizationKeys.complaintDescription.rawValue.localizeString()
         complaintIdLabel.text = LocalizationKeys.property.rawValue.localizeString()
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
-        photoLabel.text = LocalizationKeys.photos.rawValue.localizeString()
+        photoLabel.text = LocalizationKeys.complaintPhoto.rawValue.localizeString()
         tenantLabel.text = LocalizationKeys.tenant.rawValue.localizeString()
         postedLabel.text = LocalizationKeys.postedOn.rawValue.localizeString()
         acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
@@ -81,7 +83,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         collectionView.showsVerticalScrollIndicator = false
         completedLabel.text = LocalizationKeys.completedOn.rawValue.localizeString()
-
+        workerPhotoLabel.text = LocalizationKeys.workerCompletionPicture.rawValue.localizeString()
         assignButton.setTitle(LocalizationKeys.assignToWorker.rawValue.localizeString(), for: .normal)
         rejectButton.setTitle(LocalizationKeys.reject.rawValue.localizeString(), for: .normal)
         
@@ -177,7 +179,12 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func showMoreBtnAction(_ sender: Any) {
-        viewMoreButtonView.isHidden = !viewMoreButtonView.isHidden
+        if descriptionView.isHidden{
+            moreButton.setTitle("Click to hide description", for: .normal)
+        }
+        else{
+            moreButton.setTitle("Click to view description", for: .normal)
+        }
         descriptionView.isHidden = !descriptionView.isHidden
     }
 }

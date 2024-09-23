@@ -26,7 +26,7 @@ class CompanyWorkerCategoryCollectionViewCell: UICollectionViewCell {
     
     var skill: SkillRow?{
         didSet{
-            titleLbl.text = skill?.title
+            titleLbl.text = skill?.title?.capitalized
         }
     }
     

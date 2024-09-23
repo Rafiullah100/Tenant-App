@@ -180,3 +180,6 @@
 "searchTenantsbyNameorContacts" = "Search Tenants by name or contacts";
 
 "rejected" = "Rejected";
+
+"complaintDescription" = "Complaint Description";
+"workerCompletionPicture" = "Worker Completion Picture";

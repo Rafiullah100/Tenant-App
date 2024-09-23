@@ -15,6 +15,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
             historyTableView.register(UINib(nibName: "TenantTableViewCell", bundle: nil), forCellReuseIdentifier: TenantTableViewCell.cellReuseIdentifier())
         }
     }
+    @IBOutlet weak var flatView: UIStackView!
     @IBOutlet weak var buildingValueLabel: UILabel!
     @IBOutlet weak var flatValueLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -74,7 +75,9 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     }
     
     private func updateUI(){
-        self.buildingValueLabel.text = viewModel.getTenantBuildingNo()
+        self.flatView.isHidden = viewModel.isVilla()
+        self.buildingLabel.text = viewModel.getBuildingType()
+        self.buildingValueLabel.text = viewModel.getBuilding()
         self.flatValueLabel.text = viewModel.getTenantFlatNo()
         nameLabel.text = UserDefaults.standard.name
         propertyView.isHidden = !viewModel.isPropertyAssigned()

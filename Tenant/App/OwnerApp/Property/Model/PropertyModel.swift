@@ -23,6 +23,8 @@ struct Properties: Codable {
 struct PropertiesRow: Codable {
     let id, ownerID: Int?
     let companyID: Int?
+    let title: String?
+
     let buildingNo, buildingType, locationCode, city: String?
     let district: String?
     let userID, isDeleted, status: Int?
@@ -34,6 +36,7 @@ struct PropertiesRow: Codable {
         case id
         case ownerID = "owner_id"
         case companyID = "company_id"
+        case title
         case buildingNo = "building_no"
         case buildingType = "building_type"
         case locationCode = "location_code"

@@ -33,6 +33,8 @@ class CompanyPropertiesViewController: BaseViewController {
         titlLabel.text = LocalizationKeys.propertiesAssigned.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 44.0
         
         viewModel.propertyList.bind { [weak self] list in
             guard let _ = list else {return}
@@ -82,10 +84,6 @@ extension CompanyPropertiesViewController: UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: PropertyTableViewCell.cellReuseIdentifier(), for: indexPath) as! PropertyTableViewCell
         cell.property = viewModel.getProperty(at: indexPath.row)
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

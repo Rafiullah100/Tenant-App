@@ -65,7 +65,28 @@ class TenantComplaintViewModel {
     }
     
     func getTenantBuildingNo() -> String {
-        return self.tenantResidence.value?.flat?.properties?.buildingNo ?? "No property assigned"
+        return self.tenantResidence.value?.flat?.properties?.buildingNo ?? ""
+    }
+    
+    func isVilla() -> Bool {
+       let type = self.tenantResidence.value?.flat?.properties?.buildingType ?? ""
+        if type == "villa"{
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    func getBuildingType() -> String {
+        return "\(self.tenantResidence.value?.flat?.properties?.buildingType?.capitalized ?? ""):"
+    }
+    
+    func getBuilding() -> String {
+        let buildingNumber = self.tenantResidence.value?.flat?.properties?.buildingNo ?? ""
+        let buildingDistrict = self.tenantResidence.value?.flat?.properties?.district ?? ""
+        let buildingCity = self.tenantResidence.value?.flat?.properties?.city ?? ""
+        return "\(buildingNumber), \(buildingDistrict), \(buildingCity)"
     }
     
     func getRecentID(index: Int) -> Int{

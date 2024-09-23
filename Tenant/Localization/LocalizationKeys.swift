@@ -169,6 +169,10 @@ enum LocalizationKeys: String {
     case flat
     case searchTenantsbyNameorContacts
     case rejected
+    
+    case complaintDescription
+    
+    case workerCompletionPicture
 }
 
 

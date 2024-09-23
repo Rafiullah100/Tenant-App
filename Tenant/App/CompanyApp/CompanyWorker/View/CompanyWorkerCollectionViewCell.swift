@@ -33,15 +33,15 @@ class CompanyWorkerCollectionViewCell: UICollectionViewCell {
         didSet{
             imgView.sd_setImage(with: URL(string: Route.baseUrl + (worker?.photo ?? "")), placeholderImage: UIImage(named: "User"))
 
-            titleLbl.text = worker?.name
+            titleLbl.text = worker?.name?.capitalized
             var skills = [String]()
             
             worker?.workerSkills?.forEach({ skill in
-                skills.append(skill.skill?.title ?? "")
+                skills.append(skill.skill?.title?.capitalized ?? "")
             })
             let skillString = skills.joined(separator: ", ")
-            tradeNameLabel.text = skillString
-            branchNameLbl.text = worker?.branch?.name
+            tradeNameLabel.text = skillString.capitalized
+            branchNameLbl.text = worker?.branch?.name?.capitalized
             phNoLbl.text = worker?.contact
         }
     }
