@@ -24,5 +24,6 @@ class PhotoViewerCollectionViewCell: UICollectionViewCell {
     public func viewAddComplaintPhoto(photo: UIImage?){
         imgView.image = photo
     }
+    
 
 }

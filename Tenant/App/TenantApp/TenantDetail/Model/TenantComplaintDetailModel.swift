@@ -220,6 +220,8 @@ struct Property: Codable {
     let userID, isDeleted, status: Int?
     let timestamp: String?
     let company: Tenant?
+    let title: String?
+    let propertyImages: [PropertyImage]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -230,7 +232,19 @@ struct Property: Codable {
         case locationCode = "location_code"
         case city, district
         case userID = "user_id"
-        case isDeleted, status, timestamp, company
+        case isDeleted, status, timestamp, company, title
+        case propertyImages = "property_images"
+    }
+}
+
+struct PropertyImage: Codable {
+    let id, propertyID: Int?
+    let title, link, timestamp: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case propertyID = "property_id"
+        case title, link, timestamp
     }
 }
 

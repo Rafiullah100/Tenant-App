@@ -46,14 +46,24 @@ class WorkerDetailViewModel {
         }
     }
     
-    func getProperty() -> String? {
+    func getProperty() -> Property? {
+        return self.complaintDetail.value?.property
+    }
+    
+    func getAddress() -> NSAttributedString? {
+        let title = self.complaintDetail.value?.property?.title?.capitalized
         let type = self.complaintDetail.value?.property?.buildingType?.capitalized
         
         let buildingNo = self.complaintDetail.value?.property?.buildingNo
         let district = self.complaintDetail.value?.property?.district
         let city = self.complaintDetail.value?.property?.city
 
-        return "\(type ?? "" ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
+        let address =  "\(title ?? "" ), \(type ?? "" ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
+        
+        let attributedString = NSAttributedString(string: address, attributes: [
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ])
+        return attributedString
     }
     
     func getTenantName() -> String {

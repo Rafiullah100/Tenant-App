@@ -17,6 +17,8 @@ class PhotoViewerViewController: BaseViewController {
     }
     
     var photos: [ComplainImage]?
+    var propertyImages: [PropertyImage]?
+    
     var addComplaintPhoto: [UIImage]?
     var position: IndexPath?
     
@@ -40,6 +42,9 @@ extension PhotoViewerViewController: UICollectionViewDelegate, UICollectionViewD
         if addComplaintPhoto != nil{
             return addComplaintPhoto?.count ?? 0
         }
+        else if propertyImages != nil{
+            return propertyImages?.count ?? 0
+        }
         else{
             return photos?.count ?? 0
         }
@@ -49,6 +54,9 @@ extension PhotoViewerViewController: UICollectionViewDelegate, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "identifier", for: indexPath) as! PhotoViewerCollectionViewCell
         if addComplaintPhoto != nil{
             cell.viewAddComplaintPhoto(photo: addComplaintPhoto?[indexPath.row])
+        }
+        else if propertyImages != nil{
+            cell.configure(with: propertyImages?[indexPath.row].link)
         }
         else{
             cell.configure(with: photos?[indexPath.row].imageURL)

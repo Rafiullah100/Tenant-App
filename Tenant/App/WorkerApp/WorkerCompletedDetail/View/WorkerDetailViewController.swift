@@ -87,7 +87,7 @@ class WorkerDetailViewController: BaseViewController {
     
     private func updateUI(){
         ComplaintTitleLabel.text = viewModel.getTitle()
-        propertyValueLabel.text = viewModel.getProperty()
+//        propertyValueLabel.text = viewModel.getProperty()
         statusValueLabel.text = viewModel.getStatus()
         postedValueLabel.text = viewModel.getPostedDate()
         acceptedValueLabel.text = viewModel.getAcceptedDate()
@@ -97,9 +97,16 @@ class WorkerDetailViewController: BaseViewController {
         scheduleValueLabel.text = viewModel.getScheduleDate()
         timeValueLabel.text = viewModel.getScheduleTime()
         personValueLabel.text = viewModel.getMaintenancePersonContact()
-        propertyValueLabel.text = viewModel.getProperty()
+        propertyValueLabel.attributedText = viewModel.getAddress()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(propertyLabelTapped))
+        propertyValueLabel.addGestureRecognizer(tapGesture)
         collectionView.reloadData()
         uploadedCollectionView.reloadData()
+    }
+    
+    @objc func propertyLabelTapped() {
+        guard let property = viewModel.getProperty() else { return }
+        Switcher.gotoWorkerPropertyDetail(delegate: self, property: property)
     }
     
     override func viewWillAppear(_ animated: Bool) {

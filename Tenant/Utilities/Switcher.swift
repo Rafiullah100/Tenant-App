@@ -146,6 +146,14 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
+    static func gotoWorkerPropertyDetail(delegate: UIViewController, property: Property){
+        let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkerPropertyViewController") as! WorkerPropertyViewController
+        vc.propertyDetail = property
+        vc.modalPresentationStyle = .fullScreen
+        vc.hidesBottomBarWhenPushed = false
+        delegate.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     static func gotoWorkerComplaintDetailScreen(delegate: UIViewController, complaintID: Int){
         let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkerDetailViewController") as! WorkerDetailViewController
         vc.complaintID = complaintID
@@ -328,12 +336,13 @@ class Switcher {
         delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func gotoPhotoViewer(delegate: UIViewController, photos: [ComplainImage]? = nil, addComplaintPhoto: [UIImage]? = nil, position: IndexPath){
+    static func gotoPhotoViewer(delegate: UIViewController, photos: [ComplainImage]? = nil,  propertyImages: [PropertyImage]? = nil, addComplaintPhoto: [UIImage]? = nil, position: IndexPath){
         let vc = UIStoryboard(name: Storyboard.popup.rawValue, bundle: nil).instantiateViewController(withIdentifier: "PhotoViewerViewController") as! PhotoViewerViewController
         vc.photos = photos
         vc.position = position
+        vc.propertyImages = propertyImages
         vc.addComplaintPhoto = addComplaintPhoto
         vc.modalPresentationStyle = .fullScreen
-        delegate.navigationController?.pushViewController(vc, animated: true)
+        delegate.navigationController?.pushViewController(vc, animated: false)
     }
 }

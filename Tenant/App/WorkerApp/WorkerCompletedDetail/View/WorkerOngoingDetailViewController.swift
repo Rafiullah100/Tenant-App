@@ -73,8 +73,9 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
         acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
         workerPhotoLabel.text = LocalizationKeys.workerCompletionPicture.rawValue.localizeString()
-        propertyValueLabel.text = viewModel.getProperty()
-
+        propertyValueLabel.attributedText = viewModel.getAddress()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(propertyLabelTapped))
+        propertyValueLabel.addGestureRecognizer(tapGesture)
         type = .tenant
         hideGalleryView()
         
@@ -102,9 +103,14 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         }
     }
     
+    @objc func propertyLabelTapped() {
+        guard let property = viewModel.getProperty() else { return }
+        Switcher.gotoWorkerPropertyDetail(delegate: self, property: property)
+    }
+    
     private func updateUI(){
         ComplaintTitleLabel.text = viewModel.getTitle()
-        propertyValueLabel.text = viewModel.getProperty()
+        propertyValueLabel.attributedText = viewModel.getAddress()
         statusValueLabel.text = viewModel.getStatus()
         postedValueLabel.text = viewModel.getPostedDate()
         acceptedValueLabel.text = viewModel.getAcceptedDate()

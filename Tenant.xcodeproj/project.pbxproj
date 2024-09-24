@@ -175,6 +175,8 @@
 		52CCB27A2C65EEEE00A57B59 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CCB2792C65EEEE00A57B59 /* SignupModel.swift */; };
 		52CD7AE12C78779200DCCAE8 /* AssignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD7AE02C78779200DCCAE8 /* AssignModel.swift */; };
 		52CD7AE32C7877A500DCCAE8 /* AssignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD7AE22C7877A500DCCAE8 /* AssignViewModel.swift */; };
+		52CE1C232CA2B07500324784 /* WorkerPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE1C222CA2B07500324784 /* WorkerPropertyViewController.swift */; };
+		52CE1C252CA2B93A00324784 /* WorkerPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE1C242CA2B93A00324784 /* WorkerPropertyViewModel.swift */; };
 		52DBCCD82C16C3B200A7B612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DBCCD72C16C3B200A7B612 /* AppDelegate.swift */; };
 		52DBCCDA2C16C3B200A7B612 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DBCCD92C16C3B200A7B612 /* SceneDelegate.swift */; };
 		52DBCCDF2C16C3B200A7B612 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DBCCDD2C16C3B200A7B612 /* Main.storyboard */; };
@@ -380,6 +382,8 @@
 		52CCB2792C65EEEE00A57B59 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		52CD7AE02C78779200DCCAE8 /* AssignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignModel.swift; sourceTree = "<group>"; };
 		52CD7AE22C7877A500DCCAE8 /* AssignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewModel.swift; sourceTree = "<group>"; };
+		52CE1C222CA2B07500324784 /* WorkerPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerPropertyViewController.swift; sourceTree = "<group>"; };
+		52CE1C242CA2B93A00324784 /* WorkerPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerPropertyViewModel.swift; sourceTree = "<group>"; };
 		52DBCCD42C16C3B200A7B612 /* Tenant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tenant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DBCCD72C16C3B200A7B612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52DBCCD92C16C3B200A7B612 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -922,6 +926,7 @@
 			children = (
 				524D70CE2C4A92C800C7490C /* WorkerHome */,
 				521B922A2C4BBDE6000F1B82 /* WorkerCompletedDetail */,
+				52CE1C212CA2A87400324784 /* PropertyDetail */,
 			);
 			path = WorkerApp;
 			sourceTree = "<group>";
@@ -1620,6 +1625,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		52CE1C212CA2A87400324784 /* PropertyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				52CE1C222CA2B07500324784 /* WorkerPropertyViewController.swift */,
+				52CE1C242CA2B93A00324784 /* WorkerPropertyViewModel.swift */,
+			);
+			path = PropertyDetail;
+			sourceTree = "<group>";
+		};
 		52DBCCCB2C16C3B200A7B612 = {
 			isa = PBXGroup;
 			children = (
@@ -2133,6 +2147,7 @@
 				525AEAAD2C637C480089FB50 /* CompanyDetailViewController.swift in Sources */,
 				5284FEE82C74BCA400F8B9CB /* CompanyProfileModel.swift in Sources */,
 				524FD36A2C6B41A20023F5DF /* TenantComplaintDetailViewModel.swift in Sources */,
+				52CE1C252CA2B93A00324784 /* WorkerPropertyViewModel.swift in Sources */,
 				526A2D5A2C3D0B7000C716A8 /* CompanyOngoingTableViewCell.swift in Sources */,
 				528D051B2C882779002AF1BE /* CompanyPropertyViewModel.swift in Sources */,
 				528B18E12C75CD420018E609 /* CompanyProfileViewModel.swift in Sources */,
@@ -2141,6 +2156,7 @@
 				527FB0C42C36BAE000504E3D /* OwnerHomeTableViewCell.swift in Sources */,
 				52F188B42C661BE900085EE7 /* OtpViewModel.swift in Sources */,
 				52C4A12C2C9163A600F7AB53 /* TenantMngmentTableViewCell.swift in Sources */,
+				52CE1C232CA2B07500324784 /* WorkerPropertyViewController.swift in Sources */,
 				521B922E2C4BC378000F1B82 /* CompanyTabbarController.swift in Sources */,
 				525F5C1F2C3FC63800FE4B89 /* ContactPersonTableViewCell.swift in Sources */,
 				52688B112C32916A001C55A8 /* ComplainDetailCollectionViewCell.swift in Sources */,
