@@ -54,7 +54,7 @@ class CompanyPropertyDetailViewController: BaseViewController {
         marker.icon = UIImage(named: "pin")
         marker.map = mapView
         
-        propertyTitleLabel.text = "\(property?.buildingType?.capitalized ?? "") \(property?.buildingNo ?? ""), \(property?.district ?? ""), \(property?.city ?? "")"
+        propertyTitleLabel.text = "\(property?.title?.capitalized ?? ""), \(property?.buildingType?.capitalized ?? "") \(property?.buildingNo ?? ""), \(property?.district ?? ""), \(property?.city ?? "")"
         addressLabel.text = "\(property?.district ?? ""), \(property?.city ?? "")"
         typeLabel.text = property?.buildingType?.capitalized
         flatLabel.text = "\(property?.flats?.count ?? 0)"

@@ -196,3 +196,10 @@
 
 "complaintDescription" = "وصف الشكوى";
 "workerCompletionPicture" = "صورة إتمام العامل";
+
+"profile" = "الملف الشخصي";
+"contacts" = "جهات الاتصال";
+"logout" = "تسجيل الخروج";
+"language" = "اللغة";
+
+"selectUserType" = "اختر نوع المستخدم";

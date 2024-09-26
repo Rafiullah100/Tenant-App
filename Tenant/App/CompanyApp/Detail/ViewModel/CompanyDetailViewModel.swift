@@ -79,13 +79,15 @@ class CompanyDetailViewModel {
     }
     
     func getProperty() -> String? {
+        let title = self.complaintDetail.value?.complaintDetail?.property?.title?.capitalized
+
         let type = self.complaintDetail.value?.complaintDetail?.property?.buildingType?.capitalized
        
         let buildingNo = self.complaintDetail.value?.complaintDetail?.property?.buildingNo
         let district = self.complaintDetail.value?.complaintDetail?.property?.district
         let city = self.complaintDetail.value?.complaintDetail?.property?.city
 
-        return "\(type ?? "" ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
+        return "\(title ?? "" ), \(type ?? "" ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
     }
     
     func getStatus() -> String {

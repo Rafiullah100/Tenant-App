@@ -16,6 +16,9 @@
 		521B92372C4BC944000F1B82 /* OwnerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B92362C4BC944000F1B82 /* OwnerDetailViewController.swift */; };
 		5223FAFA2C411B6B002D8E09 /* AddPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5223FAF92C411B6A002D8E09 /* AddPropertyViewController.swift */; };
 		5223FAFC2C411EA2002D8E09 /* PropertyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5223FAFB2C411EA2002D8E09 /* PropertyDetailViewController.swift */; };
+		522578D42CA4082300872AEE /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522578D32CA4082300872AEE /* MenuViewController.swift */; };
+		522578D72CA4083C00872AEE /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522578D52CA4083C00872AEE /* MenuTableViewCell.swift */; };
+		522578D82CA4083C00872AEE /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522578D62CA4083C00872AEE /* MenuTableViewCell.xib */; };
 		522CBB9B2C8199BF0060F2F1 /* PropertyTenantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CBB9A2C8199BF0060F2F1 /* PropertyTenantsModel.swift */; };
 		522CBB9E2C819F090060F2F1 /* PropertyTenantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CBB9D2C819F090060F2F1 /* PropertyTenantsViewModel.swift */; };
 		522CBBA42C81A43D0060F2F1 /* SelfPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CBBA32C81A43D0060F2F1 /* SelfPropertyViewModel.swift */; };
@@ -83,7 +86,7 @@
 		526B7E102C7C93F700D8A335 /* PropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B7E0F2C7C93F700D8A335 /* PropertyViewModel.swift */; };
 		526B7E152C7CA55C00D8A335 /* AddPropertyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B7E142C7CA55C00D8A335 /* AddPropertyModel.swift */; };
 		526B7E172C7CA57500D8A335 /* AddPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B7E162C7CA57500D8A335 /* AddPropertyViewModel.swift */; };
-		526FFA4A2C9817F500876061 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526FFA492C9817F500876061 /* Popup.storyboard */; };
+		526FFA4A2C9817F500876061 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526FFA492C9817F500876061 /* Common.storyboard */; };
 		526FFA4E2C98188B00876061 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FFA4D2C98188B00876061 /* PhotoViewerViewController.swift */; };
 		526FFA512C9818AF00876061 /* PhotoViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FFA4F2C9818AF00876061 /* PhotoViewerCollectionViewCell.swift */; };
 		526FFA552C98518100876061 /* UnAssignedFlatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FFA542C98518100876061 /* UnAssignedFlatModel.swift */; };
@@ -204,6 +207,10 @@
 		52F188AE2C660B1100085EE7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F188AD2C660B1100085EE7 /* LoginViewModel.swift */; };
 		52F188B42C661BE900085EE7 /* OtpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F188B32C661BE900085EE7 /* OtpViewModel.swift */; };
 		52F188B62C661BFA00085EE7 /* OtpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F188B52C661BFA00085EE7 /* OtpModel.swift */; };
+		52F922442CA532CB0029DC21 /* DynamicHeightTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F922432CA532CB0029DC21 /* DynamicHeightTableView.swift */; };
+		52F922472CA57A0D0029DC21 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F922462CA57A0D0029DC21 /* ProfileViewController.swift */; };
+		52F922492CA583E50029DC21 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F922482CA583E50029DC21 /* ProfileViewModel.swift */; };
+		52F9224B2CA583F40029DC21 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F9224A2CA583F40029DC21 /* ProfileModel.swift */; };
 		52FD2BA62C7DB37400B2B914 /* WorkersComplaintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD2BA52C7DB37400B2B914 /* WorkersComplaintViewModel.swift */; };
 		52FD2BA82C7DB38100B2B914 /* WorkersComplaintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD2BA72C7DB38100B2B914 /* WorkersComplaintModel.swift */; };
 		A464A0C6F8E0778DF60EAF2D /* Pods_Tenant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2B301050BDEA968097910F /* Pods_Tenant.framework */; };
@@ -219,6 +226,9 @@
 		521B92362C4BC944000F1B82 /* OwnerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerDetailViewController.swift; sourceTree = "<group>"; };
 		5223FAF92C411B6A002D8E09 /* AddPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPropertyViewController.swift; sourceTree = "<group>"; };
 		5223FAFB2C411EA2002D8E09 /* PropertyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailViewController.swift; sourceTree = "<group>"; };
+		522578D32CA4082300872AEE /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		522578D52CA4083C00872AEE /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		522578D62CA4083C00872AEE /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		522CBB9A2C8199BF0060F2F1 /* PropertyTenantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTenantsModel.swift; sourceTree = "<group>"; };
 		522CBB9D2C819F090060F2F1 /* PropertyTenantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTenantsViewModel.swift; sourceTree = "<group>"; };
 		522CBBA32C81A43D0060F2F1 /* SelfPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfPropertyViewModel.swift; sourceTree = "<group>"; };
@@ -287,7 +297,7 @@
 		526B7E0F2C7C93F700D8A335 /* PropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyViewModel.swift; sourceTree = "<group>"; };
 		526B7E142C7CA55C00D8A335 /* AddPropertyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPropertyModel.swift; sourceTree = "<group>"; };
 		526B7E162C7CA57500D8A335 /* AddPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPropertyViewModel.swift; sourceTree = "<group>"; };
-		526FFA492C9817F500876061 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		526FFA492C9817F500876061 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		526FFA4D2C98188B00876061 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
 		526FFA4F2C9818AF00876061 /* PhotoViewerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerCollectionViewCell.swift; sourceTree = "<group>"; };
 		526FFA542C98518100876061 /* UnAssignedFlatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnAssignedFlatModel.swift; sourceTree = "<group>"; };
@@ -413,6 +423,10 @@
 		52F188AD2C660B1100085EE7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		52F188B32C661BE900085EE7 /* OtpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewModel.swift; sourceTree = "<group>"; };
 		52F188B52C661BFA00085EE7 /* OtpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpModel.swift; sourceTree = "<group>"; };
+		52F922432CA532CB0029DC21 /* DynamicHeightTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightTableView.swift; sourceTree = "<group>"; };
+		52F922462CA57A0D0029DC21 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		52F922482CA583E50029DC21 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		52F9224A2CA583F40029DC21 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		52FD2BA52C7DB37400B2B914 /* WorkersComplaintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersComplaintViewModel.swift; sourceTree = "<group>"; };
 		52FD2BA72C7DB38100B2B914 /* WorkersComplaintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersComplaintModel.swift; sourceTree = "<group>"; };
 		7969E806CAB2B0894882A23C /* Pods-Tenant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tenant.release.xcconfig"; path = "Target Support Files/Pods-Tenant/Pods-Tenant.release.xcconfig"; sourceTree = "<group>"; };
@@ -534,6 +548,16 @@
 				528733442C805AE900CDF9D1 /* View */,
 			);
 			path = AddTenant;
+			sourceTree = "<group>";
+		};
+		522578D22CA4080E00872AEE /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				522578D32CA4082300872AEE /* MenuViewController.swift */,
+				522578D52CA4083C00872AEE /* MenuTableViewCell.swift */,
+				522578D62CA4083C00872AEE /* MenuTableViewCell.xib */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		522CBB982C8199970060F2F1 /* View */ = {
@@ -1076,12 +1100,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		526FFA4B2C98182600876061 /* Popup */ = {
+		526FFA4B2C98182600876061 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				52F922452CA579F80029DC21 /* Profile */,
+				522578D22CA4080E00872AEE /* Menu */,
 				526FFA4C2C98184400876061 /* PhotoViewer */,
 			);
-			path = Popup;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		526FFA4C2C98184400876061 /* PhotoViewer */ = {
@@ -1715,6 +1741,7 @@
 				52DBCD042C16C52C00A7B612 /* Helper.swift */,
 				52DBCD052C16C52C00A7B612 /* Color.swift */,
 				52983D9D2C94C98D00798F00 /* ToastManager.swift */,
+				52F922432CA532CB0029DC21 /* DynamicHeightTableView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1728,7 +1755,7 @@
 				52995C592C37C73100AFDA47 /* CompanyApp */,
 				525B37792C3E86440087CB5C /* WorkerApp */,
 				52633D762C40F7B80029C954 /* OwnerApp */,
-				526FFA4B2C98182600876061 /* Popup */,
+				526FFA4B2C98182600876061 /* Common */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -1742,7 +1769,7 @@
 				52995C542C37C2E600AFDA47 /* Company.storyboard */,
 				525B37772C3E86300087CB5C /* Worker.storyboard */,
 				52633D742C40F7360029C954 /* Owner.storyboard */,
-				526FFA492C9817F500876061 /* Popup.storyboard */,
+				526FFA492C9817F500876061 /* Common.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1837,6 +1864,16 @@
 				52F188B32C661BE900085EE7 /* OtpViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52F922452CA579F80029DC21 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				52F922462CA57A0D0029DC21 /* ProfileViewController.swift */,
+				52F922482CA583E50029DC21 /* ProfileViewModel.swift */,
+				52F9224A2CA583F40029DC21 /* ProfileModel.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		52FD2BA22C7DB31E00B2B914 /* View */ = {
@@ -1953,6 +1990,7 @@
 				5276163A2C48E876007F7C66 /* FlatCardTableViewCell.xib in Resources */,
 				525F5C202C3FC63800FE4B89 /* ContactPersonTableViewCell.xib in Resources */,
 				52DBCCE42C16C3B700A7B612 /* LaunchScreen.storyboard in Resources */,
+				522578D82CA4083C00872AEE /* MenuTableViewCell.xib in Resources */,
 				5279F8982C2967BF003B28A9 /* Localizable.strings in Resources */,
 				5279F8B72C2968EA003B28A9 /* Inter-Thin.ttf in Resources */,
 				527FB0C52C36BAE000504E3D /* OwnerHomeTableViewCell.xib in Resources */,
@@ -1990,7 +2028,7 @@
 				525B37782C3E86300087CB5C /* Worker.storyboard in Resources */,
 				5279F8BE2C2968EA003B28A9 /* Manrope-Medium.ttf in Resources */,
 				5279F8BC2C2968EA003B28A9 /* Inter-Black.ttf in Resources */,
-				526FFA4A2C9817F500876061 /* Popup.storyboard in Resources */,
+				526FFA4A2C9817F500876061 /* Common.storyboard in Resources */,
 				5279F8CB2C297F72003B28A9 /* Outfit-Medium.ttf in Resources */,
 				529E17702C2EBA870063B204 /* TenantTableViewCell.xib in Resources */,
 				529E17722C2EBA870063B204 /* ComplaintCollectionViewCell.xib in Resources */,
@@ -2085,6 +2123,7 @@
 				528733432C804BE600CDF9D1 /* AddFlatModel.swift in Sources */,
 				529E17712C2EBA870063B204 /* TenantTableViewCell.swift in Sources */,
 				527626652C92019200DB9FF3 /* CompanyWorkerTableViewCell.swift in Sources */,
+				522578D42CA4082300872AEE /* MenuViewController.swift in Sources */,
 				522F761B2C4E4A2B0035B8A4 /* AddWorkerCollectionViewCell.swift in Sources */,
 				529E175B2C2E85DD0063B204 /* LocalizationKeys.swift in Sources */,
 				522FFBBC2C4CE7C70010A2EF /* SelfHomeTableViewCell.swift in Sources */,
@@ -2115,6 +2154,7 @@
 				5211E4EF2C3EA1F80023A8E6 /* WorkerDetailViewController.swift in Sources */,
 				52CD7AE32C7877A500DCCAE8 /* AssignViewModel.swift in Sources */,
 				52DBCD072C16C52C00A7B612 /* Switcher.swift in Sources */,
+				52F922442CA532CB0029DC21 /* DynamicHeightTableView.swift in Sources */,
 				522FFBC92C4CEDEF0010A2EF /* BothPropertyViewController.swift in Sources */,
 				52DBCCEE2C16C50A00A7B612 /* Observable.swift in Sources */,
 				521B92372C4BC944000F1B82 /* OwnerDetailViewController.swift in Sources */,
@@ -2150,9 +2190,11 @@
 				52CE1C252CA2B93A00324784 /* WorkerPropertyViewModel.swift in Sources */,
 				526A2D5A2C3D0B7000C716A8 /* CompanyOngoingTableViewCell.swift in Sources */,
 				528D051B2C882779002AF1BE /* CompanyPropertyViewModel.swift in Sources */,
+				52F9224B2CA583F40029DC21 /* ProfileModel.swift in Sources */,
 				528B18E12C75CD420018E609 /* CompanyProfileViewModel.swift in Sources */,
 				52688B142C32C563001C55A8 /* StatusDoneCollectionViewCell.swift in Sources */,
 				52F188AE2C660B1100085EE7 /* LoginViewModel.swift in Sources */,
+				52F922472CA57A0D0029DC21 /* ProfileViewController.swift in Sources */,
 				527FB0C42C36BAE000504E3D /* OwnerHomeTableViewCell.swift in Sources */,
 				52F188B42C661BE900085EE7 /* OtpViewModel.swift in Sources */,
 				52C4A12C2C9163A600F7AB53 /* TenantMngmentTableViewCell.swift in Sources */,
@@ -2174,10 +2216,12 @@
 				52583D7A2C7735E30023EBDE /* CompanyWorkerViewModel.swift in Sources */,
 				528733392C8043A400CDF9D1 /* FlatModel.swift in Sources */,
 				5276163F2C48F14B007F7C66 /* AddTenanToFlatViewController.swift in Sources */,
+				522578D72CA4083C00872AEE /* MenuTableViewCell.swift in Sources */,
 				52F188A62C660A7C00085EE7 /* SigninViewController.swift in Sources */,
 				5242AE0A2C786BBD008FB66F /* CompanyDetailModel.swift in Sources */,
 				527616452C48F51A007F7C66 /* TenantCollectionViewCell.swift in Sources */,
 				522FFBBA2C4CE7970010A2EF /* SelfHomeViewController.swift in Sources */,
+				52F922492CA583E50029DC21 /* ProfileViewModel.swift in Sources */,
 				5284FED42C74A7FB00F8B9CB /* CompanyComplaintsModel.swift in Sources */,
 				52DBCCD82C16C3B200A7B612 /* AppDelegate.swift in Sources */,
 				5284FECE2C74771400F8B9CB /* ContactModel.swift in Sources */,

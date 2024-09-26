@@ -44,6 +44,8 @@ class RegistrationViewController: BaseViewController {
         alreadyRegisteredLabel.text = LocalizationKeys.alreadyRegistered.rawValue.localizeString()
         signinLabel.setTitle(LocalizationKeys.signin.rawValue.localizeString(), for: .normal)
         submitButton.setTitle(LocalizationKeys.submit.rawValue.localizeString(), for: .normal)
+        userTypeTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        userTypeTextField.placeholder = LocalizationKeys.selectUserType.rawValue.localizeString()
         
         userTypeTextField.inputView = pickerView
         pickerView.delegate = self

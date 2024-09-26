@@ -141,6 +141,13 @@ extension UIView {
             layer.shadowRadius = 0
             layer.shadowOpacity = 0
         }
+    
+    func setLanguage(code: AppLanguagecode, language: AppLanguage, isRTL: Int) {
+        UserDefaults.standard.isRTL = isRTL
+        UserDefaults.standard.selectedLanguage = language.rawValue
+        UserDefaults.standard.languageCode = code.rawValue
+        UIView.appearance().semanticContentAttribute = isRTL == 1 ? .forceRightToLeft : .forceLeftToRight
+    }
 }
 
 extension UIColor {

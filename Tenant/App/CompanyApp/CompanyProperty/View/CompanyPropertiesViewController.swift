@@ -59,6 +59,9 @@ class CompanyPropertiesViewController: BaseViewController {
         viewModel.getProperties(search: searchTextField.text ?? "")
     }
     
+    @IBAction func menuBtnAction(_ sender: Any) {
+        Switcher.gotoMenu(delegate: self, menuType: .company)
+    }
     @IBAction func profileBtnAction(_ sender: Any) {
         Switcher.gotoCompanyProfile(delegate: self)
     }

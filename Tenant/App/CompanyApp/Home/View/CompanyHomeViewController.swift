@@ -77,7 +77,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func profileBtnAction(_ sender: Any) {
-        Switcher.gotoCompanyProfile(delegate: self)
+        Switcher.gotoMenu(delegate: self, menuType: .company)
     }
     
     @IBAction func historyBtnAction(_ sender: Any) {

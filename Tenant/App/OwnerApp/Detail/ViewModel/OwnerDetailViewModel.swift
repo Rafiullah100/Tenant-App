@@ -129,13 +129,14 @@ class OwnerDetailViewModel {
     }
     
     func getProperty() -> String? {
+        let title = self.complaintDetail.value?.property?.title?.capitalized
         let type = self.complaintDetail.value?.property?.buildingType?.capitalized
          
         let buildingNo = self.complaintDetail.value?.property?.buildingNo
         let district = self.complaintDetail.value?.property?.district
         let city = self.complaintDetail.value?.property?.city
 
-        return "\(type ?? "" ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
+        return "\(title ?? ""), \(type ?? "" ) \(buildingNo ?? ""), \(district ?? ""), \(city ?? "")"
     }
     
     func getOwnerApprovalDate() -> String {

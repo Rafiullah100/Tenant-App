@@ -15,7 +15,6 @@ struct ContactPerson {
 class ContactPersonViewController: BaseViewController {
 
     @IBOutlet weak var contactLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!{
         didSet{
             tableView.delegate = self
@@ -28,8 +27,9 @@ class ContactPersonViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        type = .company
         contactLabel.text = LocalizationKeys.contactPerson.rawValue.localizeString()
-        backButton.setImage(UIImage(named: Helper.shared.isRTL() ? "back-arrow-ar" : "back-arrow-en"), for: .normal)
         
         viewModel.contactList.bind { [unowned self] list in
             guard let _ = list else {return}
@@ -40,9 +40,10 @@ class ContactPersonViewController: BaseViewController {
         self.animateSpinner()
         viewModel.getComplaints(id: UserDefaults.standard.userID ?? 0)
     }
-
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
 }
 

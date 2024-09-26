@@ -27,14 +27,16 @@ class PropertyDetailViewController: BaseViewController {
     @IBOutlet weak var buidlingTypeNameLabel: UILabel!
     
     @IBOutlet weak var villaTenantMangmtView: UIView!
-    var propertyType: PropertyType?
-    var propertyID: Int?
     var propertyDetail: PropertiesRow?
     @IBOutlet weak var assignButton: UIButton!
-    let viewModel = DeleteTenantViewModel()
+    var viewModel: DeleteTenantViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let property = propertyDetail else { return }
+        viewModel = DeleteTenantViewModel(propertyDetail: property)
+        
         flatManagmentButton.setTitle(LocalizationKeys.flatManagement.rawValue.localizeString(), for: .normal)
         tenantMangementButton.setTitle(LocalizationKeys.tenantManagement.rawValue.localizeString(), for: .normal)
         companyButton.setTitle(LocalizationKeys.maintainanceCompanyManagement.rawValue.localizeString(), for: .normal)
@@ -64,26 +66,20 @@ class PropertyDetailViewController: BaseViewController {
     }
     
     private func updateUI(){
-        propertyType = propertyDetail?.buildingType == "building" ? .building : .villa
-        propertyID = propertyDetail?.id
-        buidlingTypeNameLabel.text = propertyType == .building ? "Building" : "Villa"
-        flatMngmtView.isHidden = propertyType == .building ? false : true
-        tenantMngmtView.isHidden = propertyType == .building ? false : true
-        villaTenantMangmtView.isHidden = propertyType == .villa ? false : true
-        companyNameValueLabel.text = propertyDetail?.company?.name ?? "Not assigned to Company"
-        flatValueLabel.text = "\(propertyDetail?.flats?.count ?? 0)"
-
-        nameLabel.text = "\(propertyDetail?.buildingType?.capitalized ?? "") \(propertyDetail?.buildingNo ?? ""), \(propertyDetail?.district ?? ""), \(propertyDetail?.city ?? "")"
-        if propertyType == .villa {
-            let flatsCount = propertyDetail?.flats?.count ?? 0
-            tenantView.isHidden = flatsCount == 0 ? true : false
-            if flatsCount > 0{
-                tenantView.isHidden = ((propertyDetail?.flats?.first?.tenantID) != nil) ? false : true
-                if tenantView.isHidden == false{
-                    tenantNameLabel.text = propertyDetail?.flats?[0].ownersTenants?.name ?? ""
-                    tenantContactLabel.text = propertyDetail?.flats?[0].ownersTenants?.contact ?? ""
-                    assignButton.isUserInteractionEnabled = false
-                }
+        buidlingTypeNameLabel.text = viewModel.getPropertyType()
+        flatMngmtView.isHidden = viewModel.hideFlatView()
+        tenantMngmtView.isHidden = viewModel.hideTenantManagmentView()
+        villaTenantMangmtView.isHidden = viewModel.hideVillaTenantView()
+        companyNameValueLabel.text = viewModel.getCompany()
+        flatValueLabel.text = "\(viewModel.getNumberOfFLat())"
+        nameLabel.text = viewModel.getAddress()
+        
+        if viewModel.isPropertyVilla() {
+            tenantView.isHidden = viewModel.isVillaTenantExist()
+            if tenantView.isHidden == false{
+                tenantNameLabel.text = viewModel.getVillaTenantName()
+                tenantContactLabel.text = viewModel.getVillaTenantContact()
+                assignButton.isUserInteractionEnabled = false
             }
         }
     }
@@ -94,24 +90,24 @@ class PropertyDetailViewController: BaseViewController {
     }
 
     @IBAction func flatBtnAction(_ sender: Any) {
-        Switcher.gotoFlatList(delegate: self, propertyID: propertyID ?? 0, property: nameLabel.text ?? "")
+        Switcher.gotoFlatList(delegate: self, propertyID: viewModel.getPropertyID(), property: nameLabel.text ?? "")
     }
     
     @IBAction func tenantMngMentAction(_ sender: Any) {
-        Switcher.gotoTenantList(delegate: self, propertyID: propertyID ?? 0, property: nameLabel.text ?? "")
+        Switcher.gotoTenantList(delegate: self, propertyID: viewModel.getPropertyID(), property: nameLabel.text ?? "")
     }
     @IBAction func companyBtnAction(_ sender: Any) {
-        Switcher.gotoCompanyList(delegate: self, propertyID: propertyID ?? 0, property: nameLabel.text ?? "")
+        Switcher.gotoCompanyList(delegate: self, propertyID: viewModel.getPropertyID(), property: nameLabel.text ?? "")
     }
     
     @IBAction func deleteBtnAction(_ sender: Any) {
         self.animateSpinner()
-        viewModel.deleteTenant(flatID: propertyDetail?.flats?[0].id ?? 0)
+        viewModel.deleteTenant(flatID: viewModel.getVillaFlatID())
     }
     
     @IBAction func assigntenantToVilla(_ sender: Any) {
-        let flatsCount = propertyDetail?.flats?.count ?? 0
-        guard flatsCount > 0 else { return  }
-        Switcher.gotoAddTenant(delegate: self, flatID: propertyDetail?.flats?[0].id ?? 0, flatNumber: propertyDetail?.flats?[0].flatNo ?? "")
+//        let flatsCount = propertyDetail?.flats?.count ?? 0
+//        guard flatsCount > 0 else { return  }
+        Switcher.gotoAddTenant(delegate: self, flatID: viewModel.getVillaFlatID(), flatNumber: viewModel.getVillaFlatNNumber())
     }
 }

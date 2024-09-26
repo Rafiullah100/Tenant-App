@@ -128,7 +128,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     }
     
     @IBAction func contactButtonAction(_ sender: Any) {
-        Switcher.gotoContactList(delegate: self)
+        Switcher.gotoMenu(delegate: self, menuType: .tenant)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

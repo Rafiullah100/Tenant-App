@@ -183,3 +183,11 @@
 
 "complaintDescription" = "Complaint Description";
 "workerCompletionPicture" = "Worker Completion Picture";
+ 
+"profile" = "Profile";
+"contacts" = "Contacts";
+"logout" = "Logout";
+"contacts" = "Contacts";
+"language" = "Language";
+ 
+"selectUserType" = "Select User Type";

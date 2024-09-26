@@ -30,7 +30,7 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
            tableView.dataSource = self
         }
     }
-
+    
     private var viewModel = CompanyWorkerViewModel()
     var row: IndexPath = IndexPath(row: 0, section: 0)
     var pickerView = UIPickerView()
@@ -152,7 +152,7 @@ class CompanyWorkerViewController: BaseViewController, UICollectionViewDelegate,
     }
     
     @IBAction func profileBtnAction(_ sender: Any) {
-        Switcher.gotoCompanyProfile(delegate: self)
+        Switcher.gotoMenu(delegate: self, menuType: .company)
     }
 }
 

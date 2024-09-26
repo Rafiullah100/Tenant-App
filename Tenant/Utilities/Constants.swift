@@ -111,3 +111,7 @@ enum TenantComplaintType {
     case recent
     case history
 }
+
+enum MenuType{
+    case tenant ,language ,owner,company, worker
+}

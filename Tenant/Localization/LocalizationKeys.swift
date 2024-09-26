@@ -173,6 +173,13 @@ enum LocalizationKeys: String {
     case complaintDescription
     
     case workerCompletionPicture
+    
+    case profile
+    case contacts
+    case language
+    case logout
+    
+    case selectUserType
 }
 
 

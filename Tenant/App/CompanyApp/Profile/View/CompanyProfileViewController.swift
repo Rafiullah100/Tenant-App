@@ -26,7 +26,6 @@ class CompanyProfileViewController: BaseViewController {
     
     var branches = [CompanyBranch]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         titlLabel.text = LocalizationKeys.title.rawValue.localizeString()

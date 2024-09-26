@@ -117,8 +117,6 @@ enum Route {
             return "api/mobile/news/trending"
         case .trendingOpinion:
             return "api/mobile/opinions/trending"
-        case .getProfile:
-            return "api/mobile/users/profile"
         case .doArchive:
             return "api/mobile/archive/add-remove"
         case .archiveNews:
@@ -240,6 +238,8 @@ enum Route {
             return "api/mobile/tenant/get_list_by_property"
         case .updateProfile:
             return "api/mobile/company/update_profile"
+        case .getProfile:
+            return "api/mobile/auth/get_profile"
         }
     }
 }

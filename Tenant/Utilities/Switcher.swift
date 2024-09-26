@@ -47,8 +47,9 @@ class Switcher {
     
     static func gotoTenantScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantHomeViewController") as! TenantHomeViewController
-        vc.modalPresentationStyle = .fullScreen
-        delegate.navigationController?.pushViewController(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        delegate.present(nav, animated: true)
     }
     
     static func gotoOwnerHome(delegate: UIViewController){
@@ -65,8 +66,10 @@ class Switcher {
     
     static func gotoWorkerScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkersHomeViewController") as! WorkersHomeViewController
-        vc.modalPresentationStyle = .fullScreen
-        delegate.navigationController?.pushViewController(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+        delegate.present(nav, animated: true)
     }
     
     static func gotoOwnerScreen(delegate: UIViewController){
@@ -90,8 +93,10 @@ class Switcher {
     
     static func gotoCompanyProfile(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "ProfileHomeViewController") as! ProfileHomeViewController
-        vc.modalPresentationStyle = .fullScreen
-        delegate.navigationController?.pushViewController(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+        delegate.present(nav, animated: true)
     }
     
     static func gotoLogin(delegate: UIViewController){
@@ -242,9 +247,10 @@ class Switcher {
     
     static func gotoContactList(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "ContactPersonViewController") as! ContactPersonViewController
-        vc.modalPresentationStyle = .fullScreen
-        vc.hidesBottomBarWhenPushed = false
-        delegate.navigationController?.pushViewController(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        nav.hidesBottomBarWhenPushed = false
+        delegate.present(nav, animated: true)
     }
     
     static func gotoOwnerDetail(delegate: UIViewController, complaintType: OwnerComplaintType,  complaintID: Int){
@@ -337,12 +343,37 @@ class Switcher {
     }
     
     static func gotoPhotoViewer(delegate: UIViewController, photos: [ComplainImage]? = nil,  propertyImages: [PropertyImage]? = nil, addComplaintPhoto: [UIImage]? = nil, position: IndexPath){
-        let vc = UIStoryboard(name: Storyboard.popup.rawValue, bundle: nil).instantiateViewController(withIdentifier: "PhotoViewerViewController") as! PhotoViewerViewController
+        let vc = UIStoryboard(name: Storyboard.common.rawValue, bundle: nil).instantiateViewController(withIdentifier: "PhotoViewerViewController") as! PhotoViewerViewController
         vc.photos = photos
         vc.position = position
         vc.propertyImages = propertyImages
         vc.addComplaintPhoto = addComplaintPhoto
         vc.modalPresentationStyle = .fullScreen
         delegate.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    static func gotoMenu(delegate: UIViewController, menuType: MenuType){
+        let vc = UIStoryboard(name: Storyboard.common.rawValue, bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.menuType = menuType
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        delegate.present(vc, animated: true)
+    }
+    
+    static func logout(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        nav.hidesBottomBarWhenPushed = true
+        delegate.present(nav, animated: false)
+    }
+    
+    static func gotoProfile(delegate: UIViewController, userType: UserType){
+        let vc = UIStoryboard(name: Storyboard.common.rawValue, bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        vc.userType = userType
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        delegate.present(nav, animated: true)
     }
 }

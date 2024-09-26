@@ -30,7 +30,7 @@ class SigninViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         /////03046929792
-//        emailTextField.text = "98765432112"
+        emailTextField.text = "87654321"
         //tenant
 //        emailTextField.text = "123456789"
         
@@ -53,6 +53,9 @@ class SigninViewController: BaseViewController {
         curveImageView.image = UIImage(named: Helper.shared.isRTL() ? "bg-ar" : "bg")
         nameTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         emailTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        userTypeTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        userTypeTextField.placeholder = LocalizationKeys.selectUserType.rawValue.localizeString()
+
         signinLabel.text = LocalizationKeys.signin.rawValue.localizeString()
         nameLabel.text = LocalizationKeys.name.rawValue.localizeString()
         userNameLabel.text = LocalizationKeys.numberOrEmail.rawValue.localizeString()

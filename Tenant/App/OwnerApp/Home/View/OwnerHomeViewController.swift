@@ -159,6 +159,10 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         setupButton(complaintType: .new)
     }
     
+    @IBAction func showMenu(_ sender: Any) {
+        Switcher.gotoMenu(delegate: self, menuType: .owner)
+    }
+    
     private func setupButton(complaintType: OwnerComplaintType = .new){
         newButton.backgroundColor = CustomColor.grayColor.color
         ongoingButton.backgroundColor = CustomColor.grayColor.color

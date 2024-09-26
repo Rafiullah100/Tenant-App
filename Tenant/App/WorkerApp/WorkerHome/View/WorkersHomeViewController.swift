@@ -78,6 +78,9 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         setupButton(complaintType: .completed)
     }
     
+    @IBAction func menuBtnAction(_ sender: Any) {
+        Switcher.gotoMenu(delegate: self, menuType: .worker)
+    }
     private func setupButton(complaintType: WorkerComplaintType = .new){
         newButton.backgroundColor = CustomColor.grayColor.color
         completedButton.backgroundColor = CustomColor.grayColor.color
