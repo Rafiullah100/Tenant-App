@@ -15,7 +15,7 @@ class LoginViewModel {
     
     func isFormValid(user: LoginInputModel) -> ValidationResponse {
         if user.name.isEmpty || user.number.isEmpty || user.userType.isEmpty{
-            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseFillAll.rawValue.localizeString())
         }
         else{
             parameters = ["name": user.name, "contact": user.number, "type": user.userType]

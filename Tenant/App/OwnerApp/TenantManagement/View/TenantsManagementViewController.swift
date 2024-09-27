@@ -41,6 +41,8 @@ class TenantsManagementViewController: BaseViewController, UITableViewDelegate, 
         searchTextField.delegate = self
         viewControllerTitle = LocalizationKeys.tenantManagement.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchTenants.rawValue.localizeString()
+        propertyLabel.text = LocalizationKeys.property.rawValue
+            .localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
         propertyValueLabel.text = property ?? ""

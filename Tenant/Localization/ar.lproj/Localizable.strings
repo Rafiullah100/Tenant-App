@@ -31,7 +31,7 @@
 "status" = "حالة:";
 "posted" = "نشر:";
 "buildingNo" = ":لا للبناء";
-"flatNo" = ":رقم الشقة";
+"flatNo" = "رقم الشقة:";
 "history" = "تاريخ";
 
 "newComplaint" = "شكوى جديدة";
@@ -203,3 +203,61 @@
 "language" = "اللغة";
 
 "selectUserType" = "اختر نوع المستخدم";
+
+"english" = "English";
+"arabic" = "العربية";
+
+"pleaseFillAll" = "يرجى ملء جميع الحقول والمحاولة مرة أخرى!";
+
+"ok" = "حسنًا";
+"noComplaintstoShow" = "لا توجد شكاوى للعرض";
+"pleaseAddImagesAndTryAgain" = "يرجى إضافة الصور والمحاولة مرة أخرى!";
+"firstConfirmLocationThenTry" = "يرجى تأكيد الموقع أولاً ثم المحاولة!";
+
+"clickToHideDescription" = "اضغط لإخفاء الوصف";
+"clickToViewDescription" = "اضغط لعرض الوصف";
+
+"noPropertyAssigned" = "لم يتم تعيين أي عقار لك! يرجى التواصل مع المالك";
+"noCompanyAssigned" = "لم يتم تعيين أي شركة لعقارك! يرجى التواصل مع المالك";
+"noContactsFound" = "لم يتم العثور على جهات الاتصال!";
+
+"assign" = "تعيين";
+"assigned" = "تم تعيين";
+
+
+"addFlat" = "إضافة شقة";
+"addNewFlatNo" = "إضافة شقة جديدة #";
+"retrieveLocation" = "استرجاع الموقع";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

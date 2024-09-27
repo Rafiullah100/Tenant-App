@@ -191,3 +191,27 @@
 "language" = "Language";
  
 "selectUserType" = "Select User Type";
+
+"english" = "English";
+"arabic" = "العربية";
+
+"pleaseFillAll" = "Please fill all fields and try again!";
+ 
+"ok" = "Ok";
+"noComplaintstoShow" = "No Complaints to Show";
+"pleaseAddImagesAndTryAgain" = "Please add images and try again!";
+"firstConfirmLocationThenTry" = "First confirm location then try!";
+
+"clickToHideDescription" = "Click to hide description";
+"clickToViewDescription" = "Click to view description";
+
+"noPropertyAssigned" = "No property is assigned to you!, Please contact with your owner";
+"noCompanyAssigned" = "No company is assigned to your property!, Please contact with your owner";
+"noContactsFound" = "No contacts found!";
+
+"assign" = "Assign";
+"assigned" = "Assign";
+
+"addFlat" = "Add Flat";
+"addNewFlatNo" = "Add New Flat #";
+"retrieveLocation" = "Retrieve Location";

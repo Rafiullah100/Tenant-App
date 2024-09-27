@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 class TenantMngmentTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var flatNoLbl: UILabel!
@@ -32,6 +33,7 @@ class TenantMngmentTableViewCell: UITableViewCell {
             titleLbl.text = tenants?.ownersTenants?.name?.capitalized
             flatNoLbl.text = "Flat \(tenants?.flatNo ?? "")"
             phNoLbl.text = tenants?.ownersTenants?.contact ?? ""
+            deleteButton.setTitle(LocalizationKeys.deleteTenant.rawValue.localizeString(), for: .normal)
         }
     }
 

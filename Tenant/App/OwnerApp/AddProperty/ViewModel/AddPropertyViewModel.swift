@@ -18,13 +18,13 @@ class AddPropertyViewModel {
     
     func isFormValid(property: AddPropertyInputModel) -> ValidationResponse {
         if property.name.isEmpty || property.buildingType.isEmpty || property.locationCode.isEmpty || property.buildingNo.isEmpty{
-            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseFillAll.rawValue.localizeString())
         }
         else if property.city.isEmpty || property.district.isEmpty {
-            return ValidationResponse(isValid: false, message: "First confirm location then try!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.firstConfirmLocationThenTry.rawValue.localizeString())
         }
         else if property.images == 0{
-            return ValidationResponse(isValid: false, message: "Please add images and try again!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseAddImagesAndTryAgain.rawValue.localizeString())
         }
         else{
             parameters = ["title": property.name, "building_no": property.buildingNo, "building_type": property.buildingType, "location_code": property.locationCode, "city": property.city, "district": property.district]

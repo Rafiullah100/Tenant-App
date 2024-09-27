@@ -36,8 +36,8 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserDefaults.standard.token ?? "")
-        buildingLabel.text = "\(LocalizationKeys.buildingNo.rawValue.localizeString())"
-        flatLabel.text = "\(LocalizationKeys.flatNo.rawValue.localizeString())"
+        buildingLabel.text = LocalizationKeys.buildingNo.rawValue.localizeString()
+        flatLabel.text = LocalizationKeys.flatNo.rawValue.localizeString()
         
         recentButton.setTitle(LocalizationKeys.current.rawValue.localizeString(), for: .normal)
         historyButton.setTitle(LocalizationKeys.completed.rawValue.localizeString(), for: .normal)
@@ -76,7 +76,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     
     private func updateUI(){
         self.flatView.isHidden = viewModel.isVilla()
-        self.buildingLabel.text = viewModel.getBuildingType()
+//        self.buildingLabel.text = viewModel.getBuildingType()
         self.buildingValueLabel.text = viewModel.getBuilding()
         self.flatValueLabel.text = viewModel.getTenantFlatNo()
         nameLabel.text = UserDefaults.standard.name
@@ -115,10 +115,10 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
             Switcher.gotoAddComplaintScreen(delegate: self, addComplaintType: .tenant)
         }
         else if viewModel.isPropertyAssigned() == false{
-            showAlert(message: "No property is assigned to you!, Please contact with your owner")
+            showAlert(message: LocalizationKeys.noPropertyAssigned.rawValue.localizeString())
         }
         else if viewModel.isCompanyAssigned() == false {
-            showAlert(message: "No company is assigned to your property!, Please contact with your owner")
+            showAlert(message: LocalizationKeys.noCompanyAssigned.rawValue.localizeString())
         }
     }
     

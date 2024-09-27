@@ -26,19 +26,18 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
     let viewModel = FlatViewModel()
     var propertyID: Int?
     private var isLoading = true
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         FlatTableView.showsVerticalScrollIndicator = false
-
         searchTextField.delegate = self
         searchView.clipsToBounds = true
         propertyValueLabel.text = property ?? ""
         viewControllerTitle = LocalizationKeys.flatManagement.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchFlatNumber.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
-        
+        propertyLabel.text = LocalizationKeys.property.rawValue
+            .localizeString()
         type = .company
         
         viewModel.flatList.bind { flatList in

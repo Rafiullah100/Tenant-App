@@ -180,6 +180,31 @@ enum LocalizationKeys: String {
     case logout
     
     case selectUserType
+    
+    case english
+    case arabic
+    
+    case pleaseFillAll
+    
+    case ok
+    case noComplaintstoShow
+    case pleaseAddImagesAndTryAgain
+    case firstConfirmLocationThenTry
+    
+    case clickToHideDescription
+    case clickToViewDescription
+    
+    case noPropertyAssigned
+    case noCompanyAssigned
+    case noContactsFound
+    
+    case assign
+    case assigned
+    
+    case addFlat
+    case addNewFlatNo
+    
+    case retrieveLocation
 }
 
 

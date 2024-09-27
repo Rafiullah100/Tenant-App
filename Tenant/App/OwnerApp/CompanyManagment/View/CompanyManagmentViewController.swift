@@ -31,6 +31,8 @@ class CompanyManagmentViewController: BaseViewController {
         searchTextField.delegate = self
         searchView.clipsToBounds = true
         viewControllerTitle = LocalizationKeys.maintenanceCompanyManagement.rawValue.localizeString()
+        propertyLabel.text = LocalizationKeys.property.rawValue
+            .localizeString()
         propertyValueLabel.text = property ?? ""
         searchTextField.placeholder =  LocalizationKeys.searchMaintenanceCompany.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left

@@ -9,13 +9,18 @@ import UIKit
 
 class AddFlatViewController: BaseViewController {
 
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var addLabel: UILabel!
     @IBOutlet weak var flatNoTextField: UITextField!
     var propertyID: Int?
     var viewModel = AddFlatViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addButton.setTitle(LocalizationKeys.addFlat.rawValue.localizeString(), for: .normal)
+        addLabel.text = LocalizationKeys.addFlat.rawValue.localizeString()
+        flatNoTextField.placeholder = LocalizationKeys.addNewFlatNo.rawValue.localizeString()
+        flatNoTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         viewModel.add.bind { add in
             guard let add = add else{return}
             DispatchQueue.main.async {

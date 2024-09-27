@@ -9,6 +9,7 @@ import UIKit
 
 class OwnerHomeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var statusValueLabel: UILabel!
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
@@ -23,6 +24,7 @@ class OwnerHomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        containerView.clipsToBounds = true
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
         byLabel.text = LocalizationKeys.by.rawValue.localizeString()

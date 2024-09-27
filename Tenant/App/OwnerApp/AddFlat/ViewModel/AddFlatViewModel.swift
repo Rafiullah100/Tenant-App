@@ -15,7 +15,7 @@ class AddFlatViewModel {
     
     func isFormValid(flat: AddFlatInputModel) -> ValidationResponse {
         if flat.flatNo.isEmpty {
-            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseFillAll.rawValue.localizeString())
         }
         else{
             parameters = ["flat_no": flat.flatNo, "property_id": flat.propertyID]

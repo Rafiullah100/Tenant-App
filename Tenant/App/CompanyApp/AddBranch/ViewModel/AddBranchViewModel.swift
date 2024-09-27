@@ -16,10 +16,10 @@ class AddBranchViewModel {
     
     func isFormValid(branch: AddBranchInputModel) -> ValidationResponse {
         if branch.name.isEmpty || branch.locationCode.isEmpty || branch.mobile.isEmpty  {
-            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseFillAll.rawValue.localizeString())
         }
         else if branch.district.isEmpty || branch.city.isEmpty{
-            return ValidationResponse(isValid: false, message: "First confirm location then try!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.firstConfirmLocationThenTry.rawValue.localizeString())
         }
         else{
             parameters = ["company_id": branch.companyID, "branch_name": branch.name, "contact": branch.mobile, "location_code": branch.locationCode, "district": branch.district, "city": branch.city]

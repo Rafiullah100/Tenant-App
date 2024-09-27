@@ -23,6 +23,7 @@ class CompanyNewTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
         byLabel.text = LocalizationKeys.by.rawValue.localizeString()

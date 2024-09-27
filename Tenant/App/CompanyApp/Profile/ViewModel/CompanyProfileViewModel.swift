@@ -17,10 +17,10 @@ class CompanyProfileViewModel {
     var parameters: [String: Any]?
     func isFormValid(profile: CompanyUpdateProfileInputModel) -> ValidationResponse {
         if profile.name.isEmpty || profile.locationCode.isEmpty {
-            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseFillAll.rawValue.localizeString())
         }
         else if profile.district.isEmpty || profile.city.isEmpty{
-            return ValidationResponse(isValid: false, message: "First confirm location then try!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.firstConfirmLocationThenTry.rawValue.localizeString())
         }
         else{
             parameters = ["name": profile.name, "location_code": profile.locationCode, "district": profile.locationCode, "city": profile.city]

@@ -16,10 +16,10 @@ class AddTenantViewModel {
     
     func isFormValid(complaint: AddComplaintInputModel) -> ValidationResponse {
         if complaint.title.isEmpty || complaint.description.isEmpty || complaint.skill == 0{
-            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseFillAll.rawValue.localizeString())
         }
         else if complaint.images == 0{
-            return ValidationResponse(isValid: false, message: "Please add images and try again!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseAddImagesAndTryAgain.rawValue.localizeString())
         }
         else{
             parameters = ["title": complaint.title, "description": complaint.description,  "skill_id": complaint.skill, "property_id": complaint.propertyIdIfTenant, "flat_id": complaint.flatIdIfTenant]

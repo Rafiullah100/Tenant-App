@@ -22,7 +22,7 @@ class MenuViewController: UIViewController {
     
     let tenantMenuItems = [MenuItem(name: LocalizationKeys.profile.rawValue.localizeString(), image: ""), MenuItem(name: LocalizationKeys.contacts.rawValue.localizeString(), image: ""), MenuItem(name: LocalizationKeys.language.rawValue.localizeString(), image: Helper.shared.isRTL() ? "left-arrow" : "right-arrow"), MenuItem(name: LocalizationKeys.logout.rawValue.localizeString(), image: "")]
     
-    let languageMenuItems = [MenuItem(name: "English", image: "tick-green"), MenuItem(name: "Arabic", image: "tick-green")]
+    let languageMenuItems = [MenuItem(name: LocalizationKeys.english.rawValue.localizeString(), image: "tick-green"), MenuItem(name: LocalizationKeys.arabic.rawValue.localizeString(), image: "tick-green")]
     var menuType: MenuType = .tenant
     var menuTypeAfterLanguage: MenuType?
     

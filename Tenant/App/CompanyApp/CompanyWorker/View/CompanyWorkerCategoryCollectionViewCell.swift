@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class CompanyWorkerCategoryCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imgView: UIImageView!
@@ -26,6 +26,7 @@ class CompanyWorkerCategoryCollectionViewCell: UICollectionViewCell {
     
     var skill: SkillRow?{
         didSet{
+            imgView.sd_setImage(with: URL(string: Route.baseUrl + (skill?.imageUrl ?? "")), placeholderImage: UIImage(named: "PlaceholderImage"))
             titleLbl.text = skill?.title?.capitalized
         }
     }

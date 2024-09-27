@@ -33,5 +33,4 @@ class ProfileViewModel {
     func getProfileImage() -> String {
         return self.profile.value?.profile?.photo ?? ""
     }
-    
 }

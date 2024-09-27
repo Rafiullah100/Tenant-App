@@ -83,10 +83,11 @@ class TenantComplaintViewModel {
     }
     
     func getBuilding() -> String {
+        let type = self.tenantResidence.value?.flat?.properties?.buildingType ?? ""
         let buildingNumber = self.tenantResidence.value?.flat?.properties?.buildingNo ?? ""
         let buildingDistrict = self.tenantResidence.value?.flat?.properties?.district ?? ""
         let buildingCity = self.tenantResidence.value?.flat?.properties?.city ?? ""
-        return "\(buildingNumber), \(buildingDistrict), \(buildingCity)"
+        return "\(type) \(buildingNumber), \(buildingDistrict), \(buildingCity)"
     }
     
     func getRecentID(index: Int) -> Int{

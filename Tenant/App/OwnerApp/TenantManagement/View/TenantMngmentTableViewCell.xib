@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -64,7 +65,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upn-dl-iaq">
                                                         <rect key="frame" x="0.0" y="0.0" width="255" height="20"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahmad Ali Khan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuR-y2-XKe">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahmad Ali Khan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuR-y2-XKe">
                                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="20"/>
                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="15"/>
                                                                 <nil key="textColor"/>
@@ -87,10 +88,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="33"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4F-Ba-T5F">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="185.66666666666666" height="33"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="185.33333333333334" height="33"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assigned to:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOa-r2-b6M">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="185.66666666666666" height="33"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="185.33333333333334" height="33"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="15"/>
                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -106,10 +107,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU1-jW-GJe">
-                                                                        <rect key="frame" x="188.66666666666666" y="0.0" width="66.333333333333343" height="33"/>
+                                                                        <rect key="frame" x="188.33333333333334" y="0.0" width="66.666666666666657" height="33"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Flat 1001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-gE-D6K">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="66.333333333333329" height="33"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="66.666666666666671" height="33"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-Light" family="Inter" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -162,7 +163,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5P-hR-vBV">
                                                                         <rect key="frame" x="18" y="0.0" width="237" height="50"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+971 78423 98324" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVW-rq-gjH">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+971 78423 98324" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVW-rq-gjH">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="237" height="50"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,6 +256,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="assignedToLabel" destination="yOa-r2-b6M" id="78t-29-F6g"/>
+                <outlet property="deleteButton" destination="CQH-Eo-AWo" id="tew-av-U8j"/>
                 <outlet property="flatNoLbl" destination="WEo-gE-D6K" id="JOo-Jx-RRr"/>
                 <outlet property="imgView" destination="lc0-MK-2qe" id="fO3-m0-VhC"/>
                 <outlet property="phNoLbl" destination="cVW-rq-gjH" id="YEK-Wa-A7t"/>

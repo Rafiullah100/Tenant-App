@@ -9,6 +9,7 @@ import UIKit
 import SpinKit
 class SigninViewController: BaseViewController {
 
+    @IBOutlet weak var userTypeLabel: UILabel!
     @IBOutlet weak var userTypeTextField: UITextField!
     @IBOutlet weak var curveImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -58,6 +59,7 @@ class SigninViewController: BaseViewController {
 
         signinLabel.text = LocalizationKeys.signin.rawValue.localizeString()
         nameLabel.text = LocalizationKeys.name.rawValue.localizeString()
+        userTypeLabel.text = LocalizationKeys.selectUserType.rawValue.localizeString()
         userNameLabel.text = LocalizationKeys.numberOrEmail.rawValue.localizeString()
         noAccountLabel.text = LocalizationKeys.noAccount.rawValue.localizeString()
         submitButton.setTitle(LocalizationKeys.submit.rawValue.localizeString(), for: .normal)

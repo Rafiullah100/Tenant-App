@@ -17,7 +17,7 @@ class AddWorkerViewModel{
     
     func isFormValid(worker: AddWorkerInputModel) -> ValidationResponse {
         if worker.name.isEmpty || worker.contact.isEmpty || worker.branchID == 0 || worker.skillIDs == ""{
-            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseFillAll.rawValue.localizeString())
         }
         else{
             parameters = ["branch_id": worker.branchID, "contact": worker.contact, "name": worker.name, "skill_ids": worker.skillIDs]

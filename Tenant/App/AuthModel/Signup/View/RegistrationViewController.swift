@@ -10,6 +10,7 @@ import SpinKit
 class RegistrationViewController: BaseViewController {
 
    
+    @IBOutlet weak var userTypeLabel: UILabel!
     @IBOutlet weak var userTypeTextField: UITextField!
     @IBOutlet weak var curveImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -46,7 +47,8 @@ class RegistrationViewController: BaseViewController {
         submitButton.setTitle(LocalizationKeys.submit.rawValue.localizeString(), for: .normal)
         userTypeTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         userTypeTextField.placeholder = LocalizationKeys.selectUserType.rawValue.localizeString()
-        
+        userTypeLabel.text = LocalizationKeys.selectUserType.rawValue.localizeString()
+
         userTypeTextField.inputView = pickerView
         pickerView.delegate = self
         pickerView.dataSource = self

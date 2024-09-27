@@ -191,7 +191,7 @@ extension UIViewController {
     
     public func showAlert(title: String = "", message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        alert.addAction(UIAlertAction(title: LocalizationKeys.ok.rawValue.localizeString(), style: .default))
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -202,7 +202,7 @@ extension UIViewController {
 //        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
 //             //Cancel Action
 //         }))
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: LocalizationKeys.ok.rawValue.localizeString(), style: .default, handler: { _ in
                 // OK action passed from the caller
                 okAction()
             }))
@@ -212,10 +212,10 @@ extension UIViewController {
     func showAlertWithbutttons(title: String = "", message: String,  okAction: @escaping () -> Void) {
         let alert = UIAlertController(title: title, message: message,         preferredStyle: UIAlertController.Style.alert)
 
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
+        alert.addAction(UIAlertAction(title: LocalizationKeys.cancel.rawValue.localizeString(), style: UIAlertAction.Style.default, handler: { _ in
             alert.dismiss(animated: true)
          }))
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: LocalizationKeys.ok.rawValue.localizeString(), style: .default, handler: { _ in
                 // OK action passed from the caller
                 okAction()
             }))
@@ -303,7 +303,7 @@ extension UITableView{
 //        titleLabel.text = message ?? LocalizationKeys.noRecordFound.rawValue.localizeString()
 //        titleLabel.text =
 
-        messageLabel.text = message ?? "No Complaints to Show"
+        messageLabel.text = message ?? LocalizationKeys.noComplaintstoShow.rawValue.localizeString()
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         
@@ -344,7 +344,7 @@ extension UICollectionView{
 //        titleLabel.text = message ?? LocalizationKeys.noRecordFound.rawValue.localizeString()
 //        titleLabel.text =
 
-        messageLabel.text = message ?? "No Complaints to Show"
+        messageLabel.text = message ?? LocalizationKeys.noComplaintstoShow.rawValue.localizeString()
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         

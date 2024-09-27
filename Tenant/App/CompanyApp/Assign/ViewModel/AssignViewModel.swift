@@ -20,7 +20,7 @@ class AssignViewModel {
     
     func isFormValid(assign: AssignInputModel) -> ValidationResponse {
         if assign.complaintID == 0 || assign.workerID == 0 || assign.branchID == 0 || assign.skillID == 0 || assign.date.isEmpty || assign.time.isEmpty{
-            return ValidationResponse(isValid: false, message: "Please fill all field and try again!")
+            return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseFillAll.rawValue.localizeString())
         }
         else{
             guard let time12 = assign.time.components(separatedBy: " ").first else {

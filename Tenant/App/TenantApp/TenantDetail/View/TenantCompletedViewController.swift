@@ -18,6 +18,7 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var complaintIdLabel: UILabel!
     
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -62,14 +63,15 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         photosLabel.text = LocalizationKeys.complaintPhoto.rawValue.localizeString()
         workerPhotoLabel.text = LocalizationKeys.workerCompletionPicture.rawValue.localizeString()
-
         confirmButton.setTitle(LocalizationKeys.confirm.rawValue.localizeString(), for: .normal)
         scheduleLabel.text = LocalizationKeys.schedule.rawValue.localizeString()
         dateLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         personLabel.text = LocalizationKeys.person.rawValue.localizeString()
+        timeLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         descriptionLabel.text = LocalizationKeys.complaintDescription.rawValue.localizeString()
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
-
+        moreButton.setTitle(LocalizationKeys.clickToViewDescription.rawValue.localizeString(), for: .normal)
+        
         type = .tenant
         viewModel.complaintDetail.bind { [unowned self] detail in
             guard let _ = detail else {return}
@@ -151,10 +153,10 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
  
     @IBAction func showMoreBtnAction(_ sender: Any) {
         if descriptionView.isHidden{
-            moreButton.setTitle("Click to hide description", for: .normal)
+            moreButton.setTitle(LocalizationKeys.clickToHideDescription.rawValue.localizeString(), for: .normal)
         }
         else{
-            moreButton.setTitle("Click to view description", for: .normal)
+            moreButton.setTitle(LocalizationKeys.clickToViewDescription.rawValue.localizeString(), for: .normal)
         }
         descriptionView.isHidden = !descriptionView.isHidden
     }

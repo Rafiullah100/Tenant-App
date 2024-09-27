@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -558,6 +559,7 @@
                         <outlet property="signupButton" destination="43m-gC-cq8" id="len-vb-XUg"/>
                         <outlet property="submitButton" destination="0UW-Td-Ar0" id="SNM-TW-1q4"/>
                         <outlet property="userNameLabel" destination="JS2-Zk-aXv" id="alP-0y-Pvt"/>
+                        <outlet property="userTypeLabel" destination="4JV-YL-K3B" id="C8y-iT-Nbp"/>
                         <outlet property="userTypeTextField" destination="jFB-p8-PPs" id="YCf-Bb-7xm"/>
                     </connections>
                 </viewController>
@@ -2450,6 +2452,7 @@
                         <outlet property="registrationLabel" destination="frS-AM-czx" id="Jof-Y4-Ohf"/>
                         <outlet property="signinLabel" destination="waB-df-CRI" id="4Tn-mc-CMw"/>
                         <outlet property="submitButton" destination="GEq-B5-vEg" id="5nj-fd-WjA"/>
+                        <outlet property="userTypeLabel" destination="YRP-gl-nIx" id="BXU-2T-kjM"/>
                         <outlet property="userTypeTextField" destination="cv4-qa-Voj" id="ZDl-UR-ZCk"/>
                     </connections>
                 </viewController>
@@ -3790,7 +3793,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

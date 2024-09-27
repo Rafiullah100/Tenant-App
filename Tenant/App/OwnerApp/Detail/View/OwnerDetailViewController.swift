@@ -90,7 +90,8 @@ class OwnerDetailViewController: BaseViewController {
         rejectButton.setTitle(LocalizationKeys.reject.rawValue.localizeString(), for: .normal)
         companyPhotoLabel.text = LocalizationKeys.workerCompletionPicture.rawValue.localizeString()
         completedLabel.text = LocalizationKeys.completedOn.rawValue.localizeString()
-        
+        moreButton.setTitle(LocalizationKeys.clickToViewDescription.rawValue.localizeString(), for: .normal)
+
         type = .tenant
         
         viewModel.complaintDetail.bind { [weak self] details in
@@ -172,10 +173,10 @@ class OwnerDetailViewController: BaseViewController {
    
     @IBAction func showMoreBtnAction(_ sender: Any) {
         if descriptionView.isHidden{
-            moreButton.setTitle("Click to hide description", for: .normal)
+            moreButton.setTitle(LocalizationKeys.clickToHideDescription.rawValue.localizeString(), for: .normal)
         }
         else{
-            moreButton.setTitle("Click to view description", for: .normal)
+            moreButton.setTitle(LocalizationKeys.clickToViewDescription.rawValue.localizeString(), for: .normal)
         }
         descriptionView.isHidden = !descriptionView.isHidden
     }

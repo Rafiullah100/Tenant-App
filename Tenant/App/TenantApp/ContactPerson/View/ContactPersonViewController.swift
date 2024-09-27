@@ -52,9 +52,10 @@ extension ContactPersonViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isLoading{
             return 0
+            
         }
         if viewModel.getContactCount() == 0{
-            self.tableView.setEmptyView("No contacts found!")
+            self.tableView.setEmptyView(LocalizationKeys.noContactsFound.rawValue.localizeString())
         }
         else{
             self.tableView.backgroundView = nil

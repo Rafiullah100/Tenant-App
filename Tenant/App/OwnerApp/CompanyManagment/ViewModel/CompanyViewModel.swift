@@ -41,7 +41,7 @@ class CompanyViewModel {
     
     func isAssigned(at index: Int) -> String{
         let propertiesCount = self.companiesList.value?.companies?.rows?[index].properties?.count
-       return propertiesCount == 1 ? "Assigned" : " Assign"
+        return propertiesCount == 1 ? LocalizationKeys.assigned.rawValue.localizeString() : LocalizationKeys.assign.rawValue.localizeString()
     }
     
     func assignToProperty(companyID: Int, propertyID: Int){

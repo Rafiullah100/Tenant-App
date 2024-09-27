@@ -14,6 +14,10 @@ protocol AddPropertyDelegate {
 
 class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var fileButton: UIButton!
+    @IBOutlet weak var sizeLabel: UILabel!
+    
+    @IBOutlet weak var retrieveLocationButton: UIButton!
     @IBOutlet weak var noOfFileLabel: UILabel!
     @IBOutlet weak var villaImageView: UIImageView!
     @IBOutlet weak var buildingImageView: UIImageView!
@@ -67,7 +71,11 @@ class AddPropertyViewController: BaseViewController, UICollectionViewDelegate, U
         addButton.setTitle(LocalizationKeys.addProperty.rawValue.localizeString(), for: .normal)
         cancelButton.setTitle(LocalizationKeys.cancel.rawValue.localizeString(), for: .normal)
         propertyLabel.text = LocalizationKeys.propertyTitle.rawValue.localizeString()
-        
+        retrieveLocationButton.setTitle(LocalizationKeys.retrieveLocation.rawValue.localizeString(), for: .normal)
+        sizeLabel.text = LocalizationKeys.imageSize.rawValue.localizeString()
+        noOfFileLabel.text = LocalizationKeys.noFileChoose.rawValue.localizeString()
+        fileButton.setTitle(LocalizationKeys.chooseFile.rawValue.localizeString(), for: .normal)
+
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
         
         buildingType = .building

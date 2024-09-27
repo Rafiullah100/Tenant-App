@@ -30,10 +30,12 @@ struct SkillRow: Codable {
     let title: String?
     let userID: Int?
     let timestamp: String?
-
+    let imageUrl: String?
+    
     enum CodingKeys: String, CodingKey {
         case id, title
         case userID = "user_id"
         case timestamp
+        case imageUrl = "image_url"
     }
 }
