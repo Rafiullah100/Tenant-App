@@ -30,7 +30,7 @@
 "complaintID" = "معرف الشكوى:";
 "status" = "حالة:";
 "posted" = "نشر:";
-"buildingNo" = ":لا للبناء";
+"buildingNo" = "رقم المبنى:";
 "flatNo" = "رقم الشقة:";
 "history" = "تاريخ";
 
@@ -133,7 +133,7 @@
 
 "searchFlatNumber" = "ابحث عن رقم الشقة";
 
-"deleteTenant" = "حذف المستأجر";
+"deleteTenant" = "إلغاء تعيين المستأجر";
 "contact" = "جهة الاتصال:";
 
 "addTenantToFlat" = "إضافة مستأجر إلى الشقة 1002";
@@ -228,36 +228,17 @@
 "addFlat" = "إضافة شقة";
 "addNewFlatNo" = "إضافة شقة جديدة #";
 "retrieveLocation" = "استرجاع الموقع";
+"addTenantTo" = "إضافة مستأجر إلى";
 
+"searchByNameContact" = "ابحث بالاسم أو جهة الاتصال";
+"assignThisCompany" = "هل أنت متأكد أنك تريد تعيين هذه الشركة؟";
+"assignThisTenant" = "هل أنت متأكد أنك تريد تعيين هذا المستأجر؟";
+"updateInformation" = "تحديث المعلومات";
+"selectPropertyAsYourHome" = "اختر عقارًا ليكون منزلك.";
+"selectAsYourHome" = "اختر كمنزلك";
+"yourHome" = "منزلك";
+"cantSelectAsYourhome" = "لا يمكنك اختيار هذا كمنزلك لأن هذا العقار لم يتم تعيينه لشركة بعد!";
+"selectHome" = "اختر المنزل";
+"firstSelectPropertyThenAddComplaint" = "أولاً، اختر العقار كمنزل ثم يمكنك إضافة شكوى.";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+"noCurrentHomeSelected" = "لا يوجد منزل حالي محدد";

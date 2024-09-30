@@ -25,7 +25,8 @@ class RegistrationViewController: BaseViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var registrationLabel: UILabel!
     private var viewModel = SignupViewModel()
-    
+    @IBOutlet weak var languageLabel: UILabel!
+
     var userType: UserType?
    var pickerView = UIPickerView()
    let userArray = [LocalizationKeys.owner.rawValue.localizeString(), LocalizationKeys.tenantWithoutColon.rawValue.localizeString(), LocalizationKeys.company.rawValue.localizeString(),
@@ -48,6 +49,7 @@ class RegistrationViewController: BaseViewController {
         userTypeTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         userTypeTextField.placeholder = LocalizationKeys.selectUserType.rawValue.localizeString()
         userTypeLabel.text = LocalizationKeys.selectUserType.rawValue.localizeString()
+        languageLabel.text = Helper.shared.isRTL() ? LocalizationKeys.arabic.rawValue.localizeString() : LocalizationKeys.english.rawValue.localizeString()
 
         userTypeTextField.inputView = pickerView
         pickerView.delegate = self
@@ -70,6 +72,10 @@ class RegistrationViewController: BaseViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    @IBAction func changeLanguage(_ sender: Any) {
+        Switcher.gotoMenu(delegate: self, menuType: .language)
+    }
+    
     @IBAction func gotoSignBtnAction(_ sender: Any) {
         Switcher.gotoSigninScreen(delegate: self)
     }
@@ -86,7 +92,6 @@ class RegistrationViewController: BaseViewController {
         }
     }
 }
-
 
 extension RegistrationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

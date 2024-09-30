@@ -9,6 +9,8 @@ import UIKit
 import SpinKit
 class SigninViewController: BaseViewController {
 
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var userTypeLabel: UILabel!
     @IBOutlet weak var userTypeTextField: UITextField!
     @IBOutlet weak var curveImageView: UIImageView!
@@ -32,19 +34,7 @@ class SigninViewController: BaseViewController {
         super.viewDidLoad()
         /////03046929792
         emailTextField.text = "87654321"
-        //tenant
-//        emailTextField.text = "123456789"
-        
-        //company
-//        emailTextField.text = "3244-3256346"
-//                emailTextField.text = "123456789"
-        
-        //owner
-//        emailTextField.text = "03009911223"
-//        emailTextField.text = "03046929792"
-        //worker
-//        emailTextField.text = "123456789"
-        
+
         nameTextField.text = "Rafiullah"
         
         userTypeTextField.inputView = pickerView
@@ -64,6 +54,7 @@ class SigninViewController: BaseViewController {
         noAccountLabel.text = LocalizationKeys.noAccount.rawValue.localizeString()
         submitButton.setTitle(LocalizationKeys.submit.rawValue.localizeString(), for: .normal)
         signupButton.setTitle(LocalizationKeys.signup.rawValue.localizeString(), for: .normal)
+        languageLabel.text = Helper.shared.isRTL() ? LocalizationKeys.arabic.rawValue.localizeString() : LocalizationKeys.english.rawValue.localizeString()
         
         viewModel.login.bind { [unowned self] login in
             guard let login = login else {return}
@@ -76,11 +67,15 @@ class SigninViewController: BaseViewController {
             }
         }
     }
+    @IBAction func changeLanguage(_ sender: Any) {
+        Switcher.gotoMenu(delegate: self, menuType: .language)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
     }
+    
     @IBAction func noAccountBtnAction(_ sender: Any) {
         Switcher.gotoRegisterScreen(delegate: self)
     }
@@ -95,17 +90,7 @@ class SigninViewController: BaseViewController {
         else{
             showAlert(message: validationResponse.message)
         }
-        
-//        switch userType {
-//        case .owner:
-//            Switcher.gotoOwnerHome(delegate: self)
-//        case .tenant:
-//            Switcher.gotoTenantScreen(delegate: self)
-//        case .company:
-//            Switcher.gotoCompanyScreen(delegate: self)
-//        case .worker:
-//            Switcher.gotoWorkerScreen(delegate: self)
-//        }
+
     }
 }
 

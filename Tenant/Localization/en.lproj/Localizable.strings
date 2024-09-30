@@ -125,7 +125,7 @@
 
 "searchFlatNumber" = "Search flat number";
 
-"deleteTenant" = "Delete Tenant";
+"deleteTenant" = "Unassign Tenant";
 "contact" = "Contact:";
 
 "addTenantToFlat" = "Add Tenant to Flat 1002";
@@ -215,3 +215,17 @@
 "addFlat" = "Add Flat";
 "addNewFlatNo" = "Add New Flat #";
 "retrieveLocation" = "Retrieve Location";
+"addTenantTo"= "Add Tenant to";
+
+"searchByNameContact" = "Search by name, contact";
+"assignThisCompany" = "Are you sure you want to assign this company.";
+"assignThisTenant" = "Are you sure you want to assign this tenant.";
+"updateInformation" = "Update Information";
+"selectPropertyAsYourHome" = "Select a property as your own home.";
+"propertySelectedAsYourHome" = "Property selected as your home";
+"selectAsYourHome" = "Select as your Home";
+"yourHome" = "Your home";
+"cantSelectAsYourhome" = "You can't select this as your home becuase this property isn't assigned to company yet!";
+"selectHome" = "Select Home";
+"firstSelectPropertyThenAddComplaint" = "First select property as home then you can add complaint.";
+"noCurrentHomeSelected" = "No current home selected";

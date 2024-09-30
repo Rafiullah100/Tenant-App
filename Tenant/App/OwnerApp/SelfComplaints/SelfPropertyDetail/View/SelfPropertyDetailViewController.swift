@@ -21,6 +21,9 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
     @IBOutlet weak var flatValueLabel: UILabel!
     @IBOutlet weak var companyNameValueLabel: UILabel!
     
+    @IBOutlet weak var maintainedByLabel: UILabel!
+    @IBOutlet weak var flatsLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     var propertyDetail: PropertiesRow?
     let viewModel = SelfDetailViewModel()
     private var isLoading = true
@@ -31,6 +34,10 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
         tableView.delegate = self
         tableView.showsVerticalScrollIndicator = false
         type = .company
+        
+        typeLabel.text = LocalizationKeys.type.rawValue.localizeString()
+        flatsLabel.text = LocalizationKeys.totalFlats.rawValue.localizeString()
+        maintainedByLabel.text = LocalizationKeys.maintainedBy.rawValue.localizeString()
         
         updateUI()
         
@@ -52,7 +59,7 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
                 UserDefaults.standard.flatIDIfTenant = self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0)
                 UserDefaults.standard.propertyIDIfTenant = self.propertyDetail?.id
                 NotificationCenter.default.post(name: Notification.Name(Constants.reloadOwnerProfile), object: nil)
-                ToastManager.shared.showToast(message: "Property selected as your home")
+                ToastManager.shared.showToast(message: LocalizationKeys.propertySelectedAsYourHome.rawValue.localizeString())
             }
             else{
                 ToastManager.shared.showToast(message: select.message ?? "")
@@ -98,7 +105,7 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
                 self?.selectedHomeIndex = indexPath.row
             }
             else{
-                ToastManager.shared.showToast(message: "You can't select this as your home becuase this property isn't assigned to company yet!")
+                ToastManager.shared.showToast(message: LocalizationKeys.cantSelectAsYourhome.rawValue.localizeString())
             }
         }
         return cell

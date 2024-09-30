@@ -107,10 +107,13 @@ class MenuViewController: UIViewController {
             self.view.setLanguage(code: .ar, language: .arabic, isRTL: 1)
         }
         if menuTypeAfterLanguage == .tenant{
-            Switcher.gotoTenantScreen(delegate: self)
+            Switcher.tenantLanguageChange(delegate: self)
+        }
+        else if menuTypeAfterLanguage == .worker{
+            Switcher.workerLanguageChange(delegate: self)
         }
         else{
-            Switcher.gotoWorkerScreen(delegate: self)
+            Switcher.changeLanguage(delegate: self)
         }
     }
 }

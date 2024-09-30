@@ -116,7 +116,7 @@ class OwnerComplaintViewModel {
     }
     
     func getAddress() -> String? {
-        guard self.profile.value?.ownerProfile?.flats?.count ?? 0 > 0  else { return "No current home selected" }
+        guard self.profile.value?.ownerProfile?.flats?.count ?? 0 > 0  else { return LocalizationKeys.noCurrentHomeSelected.rawValue.localizeString() }
         let type = self.profile.value?.ownerProfile?.flats?[0].properties?.buildingType?.capitalized
     
         let buildingNo = self.profile.value?.ownerProfile?.flats?[0].properties?.buildingNo

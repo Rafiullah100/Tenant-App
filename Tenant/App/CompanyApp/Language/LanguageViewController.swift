@@ -17,12 +17,12 @@ class LanguageViewController: UIViewController {
     
     @IBAction func englishButton(_ sender: Any) {
         self.view.setLanguage(code: .en, language: .english, isRTL: 0)
-        Switcher.gotoCompanyScreen(delegate: self)
+        Switcher.companyLanguageChange(delegate: self)
     }
     
     @IBAction func arabicButton(_ sender: Any) {
         self.view.setLanguage(code: .ar, language: .arabic, isRTL: 1)
-        Switcher.gotoCompanyScreen(delegate: self)
+        Switcher.companyLanguageChange(delegate: self)
     }
     
 //    func setLanguage(code: AppLanguagecode, language: AppLanguage, isRTL: Int) {

@@ -10,6 +10,7 @@ import UIKit
 
 
 class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
+    @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var homeButtonView: UIView!
     @IBOutlet weak var addressValueLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -36,7 +37,7 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
         
         newButton.setTitle(LocalizationKeys.current.rawValue.localizeString(), for: .normal)
         historyButton.setTitle(LocalizationKeys.completed.rawValue.localizeString(), for: .normal)
-
+        homeButton.setTitle(LocalizationKeys.selectHome.rawValue.localizeString(), for: .normal)
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
             self.isLoading = false
@@ -94,7 +95,7 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
     
     @IBAction func addBtnAction(_ sender: Any) {
         guard UserDefaults.standard.propertyIDIfTenant != nil && UserDefaults.standard.flatIDIfTenant != nil else{
-            showAlert(message: "First select property as home then you can add complaint.")
+            showAlert(message: LocalizationKeys.firstSelectPropertyThenAddComplaint.rawValue.localizeString())
             return
         }
         Switcher.gotoAddComplaintScreen(delegate: self, addComplaintType: .ownerSelf)

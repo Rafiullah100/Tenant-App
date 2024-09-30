@@ -47,9 +47,8 @@ class Switcher {
     
     static func gotoTenantScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantHomeViewController") as! TenantHomeViewController
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        delegate.present(nav, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
     static func gotoOwnerHome(delegate: UIViewController){
@@ -66,10 +65,9 @@ class Switcher {
     
     static func gotoWorkerScreen(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkersHomeViewController") as! WorkersHomeViewController
-        let nav = UINavigationController(rootViewController: vc)
         
-        nav.modalPresentationStyle = .fullScreen
-        delegate.present(nav, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        delegate.navigationController?.pushViewController(vc, animated: true)
     }
     
     static func gotoOwnerScreen(delegate: UIViewController){
@@ -102,7 +100,8 @@ class Switcher {
     static func gotoLogin(delegate: UIViewController){
         let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
         vc.modalPresentationStyle = .fullScreen
-        delegate.navigationController?.pushViewController(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        delegate.present(nav, animated: true)
     }
     
     static func gotoTenantCompletedDetailScreen(delegate: UIViewController, complaintID: Int){
@@ -375,5 +374,33 @@ class Switcher {
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         delegate.present(nav, animated: true)
+    }
+    
+    static func changeLanguage(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.auth.rawValue, bundle: nil).instantiateViewController(withIdentifier: "SigninViewController") as! SigninViewController
+        let nav = UINavigationController(rootViewController: vc)
+        UIApplication.shared.windows.first?.rootViewController = nav
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
+    static func tenantLanguageChange(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantHomeViewController") as! TenantHomeViewController
+        let nav = UINavigationController(rootViewController: vc)
+        UIApplication.shared.windows.first?.rootViewController = nav
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
+    static func workerLanguageChange(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.worker.rawValue, bundle: nil).instantiateViewController(withIdentifier: "WorkersHomeViewController") as! WorkersHomeViewController
+        let nav = UINavigationController(rootViewController: vc)
+        UIApplication.shared.windows.first?.rootViewController = nav
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
+    static func companyLanguageChange(delegate: UIViewController){
+        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "LanguageViewController") as! LanguageViewController
+        let nav = UINavigationController(rootViewController: vc)
+        UIApplication.shared.windows.first?.rootViewController = nav
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }

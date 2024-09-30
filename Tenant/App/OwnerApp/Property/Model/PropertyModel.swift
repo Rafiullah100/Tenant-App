@@ -31,6 +31,7 @@ struct PropertiesRow: Codable {
     let timestamp: String?
     let company: PropertyCompany?
     let flats: [AllPropertyFlat]?
+    let propertyImages: [PropertyImages]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -43,6 +44,7 @@ struct PropertiesRow: Codable {
         case city, district
         case userID = "user_id"
         case isDeleted, status, timestamp, company, flats
+        case propertyImages = "property_images"
     }
 }
 
@@ -95,5 +97,16 @@ struct AllPropertyOwnersTenants: Codable {
         case userID = "user_id"
         case registeredFrom = "registered_from"
         case type, status, isDeleted, timestamp
+    }
+}
+
+struct PropertyImages: Codable {
+    let id, propertyID: Int?
+    let title, link, timestamp: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case propertyID = "property_id"
+        case title, link, timestamp
     }
 }

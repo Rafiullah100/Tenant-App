@@ -471,6 +471,7 @@
                         <outlet property="imageView" destination="EWJ-a3-wbu" id="dHf-4M-ZWf"/>
                         <outlet property="nameLabel" destination="GQ4-dw-6KO" id="Jh5-e1-3pM"/>
                         <outlet property="nameTextField" destination="Qby-ke-S82" id="oJK-DJ-AIA"/>
+                        <outlet property="updateButton" destination="anY-PZ-Ntx" id="ob2-Gz-jQd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUc-j3-oJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

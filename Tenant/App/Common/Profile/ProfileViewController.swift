@@ -8,6 +8,7 @@
 import UIKit
 
 class ProfileViewController: BaseViewController {
+    @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var contactLabel: UILabel!
@@ -21,7 +22,11 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         type = .company
-
+        contactLabel.text = LocalizationKeys.contactNumber.rawValue.localizeString()
+        nameLabel.text = LocalizationKeys.name.rawValue.localizeString()
+        contactTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        nameTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        updateButton.setTitle(LocalizationKeys.updateInformation.rawValue.localizeString(), for: .normal)
         viewModel.profile.bind { [unowned self] profile in
             guard let _ = profile else {return}
             self.stopAnimation()

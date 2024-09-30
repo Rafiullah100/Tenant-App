@@ -21,7 +21,10 @@ class OTPViewController: BaseViewController {
     
     var otpType: OtpType?
     
-
+    
+    @IBOutlet var otpViews: [UIView]!
+    
+    @IBOutlet weak var otpView: UIView!
     @IBOutlet weak var textField4: UITextField!
     @IBOutlet weak var textField3: UITextField!
     @IBOutlet weak var textfield2: UITextField!
@@ -29,6 +32,10 @@ class OTPViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         type = .otpBack
+        otpViews.forEach { view in
+            view.semanticContentAttribute = .forceLeftToRight
+        }
+        otpView.semanticContentAttribute = .forceLeftToRight
         topLabel.text = LocalizationKeys.verifyNumber.rawValue.localizeString()
         messageLabel.text = LocalizationKeys.optMessage.rawValue.localizeString()
         receiveLabel.text = LocalizationKeys.didnotReceiveCode.rawValue.localizeString()

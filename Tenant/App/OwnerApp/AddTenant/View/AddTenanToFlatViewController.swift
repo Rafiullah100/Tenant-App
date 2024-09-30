@@ -29,9 +29,9 @@ class AddTenanToFlatViewController: BaseViewController {
         super.viewDidLoad()
         tableView.showsVerticalScrollIndicator = false
 
-//        viewControllerTitle = "\(LocalizationKeys.flat.rawValue.localizeString()) \(flatNumber ?? "")"
         searchView.clipsToBounds = true
-        titlLabel.text = "Add Tenant to \(flatNumber ?? "")"
+        titlLabel.text = "\(LocalizationKeys.addTenantTo.rawValue.localizeString()) \(flatNumber ?? "")"
+        searchTextField.placeholder = LocalizationKeys.searchByNameContact.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
         tableView.setEmptyView(LocalizationKeys.searchTenantsbyNameorContacts.rawValue.localizeString())
@@ -89,10 +89,11 @@ extension AddTenanToFlatViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyCardTableViewCell.cellReuseIdentifier(), for: indexPath) as! CompanyCardTableViewCell
+        cell.assignButton.setTitle(LocalizationKeys.assign.rawValue.localizeString(), for: .normal)
         cell.nameLabel.text = viewModel.getName(at: indexPath.row)
         cell.iconView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getLogo(at: indexPath.row)), placeholderImage: UIImage(named: "PlaceholderImage"))
         cell.assign = { [weak self] in
-            self?.showAlertWithbutttons(message: "Are you sure you want to assign this tenant.", okAction: {
+            self?.showAlertWithbutttons(message: LocalizationKeys.assignThisTenant.rawValue.localizeString(), okAction: {
                 if let tenantID = self?.viewModel.getTenantID(at: indexPath.row) {
                     self?.animateSpinner()
                     self?.viewModel.assignToTenant(flatID: self?.flatID ?? 0, tenantID:tenantID)

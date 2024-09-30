@@ -205,6 +205,21 @@ enum LocalizationKeys: String {
     case addNewFlatNo
     
     case retrieveLocation
+    
+    case addTenantTo
+    case searchByNameContact
+    
+    case assignThisCompany
+    case assignThisTenant
+    case updateInformation
+    case selectPropertyAsYourHome
+    case propertySelectedAsYourHome
+    case selectAsYourHome
+    case yourHome
+    case cantSelectAsYourhome
+    case selectHome
+    case firstSelectPropertyThenAddComplaint
+    case noCurrentHomeSelected
 }
 
 

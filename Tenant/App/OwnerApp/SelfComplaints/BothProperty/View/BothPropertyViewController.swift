@@ -32,7 +32,7 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
 
         searchTextField.delegate = self
         searchView.clipsToBounds = true
-        titlLabel.text = "Select a Property as Your Own Home"
+        titlLabel.text = LocalizationKeys.selectPropertyAsYourHome.rawValue.localizeString()
         searchTextField.placeholder = LocalizationKeys.searchByTitle.rawValue.localizeString()
         searchTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
         type = .company
@@ -56,7 +56,7 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
                 UserDefaults.standard.propertyIDIfTenant = self.viewModel.getPropertyID(at: self.selectedHomeIndex ?? 0)
                 UserDefaults.standard.flatIDIfTenant = self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0)
                 NotificationCenter.default.post(name: Notification.Name(Constants.reloadOwnerProfile), object: nil)
-                ToastManager.shared.showToast(message: "Property selected as your home")
+                ToastManager.shared.showToast(message: LocalizationKeys.propertySelectedAsYourHome.rawValue.localizeString())
             }
             else{
                 ToastManager.shared.showToast(message: select.message ?? "")
@@ -91,7 +91,7 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BothPropertyTableViewCell.cellReuseIdentifier(), for: indexPath) as! BothPropertyTableViewCell
         cell.property = viewModel.getProperty(at: indexPath.row)
-        cell.buttonLabel.text = viewModel.isSelectedHome(at: indexPath.row) ? "Your Home" : "Select as your Home"
+        cell.buttonLabel.text = viewModel.isSelectedHome(at: indexPath.row) ? LocalizationKeys.yourHome.rawValue.localizeString() : LocalizationKeys.selectAsYourHome.rawValue.localizeString()
         cell.selectAsYourHome = { [weak self] in
             if self?.viewModel.isCompanyAssigned(at: indexPath.row) == true {
                 self?.animateSpinner()
@@ -99,7 +99,7 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
                 self?.selectedHomeIndex = indexPath.row
             }
             else{
-                ToastManager.shared.showToast(message: "You can't select this as your home becuase this property isn't assigned to company yet!")
+                ToastManager.shared.showToast(message: LocalizationKeys.cantSelectAsYourhome.rawValue.localizeString())
             }
         }
         return cell

@@ -8,7 +8,7 @@
 import Foundation
 
 enum Route {
-    static let baseUrl = "https://rabt-admin.nextgcircle.com/"
+    static let baseUrl = "https://acp-staging.rabtsa.com/"
     
     case signup
     case login

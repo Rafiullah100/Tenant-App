@@ -27,8 +27,8 @@ class PropertyTableViewCell: UITableViewCell {
     
     var property: PropertiesRow? {
         didSet{
+            imgView.sd_setImage(with: URL(string: Route.baseUrl + (property?.propertyImages?.first?.link ?? "")), placeholderImage: UIImage(named: "placeholder"))
             let buildingType = property?.buildingType?.capitalized ?? ""
-
             let buildingNo = property?.buildingNo ?? ""
             let district = property?.district ?? ""
             let city = property?.city ?? ""
