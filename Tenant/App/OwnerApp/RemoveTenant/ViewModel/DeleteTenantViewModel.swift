@@ -47,7 +47,7 @@ class DeleteTenantViewModel {
     }
     
     func getCompany() -> String {
-        return property?.company?.name ?? "Not assigned to Company"
+        return property?.company?.name ?? LocalizationKeys.notAssignedToCompany.rawValue.localizeString()
     }
     
     func getNumberOfFLat() -> Int {

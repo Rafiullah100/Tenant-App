@@ -33,7 +33,7 @@ class SigninViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         /////03046929792
-        emailTextField.text = "87654321"
+//        emailTextField.text = "87654321"
 
         nameTextField.text = "Rafiullah"
         
@@ -82,6 +82,7 @@ class SigninViewController: BaseViewController {
     
     @IBAction func submitBtnAction(_ sender: Any) {
         let login = LoginInputModel(userType: userType?.rawValue ?? "", number: emailTextField.text ?? "", name: nameTextField.text ?? "")
+        print(login)
         let validationResponse = viewModel.isFormValid(user: login)
         if validationResponse.isValid {
             self.animateSpinner()

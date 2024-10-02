@@ -11,6 +11,7 @@ import Dispatch
 
 class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tenantLabel: UILabel!
     @IBOutlet weak var propertyLabel: UILabel!
     @IBOutlet weak var flatLabel: UILabel!
@@ -127,7 +128,8 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         self.tenantValueLabel.text = "\(viewModel.getTenantCount())"
         self.flatValueLabel.text = "\(viewModel.getFlatCount())"
         self.nameLabel.text = viewModel.getName()
-        
+        imageView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getPicture()), placeholderImage: UIImage(named: "User"))
+
         UserDefaults.standard.ownerTotolProperties = viewModel.getPropertiesCount()
         UserDefaults.standard.ownerTotolTenants = viewModel.getTenantCount()
         UserDefaults.standard.ownerTotolFlats = viewModel.getFlatCount()

@@ -211,6 +211,7 @@
 		52F922472CA57A0D0029DC21 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F922462CA57A0D0029DC21 /* ProfileViewController.swift */; };
 		52F922492CA583E50029DC21 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F922482CA583E50029DC21 /* ProfileViewModel.swift */; };
 		52F9224B2CA583F40029DC21 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F9224A2CA583F40029DC21 /* ProfileModel.swift */; };
+		52FA6F3C2CAC179C00615D4A /* OwnerLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA6F3B2CAC179C00615D4A /* OwnerLanguageViewController.swift */; };
 		52FD2BA62C7DB37400B2B914 /* WorkersComplaintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD2BA52C7DB37400B2B914 /* WorkersComplaintViewModel.swift */; };
 		52FD2BA82C7DB38100B2B914 /* WorkersComplaintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD2BA72C7DB38100B2B914 /* WorkersComplaintModel.swift */; };
 		A464A0C6F8E0778DF60EAF2D /* Pods_Tenant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2B301050BDEA968097910F /* Pods_Tenant.framework */; };
@@ -427,6 +428,7 @@
 		52F922462CA57A0D0029DC21 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		52F922482CA583E50029DC21 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		52F9224A2CA583F40029DC21 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		52FA6F3B2CAC179C00615D4A /* OwnerLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerLanguageViewController.swift; sourceTree = "<group>"; };
 		52FD2BA52C7DB37400B2B914 /* WorkersComplaintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersComplaintViewModel.swift; sourceTree = "<group>"; };
 		52FD2BA72C7DB38100B2B914 /* WorkersComplaintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersComplaintModel.swift; sourceTree = "<group>"; };
 		7969E806CAB2B0894882A23C /* Pods-Tenant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tenant.release.xcconfig"; path = "Target Support Files/Pods-Tenant/Pods-Tenant.release.xcconfig"; sourceTree = "<group>"; };
@@ -958,6 +960,7 @@
 		52633D762C40F7B80029C954 /* OwnerApp */ = {
 			isa = PBXGroup;
 			children = (
+				52FA6F3A2CAC178B00615D4A /* Language */,
 				521B922C2C4BC099000F1B82 /* Home */,
 				521B92352C4BC92A000F1B82 /* Detail */,
 				521B92382C4BD8FE000F1B82 /* Property */,
@@ -1876,6 +1879,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		52FA6F3A2CAC178B00615D4A /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				52FA6F3B2CAC179C00615D4A /* OwnerLanguageViewController.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
 		52FD2BA22C7DB31E00B2B914 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2120,6 +2131,7 @@
 				5287334F2C8095A100CDF9D1 /* DeteletTenantModel.swift in Sources */,
 				525B377D2C3E92E10087CB5C /* WorkerTableViewCell.swift in Sources */,
 				526A2D552C3BC99D00C716A8 /* CompanyPendingController.swift in Sources */,
+				52FA6F3C2CAC179C00615D4A /* OwnerLanguageViewController.swift in Sources */,
 				528733432C804BE600CDF9D1 /* AddFlatModel.swift in Sources */,
 				529E17712C2EBA870063B204 /* TenantTableViewCell.swift in Sources */,
 				527626652C92019200DB9FF3 /* CompanyWorkerTableViewCell.swift in Sources */,
@@ -2424,7 +2436,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9K786374U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				EXCLUDED_ARCHS = "";
@@ -2442,7 +2454,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rabt.ngen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2465,7 +2477,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9K786374U5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				EXCLUDED_ARCHS = "";
@@ -2483,7 +2495,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rabt.ngen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

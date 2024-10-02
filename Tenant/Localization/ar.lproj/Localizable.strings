@@ -242,3 +242,17 @@
 "firstSelectPropertyThenAddComplaint" = "أولاً، اختر العقار كمنزل ثم يمكنك إضافة شكوى.";
 
 "noCurrentHomeSelected" = "لا يوجد منزل حالي محدد";
+"noPropertyToShow" = "لا يوجد عقار لعرضه";
+"notAssignedToCompany" = "غير مخصص لشركة";
+"noFlatFound" = "لم يتم العثور على شقة!";
+"noTenantsFound" = "لم يتم العثور على مستأجرين!";
+"saveInformation" = "حفظ المعلومات";
+
+"addCompanyBranch" = "إضافة فرع الشركة";
+"branchName" = "اسم الفرع";
+"branchContact" = "جهة اتصال الفرع";
+"branchCode" = "رمز موقع الفرع";
+"addBranch" = "إضافة فرع";
+"profileInfo" = "الملف الشخصي";
+"PleaseEnterLocation" = "يرجى إدخال رمز الموقع والمحاولة مرة أخرى.";
+"building" = "بناية:";

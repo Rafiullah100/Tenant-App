@@ -18,9 +18,14 @@ class CompanyProfileViewController: BaseViewController {
 
     @IBOutlet weak var numberLabel: UILabel!
   
+    @IBOutlet weak var locationCodeLabel: UILabel!
     @IBOutlet weak var locationCodeTextField: UITextField!
     var pickerView = UIPickerView()
     private var viewModel = CompanyProfileViewModel()
+
+    @IBOutlet weak var googleMapLabel: UILabel!
+    @IBOutlet weak var retrieveLocationButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
 
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -28,11 +33,17 @@ class CompanyProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        contactTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        locationCodeTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+
         titlLabel.text = LocalizationKeys.title.rawValue.localizeString()
         numberLabel.text = LocalizationKeys.contactNumber.rawValue.localizeString()
-        
+        locationCodeLabel.text = LocalizationKeys.locationCode.rawValue.localizeString()
+        retrieveLocationButton.setTitle(LocalizationKeys.retrieveLocation.rawValue.localizeString(), for: .normal)
+        saveButton.setTitle(LocalizationKeys.saveInformation.rawValue.localizeString(), for: .normal)
         mapLabel.text = LocalizationKeys.googleMapLoc.rawValue.localizeString()
-        
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
         type = .company
         viewControllerTitle = LocalizationKeys.editProfile.rawValue.localizeString()
@@ -91,7 +102,7 @@ class CompanyProfileViewController: BaseViewController {
     
     @IBAction func retrieveLocationBtnAction(_ sender: Any) {
         if locationCodeTextField.text == "" {
-            showAlert(message: "Please enter location code and try again.")
+            showAlert(message: LocalizationKeys.PleaseEnterLocation.rawValue.localizeString())
         }
         else{
             self.animateSpinner()

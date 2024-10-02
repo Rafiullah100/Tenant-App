@@ -86,7 +86,8 @@ enum Route {
     case assignTenantToFlat
     case getTenantResidence
     case updateProfile
-    
+    case updateAllProfile
+
     var description: String {
         switch self {
         case .signup:
@@ -240,6 +241,8 @@ enum Route {
             return "api/mobile/company/update_profile"
         case .getProfile:
             return "api/mobile/auth/get_profile"
+        case .updateAllProfile:
+            return "api/mobile/auth/update_profile"
         }
     }
 }

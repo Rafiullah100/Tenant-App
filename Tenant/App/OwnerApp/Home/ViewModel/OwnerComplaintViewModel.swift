@@ -101,6 +101,10 @@ class OwnerComplaintViewModel {
     func getName() -> String {
         return profile.value?.ownerProfile?.name ?? "No Name"
     }
+    
+    func getPicture() -> String {
+        return profile.value?.ownerProfile?.profileImage ?? ""
+    }
 
     
     func getPropertiesCount() -> Int {

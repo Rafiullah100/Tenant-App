@@ -22,9 +22,24 @@ class AddBranchViewController: BaseViewController {
     @IBOutlet weak var mapLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
 
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var retrieveLocationButton: UIButton!
+    @IBOutlet weak var addLabel: UILabel!
     var branchesList = [CompanyBranch]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        contactTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        addressTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        nameTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
+        addLabel.text = LocalizationKeys.addCompanyBranch.rawValue.localizeString()
+        nameTextField.placeholder = LocalizationKeys.branchName.rawValue.localizeString()
+        contactTextField.placeholder = LocalizationKeys.branchContact.rawValue.localizeString()
+        addressTextField.placeholder = LocalizationKeys.branchCode.rawValue.localizeString()
+        retrieveLocationButton.setTitle(LocalizationKeys.retrieveLocation.rawValue.localizeString(), for: .normal)
+        addButton.setTitle(LocalizationKeys.addBranch.rawValue.localizeString(), for: .normal)
+        mapLabel.text = LocalizationKeys.googleMapLoc.rawValue.localizeString()
+        
         tableView.showsVerticalScrollIndicator = false
         branchLabel.text = LocalizationKeys.branches.rawValue.localizeString()
         print(branchesList)
@@ -56,7 +71,7 @@ class AddBranchViewController: BaseViewController {
     
     @IBAction func retrieveLocationBtnAction(_ sender: Any) {
         if addressTextField.text == "" {
-            showAlert(message: "Please enter location code and try again.")
+            showAlert(message: LocalizationKeys.PleaseEnterLocation.rawValue.localizeString())
         }
         else{
             self.animateSpinner()

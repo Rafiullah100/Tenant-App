@@ -50,16 +50,23 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ec8-ch-6XU">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="3Gk-uc-SwE">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="3Gk-uc-SwE">
+                                                                        <rect key="frame" x="0.0" y="5" width="50" height="50"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="3Gk-uc-SwE" secondAttribute="height" multiplier="1:1" id="0PB-Rl-fr5"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                                                                                <real key="value" value="25"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="50" id="19f-pS-JmQ"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="3Gk-uc-SwE" secondAttribute="trailing" id="7Xr-eW-ZLx"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="3Gk-uc-SwE" secondAttribute="bottom" id="ACc-gt-0sw"/>
-                                                                    <constraint firstItem="3Gk-uc-SwE" firstAttribute="leading" secondItem="ec8-ch-6XU" secondAttribute="leading" id="H1e-Kh-pAv"/>
-                                                                    <constraint firstItem="3Gk-uc-SwE" firstAttribute="top" secondItem="ec8-ch-6XU" secondAttribute="top" id="Hif-Og-cnT"/>
+                                                                    <constraint firstItem="3Gk-uc-SwE" firstAttribute="centerY" secondItem="ec8-ch-6XU" secondAttribute="centerY" id="BGQ-Os-KKg"/>
+                                                                    <constraint firstItem="3Gk-uc-SwE" firstAttribute="width" secondItem="ec8-ch-6XU" secondAttribute="width" id="a0O-bs-3Sb"/>
+                                                                    <constraint firstItem="3Gk-uc-SwE" firstAttribute="centerX" secondItem="ec8-ch-6XU" secondAttribute="centerX" id="kGu-sS-6b0"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rr0-Zh-HhI">
@@ -533,6 +540,7 @@
                     <connections>
                         <outlet property="flatLabel" destination="O2K-3U-76T" id="GxV-hX-1Up"/>
                         <outlet property="flatValueLabel" destination="m1b-Dv-Pzy" id="TZH-kY-Lxc"/>
+                        <outlet property="imageView" destination="3Gk-uc-SwE" id="gez-He-gVQ"/>
                         <outlet property="nameLabel" destination="gmJ-eM-NBq" id="TMc-XF-BoD"/>
                         <outlet property="propertyLabel" destination="vME-A0-fk0" id="yrE-qz-6Bb"/>
                         <outlet property="propertyValueLabel" destination="pAf-n9-Fkt" id="Eql-Ib-Goe"/>
@@ -2853,10 +2861,10 @@ Cg
             </objects>
             <point key="canvasLocation" x="-4579" y="94"/>
         </scene>
-        <!--Language View Controller-->
+        <!--Owner Language View Controller-->
         <scene sceneID="8JX-my-L3z">
             <objects>
-                <viewController storyboardIdentifier="LanguageViewController" id="D5A-jP-lV2" customClass="LanguageViewController" customModule="Tenant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LanguageViewController" id="D5A-jP-lV2" customClass="OwnerLanguageViewController" customModule="Tenant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sNb-Mx-gri">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3075,7 +3083,7 @@ Cg
                         <inset key="imageInsets" minX="-8" minY="5" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="chooseLabel" destination="dEz-DL-fTu" id="Teh-Bp-tXY"/>
+                        <outlet property="chooseLabel" destination="dEz-DL-fTu" id="IXF-V4-ey7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XdS-of-7pG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3114,16 +3122,23 @@ Cg
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lqq-kq-nUJ">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
                                                                                         <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="bRj-2O-6pz">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="bRj-2O-6pz">
+                                                                                                <rect key="frame" x="0.0" y="5" width="50" height="50"/>
+                                                                                                <constraints>
+                                                                                                    <constraint firstAttribute="width" secondItem="bRj-2O-6pz" secondAttribute="height" id="KvK-gs-2xy"/>
+                                                                                                </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                                                                                                        <real key="value" value="25"/>
+                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                </userDefinedRuntimeAttributes>
                                                                                             </imageView>
                                                                                         </subviews>
                                                                                         <constraints>
+                                                                                            <constraint firstItem="bRj-2O-6pz" firstAttribute="width" secondItem="lqq-kq-nUJ" secondAttribute="width" id="0pz-5w-fOB"/>
                                                                                             <constraint firstAttribute="width" constant="50" id="83I-XB-HSm"/>
-                                                                                            <constraint firstItem="bRj-2O-6pz" firstAttribute="leading" secondItem="lqq-kq-nUJ" secondAttribute="leading" id="Ard-3I-HkO"/>
-                                                                                            <constraint firstAttribute="trailing" secondItem="bRj-2O-6pz" secondAttribute="trailing" id="Emn-qG-pLo"/>
-                                                                                            <constraint firstItem="bRj-2O-6pz" firstAttribute="top" secondItem="lqq-kq-nUJ" secondAttribute="top" id="ffF-cZ-SRB"/>
-                                                                                            <constraint firstAttribute="bottom" secondItem="bRj-2O-6pz" secondAttribute="bottom" id="ojD-Y1-rZt"/>
+                                                                                            <constraint firstItem="bRj-2O-6pz" firstAttribute="centerX" secondItem="lqq-kq-nUJ" secondAttribute="centerX" id="MGp-Gp-TXg"/>
+                                                                                            <constraint firstItem="bRj-2O-6pz" firstAttribute="centerY" secondItem="lqq-kq-nUJ" secondAttribute="centerY" id="mlU-TG-cKE"/>
                                                                                         </constraints>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUf-Wf-aOs">
@@ -3724,6 +3739,7 @@ Cg
                         <outlet property="flatLabel" destination="tUG-p6-19Q" id="Oyq-PE-AEu"/>
                         <outlet property="flatValueLabel" destination="P9L-ld-Lgs" id="zFe-Vp-LT7"/>
                         <outlet property="historyButton" destination="REK-ZF-nKV" id="DhG-Im-kLN"/>
+                        <outlet property="imageView" destination="bRj-2O-6pz" id="N71-ZN-Urv"/>
                         <outlet property="nameLabel" destination="tYT-F1-BKG" id="t3X-vr-e8a"/>
                         <outlet property="newButton" destination="mQN-9P-lh2" id="av1-J4-BV5"/>
                         <outlet property="ongoingButton" destination="AaR-ad-U1m" id="Dwh-oI-RTb"/>
@@ -5021,16 +5037,23 @@ Cg
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhx-30-03a">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="oBS-ee-gEs">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="oBS-ee-gEs">
+                                                                        <rect key="frame" x="0.0" y="5" width="50" height="50"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="oBS-ee-gEs" secondAttribute="height" multiplier="1:1" id="4zk-KY-D0v"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="ibcornerRadius">
+                                                                                <real key="value" value="25"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstItem="oBS-ee-gEs" firstAttribute="top" secondItem="Zhx-30-03a" secondAttribute="top" id="72X-gU-2FK"/>
-                                                                    <constraint firstItem="oBS-ee-gEs" firstAttribute="leading" secondItem="Zhx-30-03a" secondAttribute="leading" id="9A1-BU-S3D"/>
                                                                     <constraint firstAttribute="width" constant="50" id="E3C-Be-7NM"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="oBS-ee-gEs" secondAttribute="trailing" id="GU6-di-yjK"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="oBS-ee-gEs" secondAttribute="bottom" id="h2d-9z-Bot"/>
+                                                                    <constraint firstItem="oBS-ee-gEs" firstAttribute="width" secondItem="Zhx-30-03a" secondAttribute="width" id="IBu-Dc-nRH"/>
+                                                                    <constraint firstItem="oBS-ee-gEs" firstAttribute="centerX" secondItem="Zhx-30-03a" secondAttribute="centerX" id="oCO-cH-HVR"/>
+                                                                    <constraint firstItem="oBS-ee-gEs" firstAttribute="centerY" secondItem="Zhx-30-03a" secondAttribute="centerY" id="qQJ-Pj-LKE"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKx-fz-lUJ">
@@ -5382,6 +5405,7 @@ Cg
                         <outlet property="historyTableView" destination="7hL-18-qRI" id="6TT-RB-gho"/>
                         <outlet property="homeButton" destination="ILd-Qt-Mzh" id="qYw-oG-5pf"/>
                         <outlet property="homeButtonView" destination="81H-E5-mt0" id="D9E-d8-BBv"/>
+                        <outlet property="imageView" destination="oBS-ee-gEs" id="UpS-4o-nAc"/>
                         <outlet property="nameLabel" destination="qs3-DP-CHW" id="x0u-CJ-ZJd"/>
                         <outlet property="newButton" destination="b7s-dJ-JLF" id="0n8-Y9-7bt"/>
                     </connections>

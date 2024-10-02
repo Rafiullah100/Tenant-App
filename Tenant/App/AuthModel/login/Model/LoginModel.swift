@@ -38,6 +38,13 @@ struct AddComplaintInputModel {
     let flatIdIfTenant: Int
 }
 
+struct UpdateProfileInputModel {
+    let id: Int
+    let name: String
+    let contact: String
+    let type: String
+}
+
 struct AddWorkerInputModel {
     let name: String
     let contact: String

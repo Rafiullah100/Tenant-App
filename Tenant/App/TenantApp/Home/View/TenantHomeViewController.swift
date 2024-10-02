@@ -22,6 +22,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     @IBOutlet weak var buildingLabel: UILabel!
     @IBOutlet weak var flatLabel: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var recentButton: UIButton!
     @IBOutlet weak var historyButton: UIButton!
     
@@ -36,7 +37,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserDefaults.standard.token ?? "")
-        buildingLabel.text = LocalizationKeys.buildingNo.rawValue.localizeString()
+        buildingLabel.text = LocalizationKeys.building.rawValue.localizeString()
         flatLabel.text = LocalizationKeys.flatNo.rawValue.localizeString()
         
         recentButton.setTitle(LocalizationKeys.current.rawValue.localizeString(), for: .normal)
@@ -79,7 +80,6 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
 //        self.buildingLabel.text = viewModel.getBuildingType()
         self.buildingValueLabel.text = viewModel.getBuilding()
         self.flatValueLabel.text = viewModel.getTenantFlatNo()
-        nameLabel.text = UserDefaults.standard.name
         propertyView.isHidden = !viewModel.isPropertyAssigned()
     }
     
@@ -125,6 +125,8 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        nameLabel.text = UserDefaults.standard.name
+        imageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
     }
     
     @IBAction func contactButtonAction(_ sender: Any) {

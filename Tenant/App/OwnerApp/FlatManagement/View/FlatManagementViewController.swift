@@ -71,7 +71,7 @@ class FlatManagementViewController: BaseViewController, UITableViewDelegate, UIT
             return 0
         }
         if viewModel.getCount() == 0{
-            self.FlatTableView.setEmptyView("No Flat Found!")
+            self.FlatTableView.setEmptyView(LocalizationKeys.noFlatFound.rawValue.localizeString())
         }
         else{
             self.FlatTableView.backgroundView = nil

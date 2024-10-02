@@ -22,6 +22,7 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         type = .company
+
         contactLabel.text = LocalizationKeys.contactNumber.rawValue.localizeString()
         nameLabel.text = LocalizationKeys.name.rawValue.localizeString()
         contactTextField.textAlignment = Helper.shared.isRTL() ? .right : .left
@@ -34,12 +35,19 @@ class ProfileViewController: BaseViewController {
         }
         self.animateSpinner()
         viewModel.getProfile(userID: UserDefaults.standard.userID ?? 0, userType: userType ?? .tenant)
+        
+        viewModel.updateProfile.bind { [unowned self] updated in
+            guard let _ = updated else {return}
+            self.stopAnimation()
+            ToastManager.shared.showToast(message: updated?.message ?? "")
+        }
     }
     
     private func updateUI(){
+        print(viewModel.getProfileImage())
         nameTextField.text = viewModel.getName()
         contactTextField.text = viewModel.getContact()
-        imageView.sd_setImage(with: URL(string: Route.baseUrl + (viewModel.getProfileImage())), placeholderImage: UIImage(named: "PlaceholderImage"))
+        imageView.sd_setImage(with: URL(string: Route.baseUrl + (viewModel.getProfileImage())), placeholderImage: UIImage(named: "User"))
     }
     
     @IBAction func takePhotoBtn(_ sender: Any) {
@@ -50,15 +58,15 @@ class ProfileViewController: BaseViewController {
     }
     
     @IBAction func saveBtnAction(_ sender: Any) {
-//        let profile = CompanyUpdateProfileInputModel(name: nameTextField.text ?? "", locationCode: locationCodeTextField.text ?? "", city: viewModel.getCity(), district: viewModel.getDistrict())
-//        let validationResponse = viewModel.isFormValid(profile: profile)
-//        if validationResponse.isValid {
-//            self.animateSpinner()
-//            self.viewModel.updateProfile(image: imageView.image ?? UIImage())
-//        }
-//        else{
-//            showAlert(message: validationResponse.message)
-//        }
+        let profile = UpdateProfileInputModel(id: UserDefaults.standard.userID ?? 0, name: nameTextField.text ?? "", contact: contactTextField.text ?? "", type: userType?.rawValue ?? "")
+        let validationResponse = viewModel.isFormValid(profile: profile)
+        if validationResponse.isValid {
+            self.animateSpinner()
+            self.viewModel.updateProfile(image: imageView.image ?? UIImage())
+        }
+        else{
+            showAlert(message: validationResponse.message)
+        }
     }
 
 }

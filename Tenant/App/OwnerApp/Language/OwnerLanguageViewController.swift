@@ -1,13 +1,13 @@
 //
-//  LanguageViewController.swift
+//  OwnerLanguageViewController.swift
 //  Tenant
 //
-//  Created by MacBook Pro on 7/10/24.
+//  Created by MacBook Pro on 10/1/24.
 //
 
 import UIKit
 
-class LanguageViewController: UIViewController {
+class OwnerLanguageViewController: UIViewController {
 
     @IBOutlet weak var chooseLabel: UILabel!
     
@@ -31,7 +31,8 @@ class LanguageViewController: UIViewController {
         UserDefaults.standard.selectedLanguage = language.rawValue
         UserDefaults.standard.languageCode = code.rawValue
         UIView.appearance().semanticContentAttribute = isRTL == 1 ? .forceRightToLeft : .forceLeftToRight
-        Switcher.gotoCompanyScreen(delegate: self)
+        Switcher.gotoOwnerHome(delegate: self)
         
     }
+
 }

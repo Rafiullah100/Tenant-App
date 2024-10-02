@@ -397,10 +397,10 @@ class Switcher {
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
-    static func companyLanguageChange(delegate: UIViewController){
-        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "LanguageViewController") as! LanguageViewController
-        let nav = UINavigationController(rootViewController: vc)
-        UIApplication.shared.windows.first?.rootViewController = nav
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
-    }
+//    static func companyLanguageChange(delegate: UIViewController){
+//        let vc = UIStoryboard(name: Storyboard.company.rawValue, bundle: nil).instantiateViewController(withIdentifier: "LanguageViewController") as! LanguageViewController
+//        let nav = UINavigationController(rootViewController: vc)
+//        UIApplication.shared.windows.first?.rootViewController = nav
+//        UIApplication.shared.windows.first?.makeKeyAndVisible()
+//    }
 }

@@ -9,6 +9,7 @@ import UIKit
 import Dispatch
 class PropertyViewController: BaseViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tenantValueLabel: UILabel!
     @IBOutlet weak var propertyValueLabel: UILabel!
     @IBOutlet weak var flatValueLabel: UILabel!
@@ -94,6 +95,7 @@ class PropertyViewController: BaseViewController {
     
     private func updateUI(){
         self.nameLabel.text = viewModel.getName()
+        imageView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getPicture()), placeholderImage: UIImage(named: "User"))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,7 +119,7 @@ extension PropertyViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         if viewModel.getPropertiesCount() == 0{
-            self.tableView.setEmptyView("No Property to Show")
+            self.tableView.setEmptyView(LocalizationKeys.noPropertyToShow.rawValue.localizeString())
         }
         else{
             self.tableView.backgroundView = nil

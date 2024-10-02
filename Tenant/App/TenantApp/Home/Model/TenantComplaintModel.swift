@@ -73,7 +73,6 @@ struct TenantResidenceFlat: Codable {
     let isDeleted: Int?
     let type, timestamp: String?
     let properties: TenantResidenceProperties?
-
     enum CodingKeys: String, CodingKey {
         case id
         case propertyID = "property_id"
@@ -90,6 +89,7 @@ struct TenantResidenceProperties: Codable {
     let district: String?
     let userID, isDeleted, status: Int?
     let timestamp: String?
+    let title: String
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -100,6 +100,6 @@ struct TenantResidenceProperties: Codable {
         case locationCode = "location_code"
         case city, district
         case userID = "user_id"
-        case isDeleted, status, timestamp
+        case isDeleted, status, timestamp, title
     }
 }

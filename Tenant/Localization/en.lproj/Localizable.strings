@@ -229,3 +229,18 @@
 "selectHome" = "Select Home";
 "firstSelectPropertyThenAddComplaint" = "First select property as home then you can add complaint.";
 "noCurrentHomeSelected" = "No current home selected";
+
+"noPropertyToShow" = "No Property to Show";
+"notAssignedToCompany" ="Not assigned to Company";
+"noFlatFound" = "No Flat Found!";
+"noTenantsFound" = "No Tenants Found!";
+"saveInformation" = "Save Information";
+
+"addCompanyBranch" = "Add Company Branch";
+"branchName" = "Branch Name";
+"branchContact" = "Branch Contact";
+"branchCode" = "Branch Location Code";
+"addBranch" = "Add Branch";
+"profileInfo" = "Profile Info";
+"PleaseEnterLocation" = "Please enter location code and try again.";
+"building" = "Building:";

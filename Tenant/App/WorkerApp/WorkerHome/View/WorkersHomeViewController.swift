@@ -41,9 +41,6 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         newButton.setTitle(LocalizationKeys.current.rawValue.localizeString(), for: .normal)
         completedButton.setTitle(LocalizationKeys.completed.rawValue.localizeString(), for: .normal)
         
-        nameLabel.text = UserDefaults.standard.name
-        mobileLabel.text = UserDefaults.standard.mobile
-        
         viewModel.complaintList.bind { [unowned self] list in
             guard let _ = list else {return}
             self.isLoading = false
@@ -66,6 +63,8 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        nameLabel.text = UserDefaults.standard.name
+        mobileLabel.text = UserDefaults.standard.mobile
         imageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
     }
     

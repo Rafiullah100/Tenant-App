@@ -220,6 +220,20 @@ enum LocalizationKeys: String {
     case selectHome
     case firstSelectPropertyThenAddComplaint
     case noCurrentHomeSelected
+    case noPropertyToShow
+    
+    case notAssignedToCompany
+    case noFlatFound
+    case noTenantsFound
+    case saveInformation
+    case addCompanyBranch
+    case branchName
+    case branchContact
+    case branchCode
+    case addBranch
+    case profileInfo
+    case PleaseEnterLocation
+    case building
 }
 
 

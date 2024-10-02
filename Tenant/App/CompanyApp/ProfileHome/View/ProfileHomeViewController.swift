@@ -17,6 +17,8 @@ class ProfileHomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         type = .company
+        infoButton.setTitle(LocalizationKeys.profileInfo.rawValue.localizeString(), for: .normal)
+        branchButton.setTitle(LocalizationKeys.branches.rawValue.localizeString(), for: .normal)
         viewControllerTitle = LocalizationKeys.editProfile.rawValue.localizeString()
         self.add(profileInfo, in: containerView)
     }

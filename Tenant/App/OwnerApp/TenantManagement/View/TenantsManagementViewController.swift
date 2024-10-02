@@ -110,7 +110,7 @@ class TenantsManagementViewController: BaseViewController, UITableViewDelegate, 
             return 0
         }
         if viewModel.getCount() == 0{
-            self.tableView.setEmptyView("No Tenants Found!")
+            self.tableView.setEmptyView(LocalizationKeys.noTenantsFound.rawValue.localizeString())
         }
         else{
             self.tableView.backgroundView = nil

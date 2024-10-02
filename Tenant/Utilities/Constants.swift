@@ -49,9 +49,12 @@ struct Constants {
     static var reloadBranches = "reloadBranches"
     static var reloadOwnerProfile = "reloadOwnerProfile"
 
-    
-    static var apiKey = "-iHEiOd5WEpPmqiHiPEhILlrQ6NHHvl_vOegasyglxI"
-    static var hereAppID = "QUPuD4iUj5sO8VJPzUOj"
+//    static var apiKey = "-iHEiOd5WEpPmqiHiPEhILlrQ6NHHvl_vOegasyglxI"
+    static var apiKey = "iWvZczVJjdE2jZ9Z6_jc9igc290C4N6yQ2eRzqfkZYQ"
+
+//    static var hereAppID = "QUPuD4iUj5sO8VJPzUOj"
+    static var hereAppID = "4s1Sk5NSfl4js4zAcN49"
+
     static var  hereAccessKey = "mSfE-R5lgTxRN03P80xWzQ"
 }
 
@@ -114,4 +117,9 @@ enum TenantComplaintType {
 
 enum MenuType{
     case tenant ,language ,owner,company, worker
+}
+
+enum LanguageUer {
+case owner
+    case company
 }

@@ -10,7 +10,7 @@ import UIKit
 
 
 class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
-    @IBOutlet weak var homeButton: UIButton!
+  @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var homeButtonView: UIView!
     @IBOutlet weak var addressValueLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,6 +23,8 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
             historyTableView.register(UINib(nibName: "SelfHomeTableViewCell", bundle: nil), forCellReuseIdentifier: SelfHomeTableViewCell.cellReuseIdentifier())
         }
     }
+    @IBOutlet weak var imageView: UIImageView!
+    
     var isLoading = true
     var isRecent = true
     private var viewModel = TenantComplaintViewModel()
@@ -54,6 +56,7 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
         self.navigationController?.navigationBar.isHidden = true
         self.addressValueLabel.text = UserDefaults.standard.currentHome
         self.homeButtonView.isHidden = viewModel.isHomeButtonHide()
+        imageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
     }
     
     @objc private func loadComplaints(){

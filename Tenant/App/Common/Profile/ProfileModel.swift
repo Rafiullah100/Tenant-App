@@ -21,7 +21,7 @@ struct Profile: Codable {
     let name: String?
     let email: String?
     let isVerified: Int?
-    let contact, photo, registeredFrom: String?
+    let contact, profileImage, registeredFrom: String?
     let status: Int?
     let otp: String?
     let timestamp: String?
@@ -31,8 +31,27 @@ struct Profile: Codable {
         case branchID = "branch_id"
         case name, email
         case isVerified = "is_verified"
-        case contact, photo
+        case contact
+        case profileImage = "profile_image"
         case registeredFrom = "registered_from"
         case status, otp, timestamp
+    }
+}
+
+
+
+struct UpdateProfileModel: Codable {
+    let success: Bool?
+    let data: ProfileDataClass?
+    let message: String?
+}
+
+// MARK: - DataClass
+struct ProfileDataClass: Codable {
+    let name, profileImage: String?
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case profileImage = "profile_image"
     }
 }
