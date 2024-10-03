@@ -35,6 +35,7 @@ extension UserDefaults{
         case ownerTotolTenants
         case ownerTotolFlats
         case isLaunchedFirstTime
+        case deviceToken
     }
     
     var selectedLanguage: String?  {
@@ -250,6 +251,15 @@ extension UserDefaults{
         }
         set {
             set(newValue, forKey: userdefaultsKey.isLaunchedFirstTime.rawValue)
+        }
+    }
+    
+    var deviceToken: String? {
+        get {
+            value(forKey: userdefaultsKey.deviceToken.rawValue) as? String
+        }
+        set{
+            set(newValue, forKey: userdefaultsKey.deviceToken.rawValue)
         }
     }
 }

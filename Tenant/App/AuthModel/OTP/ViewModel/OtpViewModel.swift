@@ -19,9 +19,9 @@ class OtpViewModel {
             switch result {
             case .success(let otp):
                 print(otp)
-                self.otp.value = otp
                 guard let user = otp.user else { return }
                 self.saveUserData(user: user)
+                self.otp.value = otp
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription
             }
@@ -46,9 +46,9 @@ class OtpViewModel {
             switch result {
             case .success(let otp):
                 print(otp)
-                self.loginOtp.value = otp
                 guard let user = otp.user else { return }
                 self.saveUserLogin(user: user)
+                self.loginOtp.value = otp
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription
             }

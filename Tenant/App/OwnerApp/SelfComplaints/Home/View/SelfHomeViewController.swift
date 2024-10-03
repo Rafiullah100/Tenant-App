@@ -55,8 +55,17 @@ class SelfHomeViewController: BaseViewController , UITableViewDataSource , UITab
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         self.addressValueLabel.text = UserDefaults.standard.currentHome
-        self.homeButtonView.isHidden = viewModel.isHomeButtonHide()
         imageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
+        
+        viewModel.tenantResidence.bind { [unowned self] residence in
+            guard let _ = residence else {return}
+            self.configureHomeButton()
+        }
+        viewModel.getTenantResidence()
+    }
+    
+    private func configureHomeButton(){
+        self.homeButtonView.isHidden = viewModel.isHomeButtonHide()
     }
     
     @objc private func loadComplaints(){

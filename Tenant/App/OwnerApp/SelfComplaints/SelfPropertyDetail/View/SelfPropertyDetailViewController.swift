@@ -56,8 +56,6 @@ class SelfPropertyDetailViewController: BaseViewController, UITableViewDelegate,
             guard let select = select else{return}
             self.stopAnimation()
             if select.success == true{
-                UserDefaults.standard.flatIDIfTenant = self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0)
-                UserDefaults.standard.propertyIDIfTenant = self.propertyDetail?.id
                 NotificationCenter.default.post(name: Notification.Name(Constants.reloadOwnerProfile), object: nil)
                 ToastManager.shared.showToast(message: LocalizationKeys.propertySelectedAsYourHome.rawValue.localizeString())
             }

@@ -46,6 +46,7 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
             self.isLoading = false
             self.stopAnimation()
             self.workerHomeTableView.reloadData()
+            ApiService.shared.registerDeviceTokenForNotificaiton()
         }
         self.workerHomeTableView.rowHeight = UITableView.automaticDimension
         self.workerHomeTableView.estimatedRowHeight = 44.0
@@ -66,6 +67,7 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
         nameLabel.text = UserDefaults.standard.name
         mobileLabel.text = UserDefaults.standard.mobile
         imageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
+        print(UserDefaults.standard.profileImage ?? "")
     }
     
     @IBAction func newBtnAction(_ sender: Any) {

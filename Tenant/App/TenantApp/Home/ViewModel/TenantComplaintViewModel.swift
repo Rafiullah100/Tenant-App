@@ -132,9 +132,16 @@ class TenantComplaintViewModel {
     
     
     func isHomeButtonHide() -> Bool {
-                guard UserDefaults.standard.propertyIDIfTenant == 0 && UserDefaults.standard.flatIDIfTenant == 0 || UserDefaults.standard.propertyIDIfTenant == nil && UserDefaults.standard.flatIDIfTenant == nil else{
-                    return true
-                }
-        return false
+        print(self.tenantResidence.value?.flat?.properties?.id ?? 0)
+        if self.tenantResidence.value?.flat?.properties?.id ?? 0 == 0{
+            return false
+        }
+        else{
+            return true
+        }
+//                guard UserDefaults.standard.propertyIDIfTenant == 0 && UserDefaults.standard.flatIDIfTenant == 0 || UserDefaults.standard.propertyIDIfTenant == nil && UserDefaults.standard.flatIDIfTenant == nil else{
+//                    return true
+//                }
+//        return false
     }
 }

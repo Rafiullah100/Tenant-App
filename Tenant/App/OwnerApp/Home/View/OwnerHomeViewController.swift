@@ -127,19 +127,20 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         self.propertyValueLabel.text = "\(viewModel.getPropertiesCount())"
         self.tenantValueLabel.text = "\(viewModel.getTenantCount())"
         self.flatValueLabel.text = "\(viewModel.getFlatCount())"
-        self.nameLabel.text = viewModel.getName()
-        imageView.sd_setImage(with: URL(string: Route.baseUrl + viewModel.getPicture()), placeholderImage: UIImage(named: "User"))
 
         UserDefaults.standard.ownerTotolProperties = viewModel.getPropertiesCount()
         UserDefaults.standard.ownerTotolTenants = viewModel.getTenantCount()
         UserDefaults.standard.ownerTotolFlats = viewModel.getFlatCount()
         UserDefaults.standard.currentHome = viewModel.getAddress()
+        
+        ApiService.shared.registerDeviceTokenForNotificaiton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        
+        self.nameLabel.text = UserDefaults.standard.name
+        imageView.sd_setImage(with: URL(string: Route.baseUrl + (UserDefaults.standard.profileImage ?? "")), placeholderImage: UIImage(named: "User"))
         self.propertyValueLabel.text = "\(UserDefaults.standard.ownerTotolProperties ?? 0)"
         self.tenantValueLabel.text = "\(UserDefaults.standard.ownerTotolTenants ?? 0)"
         self.flatValueLabel.text = "\(UserDefaults.standard.ownerTotolFlats ?? 0)"

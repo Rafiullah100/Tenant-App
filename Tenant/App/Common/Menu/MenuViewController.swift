@@ -30,6 +30,7 @@ class MenuViewController: UIViewController {
 
     let workerMenuItems = [MenuItem(name: LocalizationKeys.profile.rawValue.localizeString(), image: ""), MenuItem(name: LocalizationKeys.language.rawValue.localizeString(), image: Helper.shared.isRTL() ? "left-arrow" : "right-arrow"), MenuItem(name: LocalizationKeys.logout.rawValue.localizeString(), image: "")]
 
+    var delegate: UIViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func dismissBtn(_ sender: Any) {
+        delegate?.viewWillAppear(true)
         self.dismiss(animated: true)
     }
     

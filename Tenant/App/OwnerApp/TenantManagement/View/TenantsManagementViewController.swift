@@ -82,10 +82,10 @@ class TenantsManagementViewController: BaseViewController, UITableViewDelegate, 
     
     private func checkTenant(){
         //if tenant is owner himself then remove self preferneces
-        if UserDefaults.standard.userID == viewModel.getTenantID(at: deletedIndex ?? 0){
-            UserDefaults.standard.propertyIDIfTenant = 0
-            UserDefaults.standard.flatIDIfTenant = 0
-        }
+//        if UserDefaults.standard.userID == viewModel.getTenantID(at: deletedIndex ?? 0){
+//            UserDefaults.standard.propertyIDIfTenant = 0
+//            UserDefaults.standard.flatIDIfTenant = 0
+//        }
     }
     
     @objc private func networkingCall()  {

@@ -166,6 +166,8 @@
 		529E17722C2EBA870063B204 /* ComplaintCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529E176E2C2EBA870063B204 /* ComplaintCollectionViewCell.xib */; };
 		529E17742C2EC32B0063B204 /* AddTenantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529E17732C2EC32B0063B204 /* AddTenantViewController.swift */; };
 		529E17762C2EC35F0063B204 /* TenantHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529E17752C2EC35F0063B204 /* TenantHomeViewController.swift */; };
+		52A14EAB2CAE9173004F1894 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52A14EAA2CAE9173004F1894 /* GoogleService-Info.plist */; };
+		52A14EAD2CAEAEDC004F1894 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A14EAC2CAEAEDC004F1894 /* ApiService.swift */; };
 		52AB80502C5B841B001011C0 /* AddFlatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB804F2C5B841B001011C0 /* AddFlatViewController.swift */; };
 		52AC564B2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AC564A2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift */; };
 		52AC564D2C5A3EBC00F37A3C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AC564C2C5A3EBC00F37A3C /* BaseViewController.swift */; };
@@ -381,6 +383,9 @@
 		529E176E2C2EBA870063B204 /* ComplaintCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComplaintCollectionViewCell.xib; sourceTree = "<group>"; };
 		529E17732C2EC32B0063B204 /* AddTenantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTenantViewController.swift; sourceTree = "<group>"; };
 		529E17752C2EC35F0063B204 /* TenantHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenantHomeViewController.swift; sourceTree = "<group>"; };
+		52A14EA72CAE81E3004F1894 /* Tenant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tenant.entitlements; sourceTree = "<group>"; };
+		52A14EAA2CAE9173004F1894 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		52A14EAC2CAEAEDC004F1894 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		52AB804F2C5B841B001011C0 /* AddFlatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlatViewController.swift; sourceTree = "<group>"; };
 		52AC564A2C5A234000F37A3C /* WorkerOngoingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerOngoingDetailViewController.swift; sourceTree = "<group>"; };
 		52AC564C2C5A3EBC00F37A3C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -1684,6 +1689,8 @@
 		52DBCCD62C16C3B200A7B612 /* Tenant */ = {
 			isa = PBXGroup;
 			children = (
+				52A14EA72CAE81E3004F1894 /* Tenant.entitlements */,
+				52A14EAA2CAE9173004F1894 /* GoogleService-Info.plist */,
 				529E176A2C2EBA740063B204 /* Cell */,
 				5279F88F2C2964FF003B28A9 /* Localization */,
 				52DBCCEB2C16C4EE00A7B612 /* AppDelegate */,
@@ -1727,6 +1734,7 @@
 				52DBCCF32C16C51A00A7B612 /* Method.swift */,
 				52DBCCF42C16C51A00A7B612 /* ApiResponse.swift */,
 				52DBCCF52C16C51A00A7B612 /* Route.swift */,
+				52A14EAC2CAEAEDC004F1894 /* ApiService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -2012,6 +2020,7 @@
 				522FFBB62C4CE1D20010A2EF /* CompanyCardTableViewCell.xib in Resources */,
 				5279F8B62C2968EA003B28A9 /* Inter-Light.ttf in Resources */,
 				5279F8BB2C2968EA003B28A9 /* Inter-ExtraLight.ttf in Resources */,
+				52A14EAB2CAE9173004F1894 /* GoogleService-Info.plist in Resources */,
 				527616442C48F51A007F7C66 /* TenantCollectionViewCell.xib in Resources */,
 				526A2D5B2C3D0B7000C716A8 /* CompanyOngoingTableViewCell.xib in Resources */,
 				52DBCCE12C16C3B700A7B612 /* Assets.xcassets in Resources */,
@@ -2221,6 +2230,7 @@
 				5223FAFC2C411EA2002D8E09 /* PropertyDetailViewController.swift in Sources */,
 				529599F32C69EF19006188B1 /* AddTenantModel.swift in Sources */,
 				529E17762C2EC35F0063B204 /* TenantHomeViewController.swift in Sources */,
+				52A14EAD2CAEAEDC004F1894 /* ApiService.swift in Sources */,
 				5223FAFA2C411B6B002D8E09 /* AddPropertyViewController.swift in Sources */,
 				52983D9E2C94C98D00798F00 /* ToastManager.swift in Sources */,
 				529E17632C2E8EEA0063B204 /* RegistrationViewController.swift in Sources */,
@@ -2434,6 +2444,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tenant/Tenant.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2449,6 +2460,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2475,6 +2487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tenant/Tenant.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2490,6 +2503,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

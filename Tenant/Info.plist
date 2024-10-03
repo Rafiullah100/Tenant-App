@@ -28,8 +28,6 @@
 		<string>ABeeZee-Italic.ttf</string>
 		<string>ABeeZee-Regular.ttf</string>
 	</array>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

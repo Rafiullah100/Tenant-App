@@ -52,6 +52,6 @@ struct ProfileDataClass: Codable {
 
     enum CodingKeys: String, CodingKey {
         case name
-        case profileImage = "profile_image"
+        case profileImage = "image_url"
     }
 }

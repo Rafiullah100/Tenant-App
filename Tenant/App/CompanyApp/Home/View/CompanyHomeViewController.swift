@@ -55,6 +55,7 @@ class CompanyHomeViewController: BaseViewController, UITableViewDelegate, UITabl
             self.stopAnimation()
             self.tableView.refreshControl?.endRefreshing()
             self.tableView.reloadData()
+            ApiService.shared.registerDeviceTokenForNotificaiton()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: Notification.Name(Constants.reloadCompanyComplaints), object: nil)
         loadData()

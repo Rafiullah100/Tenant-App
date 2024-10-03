@@ -53,8 +53,6 @@ class BothPropertyViewController: BaseViewController, UITableViewDelegate, UITab
             guard let select = select else{return}
             self.stopAnimation()
             if select.success == true{
-                UserDefaults.standard.propertyIDIfTenant = self.viewModel.getPropertyID(at: self.selectedHomeIndex ?? 0)
-                UserDefaults.standard.flatIDIfTenant = self.viewModel.getFlatID(at: self.selectedHomeIndex ?? 0)
                 NotificationCenter.default.post(name: Notification.Name(Constants.reloadOwnerProfile), object: nil)
                 ToastManager.shared.showToast(message: LocalizationKeys.propertySelectedAsYourHome.rawValue.localizeString())
             }

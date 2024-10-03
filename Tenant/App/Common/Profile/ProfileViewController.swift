@@ -59,6 +59,7 @@ class ProfileViewController: BaseViewController {
     
     @IBAction func saveBtnAction(_ sender: Any) {
         let profile = UpdateProfileInputModel(id: UserDefaults.standard.userID ?? 0, name: nameTextField.text ?? "", contact: contactTextField.text ?? "", type: userType?.rawValue ?? "")
+        print(profile)
         let validationResponse = viewModel.isFormValid(profile: profile)
         if validationResponse.isValid {
             self.animateSpinner()

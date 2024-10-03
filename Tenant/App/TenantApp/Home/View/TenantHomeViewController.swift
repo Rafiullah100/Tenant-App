@@ -81,6 +81,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
         self.buildingValueLabel.text = viewModel.getBuilding()
         self.flatValueLabel.text = viewModel.getTenantFlatNo()
         propertyView.isHidden = !viewModel.isPropertyAssigned()
+        ApiService.shared.registerDeviceTokenForNotificaiton()
     }
     
     @IBAction func recentBtnAction(_ sender: Any) {

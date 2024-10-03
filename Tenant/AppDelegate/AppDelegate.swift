@@ -11,15 +11,31 @@ import IQKeyboardManager
 import NMAKit
 import Photos
 import PhotosUI
+import UserNotifications
+import Firebase
+import FirebaseMessaging
+import FirebaseCore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//         Override point for customization after application launch.
-//        let language: AppLanguage = AppLanguage(rawValue: UserDefaults.standard.selectedLanguage ?? "") ?? .arabic
-//        UserDefaults.standard.isRTL = 1
-//        UIView.appearance().semanticContentAttribute = Helper.shared.semantic(language)
+        
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        registerForPushNotifications()
+        UNUserNotificationCenter.current().delegate = self
+        
+        
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM token: \(error.localizedDescription)")
+            } else if let token = token {
+                print("FCM token manually fetched: \(token)")
+                UserDefaults.standard.deviceToken = token
+            }
+        }
+        
         requestPhotoLibraryPermission()
 
         NMAApplicationContext.set(appId: Constants.hereAppID, appCode: Constants.apiKey)
@@ -29,6 +45,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
         IQKeyboardManager.shared().isEnableAutoToolbar = true
         return true
+    }
+    
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            if granted {
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            } else {
+                print("Permission for push notifications denied.")
+            }
+        }
     }
 
     // MARK: UISceneSession Lifecycle
@@ -50,6 +78,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
     }
-
 }
 
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase registration token: \(String(describing: fcmToken))")
+        UserDefaults.standard.deviceToken = fcmToken
+    }
+}
+
+// MARK: - UNUserNotificationCenter Delegate
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    // Handle notification display when the app is in the foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound, .badge])
+    }
+    
+    // Handle notification interaction
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        print("User Info: \(userInfo)")
+        completionHandler()
+    }
+}

@@ -15,6 +15,7 @@ class ProfileViewModel {
     var parameters: [String: Any]?
 
     func getProfile(userID: Int, userType: UserType){
+        print(userType)
         _ = URLSession.shared.request(route: .getProfile, method: .post, parameters: ["id": userID, "type": userType.rawValue], model: ProfileModel.self) { result in
             switch result {
             case .success(let profile):

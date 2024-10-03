@@ -87,6 +87,7 @@ enum Route {
     case getTenantResidence
     case updateProfile
     case updateAllProfile
+    case deviceToken
 
     var description: String {
         switch self {
@@ -243,6 +244,8 @@ enum Route {
             return "api/mobile/auth/get_profile"
         case .updateAllProfile:
             return "api/mobile/auth/update_profile"
+        case .deviceToken:
+            return "api/mobile/auth/update_device_token"
         }
     }
 }

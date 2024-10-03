@@ -356,6 +356,7 @@ class Switcher {
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         vc.menuType = menuType
+        vc.delegate = delegate
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.1)
         delegate.present(vc, animated: true)
     }

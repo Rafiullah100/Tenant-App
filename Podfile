@@ -15,7 +15,9 @@ target 'Tenant' do
   pod 'Alamofire', '~> 5.0.0-rc.2'
   pod 'HEREMapsStarter'
   pod 'Toast-Swift', '~> 5.0.1'
-
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
 #  pod 'HEREMaps'
 end
 
