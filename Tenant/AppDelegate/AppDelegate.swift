@@ -26,16 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerForPushNotifications()
         UNUserNotificationCenter.current().delegate = self
         
-        
-        Messaging.messaging().token { token, error in
-            if let error = error {
-                print("Error fetching FCM token: \(error.localizedDescription)")
-            } else if let token = token {
-                print("FCM token manually fetched: \(token)")
-                UserDefaults.standard.deviceToken = token
-            }
-        }
-        
         requestPhotoLibraryPermission()
 
         NMAApplicationContext.set(appId: Constants.hereAppID, appCode: Constants.apiKey)
@@ -100,4 +90,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         print("User Info: \(userInfo)")
         completionHandler()
     }
+//    
+//    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+//        Messaging.messaging().apnsToken = deviceToken
+//    }
+//    
+//    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+//        print("Failed to register for remote notifications: \(error)")
+//    }
 }
