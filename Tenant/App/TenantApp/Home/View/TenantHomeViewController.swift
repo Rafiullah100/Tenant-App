@@ -36,7 +36,7 @@ class TenantHomeViewController: BaseViewController , UITableViewDataSource , UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UserDefaults.standard.token ?? "")
+        print(UserDefaults.standard.userID ?? "")
         buildingLabel.text = LocalizationKeys.building.rawValue.localizeString()
         flatLabel.text = LocalizationKeys.flatNo.rawValue.localizeString()
         

@@ -54,7 +54,8 @@ class MenuViewController: UIViewController {
     }
     
     private func logout(){
-        UserDefaults.clean(exceptKeys: [UserDefaults.userdefaultsKey.isLaunchedFirstTime.rawValue, UserDefaults.userdefaultsKey.languageCode.rawValue, UserDefaults.userdefaultsKey.selectedLanguage.rawValue, UserDefaults.userdefaultsKey.isRTL.rawValue])
+        UserDefaults.clean(exceptKeys: [UserDefaults.userdefaultsKey.isLaunchedFirstTime.rawValue, UserDefaults.userdefaultsKey.languageCode.rawValue, UserDefaults.userdefaultsKey.selectedLanguage.rawValue, UserDefaults.userdefaultsKey.isRTL.rawValue,
+                                        UserDefaults.userdefaultsKey.deviceToken.rawValue])
         Switcher.logout(delegate: self)
     }
     

@@ -98,7 +98,7 @@ enum Route {
         case .forgot:
             return "api/mobile/auth/forget-password"
         case .otp:
-            return "api/mobile/auth/verify_login"
+            return "api/mobile/auth/verify_user"
         case .addComplaint:
             return "api/mobile/complaints/add_new"
         case .logout:

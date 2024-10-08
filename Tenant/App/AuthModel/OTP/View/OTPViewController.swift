@@ -46,11 +46,11 @@ class OTPViewController: BaseViewController {
         textfield2.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         textField3.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         textField4.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        let array = Array(otp ?? "")
-        textField1.text = "\(array[0])"
-        textfield2.text = "\(array[1])"
-        textField3.text = "\(array[2])"
-        textField4.text = "\(array[3])"
+//        let array = Array(otp ?? "")
+//        textField1.text = "\(array[0])"
+//        textfield2.text = "\(array[1])"
+//        textField3.text = "\(array[2])"
+//        textField4.text = "\(array[3])"
 
         textField1.becomeFirstResponder()
         

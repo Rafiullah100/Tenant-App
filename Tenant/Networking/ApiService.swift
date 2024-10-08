@@ -16,7 +16,7 @@ final class ApiService {
     }
     
     func registerDeviceTokenForNotificaiton(){
-//        print(UserDefaults.standard.deviceToken, UserDefaults.standard.userType)
+        print(UserDefaults.standard.deviceToken, UserDefaults.standard.userType)
         guard let token = UserDefaults.standard.deviceToken, let type = UserDefaults.standard.userType else { return }
         _ = URLSession.shared.request(route: .deviceToken, method: .post, parameters: ["device_token": token, "type": type], model: DevicetokenModel.self) { result in
             switch result {
