@@ -16,6 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
+        if let notificationResponse = connectionOptions.notificationResponse {
+               return // Prevent further navigation setup
+           }
+        
         if UserDefaults.standard.isLogin == true{
             
 //            let vc = UIStoryboard(name: Storyboard.tenant.rawValue, bundle: nil).instantiateViewController(withIdentifier: "TenantHomeViewController") as! TenantHomeViewController

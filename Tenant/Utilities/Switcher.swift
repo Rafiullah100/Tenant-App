@@ -252,9 +252,9 @@ class Switcher {
         delegate.present(nav, animated: true)
     }
     
-    static func gotoOwnerDetail(delegate: UIViewController, complaintType: OwnerComplaintType,  complaintID: Int){
+    static func gotoOwnerDetail(delegate: UIViewController, complaintID: Int){
         let vc = UIStoryboard(name: Storyboard.owner.rawValue, bundle: nil).instantiateViewController(withIdentifier: "OwnerDetailViewController") as! OwnerDetailViewController
-        vc.ownerComplaint = complaintType
+//        vc.ownerComplaint = complaintType
         vc.complaintID = complaintID
         vc.modalPresentationStyle = .fullScreen
         vc.hidesBottomBarWhenPushed = false

@@ -256,7 +256,7 @@ class OwnerHomeViewController: BaseViewController, UITableViewDelegate, UITableV
         case .completed:
             complaintID = viewModel.getHistoryID(index: indexPath.row)
         }
-        Switcher.gotoOwnerDetail(delegate: self, complaintType: complaintType, complaintID: complaintID ?? 0)
+        Switcher.gotoOwnerDetail(delegate: self, complaintID: complaintID ?? 0)
     }
 }
 

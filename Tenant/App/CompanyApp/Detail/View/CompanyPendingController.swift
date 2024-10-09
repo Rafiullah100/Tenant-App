@@ -68,6 +68,7 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
     var complaintID: Int?
     private var viewModel = CompanyDetailViewModel()
     private var isExpanded = false
+    var isNotificationTapped:  Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +113,16 @@ class CompanyPendingController: BaseViewController, UICollectionViewDelegate, UI
         
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
+    }
+    
+    override func backAction() {
+        if isNotificationTapped == true{
+            self.isNotificationTapped = false
+            Switcher.gotoCompanyScreen(delegate: self)
+        }
+        else{
+            super.backAction()
+        }
     }
     
     private func updateUI(){

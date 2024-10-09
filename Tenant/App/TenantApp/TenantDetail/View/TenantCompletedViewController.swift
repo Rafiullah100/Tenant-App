@@ -56,9 +56,11 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
 
     private var viewModel = TenantComplaintDetailViewModel()
     var complaintID: Int?
+    var isNotificationTapped:  Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(complaintID ?? 0)
         complaintIdLabel.text = LocalizationKeys.complaintID.rawValue.localizeString()
         statusLabel.text = LocalizationKeys.status.rawValue.localizeString()
         photosLabel.text = LocalizationKeys.complaintPhoto.rawValue.localizeString()
@@ -125,6 +127,16 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
+    }
+
+    override func backAction() {
+        if isNotificationTapped == true{
+            self.isNotificationTapped = false
+            Switcher.gotoTenantScreen(delegate: self)
+        }
+        else{
+            super.backAction()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

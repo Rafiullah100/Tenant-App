@@ -58,6 +58,7 @@ class WorkerOngoingDetailViewController: BaseViewController  {
     var complaintID: Int?
     var selectedImages = [UIImage]()
     private var viewModel = WorkerDetailViewModel()
+    var isNotificationTapped:  Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +101,16 @@ class WorkerOngoingDetailViewController: BaseViewController  {
             else{
                 showAlert(message: complete.message ?? "")
             }
+        }
+    }
+    
+    override func backAction() {
+        if isNotificationTapped == true{
+            self.isNotificationTapped = false
+            Switcher.gotoWorkerScreen(delegate: self)
+        }
+        else{
+            super.backAction()
         }
     }
     

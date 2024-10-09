@@ -52,8 +52,9 @@ class OwnerDetailViewController: BaseViewController {
             companyCollectionView.dataSource = self
         }
     }
-    var ownerComplaint: OwnerComplaintType = .new
-    
+//    var ownerComplaint: OwnerComplaintType = .new
+    var isNotificationTapped:  Bool?
+
     private var viewModel = OwnerDetailViewModel()
     var complaintID: Int?
     private var isExpanded = false
@@ -120,6 +121,16 @@ class OwnerDetailViewController: BaseViewController {
         
         self.animateSpinner()
         viewModel.getComplaints(complaintID: complaintID ?? 0)
+    }
+    
+    override func backAction() {
+        if isNotificationTapped == true{
+            self.isNotificationTapped = false
+            Switcher.gotoOwnerHome(delegate: self)
+        }
+        else{
+            super.backAction()
+        }
     }
 
     
