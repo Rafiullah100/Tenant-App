@@ -11,6 +11,7 @@ import UIKit
 class WorkerOngoingDetailViewController: BaseViewController  {
     @IBOutlet weak var photoLabel: UILabel!
     
+    @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var workerPhotoLabel: UILabel!
     @IBOutlet weak var completedView: UIView!
     @IBOutlet weak var noOfFileLabel: UILabel!
@@ -130,7 +131,8 @@ class WorkerOngoingDetailViewController: BaseViewController  {
         scheduleValueLabel.text = viewModel.getScheduleDate()
         timeValueLabel.text = viewModel.getScheduleTime()
         personValueLabel.text = viewModel.getMaintenancePersonContact()
-//        completedView.isHidden = viewModel.hideCompletedView()
+        completedView.isHidden = viewModel.hideCompletedView()
+        galleryView.isHidden = viewModel.hideCompletedView()
     }
     
     override func viewWillAppear(_ animated: Bool) {

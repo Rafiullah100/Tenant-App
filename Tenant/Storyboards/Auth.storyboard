@@ -2317,7 +2317,7 @@
                                                                                                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                                                                                                                 <userDefinedRuntimeAttributes>
                                                                                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                                                                                                        <integer key="value" value="10"/>
+                                                                                                                                                        <integer key="value" value="15"/>
                                                                                                                                                     </userDefinedRuntimeAttribute>
                                                                                                                                                 </userDefinedRuntimeAttributes>
                                                                                                                                             </textField>
@@ -2676,10 +2676,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="113"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8G-Ip-Wam">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="35.333333333333336"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify your phone number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrK-fg-N9d">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify your phone number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrK-fg-N9d">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="35.333333333333336"/>
                                                                                 <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="28"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -2688,17 +2688,17 @@
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
                                                                             <constraint firstItem="yrK-fg-N9d" firstAttribute="top" secondItem="C8G-Ip-Wam" secondAttribute="top" id="15c-3E-7Na"/>
-                                                                            <constraint firstAttribute="height" constant="36" id="VOI-dX-9dd"/>
+                                                                            <constraint firstAttribute="height" priority="250" constant="36" id="VOI-dX-9dd"/>
                                                                             <constraint firstItem="yrK-fg-N9d" firstAttribute="leading" secondItem="C8G-Ip-Wam" secondAttribute="leading" id="frI-9S-35l"/>
                                                                             <constraint firstAttribute="trailing" secondItem="yrK-fg-N9d" secondAttribute="trailing" id="kR6-Ep-2K8"/>
                                                                             <constraint firstAttribute="bottom" secondItem="yrK-fg-N9d" secondAttribute="bottom" id="rIl-8J-KoY"/>
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uks-rV-Elo">
-                                                                        <rect key="frame" x="0.0" y="53" width="343" height="60"/>
+                                                                        <rect key="frame" x="0.0" y="52.333333333333343" width="343" height="60.666666666666657"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We’ve sent an SMS with an activation code to your phone number ending with . Enter the Code below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lm9-PP-i0T">
-                                                                                <rect key="frame" x="7" y="0.0" width="329" height="60"/>
+                                                                                <rect key="frame" x="7" y="0.0" width="329" height="60.666666666666664"/>
                                                                                 <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -2911,6 +2911,9 @@
                                                                                 <state key="normal" title="Resend">
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="resendBtnAction:" destination="NtT-G0-XPR" eventType="touchUpInside" id="okx-xm-pLc"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -855,9 +855,11 @@
                                                                                                         <subviews>
                                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAG-QG-66f">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
-                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15"/>
+                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                                                                <state key="normal" title="Click to view description"/>
+                                                                                                                <state key="normal" title="Click to view description">
+                                                                                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                                </state>
                                                                                                                 <connections>
                                                                                                                     <action selector="showMoreBtnAction:" destination="ZPp-YD-keS" eventType="touchUpInside" id="2yg-oe-iWd"/>
                                                                                                                 </connections>
@@ -1619,9 +1621,11 @@
                                                                                                         <subviews>
                                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbh-D1-kjn">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
-                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="15"/>
+                                                                                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="16"/>
                                                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                                                                <state key="normal" title="Click to view description"/>
+                                                                                                                <state key="normal" title="Click to view description">
+                                                                                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                                </state>
                                                                                                                 <connections>
                                                                                                                     <action selector="showMoreBtnAction:" destination="ZPp-YD-keS" eventType="touchUpInside" id="DKD-FO-q2p"/>
                                                                                                                     <action selector="showMoreBtnAction:" destination="ASn-1T-eG6" eventType="touchUpInside" id="vnD-T2-pBf"/>
@@ -2070,6 +2074,7 @@
                         <outlet property="descriptionLabel" destination="N7S-MN-mL2" id="ni7-M9-taa"/>
                         <outlet property="descriptionValueLabel" destination="ag8-wN-Cwc" id="TL1-39-B12"/>
                         <outlet property="descriptionView" destination="MjS-cN-9mQ" id="Tan-bL-2li"/>
+                        <outlet property="galleryView" destination="8Rl-wX-iDb" id="t0h-pB-HPC"/>
                         <outlet property="moreButton" destination="Nbh-D1-kjn" id="GAv-4n-gAt"/>
                         <outlet property="noOfFileLabel" destination="4V8-AT-rWV" id="zK5-UB-Mm1"/>
                         <outlet property="personLabel" destination="KJ0-n6-9Bp" id="S5E-k8-Uge"/>

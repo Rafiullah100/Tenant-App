@@ -78,6 +78,12 @@ class OTPViewController: BaseViewController {
                 }
             }
         }
+        
+        viewModel.resendOtp.bind { [unowned self] resendOtp in
+            guard let resendOtp = resendOtp else{return}
+            self.stopAnimation()
+            showAlert(message: resendOtp.message ?? "")
+        }
     }
     
     private func gotoHome(){
@@ -96,6 +102,11 @@ class OTPViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    @IBAction func resendBtnAction(_ sender: Any) {
+        self.animateSpinner()
+        viewModel.resendOtp(type: userType.rawValue, contact: contact ?? "")
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {

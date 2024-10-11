@@ -11,17 +11,19 @@ class OtpViewModel {
     var errorMessage: Observable<String> = Observable("")
     var otp: Observable<OtpModel> = Observable(nil)
     var loginOtp: Observable<LoginOTPModel> = Observable(nil)
+    var resendOtp: Observable<ResendOtpModel> = Observable(nil)
 
     var parameters: [String: Any]?
     
     func verifyUSer(otp: String, type: String, contact: String){
+        print(contact)
         _ = URLSession.shared.request(route: .otp, method: .post, parameters: ["otp": otp, "type": type, "contact": contact], model: OtpModel.self) { result in
             switch result {
             case .success(let otp):
                 print(otp)
+                self.otp.value = otp
                 guard let user = otp.user else { return }
                 self.saveUserData(user: user)
-                self.otp.value = otp
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription
             }
@@ -42,13 +44,14 @@ class OtpViewModel {
     }
     
     func loginUSer(otp: String, type: String, contact: String){
+        print(contact)
         _ = URLSession.shared.request(route: .verifyLogin, method: .post, parameters: ["otp": otp, "type": type, "contact": contact], model: LoginOTPModel.self) { result in
             switch result {
             case .success(let otp):
                 print(otp)
+                self.loginOtp.value = otp
                 guard let user = otp.user else { return }
                 self.saveUserLogin(user: user)
-                self.loginOtp.value = otp
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription
             }
@@ -65,5 +68,18 @@ class OtpViewModel {
         UserDefaults.standard.propertyIDIfTenant = user.propertyIDIfTenant
         UserDefaults.standard.flatIDIfTenant = user.flatIdIfTenant
         UserDefaults.standard.profileImage = user.profileImage
+    }
+    
+    func resendOtp(type: String, contact: String){
+        print(contact)
+        _ = URLSession.shared.request(route: .resendOtp, method: .post, parameters: ["type": type, "contact": contact], model: ResendOtpModel.self) { result in
+            switch result {
+            case .success(let resendOtp):
+                print(resendOtp)
+                self.resendOtp.value = resendOtp
+            case .failure(let error):
+                self.errorMessage.value = error.localizedDescription
+            }
+        }
     }
 }

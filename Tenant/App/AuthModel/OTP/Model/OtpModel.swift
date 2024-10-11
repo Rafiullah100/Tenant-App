@@ -61,3 +61,9 @@ struct LoginOtpUser: Codable {
         case token
     }
 }
+
+
+struct ResendOtpModel: Codable {
+    let success: Bool?
+    let message: String?
+}

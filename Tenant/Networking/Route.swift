@@ -163,8 +163,7 @@ enum Route {
             return "api/mobile/users/delete-profile"
         case .viewCounter:
             return "api/mobile/home/view-counter"
-        case .resendOtp:
-            return "api/mobile/auth/resend-otp"
+ 
         case .deepLinkingOpinion:
             return "api/mobile/opinions/detail"
         case .newsDetail:
@@ -246,6 +245,8 @@ enum Route {
             return "api/mobile/auth/update_profile"
         case .deviceToken:
             return "api/mobile/auth/update_device_token"
+        case .resendOtp:
+            return "api/mobile/auth/resend_otp"
         }
     }
 }

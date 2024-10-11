@@ -34,6 +34,7 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
     private var viewModel = WorkersComplaintViewModel()
     var isLoading = true
     private var complaintType: WorkerComplaintType = .new
+    let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +47,15 @@ class WorkersHomeViewController: BaseViewController, UITableViewDelegate, UITabl
             self.isLoading = false
             self.stopAnimation()
             self.workerHomeTableView.reloadData()
+            self.workerHomeTableView.refreshControl?.endRefreshing()
             ApiService.shared.registerDeviceTokenForNotificaiton()
         }
         self.workerHomeTableView.rowHeight = UITableView.automaticDimension
         self.workerHomeTableView.estimatedRowHeight = 44.0
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: NSNotification.Name(Constants.reloadWorkerComplaints), object: nil)
-
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        workerHomeTableView.refreshControl = refreshControl
         loadData()
     }
     

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -120,7 +121,10 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="95.5" height="32"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVd-7E-9Ec">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="95.5" height="32"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="95.5" height="21.5"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" priority="250" constant="15" id="b6X-o5-iW2"/>
+                                                                                </constraints>
                                                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="17"/>
                                                                                 <color key="textColor" red="0.23137254901960785" green="0.77254901960784317" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -129,7 +133,6 @@
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" priority="50" constant="40" id="Ds8-S8-Fcd"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="LVd-7E-9Ec" secondAttribute="bottom" id="Fd7-ng-7Ij"/>
                                                                             <constraint firstAttribute="trailing" secondItem="LVd-7E-9Ec" secondAttribute="trailing" id="Z9a-Fk-0GZ"/>
                                                                             <constraint firstItem="LVd-7E-9Ec" firstAttribute="top" secondItem="hjG-wb-wX8" secondAttribute="top" id="dgd-B7-u4l"/>
                                                                             <constraint firstItem="LVd-7E-9Ec" firstAttribute="leading" secondItem="hjG-wb-wX8" secondAttribute="leading" id="e2C-tD-qVT"/>
