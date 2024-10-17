@@ -37,7 +37,7 @@ class OTPViewController: BaseViewController {
         }
         otpView.semanticContentAttribute = .forceLeftToRight
         topLabel.text = LocalizationKeys.verifyNumber.rawValue.localizeString()
-        messageLabel.text = LocalizationKeys.optMessage.rawValue.localizeString()
+        messageLabel.text = "\(LocalizationKeys.otpMessage1.rawValue.localizeString()) ******\(contact?.suffix(4) ?? ""). \(LocalizationKeys.otpMessage2.rawValue.localizeString())"
         receiveLabel.text = LocalizationKeys.didnotReceiveCode.rawValue.localizeString()
         resendButton.setTitle(LocalizationKeys.resend.rawValue.localizeString(), for: .normal)
         verifyButton.setTitle(LocalizationKeys.verify.rawValue.localizeString(), for: .normal)

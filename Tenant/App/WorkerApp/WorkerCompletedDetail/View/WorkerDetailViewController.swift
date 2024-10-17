@@ -116,10 +116,10 @@ class WorkerDetailViewController: BaseViewController {
     
     @IBAction func showMoreBtnAction(_ sender: Any) {
         if descriptionView.isHidden{
-            moreButton.setTitle("Click to hide description", for: .normal)
+            moreButton.setTitle(LocalizationKeys.clickToHideDescription.rawValue.localizeString(), for: .normal)
         }
         else{
-            moreButton.setTitle("Click to view description", for: .normal)
+            moreButton.setTitle(LocalizationKeys.clickToViewDescription.rawValue.localizeString(), for: .normal)
         }
         descriptionView.isHidden = !descriptionView.isHidden
     }

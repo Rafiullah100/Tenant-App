@@ -36,7 +36,7 @@ class SigninViewController: BaseViewController {
 //        emailTextField.text = "87654321"
 
         nameTextField.text = "Rafiullah"
-        
+        emailTextField.delegate = self
         userTypeTextField.inputView = pickerView
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -91,7 +91,6 @@ class SigninViewController: BaseViewController {
         else{
             showAlert(message: validationResponse.message)
         }
-
     }
 }
 
@@ -122,6 +121,20 @@ extension SigninViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         else if row == 3 {
             userType = .worker
         }
-
+        
     }
 }
+
+extension SigninViewController: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var currentText = textField.text ?? ""
+        if let stringRange = Range(range, in: currentText) {
+            currentText = currentText.replacingCharacters(in: stringRange, with: string)
+        }
+        let numbersOnly = currentText.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        
+        textField.text = Helper.shared.formatPhoneNumber(numbersOnly)
+        return false
+    }
+}
+

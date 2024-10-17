@@ -26,10 +26,8 @@ class CompanyWorkerCategoryCollectionViewCell: UICollectionViewCell {
     
     var skill: SkillRow?{
         didSet{
-            imgView.sd_setImage(with: URL(string: Route.baseUrl + (skill?.imageUrl ?? "")), placeholderImage: UIImage(named: "PlaceholderImage"))
+            imgView.sd_setImage(with: URL(string: skill?.imageUrl ?? ""), placeholderImage: UIImage(named: "PlaceholderImage"))
             titleLbl.text = skill?.title?.capitalized
         }
     }
-    
-
 }

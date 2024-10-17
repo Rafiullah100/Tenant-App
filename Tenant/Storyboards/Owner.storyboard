@@ -3105,7 +3105,7 @@ Cg
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zgL-Kg-E9l">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="265"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvG-Ib-hRL">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="210"/>
@@ -3526,22 +3526,22 @@ Cg
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QA8-VQ-9br">
-                                                        <rect key="frame" x="0.0" y="225" width="393" height="35"/>
+                                                        <rect key="frame" x="0.0" y="225" width="393" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVN-Pb-h1O">
-                                                                <rect key="frame" x="20" y="0.0" width="353" height="35"/>
+                                                                <rect key="frame" x="20" y="0.0" width="353" height="40"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYs-GD-XiL">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="348" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="348" height="40"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="6.2999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="nAD-jU-Qau">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="348" height="35"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="348" height="40"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZC-JR-Shp">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQN-9P-lh2">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
                                                                                                 <color key="backgroundColor" red="0.23137254900000001" green="0.44705882349999998" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                                 <state key="normal" title="New">
@@ -3567,10 +3567,10 @@ Cg
                                                                                         </constraints>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKT-Sr-bUs">
-                                                                                        <rect key="frame" x="76.333333333333329" y="0.0" width="81.999999999999986" height="35"/>
+                                                                                        <rect key="frame" x="76.333333333333329" y="0.0" width="81.999999999999986" height="40"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaR-ad-U1m">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="82" height="35"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="82" height="40"/>
                                                                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                                 <state key="normal" title="Ongoing">
@@ -3596,10 +3596,10 @@ Cg
                                                                                         </constraints>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shw-Vo-FM1">
-                                                                                        <rect key="frame" x="164.66666666666666" y="0.0" width="82" height="35"/>
+                                                                                        <rect key="frame" x="164.66666666666666" y="0.0" width="82" height="40"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f71-vV-E6d">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="82" height="35"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="82" height="40"/>
                                                                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                                 <state key="normal" title="Rejected">
@@ -3626,10 +3626,10 @@ Cg
                                                                                         </constraints>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMn-hh-y31">
-                                                                                        <rect key="frame" x="253" y="0.0" width="95" height="35"/>
+                                                                                        <rect key="frame" x="253" y="0.0" width="95" height="40"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REK-ZF-nKV">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="95" height="35"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="95" height="40"/>
                                                                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                                 <state key="normal" title="History">
@@ -3669,13 +3669,13 @@ Cg
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeD-c4-jOx">
-                                                                        <rect key="frame" x="348" y="0.0" width="5" height="35"/>
+                                                                        <rect key="frame" x="348" y="0.0" width="5" height="40"/>
                                                                     </view>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="3Xv-qh-B75"/>
+                                                            <constraint firstAttribute="height" constant="40" id="3Xv-qh-B75"/>
                                                             <constraint firstItem="wVN-Pb-h1O" firstAttribute="leading" secondItem="QA8-VQ-9br" secondAttribute="leading" constant="20" id="5MQ-Te-luw"/>
                                                             <constraint firstAttribute="trailing" secondItem="wVN-Pb-h1O" secondAttribute="trailing" constant="20" id="AWW-Ry-7lK"/>
                                                             <constraint firstItem="wVN-Pb-h1O" firstAttribute="top" secondItem="QA8-VQ-9br" secondAttribute="top" id="Ar0-d0-kc0"/>
@@ -3685,10 +3685,10 @@ Cg
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAi-h1-CtT">
-                                                <rect key="frame" x="0.0" y="275" width="393" height="494"/>
+                                                <rect key="frame" x="0.0" y="280" width="393" height="489"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JGl-je-X7T">
-                                                        <rect key="frame" x="20" y="0.0" width="353" height="494"/>
+                                                        <rect key="frame" x="20" y="0.0" width="353" height="489"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Jui-Vh-Dwl">
@@ -5186,22 +5186,22 @@ Cg
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6Z-Be-dJo">
-                                                <rect key="frame" x="0.0" y="170" width="393" height="35"/>
+                                                <rect key="frame" x="0.0" y="170" width="393" height="40"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXb-6S-LGv">
-                                                        <rect key="frame" x="20" y="0.0" width="353" height="35"/>
+                                                        <rect key="frame" x="20" y="0.0" width="353" height="40"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khF-lc-aLm">
-                                                                <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="35"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="40"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="6.2999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="A3t-V0-Bes">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="40"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rws-AI-A1e">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="40"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7s-dJ-JLF">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="40"/>
                                                                                         <color key="backgroundColor" red="0.23137254900000001" green="0.44705882349999998" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                         <state key="normal" title="New">
@@ -5228,10 +5228,10 @@ Cg
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFZ-1V-U3j">
-                                                                                <rect key="frame" x="81.333333333333314" y="0.0" width="95" height="35"/>
+                                                                                <rect key="frame" x="81.333333333333314" y="0.0" width="95" height="40"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSn-td-ow7">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="95" height="35"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="95" height="40"/>
                                                                                         <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                                         <state key="normal" title="History">
@@ -5272,13 +5272,13 @@ Cg
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmj-r1-6fb">
-                                                                <rect key="frame" x="176.33333333333334" y="0.0" width="66.666666666666657" height="35"/>
+                                                                <rect key="frame" x="176.33333333333334" y="0.0" width="66.666666666666657" height="40"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81H-E5-mt0">
-                                                                <rect key="frame" x="243" y="0.0" width="110" height="35"/>
+                                                                <rect key="frame" x="243" y="0.0" width="110" height="40"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILd-Qt-Mzh">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="110" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
                                                                         <color key="backgroundColor" red="0.32549019607843138" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="16"/>
                                                                         <state key="normal" title="Select Home">
@@ -5309,16 +5309,16 @@ Cg
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="DXb-6S-LGv" secondAttribute="bottom" id="3JG-yr-dYI"/>
                                                     <constraint firstItem="DXb-6S-LGv" firstAttribute="top" secondItem="L6Z-Be-dJo" secondAttribute="top" id="HUQ-ll-0ne"/>
-                                                    <constraint firstAttribute="height" constant="35" id="HfM-l8-Ou6"/>
+                                                    <constraint firstAttribute="height" constant="40" id="HfM-l8-Ou6"/>
                                                     <constraint firstAttribute="trailing" secondItem="DXb-6S-LGv" secondAttribute="trailing" constant="20" id="IUG-fl-CGs"/>
                                                     <constraint firstItem="DXb-6S-LGv" firstAttribute="leading" secondItem="L6Z-Be-dJo" secondAttribute="leading" constant="20" id="zch-Mw-mkt"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZs-Cj-nRm">
-                                                <rect key="frame" x="0.0" y="225" width="393" height="544"/>
+                                                <rect key="frame" x="0.0" y="230" width="393" height="539"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7hL-18-qRI">
-                                                        <rect key="frame" x="20" y="0.0" width="353" height="544"/>
+                                                        <rect key="frame" x="20" y="0.0" width="353" height="539"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="dtf-y7-Kal">

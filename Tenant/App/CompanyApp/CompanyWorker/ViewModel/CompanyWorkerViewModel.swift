@@ -11,7 +11,7 @@ class CompanyWorkerViewModel{
     var errorMessage: Observable<String> = Observable("")
     var workers: Observable<CompanyWorkerModel> = Observable(nil)
     var branches: Observable<CompanyProfileModel> = Observable(nil)
-    var skill: Observable<SkillModel> = Observable(nil)
+    var skill: Observable<[SkillRow]> = Observable(nil)
     
     func getWorkers(branchID: Int? = nil, skillID: Int? = nil){
         var parameters = [String: Int]()
@@ -54,7 +54,9 @@ class CompanyWorkerViewModel{
         _ = URLSession.shared.request(route: .skillCategories, method: .get, parameters: [:], model: SkillModel.self) { result in
             switch result {
             case .success(let list):
-                self.skill.value = list
+                guard var rows = list.skills?.rows else { return }
+                rows.insert(SkillRow(id: 0, title: "All", userID: 0, timestamp: "", imageUrl: ""), at: 0)
+                self.skill.value = rows
             case .failure(let error):
                 self.errorMessage.value = error.localizedDescription
             }
@@ -84,18 +86,18 @@ class CompanyWorkerViewModel{
     }
     
     func getSkillCount() -> Int {
-        return self.skill.value?.skills?.count ?? 0
+        return self.skill.value?.count ?? 0
     }
     
     func getSkillName(at index: Int) -> String {
-        return self.skill.value?.skills?.rows?[index].title ?? ""
+        return self.skill.value?[index].title ?? ""
     }
     
     func getSkillID(at index: Int) -> Int {
-        return self.skill.value?.skills?.rows?[index].id ?? 0
+        return self.skill.value?[index].id ?? 0
     }
     
     func getSkill(at index: Int) -> SkillRow? {
-        return self.skill.value?.skills?.rows?[index]
+        return self.skill.value?[index]
     }
 }

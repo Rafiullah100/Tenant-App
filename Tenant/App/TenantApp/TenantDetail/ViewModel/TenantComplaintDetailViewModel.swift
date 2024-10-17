@@ -219,4 +219,31 @@ class TenantComplaintDetailViewModel {
             return true
         }
     }
+    
+    func hideCompletedView() -> Bool {
+        let isTaskCompleted = self.complaintDetail.value?.taskComplete ?? 0
+        return isTaskCompleted == 1 ? false : true
+    }
+    
+    func getCompletedDate() -> String {
+        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.taskCompleteDatetime ?? "")
+    }
+    
+    func hideApproveView() -> Bool {
+        let isApproved = self.complaintDetail.value?.ownerApproval ?? 0
+        return isApproved == 1 ? false : true
+    }
+    
+    func getApprovedDate() -> String {
+        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.ownerApprovalDatetime ?? "")
+    }
+    
+    func hideAcceptedView() -> Bool {
+        let isApproved = self.complaintDetail.value?.companyApproval ?? 0
+        return isApproved == 1 ? false : true
+    }
+    
+//    func getAcceptedDate() -> String {
+//        return Helper.shared.dateFormate(dateString: self.complaintDetail.value?.companyApprovalDatetime ?? "")
+//    }
 }

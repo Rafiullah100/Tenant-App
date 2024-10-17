@@ -24,7 +24,8 @@ enum LocalizationKeys: String {
     case numberOrEmail
     case noAccount
     case verifyNumber
-    case optMessage
+    case otpMessage1
+    case otpMessage2
     case didnotReceiveCode
     case resend
     case verify
@@ -234,6 +235,14 @@ enum LocalizationKeys: String {
     case profileInfo
     case PleaseEnterLocation
     case building
+    
+    case fileSelected
+    case uploadMaxThree
+    case enterCorrectNumber
+    
+    case yourApprovalIsPending
+    case yourAcceptanceIsPending
+    case rejectedByYou
 }
 
 

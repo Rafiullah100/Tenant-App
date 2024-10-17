@@ -14,8 +14,12 @@ class SignupViewModel {
     var parameters: [String: Any]?
     
     func isFormValid(user: SignupInputModel) -> ValidationResponse {
+        let contact = user.mobile.replacingOccurrences(of: " ", with: "")
         if user.name.isEmpty || user.mobile.isEmpty || user.userType.isEmpty{
             return ValidationResponse(isValid: false, message: LocalizationKeys.pleaseFillAll.rawValue.localizeString())
+        }
+        else if contact.count < 10{
+            return ValidationResponse(isValid: false, message: LocalizationKeys.enterCorrectNumber.rawValue.localizeString())
         }
         else{
             parameters = ["name": user.name, "email": user.email, "contact": user.mobile, "type": user.userType]

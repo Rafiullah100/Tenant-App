@@ -42,6 +42,27 @@ public class Helper{
 
     }
     
+    func formatPhoneNumber(_ phoneNumber: String) -> String {
+        var formattedString = ""
+        
+        let maxLength = min(phoneNumber.count, 10)
+        
+        for (index, digit) in phoneNumber.prefix(maxLength).enumerated() {
+            if index == 0 {
+                formattedString += "0"
+            } else if index == 1 {
+                formattedString += "5"
+            } else if index == 2 {
+                formattedString += String(digit) + " "
+            } else if index == 5 {
+                formattedString += String(digit) + " "
+            } else {
+                formattedString += String(digit)
+            }
+        }
+        return formattedString
+    }
+    
     func convertDateToString(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -82,16 +103,16 @@ public class Helper{
     
     func userType() -> UserType {
         let user = UserDefaults.standard.userType
-        if user == "company"{
+        if user == UserType.company.rawValue{
             return .company
         }
-        else if user == "tenant"{
+        else if user == UserType.tenant.rawValue{
             return .tenant
         }
-        else if user == "worker"{
+        else if user == UserType.worker.rawValue{
             return .worker
         }
-        else if user == "owner"{
+        else if user == UserType.owner.rawValue{
             return .owner
         }
         return .tenant
@@ -104,16 +125,36 @@ public class Helper{
         tenantApproval: Int?,
         workerID: Int) -> (String, CustomColor) {
             if ownerApproval == 0 {
-                return (LocalizationKeys.ApprovalPendingfromOwner.rawValue.localizeString(), CustomColor.redColor)
+                if self.userType() == .owner{
+                    return (LocalizationKeys.yourApprovalIsPending.rawValue.localizeString(), CustomColor.redColor)
+                }
+                else{
+                    return (LocalizationKeys.ApprovalPendingfromOwner.rawValue.localizeString(), CustomColor.redColor)
+                }
             }
             else if ownerApproval == 2{
-                return (LocalizationKeys.RejectedbyOwner.rawValue.localizeString(), CustomColor.redColor)
+                if self.userType() == .owner{
+                    return (LocalizationKeys.rejectedByYou.rawValue.localizeString(), CustomColor.redColor)
+                }
+                else{
+                    return (LocalizationKeys.RejectedbyOwner.rawValue.localizeString(), CustomColor.redColor)
+                }
             }
             else if ownerApproval == 1 && companyApproval == 0{
-                return (LocalizationKeys.AcceptancePendingfromMaintenanceCompany.rawValue.localizeString(), CustomColor.redColor)
+                if self.userType() == .company {
+                    return (LocalizationKeys.yourAcceptanceIsPending.rawValue.localizeString(), CustomColor.redColor)
+                }
+                else{
+                    return (LocalizationKeys.AcceptancePendingfromMaintenanceCompany.rawValue.localizeString(), CustomColor.redColor)
+                }
             }
             else if ownerApproval == 1 && companyApproval == 2{
-                return (LocalizationKeys.RejectedbyCompany.rawValue.localizeString(), CustomColor.redColor)
+                if self.userType() == .company{
+                    return (LocalizationKeys.rejectedByYou.rawValue.localizeString(), CustomColor.redColor)
+                }
+                else{
+                    return (LocalizationKeys.RejectedbyCompany.rawValue.localizeString(), CustomColor.redColor)
+                }
             }
             else if ownerApproval == 1 && workerID == 0 && taskComplete == 0{
                 return (LocalizationKeys.Notassigntoworker.rawValue.localizeString(), CustomColor.redColor)

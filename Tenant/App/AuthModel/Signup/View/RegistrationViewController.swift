@@ -54,6 +54,7 @@ class RegistrationViewController: BaseViewController {
         userTypeTextField.inputView = pickerView
         pickerView.delegate = self
         pickerView.dataSource = self
+        contactTextField.delegate = self
         
         viewModel.signup.bind { [unowned self] signup in
             guard let signup = signup else{return}
@@ -120,5 +121,18 @@ extension RegistrationViewController: UIPickerViewDelegate, UIPickerViewDataSour
         else if row == 3 {
             userType = .worker
         }
+    }
+}
+
+extension RegistrationViewController: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var currentText = textField.text ?? ""
+        if let stringRange = Range(range, in: currentText) {
+            currentText = currentText.replacingCharacters(in: stringRange, with: string)
+        }
+        let numbersOnly = currentText.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        
+        textField.text = Helper.shared.formatPhoneNumber(numbersOnly)
+        return false
     }
 }

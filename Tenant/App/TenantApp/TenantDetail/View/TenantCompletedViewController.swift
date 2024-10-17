@@ -54,6 +54,18 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var viewMoreButtonView: UIView!
 
+    @IBOutlet weak var acceptedValueLabel: UILabel!
+    @IBOutlet weak var approvedValueLabel: UILabel!
+    @IBOutlet weak var completedValueLabel: UILabel!
+    @IBOutlet weak var approveLabel: UILabel!
+    @IBOutlet weak var completedLabel: UILabel!
+    @IBOutlet weak var acceptedLabel: UILabel!
+
+    @IBOutlet weak var companyAcceptedView: UIView!
+    @IBOutlet weak var completedView: UIView!
+    @IBOutlet weak var approveView: UIView!
+
+    
     private var viewModel = TenantComplaintDetailViewModel()
     var complaintID: Int?
     var isNotificationTapped:  Bool?
@@ -72,6 +84,10 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
         timeLabel.text = LocalizationKeys.dateAndTime.rawValue.localizeString()
         descriptionLabel.text = LocalizationKeys.complaintDescription.rawValue.localizeString()
         postLabel.text = LocalizationKeys.posted.rawValue.localizeString()
+        approveLabel.text = LocalizationKeys.approvedOn.rawValue.localizeString()
+        acceptedLabel.text = LocalizationKeys.acceptedOn.rawValue.localizeString()
+        completedLabel.text = LocalizationKeys.completedOn.rawValue.localizeString()
+
         moreButton.setTitle(LocalizationKeys.clickToViewDescription.rawValue.localizeString(), for: .normal)
         
         type = .tenant
@@ -103,6 +119,14 @@ class TenantCompletedViewController: BaseViewController, UICollectionViewDelegat
     }
     
     private func updateUI(){
+        
+        completedView.isHidden = viewModel.hideCompletedView()
+        completedValueLabel.text = viewModel.getCompletedDate()
+        approveView.isHidden = viewModel.hideApproveView()
+        approvedValueLabel.text = viewModel.getApprovedDate()
+        companyAcceptedView.isHidden = viewModel.hideAcceptedView()
+        acceptedValueLabel.text = viewModel.getAcceptedDate()
+        
         complaintTitleLabel.text = viewModel.getTitle()
         idLabel.text = "\(viewModel.getCompalintID())"
         statusLbl.text = viewModel.getStatus()

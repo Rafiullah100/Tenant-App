@@ -22,7 +22,8 @@
 "noAccount" = "Don’t have an account?";
 
 "verifyNumber" = "Verify your phone number";
-"optMessage" = "We’ve sent an SMS with an activation code to your phone number ending with *****290. Enter the Code below";
+"otpMessage1" = "We’ve sent an SMS with an activation code to your phone number ending with.";
+"otpMessage2" = " Enter the Code below";
 "didnotReceiveCode" = "I didn’t receive a code";
 "resend" = "Resend";
 "verify" = "Verify";
@@ -244,3 +245,12 @@
 "profileInfo" = "Profile Info";
 "PleaseEnterLocation" = "Please enter location code and try again.";
 "building" = "Building:";
+
+"fileSelected" = "Files Selected";
+"uploadMaxThree" = "You can upload only 3 pictures.";
+
+"enterCorrectNumber" = "Enter correct phone number.";
+
+"yourApprovalIsPending" = "Your Approval is Pending";
+"yourAcceptanceIsPending" = "Your Acceptance is Pending";
+"rejectedByYou" = "Rejected by You";

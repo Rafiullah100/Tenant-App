@@ -172,7 +172,7 @@ class AddWorkerViewController: BaseViewController, UICollectionViewDelegate, UIC
 
 extension AddWorkerViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 105, height: 50)
+            return CGSize(width: 105, height: 30)
     }
 }
 

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,12 +23,14 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gmv-1H-Nm0">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Mfl-nk-PjH"/>
                                     <constraint firstAttribute="height" constant="80" id="xOj-He-bLL"/>
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Gmv-1H-Nm0" firstAttribute="centerX" secondItem="MGy-9R-2lV" secondAttribute="centerX" id="KWv-P2-SdX"/>
                             <constraint firstItem="Gmv-1H-Nm0" firstAttribute="centerY" secondItem="MGy-9R-2lV" secondAttribute="centerY" id="WyL-AZ-3HZ"/>
@@ -44,6 +47,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZRv-Fw-xEt"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="MGy-9R-2lV" secondAttribute="bottom" id="0V4-t0-yLr"/>
                 <constraint firstItem="MGy-9R-2lV" firstAttribute="top" secondItem="bMF-17-cwS" secondAttribute="top" id="3JB-ci-uFa"/>

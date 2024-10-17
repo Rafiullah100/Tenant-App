@@ -55,7 +55,8 @@ class WorkerOngoingDetailViewController: BaseViewController  {
     @IBOutlet weak var viewMoreButtonView: UIView!
     
     @IBOutlet weak var descriptionValueLabel: UILabel!
-    
+    let imagePickerController = UIImagePickerController()
+
     var complaintID: Int?
     var selectedImages = [UIImage]()
     private var viewModel = WorkerDetailViewModel()
@@ -145,7 +146,9 @@ class WorkerOngoingDetailViewController: BaseViewController  {
     }
     
     @IBAction func pickImages(_ sender: Any) {
-        let imagePickerController = UIImagePickerController()
+        guard selectedImages.count != 3 else {
+            ToastManager.shared.showToast(message: "\(LocalizationKeys.uploadMaxThree.rawValue.localizeString())")
+            return }
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
@@ -157,16 +160,16 @@ class WorkerOngoingDetailViewController: BaseViewController  {
             viewModel.markComplete(images: selectedImages, complaintID: complaintID ?? 0)
         }
         else {
-            showAlert(message: "please add pcitures of your work and then try agian")
+            showAlert(message: "please add pictures of your work and then try agian")
         }
     }
     
     @IBAction func showMoreBtnAction(_ sender: Any) {
         if descriptionView.isHidden{
-            moreButton.setTitle("Click to hide description", for: .normal)
+            moreButton.setTitle(LocalizationKeys.clickToHideDescription.rawValue.localizeString(), for: .normal)
         }
         else{
-            moreButton.setTitle("Click to view description", for: .normal)
+            moreButton.setTitle(LocalizationKeys.clickToViewDescription.rawValue.localizeString(), for: .normal)
         }
         descriptionView.isHidden = !descriptionView.isHidden
     }
@@ -210,7 +213,7 @@ extension WorkerOngoingDetailViewController: UIImagePickerControllerDelegate & U
         if let image = info[.originalImage] as? UIImage {
                 self.selectedImages.append(image)
                 print(self.selectedImages.count)
-            self.noOfFileLabel.text = "\(self.selectedImages.count) Files selected"
+            self.noOfFileLabel.text = "\(self.selectedImages.count) \(LocalizationKeys.fileSelected.rawValue.localizeString())"
                 self.uploadedCollectionView.reloadData()
         }
         hideGalleryView()

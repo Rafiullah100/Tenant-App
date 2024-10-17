@@ -35,7 +35,8 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
     var skillID: Int?
     
     var addType: AddComplaintType?
-    
+    let imagePickerController = UIImagePickerController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         hideGalleryView()
@@ -108,7 +109,9 @@ class AddTenantViewController: BaseViewController, UICollectionViewDelegate, UIC
     }
    
     @IBAction func pickImages(_ sender: Any) {
-        let imagePickerController = UIImagePickerController()
+        guard selectedImages.count != 3 else {
+            ToastManager.shared.showToast(message: "\(LocalizationKeys.uploadMaxThree.rawValue.localizeString())")
+            return }
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
@@ -140,7 +143,7 @@ extension AddTenantViewController: UIImagePickerControllerDelegate & UINavigatio
         if let image = info[.originalImage] as? UIImage {
             selectedImages.append(image)
             collectionView.reloadData()
-            self.noOfFileLabel.text = "\(selectedImages.count) Files selected"
+            self.noOfFileLabel.text = "\(selectedImages.count) \(LocalizationKeys.fileSelected.rawValue.localizeString())"
         }
         hideGalleryView()
         picker.dismiss(animated: true, completion: nil)

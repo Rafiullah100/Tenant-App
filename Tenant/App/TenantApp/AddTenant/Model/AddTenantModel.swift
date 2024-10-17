@@ -15,13 +15,13 @@ struct AddTenantModel: Codable {
 
 
 struct SkillModel: Codable {
-    let skills: Skills?
+    var skills: Skills?
 }
 
 // MARK: - Skills
 struct Skills: Codable {
     let count: Int?
-    let rows: [SkillRow]?
+    var rows: [SkillRow]?
 }
 
 // MARK: - Row

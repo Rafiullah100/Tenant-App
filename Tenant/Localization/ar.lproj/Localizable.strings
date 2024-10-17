@@ -22,7 +22,8 @@
 "noAccount" = "ليس لديك حساب؟";
 
 "verifyNumber" = "التحقق من رقم هاتفك";
-"optMessage" = "لقد قمنا بإرسال رسالة نصية قصيرة تحتوي على رمز التفعيل إلى رقم هاتفك المنتهي بـ";
+"otpMessage1" = "لقد أرسلنا رسالة نصية قصيرة تحتوي على رمز التفعيل إلى رقم هاتفك الذي ينتهي بـ.";
+"otpMessage2" = "أدخل الرمز أدناه";
 "didnotReceiveCode" = "لم أتلق الرمز";
 "resend" = "إعادة إرسال";
 "resend" = "إعادة إرسال";
@@ -256,3 +257,19 @@
 "profileInfo" = "الملف الشخصي";
 "PleaseEnterLocation" = "يرجى إدخال رمز الموقع والمحاولة مرة أخرى.";
 "building" = "بناية:";
+
+"fileSelected" = "الملفات المحددة";
+"uploadMaxThree" = "يمكنك تحميل 3 صور فقط.";
+"enterCorrectNumber" = "أدخل رقم هاتف صحيح.";
+
+"yourApprovalIsPending" = "موافقتك قيد الانتظار";
+"yourAcceptanceIsPending" = "قبولك قيد الانتظار";
+"rejectedByYou" = "مرفوض من قبلك";
+
+
+
+
+
+
+
+
